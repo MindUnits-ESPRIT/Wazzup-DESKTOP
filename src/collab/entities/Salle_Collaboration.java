@@ -1,5 +1,8 @@
 package collab.entities;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author mouhi
@@ -7,6 +10,7 @@ package collab.entities;
 public class Salle_Collaboration {
     private int ID_Collab ;
     private Object chat ;
+    private JSONArray Liste_Utilisateur ;
     private String URL_Collab ;
     private String Nom_Collab ;
 
@@ -42,13 +46,37 @@ public class Salle_Collaboration {
         this.Nom_Collab = Nom_Collab;
     }
 
+    public JSONArray getListe_Utilisateur() {
+        return Liste_Utilisateur;
+    }
+
+    public void setListe_Utilisateur(JSONArray Liste_Utilisateur) {
+        this.Liste_Utilisateur = Liste_Utilisateur;
+    }
+
+    
+
     @Override
     public String toString() {
-        return "Salle_Collaboration{" + "ID_Collab=" + ID_Collab + ", chat=" + chat + ", URL_Collab=" + URL_Collab + ", Nom_Collab=" + Nom_Collab + '}';
+        return "Salle_Collaboration{" + "ID_Collab=" + ID_Collab + ", chat=" + chat + ", Liste_Utilisateur=" + Liste_Utilisateur + ", URL_Collab=" + URL_Collab + ", Nom_Collab=" + Nom_Collab + '}';
     }
+
+
+  
 
     public Salle_Collaboration() {
     }
+
+    public Salle_Collaboration(JSONArray Liste_Utilisateur, String URL_Collab, String Nom_Collab) {
+        this.Liste_Utilisateur = Liste_Utilisateur;
+        this.URL_Collab = URL_Collab;
+        this.Nom_Collab = Nom_Collab;
+    }
+
+   
+
+   
+    
     
     public Salle_Collaboration(String URL_Collab, String Nom_Collab) {
         

@@ -12,10 +12,16 @@ package collab.entities;
 public class Projet {
     
     private int ID ;
+    private int ID_Collab ;
     private String Nom_Projet ;
     private String description ;
     private String URL_Trello ;  
 
+    
+
+    
+
+    
     public int getID() {
         return ID;
     }
@@ -48,6 +54,15 @@ public class Projet {
         this.URL_Trello = URL_Trello;
     }
 
+    public int getID_Collab() {
+        return ID_Collab;
+    }
+
+    public void setID_Collab(int ID_Collab) {
+        this.ID_Collab = ID_Collab;
+    }
+    
+
     @Override
     public String toString() {
         return "Projet{" + "ID=" + ID + ", Nom_Projet=" + Nom_Projet + ", description=" + description + ", URL_Trello=" + URL_Trello + '}';
@@ -55,6 +70,15 @@ public class Projet {
 
     public Projet() {
     }
+
+    public Projet(int ID_Collab, String Nom_Projet, String description, String URL_Trello) {
+        this.ID_Collab = ID_Collab;
+        this.Nom_Projet = Nom_Projet;
+        this.description = description;
+        this.URL_Trello = URL_Trello;
+    }
+
+ 
 
     public Projet(String Nom_Projet, String description, String URL_Trello) {
         this.Nom_Projet = Nom_Projet;
