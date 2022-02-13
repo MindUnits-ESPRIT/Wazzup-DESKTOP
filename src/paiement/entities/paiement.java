@@ -5,7 +5,7 @@
  */
 package paiement.entities;
 
-import java.sql.Date;
+import java.sql.*;
 
 /**
  *
@@ -17,15 +17,13 @@ public class paiement {
     private String date_paiement;
     private String Type_p;
 
-    public paiement(int ID_Paiement, String date_paiement, String Type_p) {
+    public paiement(int ID_Paiement, String Type_p) {
         this.ID_Paiement = ID_Paiement;
-        this.date_paiement = date_paiement;
         this.Type_p = Type_p;
     }
 
     
-    public paiement(String date_paiement, String Type_p) {
-        this.date_paiement = date_paiement;
+    public paiement(String Type_p) {
         this.Type_p = Type_p;
     }
 
@@ -62,6 +60,7 @@ public class paiement {
     public String toString() {
         return "paiement{" + "ID_Paiement=" + ID_Paiement + ", date_paiement=" + date_paiement + ", Type_p=" + Type_p + '}';
     }
+
 
    
     

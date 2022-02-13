@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface Ipaiement<P> {
     void ajouter(P entity);
-  /*  void modifier (P entity);
+    void modifier (P entity);
     void supprimer (P entity);
-    List<P> afficher();   */
+    List<P> afficher();
 }

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class db {
     private String url = "jdbc:mysql://localhost:3306/wazzup";
     private String username = "root";
-    private String password = "";
+    private String password = "root";
     
     private Connection cnx;
     private static db instance;
