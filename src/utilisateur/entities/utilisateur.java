@@ -5,6 +5,8 @@
  */
 package utilisateur.entities;
 import static utils.md5.getMd5;
+import org.json.simple.JSONArray;
+
 /**
  *
  * @author malek
