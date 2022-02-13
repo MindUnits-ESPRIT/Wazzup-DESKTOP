@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package paiements;
+package paiement;
 
 import paiement.entities.*;
 import paiement.service.*;
@@ -11,19 +11,19 @@ import database.db ;
  *
  * @author remo
  */
-public class paiement {
+public class test {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        db cnx = db.getInstance();
+        System.out.println(cnx.hashCode());
         PaiementService ps = new PaiementService();
-        Paiement p = new paiement("aaaaa","aaaa","aaaa");
-//        ps.ajouter2(p);
-
-        System.out.println(ps.ajouter());
-        
+        paiement p = new paiement("Stripe");
+        ps.ajouter(p);
+        System.out.println(ps.afficher());
     }
     
 }
