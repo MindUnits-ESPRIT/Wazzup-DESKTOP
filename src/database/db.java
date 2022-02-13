@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package database;
+
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author remo
@@ -14,10 +16,10 @@ public class db {
     private String url = "jdbc:mysql://localhost:3306/wazzup";
     private String username = "root";
     private String password = "";
-    
+
     private Connection cnx;
     private static db instance;
-    
+
     public db() {
         try {
             cnx = DriverManager.getConnection(url, username, password);
@@ -30,17 +32,12 @@ public class db {
     public Connection getCnx() {
         return cnx;
     }
-    
-    
+
     public static db getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new db();
         }
         return instance;
     }
-    
-    
-    
-    
-    
+
 }
