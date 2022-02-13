@@ -5,10 +5,15 @@
  */
 package evenements.services;
 
+import java.util.List;
+
 /**
  *
- * @author malek
+ * @author SRN
  */
-public class Ievenements {
-    
+public interface Ievenement<T> {
+     void ajouter(T entity);
+    void modifier (T entity);
+    void supprimer (T entity);
+    List<T> afficher();
 }
