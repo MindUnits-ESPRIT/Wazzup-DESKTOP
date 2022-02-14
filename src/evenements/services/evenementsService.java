@@ -40,6 +40,7 @@ String req = "INSERT INTO `evenement` (`Nom_Event`,`Nbr_participants`,`Date_Even
            pste.setString(5,e.getEvent_Visibilite());
            pste.setString(6,e.getDescription());
           pste.executeUpdate();
+
           System.out.println("Evenement creé");
       } catch(SQLException ex){
           Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE,null,ex);
@@ -60,8 +61,9 @@ String req = "INSERT INTO `evenement` (`Nom_Event`,`Nbr_participants`,`Date_Even
             pste.setString(4,e.getType_Event());
              pste.setString(5,e.getEvent_Visibilite());
               pste.setString(6,e.getDescription());
-              pste.setInt(7,e.getID_Event());
+              pste.setInt(7,4);
               pste.executeUpdate();
+
                System.out.println("Evenement modifie");
     } catch (SQLException ex) {
         Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,19 +73,46 @@ String req = "INSERT INTO `evenement` (`Nom_Event`,`Nbr_participants`,`Date_Even
     }
 
 @Override
-    public void supprimer(evenements e) {
-        String req3 = "DELETE FROM `evenement` WHERE `ID_Event` = " + e.getID_Event();
-    try {
-        pste = conn.prepareStatement(req3);
-      
-         pste.executeUpdate();
-        System.out.println("Evenement supprime");
-    } catch (SQLException ex) {
-        Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
-    System.out.println("Evenement non supprime");
-    }
+ public void supprimer(evenements e) {
+    System.out.println("TEST "+ e.getID_Event()); 
+    String req= "DELETE FROM evenement WHERE ID_Event = "+e.getID_Event();
+try{
+            pste = conn.prepareStatement(req);
+            pste.executeUpdate();
+            System.out.println("Client supprime");
+        } catch (SQLException ex) {
+            Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Client NON supprime");
+        }
+}
 
-    }
+//    public void supprimer(evenements e) {
+//        // Reqeuete get ID from db
+//        System.out.println(e.getNom_Event());
+//        String reqq = "SELECT ID_Event FROM `evenement` WHERE Nom_Event= '"+e.getNom_Event()+"' AND Date_Event= '"+e.getDate_Event()+"'";
+//        System.out.println(reqq);
+//          try {
+//        pste = conn.prepareStatement(reqq);
+//        ResultSet rs = pste.executeQuery(reqq);
+//        if (rs.next()) {
+//    int id = rs.getInt(1);
+//    String req3 = "DELETE FROM `evenement` WHERE `ID_Event` = '"+id+"' ";
+//        try {
+//        pste = conn.prepareStatement(req3);
+//         pste.executeUpdate();
+//        System.out.println("Evenement supprime");
+//    } catch (SQLException ex) {
+//        Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
+//    System.out.println("Evenement non supprime");
+//    }
+//    System.out.println("GOT ID"+ id); // display inserted record
+//         }
+//         } catch (SQLException ex) {
+//        Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
+//    System.out.println("Evenement non supprime");
+//    }
+//
+//    }
 
     @Override
     public List<evenements> afficher() {

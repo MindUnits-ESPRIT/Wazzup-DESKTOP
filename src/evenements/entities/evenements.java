@@ -40,6 +40,11 @@ public class evenements {
         this.Description = Description;
     }
 
+    public evenements(int ID_Event) {
+        this.ID_Event = ID_Event;
+    }
+    
+
     public int getID_Event() {
         return ID_Event;
     }
