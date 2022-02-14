@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package utilisateur.entities;
+import java.sql.Array;
+import org.json.simple.JSONArray;
 import static utils.md5.getMd5;
+
 /**
  *
  * @author malek
@@ -19,10 +22,12 @@ public class utilisateur {
     private String mdp;
     private String type_user;
     private int evaluation;
+    private String genre;
+    private String Liste_Collaborations ;
     
     private int date_creation;
     
-    public utilisateur(int ID_Utilisateur, String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation) {
+    public utilisateur(int ID_Utilisateur, String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.ID_Utilisateur = ID_Utilisateur;
         this.nom = nom;
         this.prenom = prenom;
@@ -32,16 +37,13 @@ public class utilisateur {
         this.mdp = getMd5(mdp);
         this.type_user = type_user;
         this.evaluation = evaluation;
+        this.genre=genre;
     }
 
-    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
-        this.ID_Utilisateur = ID_Utilisateur;
-        this.nom = nom;
-        this.prenom = prenom;
+    public utilisateur() {
     }
 
-
-    public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation) {
+    public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -50,13 +52,11 @@ public class utilisateur {
         this.mdp = getMd5(mdp);
         this.type_user = type_user;
         this.evaluation = evaluation;
+        this.genre=genre;
     }
 
     public int getID_Utilisateur() {
         return ID_Utilisateur;
-    }
-
-    public utilisateur() {
     }
 
     public String getNom() {
@@ -127,6 +127,7 @@ public class utilisateur {
         this.evaluation = evaluation;
     }
 
+    
     public int getDate_creation() {
         return date_creation;
     }
@@ -135,10 +136,24 @@ public class utilisateur {
         this.date_creation = date_creation;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getListe_Collaborations() {
+        return Liste_Collaborations;
+    }
+
+    public void setListe_Collaborations(String Liste_Collaborations) {
+        this.Liste_Collaborations = Liste_Collaborations;
+    }
+
     @Override
     public String toString() {
-        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", date_creation = " + date_creation + '}';
+        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}'+"\n";
     }
-    
 }
-

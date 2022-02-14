@@ -3,11 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/Iutilisateur.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/database/db.java</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/test.java</file>
+=======
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/database/db.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/paiement/test.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/utilisateur/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/utilisateur/test.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/utilisateur/services/Iutilisateur.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/services/IProjet.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/services/ProjetService.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/entities/Salle_Collaboration.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/entities/Projet.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/evenements/test.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/utilisateur/entities/utilisateur.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/CollabTest.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/services/CollabService.java</file>
+            <file>file:/C:/Users/mouhi/OneDrive/Bureau/wazzup/src/collab/services/ICollab.java</file>
+>>>>>>> 9c0b53fc12d9ce2edf254dcedb0e2c9613d9d4a7
         </group>
     </open-files>
 </project-private>

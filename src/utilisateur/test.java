@@ -7,6 +7,8 @@ package utilisateur;
 import utilisateur.services.*;
 import utilisateur.entities.*;
 import database.db;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject; 
 
 /**
  *
@@ -19,7 +21,7 @@ public class test{
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
         UtilisateurService us= new UtilisateurService();
-        utilisateur u = new utilisateur("test","user",22,24666800,"test.user@esprit.tn","hellotest","User",4);
+        utilisateur u = new utilisateur("test","user",22,24666800,"test.user@esprit.tn","hellotest","User",4,"Male");
         us.ajouter(u);
         System.out.println(us.afficher());
     }
