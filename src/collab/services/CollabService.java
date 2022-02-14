@@ -3,12 +3,17 @@ import collab.entities.Salle_Collaboration;
 import database.db;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import utilisateur.services.UtilisateurService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utilisateur.services.UtilisateurService;
 
 /**
  *
@@ -25,11 +30,29 @@ private Connection conn;
     }
     @Override
     public void creer(Salle_Collaboration salle) {
-        String req = "INSERT INTO `salle_collaboration` (`Liste_Utilisateur`, `Nom_Collab`, `URL_Collab`) VALUE ('" + salle.getListe_Utilisateur() + "','" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "')";
+        String req = "INSERT INTO `salle_collaboration` (`Liste_Utilisateur`, `Nom_Collab`, `URL_Collab`, `ID_Utilisateur`) VALUE ('" + salle.getListe_Utilisateur() + "','" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "','" + salle.getID_Utilisateur() + "')";
      try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("collab créée");
+            String req1 = "SELECT * FROM `salle_collaboration` WHERE `Nom_Collab` = ? AND `URL_Collab` = ? ";
+             try {
+            pste = conn.prepareStatement(req1);
+            pste.setString(1, salle.getNom_Collab());
+            pste.setString(2, salle.getURL_Collab());
+            ResultSet rs = pste.executeQuery();
+             while(rs.next()){
+                System.out.println("ID du collab creer est : "+rs.getInt("ID_Collab"));
+                salle.setID_Collab(rs.getInt("ID_Collab"));
+            }
+                 
+          
+         
+      } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("ID non obtenu "+ ex);
+      } 
+                  
         } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
              System.out.println("collab non creer "+ ex);
@@ -37,18 +60,57 @@ private Connection conn;
     }
 
     @Override
-    public void modifier(Salle_Collaboration entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void modifier(int id , String nom) {
+        String URL = "http://example.com/"+nom;
+        String req = "UPDATE `salle_collaboration` SET `Nom_Collab`='"+nom+"' , `URL_Collab`='"+URL+"'  WHERE `ID_Collab`='"+id+"'  ";
+        try {
+            ste = conn.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("collab modifier avec success");
+            System.out.println("Nouveau collab : "+nom+ " URL: "+URL);
+                  
+        } catch (SQLException ex) {
+            Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
+             System.out.println("collab non modifier "+ ex);
+        }
     }
 
     @Override
-    public void supprimer(Salle_Collaboration entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void supprimer(int id) {
+       String req = "DELETE FROM `salle_collaboration` WHERE `ID_Collab` = '"+id+"' ";
+        try {
+            ste = conn.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("collab supprimer avec success");
+           
+                  
+        } catch (SQLException ex) {
+            Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
+             System.out.println("collab non supprimer "+ ex);
+        }
     }
 
     @Override
-    public List<Salle_Collaboration> afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Salle_Collaboration> afficher(int id) {
+     
+    List<Salle_Collaboration> salles = new ArrayList<>();
+        String req = "SELECT * FROM `salle_collaboration` where `ID_Utilisateur` = ? ";
+        try {
+          pste = conn.prepareStatement(req);
+          pste.setInt(1, id);
+          ResultSet rs = pste.executeQuery();
+          System.out.println("salles de collaboration creer par l'utilisateur du id "+id+" sont:");
+          while(rs.next()){
+                Salle_Collaboration s = new Salle_Collaboration();
+                s.setID_Collab(rs.getInt("ID_Collab"));
+                s.setNom_Collab(rs.getString(3));
+                s.setURL_Collab(rs.getString(4));
+                salles.add(s);
+            }
+      } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("Utilisateur non creé "+ ex);
+      } 
+        return salles ;
     }
-    
 }
