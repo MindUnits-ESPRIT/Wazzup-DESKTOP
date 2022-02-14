@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.JSONArray;
 
 /**
  *
@@ -24,39 +25,76 @@ private Connection conn;
     
     //private Statement ste;
     private PreparedStatement pste;
+    private PreparedStatement pste1;
     private Statement ste;
     public CollabService() {
         conn= db.getInstance().getCnx();
     }
     @Override
     public void creer(Salle_Collaboration salle) {
-        String req = "INSERT INTO `salle_collaboration` (`Liste_Utilisateur`, `Nom_Collab`, `URL_Collab`, `ID_Utilisateur`) VALUE ('" + salle.getListe_Utilisateur() + "','" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "','" + salle.getID_Utilisateur() + "')";
-     try {
+        
+         String reqFetch = "SELECT * from `salle_collaboration` where  `Nom_Collab` = '" + salle.getNom_Collab() + "' AND `URL_Collab` = '" + salle.getURL_Collab() + "' AND `ID_Utilisateur` = '" + salle.getID_Utilisateur() + "' ";
+         try {
+          pste = conn.prepareStatement(reqFetch);
+          ResultSet rs = pste.executeQuery();
+          if (rs.next() == false)
+          {
+          String req = "INSERT INTO `salle_collaboration` (`Liste_Utilisateur`, `Nom_Collab`, `URL_Collab`, `ID_Utilisateur`) VALUE ('" + salle.getListe_Utilisateur() + "','" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "','" + salle.getID_Utilisateur() + "')";
+          try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("collab créée");
-            String req1 = "SELECT * FROM `salle_collaboration` WHERE `Nom_Collab` = ? AND `URL_Collab` = ? ";
+            
+            
+            
+            
+            
+            String req1 = "SELECT * FROM `salle_collaboration` WHERE `Nom_Collab` = ? AND `URL_Collab` = ? ";     
              try {
-            pste = conn.prepareStatement(req1);
-            pste.setString(1, salle.getNom_Collab());
-            pste.setString(2, salle.getURL_Collab());
-            ResultSet rs = pste.executeQuery();
-             while(rs.next()){
-                System.out.println("ID du collab creer est : "+rs.getInt("ID_Collab"));
-                salle.setID_Collab(rs.getInt("ID_Collab"));
-            }
-                 
-          
-         
-      } catch(SQLException ex){
+                
+            pste1 = conn.prepareStatement(req1);
+            
+            pste1.setString(1, salle.getNom_Collab());
+            pste1.setString(2, salle.getURL_Collab());
+            ResultSet rs2 = pste1.executeQuery();
+           
+             while(rs2.next()){      
+                System.out.println("ID du collab creer est : "+rs2.getInt("ID_Collab"));
+                salle.setID_Collab(rs2.getInt("ID_Collab"));
+            }  
+               } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("ID non obtenu "+ ex);
-      } 
-                  
+                 } 
+           
+             
+             
+             
+             
+             
+             
         } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
              System.out.println("collab non creer "+ ex);
         }
+          
+          }
+          else { 
+              System.out.println("user exists");
+              System.exit(0);
+               
+          }
+          
+          
+      } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("User exists"+ ex);
+      } 
+        
+        
+        
+        
+        
     }
 
     @Override
@@ -105,7 +143,9 @@ private Connection conn;
                 s.setID_Collab(rs.getInt("ID_Collab"));
                 s.setNom_Collab(rs.getString(3));
                 s.setURL_Collab(rs.getString(4));
+                
                 salles.add(s);
+                
             }
       } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
