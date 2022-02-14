@@ -13,6 +13,7 @@ public class Salle_Collaboration {
     private JSONArray Liste_Utilisateur ;
     private String URL_Collab ;
     private String Nom_Collab ;
+    private int ID_Utilisateur ;
 
     public int getID_Collab() {
         return ID_Collab;
@@ -54,6 +55,14 @@ public class Salle_Collaboration {
         this.Liste_Utilisateur = Liste_Utilisateur;
     }
 
+    public int getID_Utilisateur() {
+        return ID_Utilisateur;
+    }
+
+    public void setID_Utilisateur(int ID_Utilisateur) {
+        this.ID_Utilisateur = ID_Utilisateur;
+    }
+
     
 
     @Override
@@ -71,6 +80,13 @@ public class Salle_Collaboration {
         this.Liste_Utilisateur = Liste_Utilisateur;
         this.URL_Collab = URL_Collab;
         this.Nom_Collab = Nom_Collab;
+    }
+
+    public Salle_Collaboration(JSONArray Liste_Utilisateur, String URL_Collab, String Nom_Collab, int ID_Utilisateur) {
+        this.Liste_Utilisateur = Liste_Utilisateur;
+        this.URL_Collab = URL_Collab;
+        this.Nom_Collab = Nom_Collab;
+        this.ID_Utilisateur = ID_Utilisateur;
     }
 
    
