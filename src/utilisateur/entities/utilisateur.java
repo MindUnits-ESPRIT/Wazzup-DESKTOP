@@ -34,8 +34,12 @@ public class utilisateur {
         this.evaluation = evaluation;
     }
 
-    public utilisateur() {
+    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
+        this.ID_Utilisateur = ID_Utilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
     }
+
 
     public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation) {
         this.nom = nom;
@@ -50,6 +54,9 @@ public class utilisateur {
 
     public int getID_Utilisateur() {
         return ID_Utilisateur;
+    }
+
+    public utilisateur() {
     }
 
     public String getNom() {
