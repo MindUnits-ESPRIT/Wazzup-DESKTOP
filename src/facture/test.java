@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package paiement;
+package facture;
 
-import paiement.entities.*;
-import paiement.service.*;
+import facture.entities.*;
+import facture.services.*;
 import database.db ;
 /**
  *
@@ -20,13 +20,13 @@ public class test {
         // TODO code application logic here
         db cnx = db.getInstance();
         System.out.println(cnx.hashCode());
-        PaiementService ps = new PaiementService();
-        paiement p = new paiement("Stripe",10);
-        paiement p3 = new paiement("Credit_Card",11);
-        ps.ajouter(p);
-        //ps.supprimer(2);
-        //ps.modifier(3, p2);
-      System.out.println(ps.afficher());
+        factureService fs = new factureService();
+        facture f = new facture(".PDF");
+        facture f2 = new facture(".docx");
+        fs.ajouter(f);
+        //fs.supprimer(3);
+        //fs.modifier(2,f);
+      System.out.println(fs.afficher());
     }
     
 }
