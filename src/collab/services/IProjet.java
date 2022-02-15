@@ -3,7 +3,7 @@ import java.util.List;
 import collab.entities.*;
 /**
  *
- * @author mouhi
+ * @author mouhib
  */
 
 public interface IProjet <T> {

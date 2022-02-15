@@ -1,6 +1,5 @@
 package collab.services;
 import collab.entities.Projet;
-import collab.entities.Salle_Collaboration;
 import database.db;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,23 +11,16 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utilisateur.services.UtilisateurService;
-
-/**
- *
- * @author mouhi
- */
+// @author mouhib
 public class ProjetService implements IProjet<Projet> {
-private Connection conn;
-    
+private Connection conn;   
     //private Statement ste;
     private PreparedStatement pste;
     private Statement ste;
     public ProjetService() {
-        conn= db.getInstance().getCnx();
-        
-        
-        
+        conn= db.getInstance().getCnx();   
     }
+    //methode creation du projet
     @Override
     public void creer(Projet projet ) {
         String req = "INSERT INTO `projet` ( `ID_Collab`,`Nom_Projet`,`Description_Projet`, `URL_trello`) VALUE ('" + projet.getID_Collab() + "','" + projet.getNom_Projet()
@@ -37,6 +29,7 @@ private Connection conn;
             ste = conn.createStatement();
             ste.executeUpdate(req);
             System.out.println("Projet créée");
+            // fetch project id from db and update the current java object
             String req1 = "SELECT * FROM `projet` WHERE `ID_Collab` = ? AND `Nom_Projet` = ? ";
              try {
             pste = conn.prepareStatement(req1);
@@ -46,21 +39,17 @@ private Connection conn;
              while(rs.next()){
                 System.out.println("ID du projet creer est : "+rs.getInt("ID_Projet"));
                 projet.setID(rs.getInt("ID_Projet"));
-            }
-                 
-          
-         
+            }  
       } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("ID non obtenu "+ ex);
-      } 
-                  
+      }                   
         } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
              System.out.println("Projet non creer "+ ex);
         } 
     }
-
+    // modification du description et nom du projet
     @Override
     public void modifier(int id, String nom, String des) {
        String URL = "http://trello.com/"+nom;
@@ -76,7 +65,7 @@ private Connection conn;
              System.out.println("Projet non modifier "+ ex);
         }
     }
-
+   // suppression du projet
     @Override
     public void supprimer(int id) {
         String req = "DELETE FROM `projet` WHERE `ID_Projet` = '"+id+"' ";
@@ -91,7 +80,7 @@ private Connection conn;
              System.out.println("Projet non supprimer "+ ex);
         }
     }
-
+ // afficher les projet qui appartient au collab specific
     @Override
     public List<Projet> afficher(int id) {
         List<Projet> projets = new ArrayList<>();
