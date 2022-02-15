@@ -4,32 +4,37 @@
  * and open the template in the editor.
  */
 package evenements;
+import Rencontre.entities.Rencontre;
+import SalleCinema.entities.SalleCinema;
 import database.db;
 import evenements.entities.*;
 import evenements.services.*;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 /**
  *
  * @author malek
  */
 public class test {
      public static void main(String[] args) {
+         JSONArray jsonarray = new JSONArray();
         // test DB Connexion
         db cnx = db.getInstance();
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
+                 JSONObject jsonobject = new JSONObject();
+            jsonobject.put("id","1"); 
+            jsonarray.put(jsonobject);
         evenementsService es= new evenementsService();
-        evenements e = new evenements("testmodif",20,"10/02/2020","Etude","Salle_publique","Dev");
-                evenements e3 = new evenements(1);
-        evenements e2 = new evenements("malek",23,"18/04/2022","Etude","Salle_publique","Sport");
-       //System.out.println(es.afficher());
-        es.modifier(e);
-//       es.ajouter(e);
-//       es.ajouter(e2);
-//        System.out.println(es.afficher());
-//   System.out.println(e.getID_Event());
-//      es.supprimer(e2);
-        System.out.println(es.afficher());
-
+        evenements e =new evenements(jsonarray,01,"01/02/2022",01,"Etude",11,"01/02/2022","Etude","Salle_publique","Math");
+        SalleCinema s=new SalleCinema ();
+        Rencontre r = new Rencontre ();
+        
+        es.ajouter(e);
+        
+    
+es.modifier(01, "Revision", 20, "20/02/2022", "Etude", "Salle_publique", "Science");
+es.supprimer(21);
+es.afficher(1);
     }
 }
