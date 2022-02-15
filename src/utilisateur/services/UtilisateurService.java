@@ -60,7 +60,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         try{
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
+            
             while(rs.next()){
+                
                 utilisateur u = new utilisateur();
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
                 u.setNom(rs.getString(2));
@@ -70,10 +72,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setNum_tel(rs.getInt(6));
                 u.setEmail(rs.getString(7));
                 u.setMdp(rs.getString(8));
-                u.setType_user(rs.getString(10));
-                u.setEvaluation(rs.getInt(11));
                 u.setListe_Collaborations(rs.getString(9));
                 u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
                 utilisateurs.add(u);
             }
             } catch (SQLException ex) {
@@ -129,6 +130,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
              System.out.println("Utilisateur non supprimé "+ ex);
         }
     }
+        // Collaboration must be pushed from collaborationService to users table !!!!!!!!!
         @Override
         public void Get_Collaborations_list(int id){
             String req="SELECT ID_Collab,Nom_Collab FROM `salle_collaboration` as C, `utilisateurs` as U WHERE "
