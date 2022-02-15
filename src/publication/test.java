@@ -17,9 +17,9 @@ public class test {
     public static void main(String[] args) {
         publicationService PS = new publicationService();
 //---------- BEGIN AJOUTER PUBLICATION -------
-//        publication P = new publication("3amek 7rouuzz","NULL");
-//        utilisateur U = new utilisateur(2,"malek","abbes");
-//        PS.Creer_P(P,U);
+        publication P = new publication("test pub","NULL");
+        utilisateur U = new utilisateur(9,"test","user");
+        PS.Creer_P(P,U);
 //---------- END AJOUTER PUBLICATION ------
 //---------- BEGIN MODIFIER PUBLICATION -------
 //    publication P = new publication(1);

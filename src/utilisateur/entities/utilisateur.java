@@ -43,6 +43,12 @@ public class utilisateur {
     public utilisateur() {
     }
 
+    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
+        this.ID_Utilisateur = ID_Utilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
@@ -53,12 +59,6 @@ public class utilisateur {
         this.type_user = type_user;
         this.evaluation = evaluation;
         this.genre=genre;
-    }
-
-    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
-        this.ID_Utilisateur = ID_Utilisateur;
-        this.nom = nom;
-        this.prenom = prenom;
     }
 
     public int getID_Utilisateur() {
@@ -162,4 +162,9 @@ public class utilisateur {
     public String toString() {
         return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}'+"\n";
     }
+    
+
+
+    
 }
+
