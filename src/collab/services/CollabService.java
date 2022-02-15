@@ -90,7 +90,7 @@ private Connection conn;
           }
           // if salle de collaboration deja existe afficher message et arreter execution
           else { 
-              System.out.println("user exists");
+              System.out.println("Collaboration exists");
               System.exit(0);              
           }                  
         } catch(SQLException ex){

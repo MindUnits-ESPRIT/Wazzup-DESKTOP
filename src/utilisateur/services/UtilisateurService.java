@@ -106,18 +106,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     }
          // Method CRUD#3: Suppression
     @Override
-//    public void supprimer(utilisateur u) {
-//               String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+u.getID_Utilisateur()+"' ";
-//        try {
-//            pste = conn.prepareStatement(req);
-//            pste.executeUpdate();
-//            System.out.println("Utilisateur supprimé avec success");
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-//             System.out.println("Utilisateur non supprimé "+ ex);
-//        }
-//    }
+
         public void supprimer(int i) {
                String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+i+"' ";
         try {

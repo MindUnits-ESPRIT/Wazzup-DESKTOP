@@ -37,7 +37,7 @@ public class CollabTest {
         System.out.println("Liste des collaborateur a ajouter");
         System.out.println(jsonarray.toString());  
         Salle_Collaboration salle = new Salle_Collaboration(jsonarray,"http://example.com/"+name,name,7);   
-        cs.creer(salle,1);
+        cs.creer(salle,2);
         System.out.println(salle.toString());
          // test de l'affichage appartir du bd
         System.out.println(cs.afficher(7));       
