@@ -26,9 +26,10 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     private PreparedStatement pste;
     
     public UtilisateurService() {
+        // Creation d'une instance de base de données 
         conn= db.getInstance().getCnx();
     }
-
+         // Method CRUD#1 : Ajouter
     @Override
     public void ajouter(utilisateur u) {
       String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -45,36 +46,12 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           pste.setInt(9, u.getEvaluation());
           pste.executeUpdate();
           System.out.println("Utilisateur creé");
-          String reqq="SELECT * FROM `utilisateurs` WHERE `nom` = ? AND `prenom` = ? AND `age`= ? AND `num_tel`= ? AND `genre`= ? AND `email`= ? AND `type_user`= ? AND `evaluation`= ?";
-        try {
-            pste = conn.prepareStatement(reqq);
-            pste.setString(1,u.getNom() );
-            pste.setString(2,u.getPrenom());
-            pste.setInt(3,u.getAge());
-            pste.setInt(4,u.getNum_tel());
-            pste.setString(5,u.getGenre() );
-            pste.setString(6,u.getEmail());
-            pste.setString(7,u.getType_user() );
-            pste.setInt(8,u.getEvaluation());
-   
-            ResultSet rs = pste.executeQuery();
-             while(rs.next()){
-//                System.out.println("ID du collab creer est : "+rs.getInt("ID_Collab"));
-//                salle.setID_Collab(rs.getInt("ID_Collab"));
-            }
-                 
-          
-         
-      } catch(SQLException ex){
-          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-          System.out.println("ID non obtenu "+ ex);
-      } 
       } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("Utilisateur non creé "+ ex);
       }
     }
-
+         // Method : Affichage
     @Override
     public List<utilisateur> afficher() {
         List<utilisateur> utilisateurs = new ArrayList<>();
@@ -84,7 +61,6 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
             while(rs.next()){
-                 JSONArray jsonArray2 = new JSONArray();
                 utilisateur u = new utilisateur();
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
                 u.setNom(rs.getString(2));
@@ -97,7 +73,6 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setType_user(rs.getString(10));
                 u.setEvaluation(rs.getInt(11));
                 u.setListe_Collaborations(rs.getString(9));
-                System.out.println(rs.getString("Liste_Collaborations"));
                 u.setType_user(rs.getString(10));
                 utilisateurs.add(u);
             }
@@ -106,15 +81,69 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         return utilisateurs;
     }
-
+         // Method CRUD#2: Modification
     @Override
-    public void modifier(utilisateur entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void modifier(int i,utilisateur u) {
+        System.out.println(u.getID_Utilisateur());
+        String req="UPDATE `utilisateurs` SET `nom`=? , `prenom`=? ,`age`=? ,`num_tel`=? ,`genre`=? , `email`=? , `type_user`=? , `evaluation`=? WHERE `ID_Utilisateur`='"+i+"'";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.setString(1,u.getNom());
+            pste.setString(2,u.getPrenom());
+            pste.setInt(3,u.getAge());
+            pste.setInt(4,u.getNum_tel());
+            pste.setString(5,u.getGenre());
+            pste.setString(6,u.getEmail());
+            pste.setString(7,u.getType_user());
+            pste.setInt(8,u.getEvaluation());
+            pste.executeUpdate();
+            System.out.println("Utilisateur bien modifié");
+        } catch (SQLException ex) {
+         System.out.println("Utilisateur n'a pas été modifié");
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
+         // Method CRUD#3: Suppression
     @Override
-    public void supprimer(utilisateur entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    public void supprimer(utilisateur u) {
+//               String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+u.getID_Utilisateur()+"' ";
+//        try {
+//            pste = conn.prepareStatement(req);
+//            pste.executeUpdate();
+//            System.out.println("Utilisateur supprimé avec success");
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+//             System.out.println("Utilisateur non supprimé "+ ex);
+//        }
+//    }
+        public void supprimer(int i) {
+               String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+i+"' ";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.executeUpdate();
+            System.out.println("Utilisateur supprimé avec success");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+             System.out.println("Utilisateur non supprimé "+ ex);
+        }
     }
+        @Override
+        public void Get_Collaborations_list(int id){
+            String req="SELECT ID_Collab,Nom_Collab FROM `salle_collaboration` as C, `utilisateurs` as U WHERE "
+                    + "C.ID_Utilisateur='"+id+"'";
+            try {
+                pste= conn.prepareStatement(req);
+                ResultSet rs= pste.executeQuery();
+                while(rs.next()){
+                System.out.println("Salles de collaborations de l'utilisateur : \n ID= "+rs.getString(1)+ "\n Nom Collab="+rs.getString(2));
+                }
+             } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("Probleme d'importation des collaborations "+ ex);
+      } 
+            
+        }
     
 }

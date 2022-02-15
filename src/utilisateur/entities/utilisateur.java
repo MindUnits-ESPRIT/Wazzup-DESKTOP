@@ -43,6 +43,12 @@ public class utilisateur {
     public utilisateur() {
     }
 
+    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
+        this.ID_Utilisateur = ID_Utilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
