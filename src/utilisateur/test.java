@@ -17,12 +17,12 @@ import org.json.simple.JSONObject;
 public class test{
     public static void main(String[] args) {
         // test DB Connexion
-        db cnx = db.getInstance();
-        System.out.println(cnx.hashCode());
-                // Test du table utilisateur
+//        db cnx = db.getInstance();
+//        System.out.println(cnx.hashCode());
+//                // Test du table utilisateur
         UtilisateurService us= new UtilisateurService();
-        utilisateur u = new utilisateur("test","user",22,24666800,"test.user@esprit.tn","hellotest","User",4,"Male");
-        us.ajouter(u);
-        System.out.println(us.afficher());
+//        utilisateur u = new utilisateur("Mahdi","GRRRR",22,24666800,"test.user@esprit.tn","hellotest","User",4,"Male");
+//        us.ajouter(u);
+ System.out.println(us.afficher());
     }
 }

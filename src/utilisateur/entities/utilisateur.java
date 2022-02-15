@@ -55,6 +55,12 @@ public class utilisateur {
         this.genre=genre;
     }
 
+    public utilisateur(int ID_Utilisateur, String nom, String prenom) {
+        this.ID_Utilisateur = ID_Utilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
     public int getID_Utilisateur() {
         return ID_Utilisateur;
     }

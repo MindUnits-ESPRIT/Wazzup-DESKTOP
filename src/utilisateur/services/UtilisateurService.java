@@ -97,7 +97,6 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setType_user(rs.getString(10));
                 u.setEvaluation(rs.getInt(11));
                 u.setListe_Collaborations(rs.getString(9));
-                System.out.println(rs.getString("Liste_Collaborations"));
                 u.setType_user(rs.getString(10));
                 utilisateurs.add(u);
             }
