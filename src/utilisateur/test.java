@@ -36,13 +36,13 @@ public class test{
 //        us.modifier(2, u1);
 
 //       Test de l'ajout
-//        us.ajouter(u);
+us.ajouter(u);
 
 //       Test de suppression
 //        us.supprimer(1);
-
+ 
                   // L'affichage
-                  us.Get_Collaborations_list(3);
+        us.Get_Collaborations_list(3);
         System.out.println(us.afficher());
     }
 }
