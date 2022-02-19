@@ -71,31 +71,28 @@ public class publicationService implements Ipublication<publication> {
     public void Signaler_P(publication P,utilisateur U) {
         String Liste_Signal="";
         try {
-        String req_fetch = "SELECT * FROM `publication` WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`!='"+U.getID_Utilisateur()+"'";
+        String req_fetch = "SELECT * FROM `publication_signaler` WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`='"+U.getID_Utilisateur()+"'";
         ste = conn.createStatement();
         ResultSet rs = ste.executeQuery(req_fetch);
-            
-        while(rs.next()){
-         Liste_Signal=rs.getString("Liste_Signal");
-         JSONArray Liste_Signal_JSON = new JSONArray(Liste_Signal);
-         JSONObject user = new JSONObject();
-         user.put("ID","69");
-         user.put("Type_ID","0");
-         user.put("Description","TeSt Decription");
-         Liste_Signal_JSON.put(user);
-            System.out.println(Liste_Signal_JSON.toString());
-            System.out.println("Nbr : "+Liste_Signal_JSON.length());
-         String req="UPDATE `publication` SET `Nbr_Signal`=?,`Liste_Signal`=? WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`!='"+U.getID_Utilisateur()+"'";
+              if(rs.next()==false)
+              {
+                  System.out.println("Saving Sign");
+         String req="INSERT INTO `publication_signaler`(`Type`, `Id_utilisateur`, `Id_publication`) VALUES (?,?,?)";
         try {
             pste = conn.prepareStatement(req);
-            pste.setInt(1,Liste_Signal_JSON.length());
-            pste.setString(2,Liste_Signal_JSON.toString());
+            pste.setInt(1,1);
+            pste.setInt(2,U.getID_Utilisateur());
+            pste.setInt(3,P.getID_publication());
             pste.executeUpdate();
             System.out.println("Publication Signlé");
         } catch (SQLException ex1) {
             Logger.getLogger(publicationService.class.getName()).log(Level.SEVERE, null, ex1);
         }
-        }  
+              }
+             else
+             {
+                 System.out.println("Publication déja signaler Par l'utilisateur "+U.getID_Utilisateur());
+             }
         } catch (SQLException ex2) {
             Logger.getLogger(publicationService.class.getName()).log(Level.SEVERE, null, ex2);
         }
@@ -122,7 +119,6 @@ public class publicationService implements Ipublication<publication> {
                 p.setID_utilisateur(rs.getInt("Id_Utilisateur"));
                 p.setDescription((rs.getString("Description")));
                 p.setID_publication(rs.getInt("Id_Publication"));
-                p.setListe_Signal(rs.getString("Liste_Signal"));
                 p.setFichier((rs.getString("Fichier")));
                 publications.add(p);
             }
