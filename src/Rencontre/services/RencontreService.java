@@ -36,7 +36,7 @@ private Connection conn;
       try {
           pste = conn.prepareStatement(req);
           pste.setString(1,r.getType_Rencontre());
-          pste.setInt(2,r.getID_Ren());
+          pste.setString(2,r.getURL_Invitation());
           pste.executeUpdate();
           System.out.println("Evenement creé");
       } catch(SQLException ex){
@@ -47,9 +47,8 @@ private Connection conn;
     
 
     @Override
-    public void modifier(int id, String tr,String URLI) {
-        String URLR = "http://example.com/" + id;
-String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"',`URL_Invitation`='"+URLI+"' WHERE `ID_Ren` = '"+id+"'";
+    public void modifier(int id, String tr,String URLR) {
+String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"',`URL_Invitation`='"+URLR+"' WHERE `ID_Ren` = '"+id+"'";
         try {
         pste = conn.prepareStatement(req1);
               pste.executeUpdate();
