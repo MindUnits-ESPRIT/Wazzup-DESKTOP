@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import utilisateur.entities.utilisateur;
 // @author mouhib
 public class CollabService implements ICollab<Salle_Collaboration> {
 private Connection conn; 
@@ -36,11 +37,11 @@ private Connection conn;
        // si salle collaboration n'exist pas creer salle   
           if (rs.next() == false)
           {
-          String req = "INSERT INTO `salle_collaboration` (`Liste_Utilisateur`, `Nom_Collab`, `URL_Collab`, `ID_Utilisateur`) VALUE ('" + salle.getListe_Utilisateur() + "','" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "','" + salle.getID_Utilisateur() + "')";
+          String req = "INSERT INTO `salle_collaboration` (`Nom_Collab`, `URL_Collab`, `ID_Utilisateur`) VALUE ('" + salle.getNom_Collab() + "','" + salle.getURL_Collab() + "','" + salle.getID_Utilisateur() + "')";
           try {
             ste = conn.createStatement();
             ste.executeUpdate(req);
-            System.out.println("collab créée");  
+            System.out.println("collab créée");                                  
        // fetch the auto generated collab id from databse and add it to the java object for later use    
             String req1 = "SELECT * FROM `salle_collaboration` WHERE `Nom_Collab` = ? AND `URL_Collab` = ? ";     
              try {               
@@ -55,47 +56,33 @@ private Connection conn;
                } catch(SQLException ex){
             Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
             System.out.println("ID non obtenu "+ ex);
-                 } 
-         // fetch the collaborations liste of the active user to update it with the new collab we just created  
-              String req2 = "SELECT * FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+id_user+"'  ";     
-             try {               
-            pste2 = conn.prepareStatement(req2);
-            ResultSet rs3 = pste2.executeQuery();           
-             while(rs3.next()){      
-                Liste_Collabs = rs3.getString("Liste_Collaborations");           
-                 JSONArray array = new JSONArray(Liste_Collabs);
-                 JSONObject user = new JSONObject();
-                 user.put("ID",salle.getID_Collab());
-                 array.put(user) ;
-         // update the user table with the new collabs liste we updated earlier       
-                  String req3 = "UPDATE `utilisateurs` SET `Liste_Collaborations`= '"+array+"' WHERE ID_Utilisateur = '"+id_user+"' ";     
-             try {               
-            pste3 = conn.prepareStatement(req3);
-            pste3.executeUpdate();
-                 System.out.println("User collabs updated");   
-         // catch clauses         
-               } catch(SQLException ex){
-            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-            System.out.println("Users table not updated "+ ex);
-                 }    
-            }  
-               } catch(SQLException ex){
-            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-            System.out.println("liste non obtenu "+ ex);
-                 }         
+                 }             
                } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
              System.out.println("collab non creer "+ ex);
-        }          
-          }
+        }                   
+          // ajout des user and collabs in collab members
+           for ( int i=0 ; i<salle.getListe_Utilisateur().size();i++){
+                utilisateur e = (utilisateur) salle.getListe_Utilisateur().get(i);
+               String reqi = "INSERT INTO `collab_members` (`ID_Collab`, `ID_Utlisateur`) VALUE ('" + salle.getID_Collab() + "','" + e.getID_Utilisateur() + "')";
+                try {
+            ste = conn.createStatement();
+            ste.executeUpdate(reqi);
+            System.out.println("entry added");              
+                } catch(SQLException ex){
+            Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
+            System.out.println("entry was not created"+ ex);
+                 }                       
+            }    
           // if salle de collaboration deja existe afficher message et arreter execution
+          }
           else { 
-              System.out.println("Collaboration exists");
+              System.out.println("Collab exists");
               System.exit(0);              
           }                  
         } catch(SQLException ex){
-           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-           System.out.println("User exists"+ ex);
+           Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE,null,ex);
+           System.out.println("Collab exists"+ ex);
         }            
     }
     // methode de modification du nom du salle collaboration appartir de l'id el modification automatique du url 

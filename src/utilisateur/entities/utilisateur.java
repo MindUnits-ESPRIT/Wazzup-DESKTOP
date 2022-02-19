@@ -49,6 +49,10 @@ public class utilisateur {
         this.prenom = prenom;
     }
 
+    public utilisateur(int ID_Utilisateur) {
+        this.ID_Utilisateur = ID_Utilisateur;
+    }
+    
     public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
