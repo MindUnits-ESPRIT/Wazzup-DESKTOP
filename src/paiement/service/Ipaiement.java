@@ -3,11 +3,11 @@ import java.util.List;
 
 /**
  *
- * @author malek
+ * @author ahmed
  */
 public interface Ipaiement<P> {
     void ajouter(P entity);
-    void modifier (P entity);
-    void supprimer (P entity);
+    void modifier (int i, P entity);
+    void supprimer (int i);
     List<P> afficher();
 }
