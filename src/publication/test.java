@@ -31,6 +31,11 @@ public class test {
 //    utilisateur U = new utilisateur(1,"malek","abbes");
 //    PS.Supprimer_P (P, U);
 //---------- END SUPPRIMER PUBLICATION ------
+//---------- BEGIN SIGNALER PUBLICATION -------
+//    publication P = new publication(3);
+//    utilisateur U = new utilisateur(1,"malek","abbes");
+//    PS.Signaler_P(P, U);
+//---------- END SIGNALER PUBLICATION ------
 //AFFICHAGE SELECT
         System.out.println(PS.Afficher_P());
     }

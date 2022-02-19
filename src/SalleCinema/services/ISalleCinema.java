@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package evenements.services;
+package SalleCinema.services;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import java.util.List;
  *
  * @author SRN
  */
-public interface Ievenement<T> {
-     void ajouter(T entity);
-    void modifier (int id, String nom,int Nbr,String date,String type,String vis,String des);
+public interface ISalleCinema<T> {
+    void ajouter(T entity);
+    void modifier (int id,String Nom,String NomF);
     void supprimer (int id);
     List<T> afficher(int id);
 }

@@ -32,7 +32,15 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
          // Method CRUD#1 : Ajouter
     @Override
     public void ajouter(utilisateur u) {
-      String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
+       String reqverif="SELECT * FROM `utilisateurs` WHERE `nom`='"+u.getNom()+"' AND `prenom`='"+u.getPrenom()+"'"
+               + "AND `age`='"+u.getAge()+"' AND `num_tel`='"+u.getNum_tel()+"' AND `genre`='"+u.getGenre()+"'"
+               + "AND `email`='"+u.getEmail()+"' AND `mdp`='"+u.getMdp()+"' AND `type_user`='"+u.getType_user()+"' AND `evaluation`='"+u.getEvaluation()+"' "; 
+        try {
+            pste= conn.prepareStatement(reqverif);
+            ResultSet resFetch = pste.executeQuery();
+            if (resFetch.next() == false)
+          {
+                    String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
       try {
           pste = conn.prepareStatement(req);
           pste.setString(1, u.getNom());
@@ -50,6 +58,15 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("Utilisateur non creé "+ ex);
       }
+          } else{
+                System.out.println(" L'utilisateur existe déja ");
+            }
+          } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(" L'utilisateur existe déja ");
+        }
+       
+
     }
          // Method : Affichage
     @Override
@@ -60,7 +77,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         try{
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
+            
             while(rs.next()){
+                
                 utilisateur u = new utilisateur();
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
                 u.setNom(rs.getString(2));
@@ -70,10 +89,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setNum_tel(rs.getInt(6));
                 u.setEmail(rs.getString(7));
                 u.setMdp(rs.getString(8));
-                u.setType_user(rs.getString(10));
-                u.setEvaluation(rs.getInt(11));
                 u.setListe_Collaborations(rs.getString(9));
                 u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
                 utilisateurs.add(u);
             }
             } catch (SQLException ex) {
@@ -105,18 +123,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     }
          // Method CRUD#3: Suppression
     @Override
-//    public void supprimer(utilisateur u) {
-//               String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+u.getID_Utilisateur()+"' ";
-//        try {
-//            pste = conn.prepareStatement(req);
-//            pste.executeUpdate();
-//            System.out.println("Utilisateur supprimé avec success");
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
-//             System.out.println("Utilisateur non supprimé "+ ex);
-//        }
-//    }
+
         public void supprimer(int i) {
                String req = "DELETE FROM `utilisateurs` WHERE `ID_Utilisateur` = '"+i+"' ";
         try {
@@ -129,6 +136,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
              System.out.println("Utilisateur non supprimé "+ ex);
         }
     }
+        // Collaboration must be pushed from collaborationService to users table !!!!!!!!!
         @Override
         public void Get_Collaborations_list(int id){
             String req="SELECT ID_Collab,Nom_Collab FROM `salle_collaboration` as C, `utilisateurs` as U WHERE "

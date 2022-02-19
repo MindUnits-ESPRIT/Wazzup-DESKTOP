@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import publication.entities.publication;
 import utilisateur.entities.utilisateur;
 
@@ -67,7 +69,39 @@ public class publicationService implements Ipublication<publication> {
     }
 @Override
     public void Signaler_P(publication P,utilisateur U) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String Liste_Signal="";
+        try {
+        String req_fetch = "SELECT * FROM `publication` WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`!='"+U.getID_Utilisateur()+"'";
+        ste = conn.createStatement();
+        ResultSet rs = ste.executeQuery(req_fetch);
+            
+        while(rs.next()){
+         Liste_Signal=rs.getString("Liste_Signal");
+         JSONArray Liste_Signal_JSON = new JSONArray(Liste_Signal);
+         JSONObject user = new JSONObject();
+         user.put("ID","69");
+         user.put("Type_ID","0");
+         user.put("Description","TeSt Decription");
+         Liste_Signal_JSON.put(user);
+            System.out.println(Liste_Signal_JSON.toString());
+            System.out.println("Nbr : "+Liste_Signal_JSON.length());
+         String req="UPDATE `publication` SET `Nbr_Signal`=?,`Liste_Signal`=? WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`!='"+U.getID_Utilisateur()+"'";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.setInt(1,Liste_Signal_JSON.length());
+            pste.setString(2,Liste_Signal_JSON.toString());
+            pste.executeUpdate();
+            System.out.println("Publication Signlé");
+        } catch (SQLException ex1) {
+            Logger.getLogger(publicationService.class.getName()).log(Level.SEVERE, null, ex1);
+        }
+        }  
+        } catch (SQLException ex2) {
+            Logger.getLogger(publicationService.class.getName()).log(Level.SEVERE, null, ex2);
+        }
+        //System.out.println(Liste_Signal);
+        
+
     }
 
 @Override
@@ -87,6 +121,8 @@ public class publicationService implements Ipublication<publication> {
                 p.setID_publication(rs.getInt("Id_Publication"));
                 p.setID_utilisateur(rs.getInt("Id_Utilisateur"));
                 p.setDescription((rs.getString("Description")));
+                p.setID_publication(rs.getInt("Id_Publication"));
+                p.setListe_Signal(rs.getString("Liste_Signal"));
                 p.setFichier((rs.getString("Fichier")));
                 publications.add(p);
             }
