@@ -4,16 +4,16 @@ import collab.entities.Salle_Collaboration;
 import collab.services.CollabService;
 import collab.services.ProjetService;
 import database.db;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject; 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
+import utilisateur.entities.utilisateur;
 // @author mouhib
 public class CollabTest {
     public static void main(String[] args) throws IOException{          
-    JSONArray jsonarray = new JSONArray();  
+     ArrayList <utilisateur> list = new ArrayList();
         // test DB Connexion       
         db cnx = db.getInstance();    
         CollabService cs= new CollabService();
@@ -30,13 +30,15 @@ public class CollabTest {
         for (int i = 0; i < nb; i++) {           
             System.out.println("donnez ID collaborateur");
             int id = Input.nextInt();
-            JSONObject jsonobject = new JSONObject();
-            jsonobject.put("id",id); 
-            jsonarray.add(jsonobject);
+            utilisateur e = new utilisateur (id);
+            list.add(e);
         }     
         System.out.println("Liste des collaborateur a ajouter");
-        System.out.println(jsonarray.toString());  
-        Salle_Collaboration salle = new Salle_Collaboration(jsonarray,"http://example.com/"+name,name,7);   
+        for ( int i=0 ; i<list.size();i++){
+                utilisateur e = (utilisateur) list.get(i);
+               System.out.println(e.toString());
+            }   
+        Salle_Collaboration salle = new Salle_Collaboration(list,"http://example.com/"+name,name,7);   
         cs.creer(salle,1);
         System.out.println(salle.toString());
          // test de l'affichage appartir du bd
