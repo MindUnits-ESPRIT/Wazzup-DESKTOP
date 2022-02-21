@@ -29,20 +29,26 @@ public class test{
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
 //        UtilisateurService us= new UtilisateurService();
-        utilisateur u = new utilisateur("pidev","test",22,24664800,"malek.abbes@esprit.tn","hellotest","User",4,"Male");
+        utilisateur u = new utilisateur("testingnew","test",22,24664800,"malek.abbes@esprit.tn","hellotest","User",4,"Male");
                                         /// CRUD ///
 //        Test de modification
 //        utilisateur u1 = new utilisateur("malek","abbes",23,24664880,"malek.abbes@esprit.tn","testing modif","User",4,"Male");
 //        us.modifier(20, u);
 
 //       Test de l'ajout
-//us.ajouter(u);
+//       us.ajouter(u);
 
 //       Test de suppression
-        us.supprimer(20);
+//       us.supprimer(20);
  
-                  // L'affichage
-        us.Get_Collaborations_list(3);
+//        L'affichage
+//        us.Get_Collaborations_list(3);
 //        System.out.println(us.afficher());
+
+//        L'ajout d'un interet a l'utilisateur
+us.ajouter_interet(1, "Voyage");
+      
+      us.interet_utilisateur(1);
+
     }
 }
