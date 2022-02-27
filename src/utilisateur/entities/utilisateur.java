@@ -16,7 +16,7 @@ public class utilisateur {
     private int ID_Utilisateur;
     private String nom;
     private String prenom;
-    private int age;
+    private String datenaissance;
     private int num_tel;
     private String email;
     private String mdp;
@@ -28,11 +28,11 @@ public class utilisateur {
     
     private int date_creation;
     
-    public utilisateur(int ID_Utilisateur, String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
+    public utilisateur(int ID_Utilisateur, String nom, String prenom, String datenaissance, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.ID_Utilisateur = ID_Utilisateur;
         this.nom = nom;
         this.prenom = prenom;
-        this.age = age;
+        this.datenaissance = datenaissance;
         this.num_tel = num_tel;
         this.email = email;
         this.mdp = getMd5(mdp);
@@ -40,6 +40,12 @@ public class utilisateur {
         this.evaluation = evaluation;
         this.genre=genre;
     }
+
+    public utilisateur(String email, String mdp) {
+        this.email = email;
+        this.mdp = getMd5(mdp); 
+    }
+    
     
 
     public utilisateur() {
@@ -55,10 +61,10 @@ public class utilisateur {
         this.ID_Utilisateur = ID_Utilisateur;
     }
     
-    public utilisateur(String nom, String prenom, int age, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
+    public utilisateur(String nom, String prenom, String datenaissance, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
-        this.age = age;
+        this.datenaissance = datenaissance;
         this.num_tel = num_tel;
         this.email = email;
         this.mdp = getMd5(mdp);
@@ -79,9 +85,6 @@ public class utilisateur {
         return prenom;
     }
 
-    public int getAge() {
-        return age;
-    }
 
     public int getNum_tel() {
         return num_tel;
@@ -115,9 +118,14 @@ public class utilisateur {
         this.prenom = prenom;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getDatenaissance() {
+        return datenaissance;
     }
+
+    public void setDatenaissance(String datenaissance) {
+        this.datenaissance = datenaissance;
+    }
+    
 
     public void setNum_tel(int num_tel) {
         this.num_tel = num_tel;
@@ -174,7 +182,7 @@ public class utilisateur {
 
     @Override
     public String toString() {
-        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", interet=" + interet + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}';
+        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", datenaissance=" + datenaissance + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", interet=" + interet + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}';
     }
     
 

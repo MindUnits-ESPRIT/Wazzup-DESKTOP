@@ -3,20 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/CollabTest.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/services/publicationService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/services/IProjet.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/paiement/test.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/services/commentaireService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/services/Ievenement.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/services/Ipublication.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/paiement/service/PaiementService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/SalleCinema/services/SalleCinemaService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/facture/test.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/Iutilisateur.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/test.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/AuthController.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/auth.fxml</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/authinterface.java</file>
         </group>
     </open-files>
 </project-private>

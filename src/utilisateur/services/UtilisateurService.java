@@ -29,23 +29,37 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         // Creation d'une instance de base de données 
         conn= db.getInstance().getCnx();
     }
+    public int auth(utilisateur u){
+        String authreq="SELECT * FROM `utilisateurs` WHERE `email`=? AND `mdp`=?";
+ 
+        try {
+            pste=conn.prepareStatement(authreq);
+            pste.setString(1,u.getEmail());
+            pste.setString(2,u.getMdp());
+            ResultSet resauth= pste.executeQuery();
+            if (resauth.next() == true) return(1);
+        } catch (Exception e) {
+            System.out.println(e+"ERREUR DE REQUETE");
+        }
+        return (0);
+    }
+    
          // Method CRUD#1 : Ajouter
     @Override
     public void ajouter(utilisateur u) {
        String reqverif="SELECT * FROM `utilisateurs` WHERE `nom`='"+u.getNom()+"' AND `prenom`='"+u.getPrenom()+"'"
-               + "AND `age`='"+u.getAge()+"' AND `num_tel`='"+u.getNum_tel()+"' AND `genre`='"+u.getGenre()+"'"
-               + "AND `email`='"+u.getEmail()+"' AND `mdp`='"+u.getMdp()+"' AND `type_user`='"+u.getType_user()+"' AND `evaluation`='"+u.getEvaluation()+"' "; 
+               + "AND `email`='"+u.getEmail()+"'"; 
         try {
             pste= conn.prepareStatement(reqverif);
             ResultSet resFetch = pste.executeQuery();
             if (resFetch.next() == false)
           {
-                    String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
+                    String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`datenaissance`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
       try {
           pste = conn.prepareStatement(req);
           pste.setString(1, u.getNom());
           pste.setString(2, u.getPrenom());
-          pste.setInt(3, u.getAge());
+          pste.setString(3, u.getDatenaissance());
           pste.setInt(4, u.getNum_tel());
           pste.setString(5, u.getGenre());
           pste.setString(6, u.getEmail());
@@ -121,14 +135,13 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
                 u.setNom(rs.getString(2));
                 u.setPrenom(rs.getString(3));
-                u.setAge(rs.getInt(4));
+                u.setDatenaissance(rs.getString(4));
                 u.setGenre(rs.getString(5));
                 u.setNum_tel(rs.getInt(6));
                 u.setEmail(rs.getString(7));
                 u.setMdp(rs.getString(8));
-                u.setListe_Collaborations(rs.getString(9));
-                u.setType_user(rs.getString(10));
-                u.setEvaluation(rs.getInt(11));
+                u.setType_user(rs.getString(9));
+                u.setEvaluation(rs.getInt(10));
                 utilisateurs.add(u);
             }
             } catch (SQLException ex) {
@@ -140,12 +153,12 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     @Override
     public void modifier(int i,utilisateur u) {
         System.out.println(u.getID_Utilisateur());
-        String req="UPDATE `utilisateurs` SET `nom`=? , `prenom`=? ,`age`=? ,`num_tel`=? ,`genre`=? , `email`=? , `type_user`=? , `evaluation`=? WHERE `ID_Utilisateur`='"+i+"'";
+        String req="UPDATE `utilisateurs` SET `nom`=? , `prenom`=? ,`datenaissance`=? ,`num_tel`=? ,`genre`=? , `email`=? , `type_user`=? , `evaluation`=? WHERE `ID_Utilisateur`='"+i+"'";
         try {
             pste = conn.prepareStatement(req);
             pste.setString(1,u.getNom());
             pste.setString(2,u.getPrenom());
-            pste.setInt(3,u.getAge());
+            pste.setString(3,u.getDatenaissance());
             pste.setInt(4,u.getNum_tel());
             pste.setString(5,u.getGenre());
             pste.setString(6,u.getEmail());

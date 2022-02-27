@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.auth.AuthController">
+   <children>
+      <TextField id="auth_email" fx:id="auth_email" layoutX="319.0" layoutY="152.0" prefHeight="28.0" prefWidth="204.0" promptText="Email" stylesheets="@css/textfield.css" />
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="576.0" spacing="45.0" style="-fx-background-color: #008080;" styleClass="-fx" titleText="" />
+      <PasswordField id="auth_password" fx:id="auth_password" layoutX="319.0" layoutY="201.0" prefHeight="26.0" prefWidth="204.0" promptText="Mot de passe" stylesheets="@css/textfield.css" />
+      <Button id="login" fx:id="auth_login" layoutX="310.0" layoutY="287.0" mnemonicParsing="false" onAction="#LoginButton" style="-fx-background-color: #008080; -fx-background-radius: 35px;" text="S'authentifier" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Button>
+      <Button id="auth_cancel" fx:id="auth_cancel" layoutX="431.0" layoutY="287.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #008080; -fx-background-radius: 25px;" text="Annuler" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Button>
+      <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-5.0">
+         <image>
+            <Image url="@..\resources\wazzup.png" />
+         </image>
+      </ImageView>
+      <BottomNavigation layoutX="315.0" layoutY="12.0" />
+        <BottomNavigationButton layoutX="433.0" layoutY="5.0" mouseTransparent="true" prefHeight="42.0" prefWidth="119.0" selected="true" style="-fx-background-color: #008080;" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></BottomNavigationButton>
+      <Hyperlink layoutX="312.0" layoutY="339.0" prefHeight="29.0" prefWidth="171.0" text="Mot de passe oublié?" />
+      <ImageView fitHeight="19.0" fitWidth="22.0" layoutX="495.0" layoutY="155.0">
+         <image>
+            <Image url="@..\resources\email.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="22.0" layoutX="498.0" layoutY="207.0">
+         <image>
+            <Image url="@..\resources\password.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="-14.0" layoutY="-125.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fill="WHITE" layoutX="84.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAZZUP - Authentification">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <ToggleButtonGroup layoutX="449.0" layoutY="248.0" selectionType="SINGLE" />
+      <Button layoutX="437.0" layoutY="12.0" mnemonicParsing="false" style="-fx-background-color: #0ED5A9;" styleClass="text-field" stylesheets="@css/textfield.css" text="         S'inscrire" textFill="WHITE">
+         <font>
+            <Font name="Microsoft New Tai Lue" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="445.0" layoutY="15.0">
+         <image>
+            <Image url="@..\resources\signup.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="490.0" fitWidth="440.0" layoutX="-68.0" layoutY="-18.0">
+         <image>
+            <Image url="@..\resources\wazzup.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="87.0" layoutX="300.0" layoutY="376.0">
+         <image>
+            <Image url="@..\resources\mindunits.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="152.0" layoutY="398.0" opacity="0.8" style="-fx-font-size: 15px;" text="Developpé par " />
+      <Label id="auth_verif" fx:id="auth_verif" layoutX="263.0" layoutY="100.0" prefHeight="21.0" prefWidth="249.0" textFill="RED" />
+   </children>
+</AnchorPane>
