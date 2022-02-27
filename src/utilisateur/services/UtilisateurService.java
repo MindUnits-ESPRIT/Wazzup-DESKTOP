@@ -68,6 +68,43 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
        
 
     }
+    @Override
+     public void ajouter_interet(int id,String interet) {
+         String intreq="INSERT INTO `interets` (`nom_interet`,`ID_Utilisateur`) VALUES (?,?)";
+         try {
+          pste = conn.prepareStatement(intreq);
+          pste.setString(1, interet);
+          pste.setInt(2, id);
+          pste.executeUpdate();
+          System.out.println("L'interet a été bien accordé a l'utilisateur portant un ID = "+id);
+      } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("L'interet ne peut pas etre accordé "+ ex);
+      }
+         
+         
+     }
+          public void interet_utilisateur(int id) {
+         String intusr="SELECT nom_interet,prenom,nom from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur="+id;
+         try {
+          pste = conn.prepareStatement(intusr);
+          ResultSet resFetch = pste.executeQuery();
+            if (resFetch.next() == false)
+          {
+              System.out.println("L'utilisateur n'a aucun interet");
+          } else {
+                System.out.println("Les interets de L'utilisateur "+resFetch.getString(3)+" "+resFetch.getString(2)+" Sont : ");
+                while(resFetch.next() == true)
+                System.out.println(resFetch.getString(1));
+            }
+      } catch(SQLException ex){
+          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+          System.out.println("erreur de fetch"+ ex);
+      }
+         
+     }
+     
+     
          // Method : Affichage
     @Override
     public List<utilisateur> afficher() {

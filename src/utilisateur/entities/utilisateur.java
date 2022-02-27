@@ -23,6 +23,7 @@ public class utilisateur {
     private String type_user;
     private int evaluation;
     private String genre;
+    private String interet;
     private String Liste_Collaborations ;
     
     private int date_creation;
@@ -39,6 +40,7 @@ public class utilisateur {
         this.evaluation = evaluation;
         this.genre=genre;
     }
+    
 
     public utilisateur() {
     }
@@ -162,10 +164,21 @@ public class utilisateur {
         this.Liste_Collaborations = Liste_Collaborations;
     }
 
+    public String getInteret() {
+        return interet;
+    }
+
+    public void setInteret(String interet) {
+        this.interet = interet;
+    }
+
     @Override
     public String toString() {
-        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}'+"\n";
+        return "utilisateur{" + "ID_Utilisateur=" + ID_Utilisateur + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age + ", num_tel=" + num_tel + ", email=" + email + ", mdp=" + mdp + ", type_user=" + type_user + ", evaluation=" + evaluation + ", genre=" + genre + ", interet=" + interet + ", Liste_Collaborations=" + Liste_Collaborations + ", date_creation=" + date_creation + '}';
     }
+    
+
+
     
 
 
