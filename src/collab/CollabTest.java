@@ -1,4 +1,5 @@
 package collab;
+
 import collab.entities.Projet;
 import collab.entities.Salle_Collaboration;
 import collab.services.CollabService;
@@ -10,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import utilisateur.entities.utilisateur;
+
 // @author mouhib
 public class CollabTest {
     public static void main(String[] args) throws IOException {
@@ -25,7 +27,7 @@ public class CollabTest {
         // afficher les membre du collab donner
         System.out.println("donnez l'id du collab");
         int idc = Input.nextInt();
-        System.out.println(cs.afficherCollab_Membres(idc));     
+        System.out.println(cs.afficherCollab_Membres(idc));
         // creation du collab
         System.out.println("donnez un nom du collab");
         String name = reader.readLine();

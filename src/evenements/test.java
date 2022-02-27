@@ -33,8 +33,8 @@ public class test {
         es.ajouter(e);
         
     
-es.modifier(01, "Revision", 20, "20/02/2022", "Etude", "Salle_publique", "Science");
-es.supprimer(21);
+es.modifier(02, "Revision", 20, "20/02/2022", "Etude", "Salle_publique", "Science");
+es.supprimer(02);
 es.afficher(1);
     }
 }
