@@ -11,6 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import paiement.entities.paiement;
 import database.db;
+import paiement.entities.paiement;
+import paiement.service.PaiementService;
 
 public class PaiementService implements Ipaiement<paiement> {
     private Connection conn;
@@ -24,10 +26,11 @@ public class PaiementService implements Ipaiement<paiement> {
 
     @Override
     public void ajouter(paiement p) {
-      String req = "INSERT INTO `paiement` (`Methode_paiement`) VALUES (?)";
+      String req = "INSERT INTO `paiement` (`Methode_paiement`,`prix`) VALUES (?,?)";
       try {
           pste = conn.prepareStatement(req);
           pste.setString(1, p.getType_p());
+          pste.setFloat(2, p.getPrix());
           pste.executeUpdate();
           System.out.println("Paiement creé");
       } catch(SQLException ex){
@@ -46,8 +49,10 @@ public class PaiementService implements Ipaiement<paiement> {
             ResultSet rs = pste.executeQuery(req);
             while(rs.next()){
                 paiement p = new paiement();
-                p.setID_Paiment(rs.getInt("ID_Paiement"));
+                p.setID_Paiement(rs.getInt("ID_Paiement"));
+                p.setDate_paiement(rs.getString(2));
                 p.setType_p(rs.getString(3));
+                p.setPrix(rs.getFloat(4));
                 paiements.add(p);
             }
             } catch (SQLException ex) {
@@ -56,14 +61,34 @@ public class PaiementService implements Ipaiement<paiement> {
         return paiements;
     }
 
-    @Override
-    public void modifier(paiement entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        @Override
+    public void modifier(int i,paiement u) {
+        System.out.println(u.getID_Paiement());
+        String req="UPDATE `paiement` SET `Methode_paiement`=? `prix` WHERE `ID_Paiement`='"+i+"'";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.setString(1,u.getType_p());
+            pste.setFloat(1,u.getPrix());
+            pste.executeUpdate();
+            System.out.println("Paiemetn bien modifié");
+        } catch (SQLException ex) {
+         System.out.println("Paiement n'a pas été modifié");
+         Logger.getLogger(PaiementService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
-    public void supprimer(paiement entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void supprimer(int i) {
+     String req = "DELETE FROM `paiement` WHERE `ID_Paiement` = '"+i+"' ";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.executeUpdate();
+            System.out.println("Paiement supprimé avec success");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaiementService.class.getName()).log(Level.SEVERE,null,ex);
+             System.out.println("Paiement non supprimé "+ ex);
+        }
     }
 
 

@@ -9,7 +9,7 @@ import paiement.service.*;
 import database.db ;
 /**
  *
- * @author remo
+ * @author ahmed
  */
 public class test {
 
@@ -21,9 +21,12 @@ public class test {
         db cnx = db.getInstance();
         System.out.println(cnx.hashCode());
         PaiementService ps = new PaiementService();
-        paiement p = new paiement("Stripe");
+        paiement p = new paiement("Stripe",10);
+        paiement p3 = new paiement("Credit_Card",11);
         ps.ajouter(p);
-        System.out.println(ps.afficher());
+        //ps.supprimer(2);
+        //ps.modifier(3, p2);
+      System.out.println(ps.afficher());
     }
     
 }

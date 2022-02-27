@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface Ievenement<T> {
      void ajouter(T entity);
-    void modifier (T entity);
-    void supprimer (T entity);
-    List<T> afficher();
+    void modifier (int id, String nom,int Nbr,String date,String type,String vis,String des);
+    void supprimer (int id);
+    List<T> afficher(int id);
 }
