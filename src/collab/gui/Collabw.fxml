@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collab.gui.CollabwController">
+   <children>
+      <Button layoutX="180.0" layoutY="481.0" mnemonicParsing="false" onAction="#add" prefHeight="54.0" prefWidth="136.0" style="-fx-background-color: #008080; -fx-background-radius: 30;" text="Creer Collab" textAlignment="CENTER" textFill="WHITE" />
+      <Label layoutX="55.0" layoutY="271.0" prefHeight="25.0" prefWidth="104.0" text="Collaboration">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField fx:id="nomid" layoutX="228.0" layoutY="268.0" prefHeight="31.0" prefWidth="162.0" />
+      <ChoiceBox layoutX="228.0" layoutY="370.0" prefHeight="31.0" prefWidth="162.0" />
+      <Label layoutX="58.0" layoutY="358.0" text="Members">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="716.0" layoutY="135.0" text="Voir vos collaborations" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font></Label>
+      <Button layoutX="730.0" layoutY="481.0" mnemonicParsing="false" onAction="#ListerCollabs" prefHeight="54.0" prefWidth="136.0" style="-fx-background-color: #008080; -fx-background-radius: 30;" text="Afficher" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fitHeight="239.0" fitWidth="492.0" layoutX="597.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/col.jpg" />
+         </image>
+      </ImageView>
+      <Line endX="-100.0" endY="344.0" layoutX="641.0" layoutY="190.0" startX="-100.0" startY="-55.0" stroke="TEAL" />
+      <Label layoutX="486.0" layoutY="666.0" prefHeight="26.0" prefWidth="104.0" text="Developpé par " />
+      <Label fx:id="area1" layoutX="180.0" layoutY="446.0" prefHeight="21.0" prefWidth="136.0" style="-fx-text-fill: red;" />
+      <AppBar minHeight="62.0" prefHeight="70.0" prefWidth="1080.0" progressBarVisible="true" spacing="15.0" style="-fx-background-color: #008080; -fx-min-height: 70;" titleText="" />
+      <Label layoutX="95.0" layoutY="21.0" text="Collaborations" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="88.0" fitWidth="112.0" layoutX="14.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/wazzup.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="180.0" layoutY="147.0" text="Ajouter une collaboration" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="60.0" layoutX="590.0" layoutY="652.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../res/mindunits.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
