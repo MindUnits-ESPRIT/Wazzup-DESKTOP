@@ -32,7 +32,15 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
          // Method CRUD#1 : Ajouter
     @Override
     public void ajouter(utilisateur u) {
-      String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
+       String reqverif="SELECT * FROM `utilisateurs` WHERE `nom`='"+u.getNom()+"' AND `prenom`='"+u.getPrenom()+"'"
+               + "AND `age`='"+u.getAge()+"' AND `num_tel`='"+u.getNum_tel()+"' AND `genre`='"+u.getGenre()+"'"
+               + "AND `email`='"+u.getEmail()+"' AND `mdp`='"+u.getMdp()+"' AND `type_user`='"+u.getType_user()+"' AND `evaluation`='"+u.getEvaluation()+"' "; 
+        try {
+            pste= conn.prepareStatement(reqverif);
+            ResultSet resFetch = pste.executeQuery();
+            if (resFetch.next() == false)
+          {
+                    String req = "INSERT INTO `utilisateurs` (`nom`,`prenom`,`age`,`num_tel`,`genre`,`email`,`mdp`,`type_user`,`evaluation`) VALUES (?,?,?,?,?,?,?,?,?)";
       try {
           pste = conn.prepareStatement(req);
           pste.setString(1, u.getNom());
@@ -50,6 +58,15 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("Utilisateur non creé "+ ex);
       }
+          } else{
+                System.out.println(" L'utilisateur existe déja ");
+            }
+          } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(" L'utilisateur existe déja ");
+        }
+       
+
     }
          // Method : Affichage
     @Override

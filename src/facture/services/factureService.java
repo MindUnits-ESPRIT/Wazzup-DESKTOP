@@ -13,6 +13,10 @@ import facture.entities.facture;
 import database.db;
 import facture.entities.facture;
 import facture.services.*;
+import offre_publicitaire.entities.offre_publicitaire;
+import utilisateur.entities.utilisateur;
+import paiement.entities.paiement;
+
 
 public class factureService implements Ifacture<facture> {
     private Connection conn;
@@ -25,11 +29,16 @@ public class factureService implements Ifacture<facture> {
     }
 
     @Override
-    public void ajouter(facture f) {
-      String req = "INSERT INTO `facture` (`file`) VALUES (?)";
+    public void ajouter(facture f,utilisateur U,offre_publicitaire o,paiement p) {
+      String req = "INSERT INTO `facture` (`file`, `ID_Utilisateur`, `ID_paiement`, `id_offre`) VALUES (?,?,?,?)";
       try {
+          System.out.println("1: "+f.getFile()+"     2: "+U.getID_Utilisateur()+"    3: "+p.getID_Paiement()+"     4: "+o.getId_offre());
           pste = conn.prepareStatement(req);
           pste.setString(1, f.getFile());
+          pste.setInt(2,U.getID_Utilisateur());
+          pste.setInt(3,p.getID_Paiement());
+          pste.setInt(4, o.getId_offre());
+          
           pste.executeUpdate();
           System.out.println("Facture creé");
       } catch(SQLException ex){
