@@ -29,7 +29,7 @@ public class test{
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
 //        UtilisateurService us= new UtilisateurService();
-        utilisateur u = new utilisateur("mouhib","salah","17/02/1999",24664800,"malekabbes@esprit.tn","malek123","User",4,"Male");
+        utilisateur u = new utilisateur("mouhib","salah","17/02/1999","24664800","malekabbes@esprit.tn","malek123","User",4,"Male");
                                         /// CRUD ///
 //        Test de modification
 //        utilisateur u1 = new utilisateur("malek","abbes",23,24664880,"malek.abbes@esprit.tn","testing modif","User",4,"Male");
@@ -53,5 +53,12 @@ public class test{
            // AUTHENTIFICATION TEST
            utilisateur auth = new utilisateur("malek.abbes@esprit.tn","testspx1");
            System.out.println(us.auth(auth));
+           
+           String email="malek.abbes@yahoo.com";
+           String email2="malekabbes@esprit.tn";
+       
+System.out.println(us.isEmailExist(email2));
+
+           
     }
 }

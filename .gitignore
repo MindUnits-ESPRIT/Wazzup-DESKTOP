@@ -1,4 +1,6 @@
 /build/
 /src/database
-
+/nbproject/
+/test/
+/.idea/
 /dist/

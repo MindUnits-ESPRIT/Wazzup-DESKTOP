@@ -21,6 +21,7 @@ import database.db;
  */
 public class UtilisateurService implements Iutilisateur<utilisateur> {
     private Connection conn;
+    public boolean added;
     
     //private Statement ste;
     private PreparedStatement pste;
@@ -43,6 +44,19 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         return (0);
     }
+        public boolean isEmailExist(String email){
+        String authreq="SELECT * FROM `utilisateurs` WHERE `email`=?";
+ 
+        try {
+            pste=conn.prepareStatement(authreq);
+            pste.setString(1,email);
+            ResultSet existRes= pste.executeQuery();
+            if (existRes.next() == true) return(true);
+        } catch (Exception e) {
+            System.out.println(e+"ERREUR DE REQUETE");
+        }
+        return false;
+    }
     
          // Method CRUD#1 : Ajouter
     @Override
@@ -60,7 +74,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           pste.setString(1, u.getNom());
           pste.setString(2, u.getPrenom());
           pste.setString(3, u.getDatenaissance());
-          pste.setInt(4, u.getNum_tel());
+          pste.setString(4, u.getNum_tel());
           pste.setString(5, u.getGenre());
           pste.setString(6, u.getEmail());
           pste.setString(7, u.getMdp());
@@ -68,12 +82,16 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           pste.setInt(9, u.getEvaluation());
           pste.executeUpdate();
           System.out.println("Utilisateur creé");
+          added=true;
       } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("Utilisateur non creé "+ ex);
+          added=false;
       }
           } else{
                 System.out.println(" L'utilisateur existe déja ");
+                added=false;
+                
             }
           } catch (SQLException ex) {
             Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,7 +155,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 u.setPrenom(rs.getString(3));
                 u.setDatenaissance(rs.getString(4));
                 u.setGenre(rs.getString(5));
-                u.setNum_tel(rs.getInt(6));
+                u.setNum_tel(rs.getString(6));
                 u.setEmail(rs.getString(7));
                 u.setMdp(rs.getString(8));
                 u.setType_user(rs.getString(9));
@@ -159,7 +177,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste.setString(1,u.getNom());
             pste.setString(2,u.getPrenom());
             pste.setString(3,u.getDatenaissance());
-            pste.setInt(4,u.getNum_tel());
+            pste.setString(4,u.getNum_tel());
             pste.setString(5,u.getGenre());
             pste.setString(6,u.getEmail());
             pste.setString(7,u.getType_user());
@@ -203,5 +221,8 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
       } 
             
         }
+        
+
+  
     
 }

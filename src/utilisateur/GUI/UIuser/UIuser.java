@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilisateur.GUI.signup;
+package utilisateur.GUI.UIuser;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,35 +18,41 @@ import javafx.stage.StageStyle;
  *
  * @author malek
  */
-public class signupinterface extends Application {
+public class UIuser extends Application {
     
-       Parent signup;
+       Parent UI;
        private double xOffset = 0; 
        private double yOffset = 0;
+       
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        signup=FXMLLoader.load(getClass().getResource("signup.fxml"));
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
-                // Pour deplacer la fenetre
-       signup.setOnMousePressed(event -> {
+        UI=FXMLLoader.load(getClass().getResource("UIuser.fxml"));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        // Pour deplacer la fenetre
+        UI.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
-        signup .setOnMouseDragged(event -> {
+
+        UI.setOnMouseDragged(event -> {
             primaryStage.setX(event.getScreenX() - xOffset);
             primaryStage.setY(event.getScreenY() - yOffset);
         });
-        Scene Signup_scene = new Scene(signup);
+    
+        Scene Signup_scene = new Scene(UI);
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Creation d'un compte");
+        primaryStage.setTitle("Dashboard");
         primaryStage.setScene(Signup_scene);
         primaryStage.show();
+        
     }
+    
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         launch(args);
     }    

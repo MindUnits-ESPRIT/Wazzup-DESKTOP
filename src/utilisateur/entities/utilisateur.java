@@ -17,7 +17,7 @@ public class utilisateur {
     private String nom;
     private String prenom;
     private String datenaissance;
-    private int num_tel;
+    private String num_tel;
     private String email;
     private String mdp;
     private String type_user;
@@ -28,7 +28,7 @@ public class utilisateur {
     
     private int date_creation;
     
-    public utilisateur(int ID_Utilisateur, String nom, String prenom, String datenaissance, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
+    public utilisateur(int ID_Utilisateur, String nom, String prenom, String datenaissance, String num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.ID_Utilisateur = ID_Utilisateur;
         this.nom = nom;
         this.prenom = prenom;
@@ -51,6 +51,18 @@ public class utilisateur {
     public utilisateur() {
     }
 
+    public utilisateur(String nom, String prenom, String datenaissance, String num_tel, String genre,String email, String mdp,String type_user) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.datenaissance = datenaissance;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.mdp = getMd5(mdp);
+        this.genre = genre;
+        this.type_user = type_user;
+    }
+    
+
     public utilisateur(int ID_Utilisateur, String nom, String prenom) {
         this.ID_Utilisateur = ID_Utilisateur;
         this.nom = nom;
@@ -61,7 +73,7 @@ public class utilisateur {
         this.ID_Utilisateur = ID_Utilisateur;
     }
     
-    public utilisateur(String nom, String prenom, String datenaissance, int num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
+    public utilisateur(String nom, String prenom, String datenaissance, String num_tel, String email, String mdp, String type_user, int evaluation , String genre) {
         this.nom = nom;
         this.prenom = prenom;
         this.datenaissance = datenaissance;
@@ -86,7 +98,7 @@ public class utilisateur {
     }
 
 
-    public int getNum_tel() {
+    public String getNum_tel() {
         return num_tel;
     }
 
@@ -127,7 +139,7 @@ public class utilisateur {
     }
     
 
-    public void setNum_tel(int num_tel) {
+    public void setNum_tel(String num_tel) {
         this.num_tel = num_tel;
     }
 

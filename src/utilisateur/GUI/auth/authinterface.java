@@ -23,11 +23,22 @@ import javafx.stage.StageStyle;
  */
 public class authinterface extends Application {
     Parent root;
+       private double xOffset = 0; 
+       private double yOffset = 0;
     
     @Override
     public void start(Stage primaryStage) throws Exception {
             root=FXMLLoader.load(getClass().getResource("auth.fxml"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+        // Pour deplacer la fenetre
+       root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getScreenX() - xOffset);
+            primaryStage.setY(event.getScreenY() - yOffset);
+        });
         Scene scene = new Scene(root,562,453);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Authentification");
