@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/CollabTest.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/entities/Salle_Collaboration.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/services/commentaireService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/services/CollabService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/Iutilisateur.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/test.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/service/PaiementService.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/entities/paiement.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/service/Ipaiement.java</file>
         </group>
     </open-files>
 </project-private>

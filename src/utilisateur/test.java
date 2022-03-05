@@ -36,6 +36,6 @@ public class test{
 
                   // L'affichage
                   us.Get_Collaborations_list(3);
-        System.out.println(us.afficher());
+        //System.out.println(us.afficher());
     }
 }
