@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilisateur.GUI.UIuser;
+package utilisateur.GUI.UIuser.Imageupload;
 
+import utilisateur.GUI.UIuser.Imageupload.*;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -18,32 +20,34 @@ import javafx.stage.StageStyle;
  *
  * @author malek
  */
-public class UIuser extends Application {
+public class Imageupload extends Application {
     
-       Parent UI;
+       Parent UploadIm;
        private double xOffset = 0; 
        private double yOffset = 0;
        
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        UI=FXMLLoader.load(getClass().getResource("UIuser.fxml"));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        UploadIm=FXMLLoader.load(getClass().getResource("Imageupload.fxml"));
+
         // Pour deplacer la fenetre
-        UI.setOnMousePressed(event -> {
+        UploadIm.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
 
-        UI.setOnMouseDragged(event -> {
+        UploadIm.setOnMouseDragged(event -> {
             primaryStage.setX(event.getScreenX() - xOffset);
             primaryStage.setY(event.getScreenY() - yOffset);
         });
     
-        Scene Signup_scene = new Scene(UI);
+        Scene Upload_scene = new Scene(UploadIm);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        
         primaryStage.setResizable(false);
         primaryStage.setTitle("Dashboard");
-        primaryStage.setScene(Signup_scene);
+        primaryStage.setScene(Upload_scene);
         primaryStage.show();
         
     }

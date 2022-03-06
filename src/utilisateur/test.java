@@ -23,7 +23,7 @@ public class test{
         UtilisateurService us= new UtilisateurService();
 //        utilisateur u = new utilisateur("Mahdi","GRRRR",22,24666800,"test.user@esprit.tn","hellotest","User",4,"Male");
 //        us.ajouter(u);
- System.out.println(us.afficher());
+// System.out.println(us.afficher());
         db cnx = db.getInstance();
         // Verifier que l'instance de connexion de base de donnée est unique 
         System.out.println(cnx.hashCode());
@@ -47,18 +47,20 @@ public class test{
 
 //        L'ajout d'un interet a l'utilisateur
 //us.ajouter_interet(1, "Voyage");
-//      
 //us.interet_utilisateur(1);
 
            // AUTHENTIFICATION TEST
-           utilisateur auth = new utilisateur("malek.abbes@esprit.tn","testspx1");
-           System.out.println(us.auth(auth));
-           
-           String email="malek.abbes@yahoo.com";
-           String email2="malekabbes@esprit.tn";
-       
-System.out.println(us.isEmailExist(email2));
-
+//           utilisateur auth = new utilisateur("malek.abbes@esprit.tn","testspx1");
+//           System.out.println(us.auth(auth));
+//           
+//           String email="malek.abbes@yahoo.com";
+//           String email2="malekabbes@esprit.tn";
+//       
+//System.out.println(us.isEmailExist(email2));
+//        System.out.println(us.ActivatedCheck("malekabbes@esprit.tn"));
+//  utilisateur u2 = new utilisateur(24,"aa","bbb","12/12/1999","25555887","malekaa@yahoo.fr","imagelink","11441144","User",2,"Male","15624141114",3,true,false,false,19/12/2022);
+//us.ajouter(u2);
+System.out.println(us.checkPassword("aaaAAA11."));
            
     }
 }

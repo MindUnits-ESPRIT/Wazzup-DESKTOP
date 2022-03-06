@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilisateur.GUI.signup;
+package utilisateur.GUI.Vtoken;
 
+import utilisateur.GUI.signup.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,29 +18,29 @@ import javafx.stage.StageStyle;
  *
  * @author malek
  */
-public class signupinterface extends Application {
+public class tokeninterface extends Application {
     
-       Parent signup;
+       Parent token;
        private double xOffset = 0; 
        private double yOffset = 0;
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        signup=FXMLLoader.load(getClass().getResource("signup.fxml"));
+        token=FXMLLoader.load(getClass().getResource("Vtoken.fxml"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
                 // Pour deplacer la fenetre
-       signup.setOnMousePressed(event -> {
+       token.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
-        signup .setOnMouseDragged(event -> {
+        token.setOnMouseDragged(event -> {
             primaryStage.setX(event.getScreenX() - xOffset);
             primaryStage.setY(event.getScreenY() - yOffset);
         });
-        Scene Signup_scene = new Scene(signup);
+        Scene token_scene = new Scene(token);
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Creation d'un compte");
-        primaryStage.setScene(Signup_scene);
+        primaryStage.setTitle("Activation compte");
+        primaryStage.setScene(token_scene);
         primaryStage.show();
     }
 

@@ -11,8 +11,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import utils.SessionUser;
+
 
 /**
  *
@@ -28,7 +31,7 @@ public class UIuser extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         UI=FXMLLoader.load(getClass().getResource("UIuser.fxml"));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+
         // Pour deplacer la fenetre
         UI.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
@@ -40,13 +43,16 @@ public class UIuser extends Application {
             primaryStage.setY(event.getScreenY() - yOffset);
         });
     
-        Scene Signup_scene = new Scene(UI);
+        Scene UI_scene = new Scene(UI);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        
         primaryStage.setResizable(false);
         primaryStage.setTitle("Dashboard");
-        primaryStage.setScene(Signup_scene);
+        primaryStage.setScene(UI_scene);
         primaryStage.show();
         
     }
+    
     
 
     /**

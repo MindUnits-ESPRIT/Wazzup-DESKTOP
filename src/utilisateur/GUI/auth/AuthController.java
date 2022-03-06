@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import utilisateur.services.UtilisateurService;
 import utilisateur.entities.utilisateur;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import static utils.SessionUser.*;
 import static utils.md5.getMd5;
 
 /**
@@ -62,6 +62,7 @@ Parent signup;
             Signup_Stage.hide();
             Signup_Stage.setScene(scene);
             Signup_Stage.show();
+            
     }
         public void LoginButton(ActionEvent e){
           UtilisateurService userv= new UtilisateurService();
@@ -73,12 +74,29 @@ Parent signup;
             utilisateur auth = new utilisateur(input_email,input_password);
             int result= userv.auth(auth);
                System.out.println(result);
-            if (result==0)
+            if (result==0){
               auth_verif.setText("* Verifiez vos informations !");
-            else{
+               auth_verif.setTextFill(Color.RED);
+            }
+            else if (result==1){
               auth_verif.setText("* Bienvenue");
               auth_verif.setTextFill(Color.GREEN);
+              setUser(userv.UserByEmail(input_email));
+            try {       
+               signup = FXMLLoader.load(getClass().getResource("../UIuser/UIuser.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
             }
+             Scene scene = new Scene(signup);      
+            Stage UI_stage = (Stage) (((Node) e.getSource()) .getScene().getWindow());
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show();
+            
+              } else if (result==2){
+              auth_verif.setText("* Votre compte n'est pas encore activé ! !"); 
+              auth_verif.setTextFill(Color.RED);
+              }
     } else {
               auth_verif.setText("* Veuillez remplir les champs necessaires !"); 
               auth_verif.setTextFill(Color.RED);

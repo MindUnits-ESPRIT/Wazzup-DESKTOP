@@ -72,10 +72,13 @@
          </image>
       </ImageView>
       <Label layoutX="23.0" layoutY="398.0" opacity="0.8" style="-fx-font-size: 15px;" text="Developpé par " />
-      <Label id="auth_verif" fx:id="auth_verif" layoutX="309.0" layoutY="128.0" prefHeight="21.0" prefWidth="249.0" textFill="RED" />
+      <Label id="auth_verif" fx:id="auth_verif" layoutX="234.0" layoutY="112.0" prefHeight="21.0" prefWidth="297.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <JFXTextField id="auth_email" fx:id="auth_email" labelFloat="true" layoutX="295.0" layoutY="158.0" prefHeight="25.0" prefWidth="185.0" promptText="Email" />
       <JFXPasswordField id="auth_password" fx:id="auth_password" layoutX="297.0" layoutY="214.0" prefHeight="25.0" prefWidth="185.0" promptText="Mot de passe" />
-      <Text layoutX="292.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter a votre espace" wrappingWidth="232.90136866271496">
+      <Text layoutX="271.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter a votre espace" wrappingWidth="232.90136866271496">
          <font>
             <Font name="Consolas" size="15.0" />
          </font>
