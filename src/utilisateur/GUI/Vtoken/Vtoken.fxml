@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="647.0" style="-fx-border-radius: 25px; -fx-background-color: rgba(0, 179, 134, 0.54);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.signup.SignupController">
+   <children>
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="647.0" spacing="45.0" style="-fx-background-color: #008080;" styleClass="-fx" titleText="" />
+      <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-5.0">
+         <image>
+            <Image url="@../resources/wazzup.png" />
+         </image>
+      </ImageView>
+      <BottomNavigation layoutX="315.0" layoutY="12.0" />
+      <Pane layoutX="-14.0" layoutY="-125.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fill="WHITE" layoutX="84.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAZZUP - Inscription">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <ToggleButtonGroup layoutX="449.0" layoutY="248.0" selectionType="SINGLE" />
+      <ImageView fitHeight="601.0" fitWidth="440.0" layoutX="-61.0" layoutY="51.0">
+         <image>
+            <Image url="@../resources/wazzup.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="164.0" layoutY="622.0">
+         <image>
+            <Image url="@../resources/mindunits.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="61.0" layoutY="634.0" opacity="0.54" style="-fx-font-size: 14px;" text="Developpé par " textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
+      <Label id="signup_verif" fx:id="signup_verif" layoutX="61.0" layoutY="103.0" prefHeight="21.0" prefWidth="231.0" textFill="RED" />
+      <JFXDatePicker id="signup_dateb" fx:id="signup_dateb" layoutX="336.0" layoutY="208.0" prefHeight="25.0" prefWidth="213.0" promptText="Date de naissance" />
+      <JFXTextField id="signup_nom" fx:id="signup_nom" labelFloat="true" layoutX="338.0" layoutY="82.0" prefHeight="25.0" prefWidth="204.0" promptText="Nom" />
+      <JFXTextField id="signup_prenom" fx:id="signup_prenom" labelFloat="true" layoutX="335.0" layoutY="146.0" prefHeight="25.0" prefWidth="204.0" promptText="Prenom" />
+      <JFXTextField id="signup_email" fx:id="signup_email" labelFloat="true" layoutX="335.0" layoutY="404.0" prefHeight="20.0" prefWidth="204.0" promptText="Email" />
+      <JFXTextField id="signup_phone" fx:id="signup_phone" labelFloat="true" layoutX="333.0" layoutY="279.0" prefHeight="25.0" prefWidth="204.0" promptText="Numero de telephone" />
+      <JFXPasswordField id="signup_pwd" fx:id="signup_pwd" labelFloat="true" layoutX="336.0" layoutY="486.0" prefHeight="25.0" prefWidth="204.0" promptText="Mot de passe" />
+      <JFXComboBox id="signup_genre" fx:id="signup_genre" labelFloat="true" layoutX="334.0" layoutY="338.0" prefHeight="25.0" prefWidth="204.0" visibleRowCount="3" />
+      <JFXButton id="signup" fx:id="signup" layoutX="326.0" layoutY="649.0" mnemonicParsing="false" onAction="#signup" prefHeight="34.0" prefWidth="110.0" style="-fx-background-radius: 35px; -fx-background-color: #008080;" text="S'inscrire      " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton id="signup_cancel" fx:id="signup_cancel" layoutX="470.0" layoutY="649.0" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #008080; -fx-background-radius: 35px;" text="Annuler      " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXProgressBar id="progressbar" fx:id="progressbar" layoutX="-6.0" layoutY="53.0" prefHeight="13.0" prefWidth="663.0" visible="false" />
+      <JFXPasswordField id="signup_pwd2" fx:id="signup_pwd1" labelFloat="true" layoutX="337.0" layoutY="564.0" prefHeight="25.0" prefWidth="204.0" promptText="Confirmer Mot de passe" />
+      <ImageView layoutX="517.0" layoutY="83.0">
+         <image>
+            <Image url="@../resources/icons8_collaborator_male_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="517.0" layoutY="147.0">
+         <image>
+            <Image url="@../resources/icons8_collaborator_male_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="520.0" layoutY="283.0">
+         <image>
+            <Image url="@../resources/icons8_phone_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="528.0" layoutY="407.0">
+         <image>
+            <Image url="@../resources/icons8_mail_account_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="526.0" layoutY="490.0">
+         <image>
+            <Image url="@../resources/icons8_password_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="528.0" layoutY="568.0">
+         <image>
+            <Image url="@../resources/icons8_privacy_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="402.0" layoutY="656.0">
+         <image>
+            <Image url="@../resources/icons8_login_24px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="542.0" layoutY="657.0">
+         <image>
+            <Image url="@../resources/icons8_unavailable_24px.png" />
+         </image>
+      </ImageView>
+      <Label id="invalid_email" fx:id="invalid_email" layoutX="336.0" layoutY="443.0" prefHeight="1.0" prefWidth="200.0" textFill="#dd413f" />
+      <Label id="invalid_pwd1" fx:id="invalid_pwd1" layoutX="337.0" layoutY="601.0" prefHeight="17.0" prefWidth="243.0" textFill="#dd413f" />
+      <Label id="invalid_phone" fx:id="invalid_phone" layoutX="335.0" layoutY="317.0" prefHeight="21.0" prefWidth="213.0" textFill="#dd413f" />
+      
+      
+   </children>
+</AnchorPane>
