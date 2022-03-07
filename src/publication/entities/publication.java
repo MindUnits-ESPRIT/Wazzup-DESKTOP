@@ -13,6 +13,8 @@ public class publication {
     private int ID_utilisateur ;
     private String Description ;
     private String Fichier ;
+    private int Nbr_Signal;
+    private String Liste_Signal;
 
     public publication(int ID_publication, int ID_utilisateur, String Description, String Fichier) {
         this.ID_publication = ID_publication;
@@ -36,8 +38,24 @@ public class publication {
         return ID_publication;
     }
 
+    public String getListe_Signal() {
+        return Liste_Signal;
+    }
+
+    public void setListe_Signal(String Liste_Signal) {
+        this.Liste_Signal = Liste_Signal;
+    }
+
     public void setID_publication(int ID_publication) {
         this.ID_publication = ID_publication;
+    }
+
+    public int getNbr_Signal() {
+        return Nbr_Signal;
+    }
+
+    public void setNbr_Signal(int Nbr_Signal) {
+        this.Nbr_Signal = Nbr_Signal;
     }
 
     public int getID_utilisateur() {
@@ -66,8 +84,6 @@ public class publication {
 
     @Override
     public String toString() {
-        return "Publication : {" + "ID_publication=" + ID_publication + ", ID_utilisateur=" + ID_utilisateur + ", Description=" + Description + ", Fichier=" + Fichier + " } \n";
+        return "Publication : {" + "ID_publication=" + ID_publication + ", ID_utilisateur=" + ID_utilisateur + ", Description=" + Description + ", Fichier=" + Fichier +" ,Nbr_Signal= "+Nbr_Signal+" ,Liste_Signal= "+Liste_Signal+" } \n";
     }
-    
-    
 }

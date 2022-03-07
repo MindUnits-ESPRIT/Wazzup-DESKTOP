@@ -7,6 +7,9 @@ package facture;
 import facture.entities.*;
 import facture.services.*;
 import database.db ;
+import offre_publicitaire.entities.offre_publicitaire;
+import paiement.entities.paiement;
+import utilisateur.entities.utilisateur;
 /**
  *
  * @author ahmed
@@ -18,12 +21,17 @@ public class test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        db cnx = db.getInstance();
-        System.out.println(cnx.hashCode());
+//        db cnx = db.getInstance();
+ //       System.out.println(cnx.hashCode());
         factureService fs = new factureService();
         facture f = new facture(".PDF");
         facture f2 = new facture(".docx");
-        fs.ajouter(f);
+//        paiement p1 = new paiement("Stripe",10);
+paiement p1 = new paiement(31);
+//        offre_publicitaire o = new offre_publicitaire("java","test",4);
+        offre_publicitaire o = new offre_publicitaire(9);
+        utilisateur u1 = new utilisateur(19,"spx","tn");
+        fs.ajouter(f,u1,o,p1);
         //fs.supprimer(3);
         //fs.modifier(2,f);
       System.out.println(fs.afficher());

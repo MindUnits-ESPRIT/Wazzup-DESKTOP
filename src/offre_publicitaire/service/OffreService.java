@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import offre_publicitaire.entities.offre_publicitaire;
+import utilisateur.entities.utilisateur;
 import database.db;
 
 
@@ -29,13 +30,14 @@ public class OffreService implements Ioffre<offre_publicitaire> {
     }
          // Method CRUD#1 : Ajouter
     @Override
-    public void ajouter(offre_publicitaire u) {
-      String req = "INSERT INTO `offre_publicitaire` (`nom_offre`,`contenu_offre`,`nbr_max_offre`) VALUES (?,?,?)";
+    public void ajouter(offre_publicitaire u,utilisateur U) {
+      String req = "INSERT INTO `offre_publicitaire` (`ID_Utilisateur`,`nom_offre`,`contenu_offre`,`nbr_max_offre`) VALUES (?,?,?,?)";
       try {
           pste = conn.prepareStatement(req);
-          pste.setString(1, u.getNom_offre());
-          pste.setString(2, u.getContenu_offre());
-          pste.setFloat(3, u.getNbr_max_offre());
+          pste.setInt(1,U.getID_Utilisateur());
+          pste.setString(2, u.getNom_offre());
+          pste.setString(3, u.getContenu_offre());
+          pste.setFloat(4, u.getNbr_max_offre());
           pste.executeUpdate();
           System.out.println("Offre creé");
       } catch(SQLException ex){

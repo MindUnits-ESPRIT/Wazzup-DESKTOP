@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="794.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="paiement.GUI.WhiteFXMLController">
+    <stylesheets>
+        <URL value="@whitefxml.css" />
+    </stylesheets>
+   <children>
+      <Text fx:id="textbienvenue" fill="#82b798" fontSmoothingType="LCD" layoutX="25.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="       Bienvenue         Paiement en ligne Wazzup" textAlignment="CENTER" wrappingWidth="754.353515625">
+         <font>
+            <Font name="System Italic" size="79.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

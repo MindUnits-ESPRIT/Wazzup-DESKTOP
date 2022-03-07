@@ -1,0 +1,70 @@
+/*
+ * Empty Stylesheet file.
+ */
+.demoFont{
+-fx-font-size: 20pt;
+    -fx-font-family: "Bauhaus 93";
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+}
+.leftvbox{
+    
+     -fx-background-color:#FFFFFF;
+     -fx-font: bold italic 20pt "Arial";
+    
+}
+.leftvboxbuttons{
+    
+    -fx-background-color: rgba(238,238,238, .5);
+    -fx-font: bold italic 15pt "Eras Demi ITC";
+    
+    
+}
+.textretour { 
+ -fx-font-smoothing-type: lcd;
+ -fx-fill: white;
+ -fx-font-size: 11pt;
+ 
+}
+.textcopyrigh { 
+    -fx-text-alignment: center;
+
+ -fx-font-smoothing-type: lcd;
+ -fx-fill: black;
+ -fx-font-size: 11pt;
+}
+.redline{
+    -fx-text-fill: #008080;
+   -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+   -fx-border-color:white;
+   -fx-background-color:null;
+    -fx-underline: true;
+}
+
+.redline:hover{     
+  -fx-background-color: #E5E7E9;
+  -fx-text-fill:#008080;
+  -fx-font-weight:bold; 
+ 
+}
+
+.exitline{
+    -fx-text-fill: white;
+   -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+   -fx-border-color:#008080;
+   -fx-background-color:null;
+    -fx-underline: true;
+}
+
+.exitline:hover{     
+  -fx-background-color: #E74C3C;
+  -fx-text-fill:#E74C3C;
+  -fx-font-weight:bold; 
+ 
+}
+
+.mainFxmlClass {
+
+}
