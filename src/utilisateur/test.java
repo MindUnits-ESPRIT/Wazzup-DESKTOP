@@ -7,8 +7,6 @@ package utilisateur;
 import utilisateur.services.*;
 import utilisateur.entities.*;
 import database.db;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject; 
 
 /**
  *

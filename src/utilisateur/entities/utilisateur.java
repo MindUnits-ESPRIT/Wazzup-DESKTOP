@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package utilisateur.entities;
-
-import java.sql.Array;
-import org.json.simple.JSONArray;
 import static utils.md5.getMd5;
 
 /**

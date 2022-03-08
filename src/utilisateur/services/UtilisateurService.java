@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package utilisateur.services;
-import org.json.simple.JSONArray;
-import org.json.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
