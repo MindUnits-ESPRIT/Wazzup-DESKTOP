@@ -7,6 +7,9 @@ package utilisateur;
 import utilisateur.services.*;
 import utilisateur.entities.*;
 import database.db;
+import java.util.ArrayList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject; 
 
 /**
  *
@@ -44,8 +47,7 @@ public class test{
 //        System.out.println(us.afficher());
 
 //        L'ajout d'un interet a l'utilisateur
-//us.ajouter_interet(1, "Voyage");
-//us.interet_utilisateur(1);
+us.ajouter_interet(58, "Sport");
 
            // AUTHENTIFICATION TEST
 //           utilisateur auth = new utilisateur("malek.abbes@esprit.tn","testspx1");
@@ -58,7 +60,11 @@ public class test{
 //        System.out.println(us.ActivatedCheck("malekabbes@esprit.tn"));
 //  utilisateur u2 = new utilisateur(24,"aa","bbb","12/12/1999","25555887","malekaa@yahoo.fr","imagelink","11441144","User",2,"Male","15624141114",3,true,false,false,19/12/2022);
 //us.ajouter(u2);
-System.out.println(us.checkPassword("aaaAAA11."));
-           
+//System.out.println(us.checkPassword("aaaAAA11."));
+//        System.out.println(us.PictureCheck(58));
+//        
+
+System.out.println(us.getAllInterets(58));
     }
+    
 }

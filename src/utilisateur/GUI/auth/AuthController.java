@@ -24,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import org.controlsfx.control.MaskerPane;
 import static utils.SessionUser.*;
 import static utils.md5.getMd5;
 
@@ -33,6 +34,7 @@ import static utils.md5.getMd5;
  * @author malek
  */
 public class AuthController {
+    @FXML
 Parent signup;
     @FXML
     private JFXTextField auth_email;
@@ -42,10 +44,15 @@ Parent signup;
     private Button auth_cancel;
     @FXML
     public Label auth_verif;
+    @FXML
+    private Button auth_login;
+    private double xOffset = 0; 
+    private double yOffset = 0;
 
     /**
      * Initializes the controller class.
      */
+    @FXML
     public void cancelButton(ActionEvent e){
         Stage stage = (Stage) auth_cancel.getScene().getWindow();
         stage.close();
@@ -64,6 +71,7 @@ Parent signup;
             Signup_Stage.show();
             
     }
+    @FXML
         public void LoginButton(ActionEvent e){
           UtilisateurService userv= new UtilisateurService();
              String input_email=auth_email.getText();
@@ -87,8 +95,17 @@ Parent signup;
             } catch (IOException ex) {
                 Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
             }
-             Scene scene = new Scene(signup);      
+             Scene scene = new Scene(signup);   
             Stage UI_stage = (Stage) (((Node) e.getSource()) .getScene().getWindow());
+            
+                   signup.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        signup .setOnMouseDragged(event -> {
+            UI_stage.setX(event.getScreenX() - xOffset);
+            UI_stage.setY(event.getScreenY() - yOffset);
+        });
             UI_stage.hide();
             UI_stage.setScene(scene);
             UI_stage.show();

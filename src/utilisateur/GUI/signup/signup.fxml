@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="main" fx:id="main" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#verify" prefHeight="744.0" prefWidth="647.0" style="-fx-border-radius: 25px; -fx-background-color: rgba(0, 179, 134, 0.54);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.signup.SignupController">
+<AnchorPane id="main" fx:id="main" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#verify" prefHeight="744.0" prefWidth="647.0" style="-fx-background-color: rgba(0, 179, 134, 0.54);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.signup.SignupController">
    <children>
-      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="647.0" spacing="45.0" style="-fx-background-color: #008080;" styleClass="-fx" titleText="" />
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="647.0" spacing="45.0" style="-fx-background-color: #008080; -fx-background-radius: 0px 0px 35px 35px;" styleClass="-fx" titleText="" />
       <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-5.0">
          <image>
             <Image url="@../resources/wazzup.png" />
@@ -113,7 +113,7 @@
             <Image url="@../resources/Spinner-1.2s-231px.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="570.0" layoutY="9.0">
+      <ImageView id="closewindow" fx:id="closewindow" fitHeight="31.0" fitWidth="39.0" layoutX="570.0" layoutY="9.0" onMouseClicked="#closeWindow">
          <image>
             <Image url="@../resources/closewindow.png" />
          </image>
@@ -121,11 +121,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <JFXButton id="closewindow" fx:id="closewindow" layoutX="576.0" layoutY="12.0" onAction="#closeWindow" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: transparent;" text=" " textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
       <Label id="invalid_pwd" fx:id="invalid_pwd" layoutX="335.0" layoutY="526.0" prefHeight="17.0" prefWidth="239.0" textFill="#dd413f" />
       
       
