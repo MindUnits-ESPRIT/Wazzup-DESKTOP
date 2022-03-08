@@ -27,14 +27,14 @@ public class test {
         facture f = new facture(".PDF");
         facture f2 = new facture(".docx");
 //        paiement p1 = new paiement("Stripe",10);
-paiement p1 = new paiement(9);
-//        offre_publicitaire o = new offre_publicitaire("java","test",4);
+        paiement p1 = new paiement(41);
+      //  offre_publicitaire o = new offre_publicitaire("java","test",4);
         offre_publicitaire o = new offre_publicitaire(7);
         utilisateur u1 = new utilisateur(1,"malek","abbes");
-        //fs.ajouter(f,u1,o,p1);
+            fs.ajouter(f,u1,o,p1);
         //fs.supprimer(3);
         //fs.modifier(2,f);
-      System.out.println(fs.afficher());
+      //System.out.println(fs.afficher());
     }
     
 }

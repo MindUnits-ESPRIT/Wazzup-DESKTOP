@@ -49,7 +49,7 @@ public class Mypdf_file {
               img.scaleToFit(100f, 100f);
         // Creating Image object from the imagedata
         document.add(img);
-    document.add(new Paragraph("Bonjour "+u.getNom()+" "+u.getPrenom()+"\n Merci d'avoir effectué vos achats sur WAZZUP le "+dtf.format(now)));
+    document.add(new Paragraph("Bonjour "+u.getNom()+" "+u.getPrenom()+"\n Merci d'avoir effectué vos offres sur WAZZUP le "+dtf.format(now)));
     document.add(new Paragraph("_____________________________________________________________________________")); 
     document.add(new Paragraph("Voici les détails de la commande :\n Votre offre est: "+o.getNom_offre()+" \n description du l'offre  "+o.getContenu_offre()+" avec nombre offre ="+o.getNbr_max_offre()));
     document.add(new Paragraph("Adresse de livraison : "+u.getNum_tel()));
