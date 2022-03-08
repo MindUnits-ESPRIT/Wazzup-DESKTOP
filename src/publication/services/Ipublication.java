@@ -19,4 +19,6 @@ public interface Ipublication<publication> {
     void Supprimer_P (publication P,utilisateur U);
     void Signaler_P (publication P,utilisateur U);
     List<publication> Afficher_P();
+    List<publication> Afficher_P(utilisateur U);
+    
 }

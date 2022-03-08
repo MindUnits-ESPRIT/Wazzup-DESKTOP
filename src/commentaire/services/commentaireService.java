@@ -35,7 +35,7 @@ public class commentaireService implements Icommentaire<commentaire> {
             pste.setInt(1,P.getID_publication());
             pste.setInt(2,U.getID_Utilisateur());
             //Modifier ICI !
-            pste.setString(3,"MESSAGE TEXTO");
+            pste.setString(3,C.getMessage());
             pste.executeUpdate();
             System.out.println("Commentaire Publié");
         } catch (SQLException ex) {
@@ -94,4 +94,31 @@ public class commentaireService implements Icommentaire<commentaire> {
         
         return commentaires;
     } 
+
+    @Override
+    public List<commentaire> Afficher_CById(int id) {
+        List<commentaire> commentaires = new ArrayList<>();
+        String req = "SELECT * FROM `commentaire` Where Id_Publication='"+id+"' ORDER BY Date";
+        System.out.println("El Requete C : "+req);
+        try {
+//            pste = conn.prepareStatement(req);
+//            ResultSet rs = pste.executeQuery();
+            
+            ste = conn.createStatement();
+            ResultSet rs = ste.executeQuery(req);
+            
+            while(rs.next()){
+                commentaire c = new commentaire();
+                c.setID_publication(rs.getInt("Id_Publication"));
+                c.setID_utilisateur(rs.getInt("Id_Utilisateur"));
+                c.setMessage((rs.getString("Message")));
+                c.setDate((rs.getString("Date")));
+                commentaires.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(commentaireService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return commentaires;
+    }
 }

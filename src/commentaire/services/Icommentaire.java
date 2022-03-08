@@ -18,4 +18,5 @@ public interface Icommentaire<commentaire> {
     void Modifier_C (publication P,commentaire C);
     void Supprimer_C (publication P,commentaire C);
     List<commentaire> Afficher_C();
+    List<commentaire> Afficher_CById(int id);
 }

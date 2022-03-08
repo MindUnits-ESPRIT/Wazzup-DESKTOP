@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="177.0" prefWidth="430.0" style="-fx-background-color: rgba(78, 78, 78, 0.8);" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.Post_PublicationController">
+    <stylesheets>
+        <URL value="@post_publication.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btn_pub" disable="true" layoutX="351.0" layoutY="140.0" mnemonicParsing="false" onAction="#Publier" prefHeight="32.0" prefWidth="77.0" style="-fx-background-radius: 10px; -fx-background-color: rgba(32, 175, 242, 0.96);" text="Publier" AnchorPane.topAnchor="140.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <HBox alignment="CENTER" layoutX="12.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="418.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <ImageView fx:id="user_image" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" translateY="-50.0">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="username_pub" minWidth="-Infinity" text="Username" textFill="WHITE" translateX="5.0" translateY="-60.0" underline="true">
+               <font>
+                  <Font name="Consolas Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="description_pub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#CheckForm" prefHeight="88.0" prefWidth="334.0" promptText="Que voulez-vous dire ?" translateX="-40.0" translateY="-5.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btn_img" layoutX="252.0" layoutY="152.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="11.0" style="-fx-background-color: Transparent;" visible="false" AnchorPane.topAnchor="138.0">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btn_emoji" layoutX="301.0" layoutY="152.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="11.0" style="-fx-background-color: Transparent;" visible="false" AnchorPane.topAnchor="141.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/emoji.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btn_img1" layoutX="208.0" layoutY="141.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: black;" visible="false" AnchorPane.topAnchor="141.0">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Assets/gifphy.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <MenuButton fx:id="gif_menubtn" layoutX="200.0" layoutY="145.0" mnemonicParsing="false" onAction="#gif_menubtn_act" prefHeight="24.0" prefWidth="48.0" style="-fx-background-color: black;" AnchorPane.topAnchor="145.0">
+        <items>
+          <MenuItem fx:id="menu_gifitem" mnemonicParsing="false" onAction="#gif_menubtn_act" />
+        </items>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/gifphy.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </MenuButton>
+      <MenuButton fx:id="img_btn" layoutX="250.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: white;" visible="false" AnchorPane.topAnchor="145.0">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Assets/image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </MenuButton>
+      <MenuButton fx:id="emoji_menubtn" layoutX="299.0" layoutY="145.0" mnemonicParsing="false" style="-fx-background-color: white;" AnchorPane.topAnchor="145.0">
+         <items>
+            <MenuItem fx:id="emoji_menuitem" mnemonicParsing="false" onAction="#emoji_menubtn" />
+         </items>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/emoji.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </MenuButton>
+      <Button layoutX="250.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#img_btn" prefHeight="24.0" prefWidth="48.0" style="-fx-background-color: white;" AnchorPane.topAnchor="145.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="counter" layoutX="370.0" layoutY="120.0" text="0/255" textFill="#e8e8e8" />
+   </children>
+</AnchorPane>
