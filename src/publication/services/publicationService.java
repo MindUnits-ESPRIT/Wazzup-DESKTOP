@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import paiement.GUI.FactureFXMLController;
 import publication.entities.publication;
 import utilisateur.entities.utilisateur;
 
@@ -133,5 +134,20 @@ public class publicationService implements Ipublication<publication> {
         
         return publications;
     }
+            public String countpub(){
+        String req="SELECT COUNT(Id_Publication) FROM publication";
+        try {
+            
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FactureFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            //return "sqdqdsq";
+        }     
+        return "";
+} 
  }
    

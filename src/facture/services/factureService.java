@@ -13,6 +13,10 @@ import facture.entities.facture;
 import database.db;
 import facture.entities.facture;
 import facture.services.*;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javax.swing.JOptionPane;
 import offre_publicitaire.entities.offre_publicitaire;
 import utilisateur.entities.utilisateur;
 import paiement.entities.paiement;
@@ -20,14 +24,16 @@ import paiement.entities.paiement;
 
 public class factureService implements Ifacture<facture> {
     private Connection conn;
-    
+    private ResultSet rs;
+    @FXML
+    private ComboBox<String> ComboBoxFacture;
     //private Statement ste;
     private PreparedStatement pste;
     
     public factureService() {
         conn= db.getInstance().getCnx();
     }
-
+ 
     @Override
     public void ajouter(facture f,utilisateur U,offre_publicitaire o,paiement p) {
       String req = "INSERT INTO `facture` (`file`, `ID_Utilisateur`, `ID_paiement`, `id_offre`) VALUES (?,?,?,?)";
@@ -97,5 +103,25 @@ public class factureService implements Ifacture<facture> {
         }
     }
 
-    
+    @Override
+    public List<String> remplirdate() {
+         List<String> facture = new ArrayList<>();
+               try {
+            String sql="SELECT Date_fac FROM `facture`";
+            pste=conn.prepareStatement(sql);
+            ResultSet rs =pste.executeQuery();
+            
+            while(rs.next()){
+                facture.add(rs.getString("Date_fac"));
+                   
+            }  } catch (SQLException ex) {
+            Logger.getLogger(factureService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+return facture;
+    }
+
+  
+
 }
+

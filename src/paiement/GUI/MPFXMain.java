@@ -10,24 +10,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Ahmed Guedri
+ * @author SBS
  */
-public class STRIPEFXMain extends Application {
+public class MPFXMain extends Application {
     
-   Parent root;
+    Parent root;
     @Override
     public void start(Stage primaryStage) {
       
 
         try {
-            root = FXMLLoader.load(getClass().getResource("StripeFXML.fxml"));
+            root = FXMLLoader.load(getClass().getResource("MPFXML.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(STRIPEFXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,5 +51,6 @@ public class STRIPEFXMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }

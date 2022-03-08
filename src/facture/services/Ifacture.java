@@ -13,4 +13,6 @@ public interface Ifacture<F> {
    void modifier (int i, F entity);
    void supprimer (int i);
     List<F> afficher();
+    List<String> remplirdate();
+ 
 }

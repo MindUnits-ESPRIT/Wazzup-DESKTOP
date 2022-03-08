@@ -1,5 +1,6 @@
 package paiement.service;
 import java.util.List;
+import paiement.entities.paiement;
 
 /**
  *
@@ -10,4 +11,5 @@ public interface Ipaiement<P> {
     void modifier (int i, P entity);
     void supprimer (int i);
     List<P> afficher();
+    List<P>remplirArea();
 }

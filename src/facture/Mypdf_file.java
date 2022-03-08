@@ -45,7 +45,7 @@ public class Mypdf_file {
         offre_publicitaire o = new offre_publicitaire("publicité java","test du offre",4);
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     utilisateur u = new utilisateur("Ahmed","Guedri",22,95990559,"guedri.ahmed@esprit.tn","test","User",4,"Male");
-              Image img = Image.getInstance("C:\\Users\\Ahmed Guedri\\Wazzup-DESKTOP\\src\\facture\\wazzup.png");
+              Image img = Image.getInstance("C:\\Users\\SBS\\Wazzup-DESKTOP\\src\\facture\\wazzup.png");
               img.scaleToFit(100f, 100f);
         // Creating Image object from the imagedata
         document.add(img);

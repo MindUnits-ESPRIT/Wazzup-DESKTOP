@@ -12,46 +12,36 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
- * @author Ahmed Guedri
+ * @author SBS
  */
-public class StripeFXMLController implements Initializable {
-  
+public class PaypalFXMLController implements Initializable {
     @FXML
-    private AnchorPane scenePane;
-
-    @FXML
-    private VBox vb;
-
-    @FXML
-    private WebView webv;
+    private AnchorPane anchor;
     Stage stage;
 
     @FXML
-    private Button quiter;
+    private WebView webviewpaypal;
     private WebEngine engine;
    /* @FXML
     private Label factureici;*/
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		engine = webv.getEngine();
+		engine = webviewpaypal.getEngine();
 		loadPage();
 	}
     
      public void Exit(ActionEvent event) {
-         stage = (Stage) scenePane.getScene().getWindow();
+         stage = (Stage) anchor.getScene().getWindow();
          stage.close();
     }
     public void loadPage() {
-		engine.load("https://buy.stripe.com/test_fZeaFI0uf3FR6Z23cc");
+		engine.load("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8URSMLRLKR2TC");
 	}
-    
-
 }

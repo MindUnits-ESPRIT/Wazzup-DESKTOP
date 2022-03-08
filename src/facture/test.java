@@ -27,11 +27,19 @@ public class test {
         facture f = new facture(".PDF");
         facture f2 = new facture(".docx");
 //        paiement p1 = new paiement("Stripe",10);
+<<<<<<< HEAD
         paiement p1 = new paiement(41);
       //  offre_publicitaire o = new offre_publicitaire("java","test",4);
         offre_publicitaire o = new offre_publicitaire(7);
         utilisateur u1 = new utilisateur(1,"malek","abbes");
             fs.ajouter(f,u1,o,p1);
+=======
+paiement p1 = new paiement(31);
+//        offre_publicitaire o = new offre_publicitaire("java","test",4);
+        offre_publicitaire o = new offre_publicitaire(9);
+        utilisateur u1 = new utilisateur(19,"spx","tn");
+        fs.ajouter(f,u1,o,p1);
+>>>>>>> a8b2f175524c5cee2e6feadf196a39577364334b
         //fs.supprimer(3);
         //fs.modifier(2,f);
       //System.out.println(fs.afficher());

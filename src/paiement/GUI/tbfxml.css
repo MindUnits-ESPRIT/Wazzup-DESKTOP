@@ -1,0 +1,37 @@
+/*
+ * Empty Stylesheet file.
+ */
+.chart-series-area-line { 
+    -fx-stroke: #008080; 
+    -fx-stroke-width: 2px; 
+}
+.chart-series-area-fill { 
+    -fx-fill: linear-gradient(to right, green, rgba(255,255,255,0)); 
+    -fx-blend-mode: OVERLAY;
+}
+.chart-area-symbol {
+    -fx-background-color: white;
+}
+.axis {
+    -fx-tick-mark-visible: false;
+    -fx-minor-tick-visible: false;
+    -fx-tick-length: 3;
+    -fx-minor-tick-length: 0;
+    -fx-border-color: transparent;
+}
+.axis:bottom {
+    -fx-border-color: black transparent transparent transparent;
+}
+.axis:left {
+    -fx-border-color: transparent black transparent transparent;
+}
+.axis Text{
+    -fx-fill: black;
+}
+.tick-mark {
+    -fx-font-size: 15px;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1 );
+}
+.mainFxmlClass {
+
+}

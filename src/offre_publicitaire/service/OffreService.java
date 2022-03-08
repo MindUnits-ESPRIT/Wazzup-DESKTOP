@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 import offre_publicitaire.entities.offre_publicitaire;
 import utilisateur.entities.utilisateur;
 import database.db;
+import javafx.fxml.FXML;
+import paiement.GUI.FactureFXMLController;
 
 
 /**
@@ -105,6 +107,20 @@ public class OffreService implements Ioffre<offre_publicitaire> {
              System.out.println("Utilisateur non supprimé "+ ex);
         }
     }
-
+        @FXML
+        void countpay(){
+  
+        String req="SELECT COUNT(`ID_paiement`) FROM paiement";
+        try {
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            if(rs.next()){
+            txtnbrpay.setText(rs.getString(1));
+                System.out.println("bbbbbb");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FactureFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+} 
     
 }

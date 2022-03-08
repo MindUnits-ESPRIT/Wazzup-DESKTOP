@@ -23,7 +23,7 @@ public class test {
         System.out.println(cnx.hashCode());
         OffreService os = new OffreService();
         offre_publicitaire o = new offre_publicitaire("java","test",4);
-        utilisateur u1 = new utilisateur(1,"malek","abbes");
+        utilisateur u1 = new utilisateur(19,"spx","tn");
         offre_publicitaire o2 = new offre_publicitaire("wiki","pc",4);
         os.ajouter(o,u1);
         //os.supprimer(2);
