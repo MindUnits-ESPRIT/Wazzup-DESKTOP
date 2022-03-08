@@ -9,9 +9,18 @@ and open the template in the editor.
 */
 
 .ui{
-       -fx-background-color: rgba(0, 162, 178, 0.8);
+       -fx-background-color: #008080;
 }
 .homeprof{
                 -fx-border-color:#fff;
 }
+.profile{
+    -fx-hgap: 20px;
+    -fx-padding: 40px;
 
+    -fx-background-color: rgba(40, 202, 174, 0.68);
+    -fx-background-radius: 50px 0px 0px 50px;
+    -fx-border-radius: 50px;
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 0, 0, 0, 0);
+}

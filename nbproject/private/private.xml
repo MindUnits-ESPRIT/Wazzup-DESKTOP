@@ -4,16 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/Imageupload/ImageuploadController.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/style.css</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/menuUI.css</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/authinterface.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/Imageupload/Imageupload.fxml</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/UIuser.fxml</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/interets.java</file>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/AuthController.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/signup/signup.fxml</file>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/signup/SignupController.java</file>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/UIuserController.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/Imageupload/Imageupload.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/authinterface.java</file>
+            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/signup/signupinterface.java</file>
             <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/UIuser.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIuser/Imageupload/Imageupload.fxml</file>
         </group>
     </open-files>
 </project-private>

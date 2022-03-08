@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.MaskerPane?>
 
-<VBox fx:id="root" prefHeight="452.0" prefWidth="362.0" spacing="10" style="-fx-background-color: transparent; -fx-background-radius: 35; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.UIuser.UIuserController">
+<VBox id="root" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="988.0" spacing="10" style="-fx-background-color: transparent; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.UIuser.UIuserController">
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="677.0" styleClass="ui" stylesheets="@style.css">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="997.0" styleClass="ui" stylesheets="@style.css">
    <children>
-      <AnchorPane layoutX="288.0" prefHeight="608.0" prefWidth="590.0" style="-fx-background-color: #008080;">
+      <AnchorPane layoutX="288.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="600.0" style="-fx-background-color: #008080;">
          <children>
-            <AnchorPane prefHeight="673.0" prefWidth="584.0">
+            <AnchorPane layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="855.0" prefWidth="709.0" styleClass="g_user">
                <children>
-                  <Label layoutX="226.0" layoutY="287.0" text="Gestion profile" textFill="WHITE" />
-                  <Button layoutX="184.0" layoutY="355.0" mnemonicParsing="false" text="Button" />
+                     <MaskerPane layoutX="-1.0" prefHeight="686.0" prefWidth="607.0" visible="false" />
+                     <TableView layoutX="3.0" layoutY="1.0" prefHeight="855.0" prefWidth="709.0" style="-fx-background-color: rgba(245, 235, 240, 0.9);">
+                       <columns>
+                         <TableColumn prefWidth="114.0" styleClass="tableview" text="        Email" />
+                         <TableColumn prefWidth="109.0" text="    Activation" />
+                           <TableColumn prefWidth="152.0" text="       Evaluations" />
+                           <TableColumn minWidth="0.0" prefWidth="152.0" text="     Sponsorisation" />
+                           <TableColumn prefWidth="180.0" text="              Outils" />
+                       </columns>
+                     </TableView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="686.0" prefWidth="590.0" visible="false">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="709.0" styleClass="profile" visible="false">
                <children>
-                  <Label layoutX="214.0" layoutY="289.0" text="HOME PROFILE" textFill="WHITE" />
-                     <ImageView fitHeight="31.0" fitWidth="39.0" layoutX="560.0" layoutY="-1.0">
+                     <ImageView id="closewindow" fx:id="closewindow" fitHeight="31.0" fitWidth="39.0" layoutX="656.0" layoutY="7.0" onMouseClicked="#closeWindow">
                         <image>
                            <Image url="@../resources/closewindow.png" />
                         </image>
@@ -35,108 +48,112 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </ImageView>
-                     <JFXButton id="closewindow" fx:id="closewindow" layoutX="566.0" layoutY="2.0" onAction="#closeWindow" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: transparent;" text=" " textFill="WHITE">
+                     <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="275.0" layoutY="238.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
+                     <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="275.0" layoutY="358.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
+                     <JFXButton id="btn_modifier" fx:id="btn_modifier" layoutX="240.0" layoutY="521.0" onAction="#Update" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Modifier" textFill="WHITE">
                         <cursor>
                            <Cursor fx:constant="HAND" />
-                        </cursor>
-                     </JFXButton>
+                        </cursor></JFXButton>
+                     <JFXButton id="cancel_update" fx:id="cancel_update" layoutX="413.0" layoutY="520.0" onAction="#CancelUpdate" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Annuler" textFill="WHITE">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor></JFXButton>
+                     <Label layoutX="128.0" layoutY="304.0" text="Date de naissance" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <JFXDatePicker id="dob" fx:id="dob" defaultColor="#ffffffa6" layoutX="275.0" layoutY="300.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
+                     <Label layoutX="128.0" layoutY="240.0" text="Email" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="130.0" layoutY="361.0" prefHeight="17.0" prefWidth="126.0" text="num_telephone" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <ImageView fitHeight="44.0" fitWidth="52.0" layoutX="265.0" layoutY="15.0">
+                        <image>
+                           <Image url="@../resources/accountinfo.png" />
+                        </image>
+                     </ImageView>
+                     <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="275.0" layoutY="423.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
+                     <Label layoutX="132.0" layoutY="431.0" text="Mot de passe" textFill="WHITE" />
+                     <Label id="modification" fx:id="modification" alignment="CENTER" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="354.0" textFill="#ee1d1d" />
+                     <Pane layoutX="24.0" layoutY="17.0" prefHeight="44.0" prefWidth="232.0" style="-fx-background-color: rgba(8, 224, 141, 0.61); -fx-background-radius: 35px;">
+                        <children>
+                           <Label alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="10.0" prefHeight="25.0" prefWidth="176.0" text="Paramétres du compte" textFill="WHITE">
+                              <font>
+                                 <Font size="16.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </Pane>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <VBox layoutY="151.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="288.0" style="-fx-background-radius: 30px;">
+      <VBox layoutX="-1.0" layoutY="151.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="289.0" style="-fx-background-radius: 30px;">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#profileTAB" prefHeight="57.0" prefWidth="284.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
                <children>
-                  <Label layoutX="41.0" layoutY="17.0" prefHeight="21.0" prefWidth="118.0" text="Gestion de profile" textFill="#464646">
+                  <Label layoutX="58.0" layoutY="18.0" prefHeight="21.0" prefWidth="159.0" text="Gestion du compte" textFill="#f0f0f0">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@..\resources\icons8_user_30px_1.png" />
-                     </image>
-                  </ImageView>
+                     <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="15.0" layoutY="19.0">
+                        <image>
+                           <Image url="@../resources/settings.png" />
+                        </image>
+                     </ImageView>
                </children>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+            <AnchorPane id="collab" fx:id="collab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#CollabTAB" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
                <children>
-                  <Label layoutX="41.0" layoutY="17.0" prefHeight="21.0" prefWidth="167.0" text="Gestion notifications" textFill="#464646">
+                  <Label layoutX="61.0" layoutY="17.0" prefHeight="21.0" prefWidth="167.0" text="Gestion collaborations" textFill="#f0f0f0d4">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@..\resources\icons8_user_30px_1.png" />
-                     </image>
-                  </ImageView>
+                     <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="17.0" layoutY="18.0">
+                        <image>
+                           <Image url="@../resources/collab.png" />
+                        </image>
+                     </ImageView>
                </children>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
-               <children>
-                  <Label layoutX="41.0" layoutY="17.0" prefHeight="21.0" prefWidth="118.0" text="Gestion des offres " textFill="#464646">
+            <AnchorPane fx:id="pub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#offresTAB" prefHeight="54.0" prefWidth="285.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+                  <children>
+                  <Label layoutX="61.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion des Utilisateurs" textFill="#f2f2f2d4">
                      <font>
-                        <Font name="Arial Bold" size="13.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="7.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@..\resources\icons8_user_30px_1.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+                     <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="17.0" layoutY="16.0">
+                        <image>
+                           <Image url="@../resources/offre_pub.png" />
+                        </image>
+                     </ImageView>
+                  </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+            <AnchorPane prefHeight="531.0" prefWidth="289.0">
                <children>
-                  <Label layoutX="41.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion des offres publicitaires" textFill="#464646">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="7.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@..\resources\icons8_user_30px_1.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="7.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@..\resources\icons8_user_30px_1.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="41.0" layoutY="17.0" prefHeight="21.0" prefWidth="118.0" text="Liste Utilisateurs" textFill="#464646">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </AnchorPane>
-            <AnchorPane prefHeight="291.0" prefWidth="288.0">
-               <children>
-                  <Button fx:id="quitbutton" layoutX="58.0" layoutY="154.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="159.0" style="-fx-background-color: #FF002B;" text="Deconnexion" textFill="#fff2f2">
+                  <Button fx:id="quitbutton" layoutX="58.0" layoutY="231.0" mnemonicParsing="false" onAction="#Deconnexion" prefHeight="44.0" prefWidth="159.0" style="-fx-background-color: rgba(255, 0, 0, 0.83);" text="Deconnexion" textFill="#fff2f2">
                      <font>
                         <Font name="Arial Bold" size="17.0" />
                      </font>
@@ -144,49 +161,29 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <JFXButton id="publish" fx:id="publish" layoutX="58.0" layoutY="30.0" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: #008080; -fx-background-radius: 20px;" text="Publier" textFill="WHITE">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor></JFXButton>
-                  <JFXButton id="createevent" fx:id="createevent" layoutX="58.0" layoutY="86.0" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: #008080; -fx-background-radius: 20px;" text="Créer evenement" textFill="WHITE">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor></JFXButton>
+                     <Line endX="608.0" layoutX="393.0" layoutY="-284.0" startX="-100.0" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
       <Label id="age" fx:id="age" layoutX="105.0" layoutY="41.0" textFill="WHITE" />
-      <Circle id="photoup" fx:id="photoup" fill="#fff2f2" layoutX="51.0" layoutY="41.0" onMouseClicked="#click" radius="37.0" stroke="TRANSPARENT" strokeType="INSIDE">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Circle>
-      <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="32.0" layoutY="26.0">
-         <image>
-            <Image url="@../resources/profilephoto.png" />
-         </image>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-      </ImageView>
-      <Label layoutX="20.0" layoutY="110.0" text="Interets : " textFill="WHITE" />
-      <Label id="nom" fx:id="nom" layoutX="157.0" layoutY="19.0" textFill="#fff2f2">
+      <Label id="nom" fx:id="nom" layoutX="189.0" layoutY="43.0" prefHeight="16.0" prefWidth="52.0" textFill="#fff2f2">
          <font>
-            <Font name="Arial Bold" size="12.0" />
+            <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <Label id="prenom" fx:id="prenom" layoutX="102.0" layoutY="19.0" textFill="#fff2f2">
+      <Label id="prenom" fx:id="prenom" layoutX="113.0" layoutY="43.0" prefHeight="20.0" prefWidth="67.0" textFill="#fff2f2">
          <font>
-            <Font name="Arial Bold" size="12.0" />
+            <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView layoutX="226.0" layoutY="88.0">
-         <image>
-            <Image url="@../resources/showprofile.png" />
-         </image>
-      </ImageView>
-         <Label layoutX="147.0" layoutY="89.0" text="Voir profile" textFill="WHITE" />
-         <Line endX="217.0" layoutX="71.0" layoutY="151.0" startX="-71.0" stroke="#00000035" />
+         <Line endX="217.0" layoutX="73.0" layoutY="124.0" startX="-71.0" stroke="#00000035" />
+         <Label layoutX="113.0" layoutY="10.0" style="-fx-font-weight: 900;" text="Administrateur" textFill="#ff4d4d" />
+         <ImageView fitHeight="73.0" fitWidth="90.0" layoutX="14.0" layoutY="12.0">
+            <image>
+               <Image url="@mindunits.png" />
+            </image>
+         </ImageView>
    </children>
 </AnchorPane>
 </VBox>

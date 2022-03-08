@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.UUID;
+import utils.md5;
 
 import utilisateur.entities.utilisateur;
 import database.db;
@@ -20,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.MessagingException;
+import utilisateur.entities.interets;
 import utils.SessionUser;
 import utils.mailvalidation;
 
@@ -31,6 +33,8 @@ import utils.mailvalidation;
 public class UtilisateurService implements Iutilisateur<utilisateur> {
     private Connection conn;
     public boolean added;
+    public boolean modified;
+    public boolean imageuploaded;
     
     //private Statement ste;
     private PreparedStatement pste;
@@ -254,6 +258,46 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
 
     }
+    // Verifier si l'utilisateur posséde une photo de profile         
+    public boolean PictureCheck(int id) {
+        boolean hasphoto=false;
+        String check = "SELECT avatar FROM `utilisateurs` WHERE `ID_Utilisateur`="+id;
+        
+        try {
+            PreparedStatement pste = conn.prepareStatement(check);
+            ResultSet rs = pste.executeQuery(check);
+            if (rs.next())   
+          {
+              if(rs.getString(1)==null){
+               hasphoto=false;
+              } else {
+             hasphoto=true;
+              }
+          } 
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        
+        }
+        return hasphoto;
+    }
+    
+    // Upload Profile picture
+    
+        public void PictureUpload(int id,String picture) {
+        String upload = "UPDATE `utilisateurs` SET `avatar`=? WHERE `ID_Utilisateur`="+id;
+         try {
+            pste = conn.prepareStatement(upload);
+            pste.setString(1,picture);
+            pste.executeUpdate();
+            System.out.println("Image mise a jour");
+            imageuploaded=true;
+        } catch (SQLException ex) {
+         System.out.println("Erreur de modification d'image");
+         imageuploaded=false;
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
 
          // Method CRUD#1 : Ajouter
     @Override
@@ -326,6 +370,55 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
        
 
     }
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++// 
+/////////////////////////////////////////////////////// INTERETS UTILISATEUR ////////////////////////////////////////////////////////
+    
+   
+            public List<String> getAllInterets_Combobox(){
+         String req="SELECT COLUMN_TYPE FROM information_schema.`COLUMNS` WHERE TABLE_NAME = 'interets' AND COLUMN_NAME = 'nom_interet'";
+         List<String> interets = new ArrayList<>();     
+         try {
+          pste = conn.prepareStatement(req);
+         ResultSet resFetch = pste.executeQuery();
+                   if (resFetch.next())
+          {
+        String interet = resFetch.getString(1);
+        interet=interet.substring(5,interet.length()-1);
+        String [] List = interet.split(",");
+
+        for(String s:List){
+        interets.add(s.substring(1, s.length()-1));
+        
+        }
+          } else {
+              System.out.println("Aucun interets");
+            }
+                } catch (Exception e) {
+                }
+             return interets;
+    }
+        public List<interets> getAllInterets(int id){
+         String req="SELECT nom_interet from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur="+id;
+         List<interets> all_interets = new ArrayList<>();     
+         try {
+          pste = conn.prepareStatement(req);
+         ResultSet resFetch = pste.executeQuery();
+                   if (resFetch.next())
+          {
+       
+//         interets.add(s.substring(1, s.length()-1));
+          interets listinteret = new interets(resFetch.getString(1));
+          all_interets.add(listinteret);
+        
+          } else {
+              System.out.println("Aucun interets");
+            }
+                } catch (Exception e) {
+                }
+             return all_interets;
+    }
+
+    
     @Override
      public void ajouter_interet(int id,String interet) {
          String intreq="INSERT INTO `interets` (`nom_interet`,`ID_Utilisateur`) VALUES (?,?)";
@@ -342,16 +435,17 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
          
          
      }
-          public void interet_utilisateur(int id) {
+          public List<String> interet_utilisateur(int id) {
          String intusr="SELECT nom_interet,prenom,nom from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur="+id;
+         List<String> interet_user = new ArrayList<>(); 
          try {
           pste = conn.prepareStatement(intusr);
           ResultSet resFetch = pste.executeQuery();
             if (resFetch.next() == false)
-          {
+          {   
               System.out.println("L'utilisateur n'a aucun interet");
           } else {
-                System.out.println("Les interets de L'utilisateur "+resFetch.getString(3)+" "+resFetch.getString(2)+" Sont : ");
+                interet_user.add(resFetch.getString(1));
                 while(resFetch.next() == true)
                 System.out.println(resFetch.getString(1));
             }
@@ -359,9 +453,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("erreur de fetch"+ ex);
       }
-         
+        return interet_user; 
      }
-     
+  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++// 
      
          // Method : Affichage
     @Override
@@ -395,8 +489,8 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     }
          // Method CRUD#2: Modification
     @Override
-    public void modifier(int i,utilisateur u) {
-        System.out.println(u.getID_Utilisateur());
+    public void modifier(int i,utilisateur u, int modif) {
+        if (modif == 1) {
         String req="UPDATE `utilisateurs` SET `nom`=? , `prenom`=? ,`datenaissance`=? ,`num_tel`=? ,`genre`=? , `email`=? , `type_user`=? , `evaluation`=? WHERE `ID_Utilisateur`='"+i+"'";
         try {
             pste = conn.prepareStatement(req);
@@ -410,9 +504,29 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste.setInt(8,u.getEvaluation());
             pste.executeUpdate();
             System.out.println("Utilisateur bien modifié");
+            modified=true;
         } catch (SQLException ex) {
          System.out.println("Utilisateur n'a pas été modifié");
+         modified=false;
          Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else if (modif == 2){
+        String req="UPDATE `utilisateurs` SET `datenaissance`=? ,`num_tel`=? ,`genre`=? , `email`=? ,`mdp`=? WHERE `ID_Utilisateur`='"+i+"'";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.setString(1,u.getDatenaissance());
+            pste.setString(2,u.getNum_tel());
+            pste.setString(3,u.getGenre());
+            pste.setString(4,u.getEmail());
+            pste.setString(5,md5.getMd5(u.getMdp()));
+            pste.executeUpdate();
+            System.out.println("Utilisateur bien modifié");
+            modified=true;
+        } catch (SQLException ex) {
+         System.out.println("Utilisateur n'a pas été modifié");
+         modified=false;
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
          // Method CRUD#3: Suppression
