@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="dependencies">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dependencies/json-20211205.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencies/json-simple-1.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/charm-glisten-4.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

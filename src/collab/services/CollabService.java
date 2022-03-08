@@ -266,7 +266,7 @@ public class CollabService implements ICollab<Salle_Collaboration> {
                 user.setNom(rs.getString(2));
                 user.setPrenom(rs.getString(3));
                 user.setGenre(rs.getString(5));
-                user.setNum_tel(rs.getInt(6));
+                user.setNum_tel(rs.getString(6));
                 user.setEmail(rs.getString(7));
                 user.setMdp(rs.getString(8));
                 user.setListe_Collaborations(rs.getString(9));
@@ -292,7 +292,7 @@ public class CollabService implements ICollab<Salle_Collaboration> {
                 user.setNom(rs.getString(2));
                 user.setPrenom(rs.getString(3));
                 user.setGenre(rs.getString(5));
-                user.setNum_tel(rs.getInt(6));
+                user.setNum_tel(rs.getString(6));
                 user.setEmail(rs.getString(7));
                 user.setMdp(rs.getString(8));
                 user.setListe_Collaborations(rs.getString(9));
