@@ -5,7 +5,6 @@
  */
 package paiement.GUI;
 
-import facture.entities.facture;
 import facture.services.factureService;
 import java.io.IOException;
 import java.net.URL;
@@ -28,11 +27,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import offre_publicitaire.entities.offre_publicitaire;
 import offre_publicitaire.service.OffreService;
 import paiement.entities.paiement;
 import paiement.service.PaiementService;
-import utilisateur.entities.utilisateur;
 import utilisateur.services.UtilisateurService;
 
 /**
