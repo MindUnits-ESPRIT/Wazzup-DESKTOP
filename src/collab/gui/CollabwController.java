@@ -13,43 +13,43 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import utilisateur.entities.utilisateur;
-/**
- * FXML Controller class
- * @author mouhi
- */
+//@author mouhib
 public class CollabwController implements Initializable {
+     int iduser = 23;
      Parent collab_page_parent;
      Parent collab_page_list;
      ArrayList<utilisateur> list = new ArrayList();
-        // test DB Connexion
-        db cnx = db.getInstance();
-        CollabService cs = new CollabService();
-        ProjetService ps = new ProjetService();
+     db cnx = db.getInstance();
+     CollabService cs = new CollabService();
+     ProjetService ps = new ProjetService();
+     
     @FXML
     private TextField nomid;
     public Label area1;
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {     
     }    
     @FXML
+    //add collaboration fonction
     private void add(ActionEvent event) {
+        
+     
         String name = nomid.getText();
-         if (nomid.getText().isEmpty()){
-        area1.setText("choissiser un nom");
+        if (nomid.getText().isEmpty()){
+        area1.setText("choisissez un nom");
         }
          else{
-        Salle_Collaboration salle = new Salle_Collaboration(list, "http://example.com/" + name, name, 7);
-        int r = cs.creer(salle, 7);
+        Salle_Collaboration salle = new Salle_Collaboration(list, "http://example.com/" + name, name, iduser);
+        int r = cs.creer(salle, iduser);
         if (r==1){
             try {       
                collab_page_parent = FXMLLoader.load(getClass().getResource("PCollab.fxml"));
@@ -57,16 +57,18 @@ public class CollabwController implements Initializable {
                 Logger.getLogger(CollabwController.class.getName()).log(Level.SEVERE, null, ex);
             }
              Scene scene = new Scene(collab_page_parent);      
-            Stage CStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
-            CStage.hide();
-            CStage.setScene(scene);
-            CStage.show();
+             Stage CStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+             Salle_Collaboration s = cs.getSalleInfo(nomid.getText()); 
+             CStage.setUserData(s); 
+             CStage.hide();
+             CStage.setScene(scene);
+             CStage.show();
+             cs.Notificationmanager(3);
         }else {       
           area1.setText("Collaboration exist");              
-        } } 
-    }
-
+        } } }
     @FXML
+   //button afficher collab fonction 
     private void ListerCollabs(ActionEvent event) {          
             try {       
                collab_page_list = FXMLLoader.load(getClass().getResource("CollabListe.fxml"));

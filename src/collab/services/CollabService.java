@@ -1,5 +1,4 @@
 package collab.services;
-
 import collab.entities.Salle_Collaboration;
 import database.db;
 import java.sql.Connection;
@@ -14,6 +13,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import utilisateur.entities.utilisateur;
 
 // @author mouhib
@@ -58,7 +64,15 @@ public class CollabService implements ICollab<Salle_Collaboration> {
                         while (rs2.next()) {
                             System.out.println("ID du collab creer est : " + rs2.getInt("ID_Collab"));
                             salle.setID_Collab(rs2.getInt("ID_Collab"));
-                        }
+                        } 
+                        String reqi = "INSERT INTO `collab_members` (`ID_Collab`, `ID_Utlisateur`) VALUE ( '"+salle.getID_Collab()+ "','" + id_user + "' )";
+                        try {
+                        pste1 = conn.prepareStatement(reqi);
+                        pste1.executeUpdate(reqi);       
+                    } catch (SQLException ex) {
+                        Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("entry not added " + ex);
+                    }  
                     } catch (SQLException ex) {
                         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("ID non obtenu " + ex);
@@ -130,10 +144,9 @@ public class CollabService implements ICollab<Salle_Collaboration> {
     @Override
     public ObservableList<Salle_Collaboration> afficher(int id) {
         ObservableList<Salle_Collaboration> salles = FXCollections.observableArrayList();
-        String req = "SELECT * FROM `salle_collaboration` where `ID_Utilisateur` = ? ";
+        String req = "SELECT * FROM salle_collaboration inner join collab_members ON collab_members.ID_Collab = salle_collaboration.ID_Collab where collab_members.ID_Utlisateur = '"+id+"' GROUP BY Nom_Collab";
         try {
             pste = conn.prepareStatement(req);
-            pste.setInt(1, id);
             ResultSet rs = pste.executeQuery();
             System.out.println("salles de collaboration creer par l'utilisateur du id " + id + " sont:");
             while (rs.next()) {
@@ -149,28 +162,26 @@ public class CollabService implements ICollab<Salle_Collaboration> {
         }
         return salles;
     }
-
+ 
     @Override
     public ObservableList<utilisateur> afficherCollab_Membres(int id) {
         ObservableList<utilisateur> users = FXCollections.observableArrayList();
-        String req = "SELECT ID_Utilisateur,CONCAT(prenom, ' ', nom) AS membre FROM `collab_members` inner join `utilisateurs` on utilisateurs.ID_Utilisateur = collab_members.ID_utlisateur where `ID_Collab` = '"
-                + id + "'";
+        String req = "SELECT ID_Utilisateur,CONCAT(prenom, ' ', nom) AS membre FROM `collab_members` inner join `utilisateurs` on utilisateurs.ID_Utilisateur = collab_members.ID_utlisateur where `ID_Collab` = '"+id+"'";
+       
         try {
             ste = conn.createStatement();
             ResultSet rs = ste.executeQuery(req);
-            if (rs.next() == true) {
                 System.out.println("les membre appartenant au collab du id " + id + " sont:");
                 while (rs.next()) {
+                    
                     utilisateur e = new utilisateur();
                     e.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
                     e.setNom(rs.getString("membre"));
                     users.add(e);
+                   
                 }
-                return users;
-            } else {
-                System.out.println("collab n'exist pas ou pas d'utilisateurs");
-
-            }
+              
+           
         } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("membres not fetched " + ex);
@@ -179,15 +190,15 @@ public class CollabService implements ICollab<Salle_Collaboration> {
     };
 
     @Override
-    public int ajouter_membre(int idc, int id) {
-        String req = "SELECT * FROM `utilisateurs` where `ID_Utilisateur` = '" + id + "'";
+    public int ajouter_membre(int idc, String id) {
+        String req = "SELECT * FROM `utilisateurs` WHERE CONCAT(ID_Utilisateur,' ',prenom,' ',nom) = '"+id+"'";
         try {
             ste = conn.createStatement();
             ResultSet rs = ste.executeQuery(req);
             if (rs.next() == true) {
-
+                String ids = rs.getString("ID_Utilisateur");
                 String reqi = "INSERT INTO `collab_members` (`ID_Collab`, `ID_Utlisateur`) VALUE ('"
-                        + idc + "','" + id + "')";
+                        + idc + "','" + ids + "')";
                 try {
                     ste = conn.createStatement();
                     ste.executeUpdate(reqi);
@@ -217,8 +228,10 @@ public class CollabService implements ICollab<Salle_Collaboration> {
             ResultSet rs2 = ste1.executeQuery(req);
 
             while (rs2.next()) {
-
                 s.setID_Collab(rs2.getInt("ID_Collab"));
+                s.setNom_Collab(rs2.getString("Nom_Collab"));
+                s.setURL_Collab(rs2.getString("URL_Collab"));
+                s.setID_Utilisateur(rs2.getInt("ID_Utilisateur"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CollabService.class.getName()).log(Level.SEVERE, null, ex);
@@ -242,8 +255,8 @@ public class CollabService implements ICollab<Salle_Collaboration> {
     }
 
     @Override
-    public utilisateur getinfo(int idu) {
-        String req = "SELECT * FROM `utilisateurs` where ID_Utilisateur = '" + idu + "'";
+    public utilisateur getinfo(String idu) {
+        String req = "SELECT * FROM `utilisateurs` WHERE CONCAT(ID_Utilisateur,' ',prenom,' ',nom) = '"+idu+"'";
         utilisateur user = new utilisateur();
         try {
             pste = conn.prepareStatement(req);
@@ -265,6 +278,122 @@ public class CollabService implements ICollab<Salle_Collaboration> {
             Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return user;
+    }
+
+     @Override
+    public utilisateur getinfo2(int idu) {
+        String req = "SELECT * FROM `utilisateurs` WHERE ID_Utilisateur = '"+idu+"'";
+        utilisateur user = new utilisateur();
+        try {
+            pste = conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            while (rs.next()) {
+                user.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                user.setNom(rs.getString(2));
+                user.setPrenom(rs.getString(3));
+                user.setGenre(rs.getString(5));
+                user.setNum_tel(rs.getString(6));
+                user.setEmail(rs.getString(7));
+                user.setMdp(rs.getString(8));
+                user.setListe_Collaborations(rs.getString(9));
+                user.setType_user(rs.getString(10));
+                user.setEvaluation(rs.getInt(11));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+    @Override
+    public void Notificationmanager(int mode) {
+           Notifications not = Notifications.create()      
+                 .graphic(null)
+                 .hideAfter(Duration.seconds(10))
+                 .position(Pos.BOTTOM_RIGHT)
+                 .onAction(new EventHandler<ActionEvent>(){
+         @Override
+         public void handle (ActionEvent event) {
+             System.out.println("clicked on notification");
+         }
+         }) ;
+           not.darkStyle();
+          switch(mode) {
+  case 0:
+   
+   not.title("Success");
+                 not.text("Membre ajouter et notifier par un mail" );
+                 not.showInformation();
+    break;
+  case 1:
+    
+    not.title("Success ");
+                 not.text("Suppression terminer");
+                 not.showWarning();
+    break;
+    case 2:
+     
+                 not.text("Modification terminer");
+                 not.title("Success");
+                 not.showInformation();
+    break;
+    case 3:
+     
+                 not.text("Collaboration creer");
+                 not.title("Success");
+                 not.showConfirm();
+    break;
+    case 4:
+     
+                 not.text("Please create a project first");
+                 not.title("No project found");
+                 not.showWarning();
+    break;
+    case 8:
+     
+                 not.text("You are just a member in this collaboration");
+                 not.title("Action interdit");
+                 not.showWarning();
+    break;
+    case 9:
+     
+                 not.text("You can't remove yourself from \n your own collab");
+                 not.title("Action interdit");
+                 not.showWarning();
+    break;
+    case 10:
+     
+                 not.text("Félicitaion \n Projet trello créer");
+                 not.title("Projet Créer");
+                 not.showConfirm();
+    break;
+  default:
+   
+}  
+           
+    }
+
+    @Override
+    public ObservableList<utilisateur> afficherMembresNotInCollab(int idc) {
+          ObservableList<utilisateur> users = FXCollections.observableArrayList();
+        String req = "SELECT ID_Utilisateur,prenom,nom FROM `utilisateurs` WHERE (ID_Utilisateur,prenom, nom) NOT IN(SELECT ID_Utilisateur,prenom,nom FROM `Utilisateurs` inner join `collab_members` on utilisateurs.ID_Utilisateur = collab_members.ID_utlisateur where `ID_Collab` = '"+idc+"')GROUP BY nom,prenom ORDER BY ID_Utilisateur";
+        
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+             
+                users.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }return users;
     }
 
 }
