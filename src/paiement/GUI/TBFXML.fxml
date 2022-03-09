@@ -24,7 +24,7 @@
          <center>
             <HBox fx:id="HboxCenter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="764.0" style="-fx-background-color: #348781; -fx-background-radius: 20;" translateY="2.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="HboxCenterLeft" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="314.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="430.0" translateY="90.0">
+                  <HBox fx:id="HboxCenterLeft" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="314.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="440.0" translateY="90.0">
                      <children>
                         <AreaChart fx:id="AreaChart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="219.0" prefWidth="321.0" stylesheets="@tbfxml.css" title="Historique de paiement">
                           <xAxis>
@@ -40,12 +40,14 @@
                         </AreaChart>
                      </children>
                   </HBox>
-                  <VBox fx:id="vboxtabv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="402.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="-300.0" translateY="20.0">
+                  <VBox fx:id="vboxtabv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="417.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="-300.0" translateY="20.0">
                      <children>
-                        <TableView fx:id="tabv" prefHeight="385.0" prefWidth="390.0">
+                        <TableView fx:id="tabv" prefHeight="390.0" prefWidth="416.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="colid" prefWidth="105.0" text="ID_Paiement" />
+                            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="115.0" text="Date_Paiement" />
+                              <TableColumn fx:id="colmp" prefWidth="144.0" text="Methode_Paiement" />
+                              <TableColumn fx:id="colprix" prefWidth="36.0" text="Prix" />
                           </columns>
                         </TableView>
                      </children>

@@ -22,6 +22,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -67,7 +68,19 @@ public class TBFXMLController implements Initializable {
     private VBox vboxtabv;
 
     @FXML
-    private TableView<?> tabv;
+    private TableView<paiement> tabv;
+
+    @FXML
+    private TableColumn<paiement, String> colid;
+
+    @FXML
+    private TableColumn<paiement, String> coldate;
+
+    @FXML
+    private TableColumn<paiement, String> colmp;
+
+    @FXML
+    private TableColumn<paiement, String> colprix;
 
     @FXML
     private HBox HBoxBot;
@@ -98,7 +111,6 @@ public class TBFXMLController implements Initializable {
 
     @FXML
     private Text nbre;
-    
    /* @FXML
     public List<paiement>remplirArea() {
           List<paiement> paiements = new ArrayList<>();

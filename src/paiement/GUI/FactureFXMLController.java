@@ -193,7 +193,7 @@ void search(){
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        cnx= db.getInstance().getCnx();
-        //remplirdate();
+        remplirdate();
        // rempliroffre();
 
         
