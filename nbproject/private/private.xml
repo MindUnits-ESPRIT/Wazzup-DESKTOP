@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/paiement/service/PaiementService.java</file>
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/paiement/GUI/FactureFXMLController.java</file>
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/paiement/GUI/TBFXML.fxml</file>
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/paiement/service/Ipaiement.java</file>
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/paiement/GUI/TBFXMLController.java</file>
             <file>file:/C:/Users/Ahmed%20Guedri/Wazzup-DESKTOP/src/publication/services/publicationService.java</file>
+=======
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/GUI/TBFXMain.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/GUI/tbfxml.css</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/facture/test.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/service/PaiementService.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/GUI/paiementFXMain.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/publication/services/publicationService.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/paiement/GUI/TBFXMLController.java</file>
+            <file>file:/C:/Users/SBS/Wazzup-DESKTOP/src/offre_publicitaire/service/OffreService.java</file>
+>>>>>>> a2d90e8cae8bd285f78c90d9ce37d2113c5b744c
         </group>
     </open-files>
 </project-private>

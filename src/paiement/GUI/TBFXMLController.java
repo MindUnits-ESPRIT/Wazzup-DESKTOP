@@ -22,10 +22,12 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import paiement.entities.paiement;
 import paiement.service.PaiementService;
@@ -42,17 +44,15 @@ public class TBFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    Connection cnx;
+  /*  Connection cnx;
     public PreparedStatement pste;
-    public ResultSet result;
-     @FXML
+    public ResultSet result;*/
+    
+    @FXML
     private AnchorPane AnchroPane;
 
     @FXML
     private BorderPane BorderPane;
-
-    @FXML
-    private HBox HboxTop;
 
     @FXML
     private HBox HboxCenter;
@@ -64,10 +64,10 @@ public class TBFXMLController implements Initializable {
     private AreaChart<?, ?> AreaChart;
 
     @FXML
-    private HBox HboxCenterRight;
+    private VBox vboxtabv;
 
     @FXML
-    private ScatterChart<?, ?> ScatterChart;
+    private TableView<?> tabv;
 
     @FXML
     private HBox HBoxBot;
@@ -76,16 +76,16 @@ public class TBFXMLController implements Initializable {
     private HBox HboxBotLeft;
 
     @FXML
-    private Text nbrpay;
+    private Label labelpay;
 
     @FXML
-    private TextField txtnbrpay;
+    private Text nbrpay;
 
     @FXML
     private HBox HboxBotCenter;
 
     @FXML
-    private TextField txtnbrpu;
+    private Label labelpub;
 
     @FXML
     private Text nbrpu;
@@ -94,16 +94,10 @@ public class TBFXMLController implements Initializable {
     private HBox HboxBotRight;
 
     @FXML
-    private TextField txtpe;
+    private Label labelev;
 
     @FXML
     private Text nbre;
-    @FXML
-    private Label labelpay;
-        @FXML
-    private Label labelpub;
-         @FXML
-    private Label labelev;
     
    /* @FXML
     public List<paiement>remplirArea() {
@@ -146,7 +140,7 @@ public class TBFXMLController implements Initializable {
                  series.getData().add(new XYChart.Data(s,p.getPrix()));
                  //System.out.println("PRIX  /  PAY : "+p.getPrix()+" "+p.getDate_paiement());
              }
-              ScatterChart.getData().add(series);
+              
               AreaChart.getData().add(series);
               labelpay.setText(PS.countpay());
               labelpub.setText(PUS.countpub());
