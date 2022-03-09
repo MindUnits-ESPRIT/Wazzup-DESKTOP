@@ -14,6 +14,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -40,6 +41,7 @@ public class authinterface extends Application {
             primaryStage.setY(event.getScreenY() - yOffset);
         });
         Scene scene = new Scene(root,562,453);
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Authentification");
         primaryStage.setScene(scene);

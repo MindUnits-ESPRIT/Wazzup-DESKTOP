@@ -17,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.auth.AuthController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="576.0" style="-fx-background-radius: 35px 35px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.auth.AuthController">
    <children>
-      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="576.0" spacing="45.0" style="-fx-background-color: #008080;" styleClass="-fx" titleText="" />
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="576.0" spacing="45.0" style="-fx-background-color: #008080; -fx-background-radius: 0px 35px;" styleClass="-fx" titleText="" />
       <Button id="login" fx:id="auth_login" layoutX="270.0" layoutY="296.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: #008080; -fx-background-radius: 35px;" text="S'authentifier   " textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -48,7 +48,7 @@
             </Text>
          </children></Pane>
       <ToggleButtonGroup layoutX="449.0" layoutY="248.0" selectionType="SINGLE" />
-      <Button id="signup" fx:id="signup" layoutX="437.0" layoutY="12.0" mnemonicParsing="false" onAction="#Signup" style="-fx-background-color: #0ED5A9;" styleClass="text-field" stylesheets="@css/textfield.css" text="         S'inscrire" textFill="WHITE">
+      <Button id="signup" fx:id="signup" layoutX="436.0" layoutY="12.0" mnemonicParsing="false" onAction="#Signup" style="-fx-background-color: #0ED5A9; -fx-background-radius: 30px 30px 30px 30px;" styleClass="text-field" stylesheets="@css/textfield.css" text="      S'inscrire" textFill="WHITE">
          <font>
             <Font name="Microsoft New Tai Lue" size="15.0" />
          </font>
@@ -56,7 +56,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="445.0" layoutY="15.0">
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="448.0" layoutY="20.0">
          <image>
             <Image url="@..\resources\signup.png" />
          </image>

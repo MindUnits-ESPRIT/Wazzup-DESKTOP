@@ -86,7 +86,7 @@ private Label invalid_email;
 @FXML
 private Label invalid_pwd1;
 @FXML
-private JFXButton closewindow;
+private ImageView closewindow;
     @FXML
     private Label invalid_phone;
 public boolean validnom=false;
@@ -106,8 +106,7 @@ Parent Token;
     /**
      * Initializes the controller class.
      */
-    @FXML
-    public void closeWindow(ActionEvent e){
+    public void closeWindow(MouseEvent e){
     Stage stage = (Stage) closewindow.getScene().getWindow();
     stage.close();
      }
@@ -199,10 +198,8 @@ for(int i = 0; i < email.length(); i++) {
          }
       }
      if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length() || flag == 1) {
-     System.out.println("Not a valid email address");
      return false;
       } else 
-       System.out.println("valid email address");
           return true;
  }
   
@@ -354,7 +351,6 @@ signup_phone.focusedProperty().addListener((ObservableValue<? extends Boolean> o
         System.out.println("ALL FINE");
     }
         
-@FXML
        public void PhoneVerif(MouseEvent event){
          // Pattern du telephone pour la validation 
             Pattern pattern = Pattern.compile("^\\+\\d{11}$");

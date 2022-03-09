@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilisateur.GUI.UIuser;
+package utilisateur.GUI.UIAdmin;
+import com.cloudinary.utils.ObjectUtils;
+import utilisateur.GUI.UIuser.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import com.cloudinary.*;
-import com.cloudinary.utils.ObjectUtils;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
@@ -71,12 +71,12 @@ import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.Rating;
 import utilisateur.entities.interets;
+import static utils.SessionUser.getUser;
 import utilisateur.services.UtilisateurService;
 import utilisateur.entities.utilisateur;
 import static utils.SessionUser.getFs;
 import static utils.SessionUser.getUser;
 import static utils.SessionUser.setUser;
-import utils.md5;
 
 
 /**
@@ -85,21 +85,21 @@ import utils.md5;
  * @author malek
  */
 // DECLARATION DES VARIABLES 
-public class UIuserController implements Initializable {
+public class UIAdminController implements Initializable {
 Parent UI_user;
 
 Map config = ObjectUtils.asMap(
   "cloud_name", "duqo08ysi",
   "api_key", "655598492747666",
   "api_secret", "me7yEUfSm7UEee2jWarnGaBhnY4");
-Cloudinary cloudinary = new Cloudinary(config);
     @FXML
     private VBox root;
     @FXML
     private Button quitbutton;
-    private JFXButton uploadphoto;
     @FXML
     private ImageView closewindow;
+    @FXML
+    private ImageView photoup;
     @FXML
     private Label nom;
     @FXML
@@ -137,26 +137,12 @@ Cloudinary cloudinary = new Cloudinary(config);
     @FXML
     private AnchorPane collab;
     @FXML
-    private Rating user_rating;
-    @FXML
     private JFXButton cancel_update;
     @FXML
-    private AnchorPane upload_window;
-    @FXML
-    private Label uploadresp;
+    private ImageView close_upload;
 
     private double xOffset = 0; 
     private double yOffset = 0;
-    @FXML
-    private JFXButton upload;
-    @FXML
-    private ImageView close_upload;
-    @FXML
-    private JFXButton publish;
-    @FXML
-    private JFXButton createevent;
-    @FXML
-    private ImageView photoup;
   
     
     /**
@@ -164,20 +150,8 @@ Cloudinary cloudinary = new Cloudinary(config);
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          // Configuration de l'API CLODUINARY POUR L'AVATAR DE L'UTILISATEUR
-            Map config = ObjectUtils.asMap(
-            "cloud_name", "duqo08ysi",
-            "api_key", "655598492747666",
-            "api_secret", "me7yEUfSm7UEee2jWarnGaBhnY4");
-            Cloudinary cloudinary = new Cloudinary(config);
-        user_rating.setRating(getUser().getEvaluation());
-        List<interets> interet = getFs().getAllInterets(getUser().getID_Utilisateur());
-        ObservableList<interets> My_interet = FXCollections.observableArrayList(interet);
-        interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
-        user_interets.setItems(My_interet);
 
-        interets.getItems().addAll(getFs().getAllInterets_Combobox());
-        interets.getCheckModel().check(interets.getItems().get(0));
+
 //        Timer timer = new Timer();
 //        timer. schedule(new TimerTask() {
 //                @Override
@@ -190,7 +164,6 @@ Cloudinary cloudinary = new Cloudinary(config);
 //
 //}
 //}, 50, 500);
-    ProfilePicture();
     defaultpic.setArcWidth(30.0);   // Corner radius
     defaultpic.setArcHeight(30.0);
 
@@ -239,14 +212,7 @@ Cloudinary cloudinary = new Cloudinary(config);
         String dateb = Update_dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String Update_genre=genre.getValue();
         String Update_pwd=pwd.getText();
-            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
-            System.out.println("DB PASSWORD"+getUser().getMdp());
-            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
-        if (Update_pwd.isEmpty()){
-            modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
-        }else {
-            if (md5.getMd5(Update_pwd).equals(getUser().getMdp())){
-            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Update_pwd,Update_genre);
+        utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Update_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){
             Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
@@ -264,45 +230,14 @@ Cloudinary cloudinary = new Cloudinary(config);
                     });
             notificationBuilder.darkStyle();
             notificationBuilder.show();
-            modification.setText("* Modification effectué !");
-            modification.setTextFill(Color.GREEN);
-
         } else {
             modification.setText("* Verifiez vos informations !");
         }
-            } else {
-            modification.setText("* Verifier votre mot de passe !");
-
-            }
-        }
-
      }
+    @FXML
      public void CancelUpdate(ActionEvent e){
               
           }
-          
-     private void ProfilePicture(){
-         if (getFs().PictureCheck(getUser().getID_Utilisateur())){
-               default_avatar.setVisible(false);   
-         Image profilepicture = null;
-             try{
-        URL url = new URL(getUser().getAvatar());
-        URLConnection connection = url.openConnection();
-        InputStream inputStream = connection.getInputStream();
-           profilepicture = new Image(inputStream);
-           defaultpic.setFill(new ImagePattern(profilepicture));
-           getUser();
-    }catch (IOException e){
-        e.printStackTrace();
-    }
-         }
-     }
-
-
-    @FXML
-    private void click(MouseEvent event) throws IOException {
-             upload_window.setVisible(true);
-    }
     // LES NAVIGATION PAR MENU : 
     @FXML
      private void profileTAB(MouseEvent event){
@@ -323,7 +258,7 @@ Cloudinary cloudinary = new Cloudinary(config);
            pub.setStyle("-fx-background-color: #008080");
       }
       @FXML
-       private void offresTAB(MouseEvent event){
+       private void usersTAB(MouseEvent event){
             // Styling du menu
           profile.getStyleClass().add("ui-menu");
           collab.getStyleClass().add("ui-menu");
@@ -338,38 +273,6 @@ Cloudinary cloudinary = new Cloudinary(config);
         dob.setValue(localDate);
         phone.setText(getUser().getNum_tel());
         genre.setValue(getUser().getGenre());
-        pwd.setText("");
-          }
-
-    @FXML
-    private void UploadImage(ActionEvent event) throws IOException {
-    FileChooser fc = new FileChooser();
-    File selectedImage = fc.showOpenDialog(null);
-    if(selectedImage == null){
-    uploadresp.setText("* Veuillez Choisir une image !"); 
-    uploadresp.setTextFill(Color.RED);
-    } else {
-        try {
-            Map uploadResult = cloudinary.uploader().upload(selectedImage, ObjectUtils.emptyMap());
-            System.out.println(uploadResult);
-            String link = (String) uploadResult.get("secure_url"); 
-            getFs().PictureUpload(getUser().getID_Utilisateur(),link);
-            setUser(getFs().UserById(getUser().getID_Utilisateur()));
-            System.out.println("PHOTO LINK IS "+link);
-            uploadresp.setText("* Image bien téléchargée !"); 
-            uploadresp.setTextFill(Color.GREEN);
-            ProfilePicture();
-        } catch (Exception e) {
-             uploadresp.setText("* Un problème survenu lors de l'upload !"); 
-            uploadresp.setTextFill(Color.RED);
-            System.out.println("UPLOAD FAILED"+e);
-        }
-    
-    }
-    }
-    @FXML
-             public void CloseUploadWindow(MouseEvent e){
-             upload_window.setVisible(false);
           }
          @FXML
         private void Deconnexion(ActionEvent e) throws IOException, InterruptedException {
@@ -377,7 +280,7 @@ Cloudinary cloudinary = new Cloudinary(config);
          try {       
                UI_user = FXMLLoader.load(getClass().getResource("../auth/auth.fxml"));
             } catch (IOException ex) {
-                Logger.getLogger(UIuserController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UIAdminController.class.getName()).log(Level.SEVERE, null, ex);
             }
              Scene scene = new Scene(UI_user);   
              scene.setFill(Color.TRANSPARENT);
@@ -395,8 +298,6 @@ Cloudinary cloudinary = new Cloudinary(config);
             UI_stage.setScene(scene);
             UI_stage.show();
         }
-
-
     
     
     

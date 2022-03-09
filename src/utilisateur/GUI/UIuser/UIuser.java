@@ -24,29 +24,15 @@ import utils.SessionUser;
 public class UIuser extends Application {
     
        Parent UI;
-       private double xOffset = 0; 
-       private double yOffset = 0;
        
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         UI=FXMLLoader.load(getClass().getResource("UIuser.fxml"));
-
-        // Pour deplacer la fenetre
-        UI.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        UI.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getScreenX() - xOffset);
-            primaryStage.setY(event.getScreenY() - yOffset);
-        });
-    
-        Scene UI_scene = new Scene(UI);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        
-        primaryStage.setResizable(false);
+        // Pour deplacer la fenetre
+        Scene UI_scene = new Scene(UI);
+        primaryStage.setResizable(true);
         primaryStage.setTitle("Dashboard");
         primaryStage.setScene(UI_scene);
         primaryStage.show();

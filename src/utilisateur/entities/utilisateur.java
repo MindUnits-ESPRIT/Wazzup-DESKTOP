@@ -76,6 +76,14 @@ public class utilisateur {
         this.date_creation = date_creation;
     }
 
+    public utilisateur(String datenaissance, String num_tel, String email, String mdp, String genre) {
+        this.datenaissance = datenaissance;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.mdp = mdp;
+        this.genre = genre;
+    }
+
 
 
     public boolean isActivated() {
