@@ -45,7 +45,7 @@
                   <Rectangle2D />
                </viewport>
                <image>
-                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/user.png" />
+                  <Image url="@../Assets/user.png" />
                </image>
             </ImageView>
             <TextArea fx:id="user_description" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="345.0" text="Post Description" translateX="45.0" translateY="-75.0" wrapText="true">
@@ -57,6 +57,10 @@
               <items>
                 <MenuItem mnemonicParsing="false" text="TBF" visible="false" />
                 <MenuItem mnemonicParsing="false" onAction="#HandleMousePub" text="Signaler cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Masquer cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Modifier cette publication" />
+                  <MenuItem fx:id="spon_btn" mnemonicParsing="false" text="Sponsoriser cette publication" />
               </items>
                <font>
                   <Font name="Consolas Bold" size="10.0" />
@@ -64,13 +68,34 @@
             </MenuButton>
             <ImageView fx:id="image_pub" fitHeight="194.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;" translateX="45.0" translateY="-95.0" VBox.vgrow="SOMETIMES">
                <image>
-                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/no_logo.jpg" />
+                  <Image url="@../Assets/no_logo.jpg" />
                </image>
             </ImageView>
          </children>
       </VBox>
-      <Button fx:id="jaime_btn" layoutX="10.0" layoutY="339.0" mnemonicParsing="false" onAction="#UP" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px;" text="J'aime" textAlignment="CENTER" textFill="#0080ff" />
-      <Button fx:id="commenter_btn" layoutX="175.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px;" text="Commenter" textAlignment="CENTER" textFill="#e46a6a" />
-      <Button fx:id="partager_btn" layoutX="336.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px;" text="Partager" textFill="#1a8362" />
+      <Button fx:id="jaime_btn" layoutX="10.0" layoutY="339.0" mnemonicParsing="false" onAction="#UP" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="J'aime" textAlignment="CENTER" textFill="#0080ff">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/facebook_like_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="commenter_btn" layoutX="158.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="Commenter" textAlignment="CENTER" textFill="#41ca93">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/chat_bubble_30px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="partager_btn" layoutX="336.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="Partager" textFill="#1a8362">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/share_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

@@ -33,3 +33,11 @@ scroll-pane :scroll-bar .decrement-arrow
 -fx-background-size: cover, auto;
 }
 }
+.anchorpane{
+-fx-background-color: white;
+-fx-background-radius: 1Opx;
+}
+.btm-pane{
+-fx-background-color: #2E3335;
+-fx-background-radius: 0px 0px 10px 10px;
+}

@@ -71,7 +71,7 @@ public class publicationService implements Ipublication<publication> {
         }     
     }
 @Override
-    public void Signaler_P(publication P,utilisateur U) {
+    public void Signaler_P(publication P,utilisateur U,int Type) {
         String Liste_Signal="";
         try {
         String req_fetch = "SELECT * FROM `publication_signaler` WHERE `Id_Publication`='"+P.getID_publication()+"' And `Id_Utilisateur`='"+U.getID_Utilisateur()+"'";
@@ -83,7 +83,7 @@ public class publicationService implements Ipublication<publication> {
          String req="INSERT INTO `publication_signaler`(`Type`, `Id_utilisateur`, `Id_publication`) VALUES (?,?,?)";
         try {
             pste = conn.prepareStatement(req);
-            pste.setInt(1,1);
+            pste.setInt(1,Type);
             pste.setInt(2,U.getID_Utilisateur());
             pste.setInt(3,P.getID_publication());
             pste.executeUpdate();

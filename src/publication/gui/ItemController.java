@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +36,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import static javax.swing.Spring.width;
@@ -46,6 +50,9 @@ import utilisateur.entities.utilisateur;
  * @author Misow3002
  */
 public class ItemController {
+    private Pattern pattern = Pattern.compile("(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*");
+    private String url;
+
     @FXML
     private AnchorPane AnchorPanePub;
     @FXML
@@ -72,6 +79,8 @@ public class ItemController {
     private HBox HBox_Pub;
     @FXML
     private Button partager_btn;
+ @FXML
+    private VBox VboxPub;
     static public Stage newWindow2=new Stage();
     int i;
     utilisateur USession = new utilisateur("spx","tn",23,24664800,"malek.abbes@esprit.tn","hellotest","User",4,"Male");
@@ -81,18 +90,18 @@ public class ItemController {
             pub_date.setText("Publié "+P.getDate().substring(0,16));
             user_name.setText(U.getNom()+" "+U.getPrenom());
             user_description.setText(P.getDescription());
-            
+            //play();
             if (P.getFichier().equalsIgnoreCase("NULL") || P.getFichier().length()==0)
             {
                 image_pub.setVisible(false);
                 int X=(int) user_description.getTranslateX();
                 int Y=(int) user_description.getTranslateY()-150;
                 System.out.println(X);
-                jaime_btn.setTranslateX(X-50);
+                //jaime_btn.setTranslateX(X-50);
                 jaime_btn.setTranslateY(Y+25);
-                commenter_btn.setTranslateX(X-50);
+               // commenter_btn.setTranslateX(X-50);
                 commenter_btn.setTranslateY(Y+25);
-                partager_btn.setTranslateX(X-30);
+               // partager_btn.setTranslateX(X-30);
                 partager_btn.setTranslateY(Y+25);
             }
             else
@@ -121,11 +130,11 @@ public class ItemController {
 //                else
 //                AnchorPanePub.setPrefHeight(365);
 //            }
-                if (P.getFichier().equalsIgnoreCase("NULL") || P.getFichier().length()==0)
-                {   image_pub.setFitHeight(1);
-                    AnchorPanePub.setPrefHeight(317);
-                    HBox_Pub.setTranslateY(-200);
-                }
+                    if (P.getFichier().equalsIgnoreCase("NULL") || P.getFichier().length()==0)
+                    {   image_pub.setFitHeight(1);
+                        AnchorPanePub.setPrefHeight(317);
+                        HBox_Pub.setTranslateY(-200);
+                    }
             for (i=0;i<List_Commentaire.size();i++)
                 try {
                 //LOADING Comments
@@ -190,4 +199,26 @@ public class ItemController {
         System.out.println("UP");
     }
 
+    
+    void play() {
+        System.out.println("EL INDEXOR : "+user_description.getText().indexOf("youtu"));
+        if(user_description.getText().toString().indexOf("youtu")>0){
+           Matcher matcher = pattern.matcher(this.user_description.getText());
+            System.out.println("Hello There YT APIs");
+           WebView webV=new WebView();
+           webV.setLayoutX(50);
+           webV.setLayoutY(50);
+           webV.prefWidth(345);
+           webV.maxWidth(345);
+           webV.maxHeight(194);
+           AnchorPanePub.getChildren().add(webV);
+            if(matcher.find()){
+                this.url ="https://www.youtube.com/embed/"+matcher.group(0);
+                webV.getEngine().load(this.url);
+                System.out.println(this.url);
+            }else{
+                System.out.println("Invalid Url!");
+            }
+        }
+    }
 }

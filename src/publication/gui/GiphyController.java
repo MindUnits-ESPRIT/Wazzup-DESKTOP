@@ -88,6 +88,7 @@ public class GiphyController {
    
 public String[] call_me(String Keyword) throws Exception {
     String url;
+    Keyword=java.net.URLEncoder.encode(Keyword,"UTF-8");
     //DISABLED RANDOM GIF
 //     if(Keyword.equals("NOKEYWORDENTERED"))
 //            {

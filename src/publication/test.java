@@ -34,7 +34,7 @@ public class test {
 //---------- BEGIN SIGNALER PUBLICATION -------
     publication P = new publication(3);
     utilisateur U = new utilisateur(2,"malek","abbes");
-    PS.Signaler_P(P, U);
+  //  PS.Signaler_P(P, U);
 //---------- END SIGNALER PUBLICATION ------
 //AFFICHAGE SELECT
        // System.out.println(PS.Afficher_P());
