@@ -6,11 +6,18 @@
 package utilisateur.GUI.auth;
 import collab.gui.CollabwController;
 import com.gluonhq.charm.glisten.control.TextField;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import utilisateur.services.UtilisateurService;
 import utilisateur.entities.utilisateur;
@@ -23,10 +30,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import org.controlsfx.control.MaskerPane;
 import static utils.SessionUser.*;
 import static utils.md5.getMd5;
+import utils.otpsend;
+import static utils.otpsend.sendSms;
 
 /**
  * FXML Controller class
@@ -34,6 +46,10 @@ import static utils.md5.getMd5;
  * @author malek
  */
 public class AuthController {
+    Random rand = new Random();
+    int otp_timer=20;
+    int otpchecker=0;
+    int OTP;
     @FXML
 Parent signup;
     @FXML
@@ -48,6 +64,18 @@ Parent signup;
     private Button auth_login;
     private double xOffset = 0; 
     private double yOffset = 0;
+    @FXML
+    private JFXTextField otp;
+    @FXML
+    private Label otplabel;
+    @FXML
+    private JFXButton checkotp;
+    @FXML
+    private ImageView otptimer;
+    @FXML
+    private ImageView smsicon1;
+    @FXML
+    private ImageView smsicon2;
 
     /**
      * Initializes the controller class.
@@ -72,6 +100,67 @@ Parent signup;
             
     }
     @FXML
+    public void CheckOTP(ActionEvent e){
+                 if (Integer.valueOf(otp.getText())==OTP){
+                     otptimer.setVisible(false);
+                     otptimer.setDisable(true);
+                     otpchecker=1;
+                     otplabel.setText("Code Verifié ! , Redirection ... ");
+                     otplabel.setTextFill(Color.GREEN);
+              try {       
+               signup = FXMLLoader.load(getClass().getResource("../UIAdmin/UIAdmin.fxml"));
+            } catch (IOException ex) {
+//                Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex + "ERROR");
+            }
+             Scene scene = new Scene(signup);   
+            Stage UI_stage = (Stage) (((Node) e.getSource()) .getScene().getWindow());
+            
+                   signup.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        signup .setOnMouseDragged(event -> {
+            UI_stage.setX(event.getScreenX() - xOffset);
+            UI_stage.setY(event.getScreenY() - yOffset);
+        });
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show(); 
+                  } else{
+                     otplabel.setText("Veuillez verifier votre code !");
+                     otplabel.setTextFill(Color.RED);
+                    }
+    }
+    public void GenOTP(){
+        File file = new File("src/utilisateur/GUI/resources/OTPtimer.gif");
+        Image image = new Image(file.toURI().toString());
+        otptimer.setImage(image);
+        
+        
+        otptimer.setVisible(true);
+       otptimer.setDisable(false);
+              OTP=rand.nextInt(99999);
+              System.out.println(OTP);
+              new java.util.Timer().schedule(
+        new java.util.TimerTask() {
+            @Override
+            public void run() {
+             Timer timer = new Timer();
+            timer. schedule(new TimerTask() {
+                @Override
+            public void run() {
+              OTP=rand.nextInt(99999);
+              System.out.println(OTP);
+             
+}
+}, 0, 20000);
+          
+
+          
+}},20000);
+}
+    @FXML
         public void LoginButton(ActionEvent e){
           UtilisateurService userv= new UtilisateurService();
              String input_email=auth_email.getText();
@@ -90,6 +179,8 @@ Parent signup;
               auth_verif.setText("* Bienvenue");
               auth_verif.setTextFill(Color.GREEN);
               setUser(userv.UserByEmail(input_email));
+                System.out.println(getUser().getType_user().equals("User"));
+              if (getUser().getType_user().equals("User")){
             try {       
                signup = FXMLLoader.load(getClass().getResource("../UIuser/UIuser.fxml"));
             } catch (IOException ex) {
@@ -109,7 +200,18 @@ Parent signup;
             UI_stage.hide();
             UI_stage.setScene(scene);
             UI_stage.show();
-            
+              } else {
+                  GenOTP();
+                  System.out.println("otp is "+OTP);
+                  otp.setVisible(true);
+                  otptimer.setVisible(true);
+                  otplabel.setVisible(true);
+                  smsicon1.setVisible(true);
+                  smsicon2.setVisible(true);
+                  checkotp.setVisible(true);
+//                  sendSms("Votre Code OTP est : "+OTP);
+                  otplabel.setText("Votre code sms a été bien envoyé");
+              }
               } else if (result==2){
               auth_verif.setText("* Votre compte n'est pas encore activé ! !"); 
               auth_verif.setTextFill(Color.RED);

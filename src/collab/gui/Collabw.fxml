@@ -56,5 +56,6 @@
             <Image url="@../res/shutterstock_1214730637-removebg-preview.png" />
          </image>
       </ImageView>
+      <Button fx:id="ret" layoutX="969.0" layoutY="20.0" mnemonicParsing="false" onAction="#returnb" style="-fx-background-color: #008080;" text="retour" textFill="#f8f8f8" />
    </children>
 </AnchorPane>

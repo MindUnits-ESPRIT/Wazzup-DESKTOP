@@ -461,7 +461,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     @Override
     public List<utilisateur> afficher() {
         List<utilisateur> utilisateurs = new ArrayList<>();
-        String req = "SELECT * FROM `utilisateurs`";
+        String req = "SELECT * FROM `utilisateurs` WHERE type_user='User'";
         
         try{
             pste= conn.prepareStatement(req);
@@ -471,15 +471,10 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                 
                 utilisateur u = new utilisateur();
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
-                u.setNom(rs.getString(2));
-                u.setPrenom(rs.getString(3));
-                u.setDatenaissance(rs.getString(4));
-                u.setGenre(rs.getString(5));
-                u.setNum_tel(rs.getString(6));
-                u.setEmail(rs.getString(7));
-                u.setMdp(rs.getString(8));
-                u.setType_user(rs.getString(9));
-                u.setEvaluation(rs.getInt(10));
+                u.setEmail(rs.getString("email"));
+                u.setEvaluation(rs.getInt("evaluation"));
+                u.setSponsor(rs.getBoolean("sponsor"));
+                u.setActivated(rs.getBoolean("activated"));
                 utilisateurs.add(u);
             }
             } catch (SQLException ex) {

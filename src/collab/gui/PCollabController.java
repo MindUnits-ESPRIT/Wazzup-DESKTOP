@@ -20,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -56,10 +57,13 @@ import kong.unirest.Unirest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 import utils.mail;
 //@author mouhi
 public class PCollabController implements Initializable {
-    int iduser =23;
+    int iduser =getUser().getID_Utilisateur();
+      double xOffset = 0; 
+          double yOffset = 0;
 Parent collab_page_home;
     @FXML
     private Button retour;
@@ -276,7 +280,33 @@ Parent collab_page_home;
             Stage CfStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
             CfStage.hide();
             CfStage.setScene(scene);
-            CfStage.show();}
+            CfStage.show();
+
+          
+             collab_page_home.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  collab_page_home.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               CfStage.setX(event.getScreenX() - xOffset);
+             CfStage.setY(event.getScreenY() - yOffset);
+            }
+        });   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
 // delete member fonction
     @FXML
     private void DeleteC(ActionEvent event) {
@@ -592,7 +622,7 @@ Parent collab_page_home;
 	.header("content-type", "application/x-www-form-urlencoded")
 	.header("accept-encoding", "application/gzip")
 	.header("x-rapidapi-host", "google-translate1.p.rapidapi.com")
-	.header("x-rapidapi-key", "219e7ed17cmsh763d3d5b14453f2p146e44jsnb9dcbbef176c")
+	.header("x-rapidapi-key", "b606ee6facmshba1c53fecd47f54p13a5cajsnd88a528c7a3d")
 	.body("q='"+msgV+"'&target=fr&source=en")
 	.asString();
      String str =  response.getBody();
