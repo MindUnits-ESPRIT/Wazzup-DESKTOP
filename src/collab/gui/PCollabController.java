@@ -56,10 +56,11 @@ import kong.unirest.Unirest;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 import utils.mail;
 //@author mouhi
 public class PCollabController implements Initializable {
-    int iduser =23;
+    int iduser =getUser().getID_Utilisateur();
 Parent collab_page_home;
     @FXML
     private Button retour;

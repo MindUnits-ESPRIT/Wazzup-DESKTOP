@@ -22,9 +22,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 //@author mouhib
 public class CollabwController implements Initializable {
-     int iduser = 23;
+     int iduser = getUser().getID_Utilisateur();
      Parent collab_page_parent;
      Parent collab_page_list;
      ArrayList<utilisateur> list = new ArrayList();

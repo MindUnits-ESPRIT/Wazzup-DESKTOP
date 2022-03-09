@@ -24,15 +24,15 @@ import utils.SessionUser;
  */
 public class UIAdmin extends Application {
     
-       Parent UI;
+       Parent UI_admin;
        
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        UI=FXMLLoader.load(getClass().getResource("UIAdmin.fxml"));
+        UI_admin=FXMLLoader.load(getClass().getResource("UIAdmin.fxml"));
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         // Pour deplacer la fenetre
-        Scene UI_scene = new Scene(UI);
+        Scene UI_scene = new Scene(UI_admin);
         primaryStage.setResizable(true);
         primaryStage.setTitle("Dashboard");
         primaryStage.setScene(UI_scene);
