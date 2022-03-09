@@ -79,7 +79,7 @@ public class UIAdminController implements Initializable {
     private Label nom;
     @FXML
     private Label prenom;
-    private double xOffset = 0; 
+    private double xOffset = 0;
     private double yOffset = 0;
 
     /**
@@ -87,28 +87,28 @@ public class UIAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- 
-        //Initialisation de la session UTILISATEUR
-       utilisateur user = new utilisateur();
-       user = getUser();
-     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
-        
-         UtilisateurService us = getFs();
-        System.out.println(getUser());
-        System.out.println(getFs());
-     }));
-    timeline.play();
-// Les champs de modifications
-    prenom.setText(user.getPrenom());
-    prenom.setTextFill(Color.WHITE);
-    nom.setText(user.getNom());
-    nom.setTextFill(Color.WHITE);
-    email.setText(user.getEmail());
-    phone.setText(user.getNum_tel());
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    LocalDate localDate = LocalDate.parse(user.getDatenaissance(),formatter);
-    dob.setValue(localDate);
-    }    
+
+        // Initialisation de la session UTILISATEUR
+        utilisateur user = new utilisateur();
+        user = getUser();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
+
+            UtilisateurService us = getFs();
+            System.out.println(getUser());
+            System.out.println(getFs());
+        }));
+        timeline.play();
+        // Les champs de modifications
+        prenom.setText(user.getPrenom());
+        prenom.setTextFill(Color.WHITE);
+        nom.setText(user.getNom());
+        nom.setTextFill(Color.WHITE);
+        email.setText(user.getEmail());
+        phone.setText(user.getNum_tel());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(user.getDatenaissance(), formatter);
+        dob.setValue(localDate);
+    }
 
     @FXML
     private void closeWindow(MouseEvent event) {
@@ -121,16 +121,16 @@ public class UIAdminController implements Initializable {
     @FXML
     private void Deconnexion(ActionEvent e) {
         setUser(null);
-         try {       
-               UI_admin = FXMLLoader.load(getClass().getResource("../auth/auth.fxml"));
-            } catch (IOException ex) {
-                Logger.getLogger(UIAdminController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             Scene scene = new Scene(UI_admin);   
-             scene.setFill(Color.TRANSPARENT);
-            Stage UI_stage = (Stage) (((Node) e.getSource()) .getScene().getWindow());
-            
-                   UI_admin.setOnMousePressed(ev -> {
+        try {
+            UI_admin = FXMLLoader.load(getClass().getResource("../auth/auth.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(UIAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Scene scene = new Scene(UI_admin);
+        scene.setFill(Color.TRANSPARENT);
+        Stage UI_stage = (Stage) (((Node) e.getSource()).getScene().getWindow());
+
+        UI_admin.setOnMousePressed(ev -> {
             xOffset = ev.getSceneX();
             yOffset = ev.getSceneY();
         });
@@ -138,9 +138,9 @@ public class UIAdminController implements Initializable {
             UI_stage.setX(ev.getScreenX() - xOffset);
             UI_stage.setY(ev.getScreenY() - yOffset);
         });
-            UI_stage.hide();
-            UI_stage.setScene(scene);
-            UI_stage.show();
-        }
-    
+        UI_stage.hide();
+        UI_stage.setScene(scene);
+        UI_stage.show();
+    }
+
 }

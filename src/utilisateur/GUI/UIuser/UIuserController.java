@@ -331,7 +331,21 @@ Cloudinary cloudinary = new Cloudinary(config);
             }
              Scene scene = new Scene(UI_user);   
             Stage UI_stage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
-            
+          
+              UI_user.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  UI_user.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               UI_stage.setX(event.getScreenX() - xOffset);
+             UI_stage.setY(event.getScreenY() - yOffset);
+            }
+        });
             UI_stage.hide();
             UI_stage.setScene(scene);
             UI_stage.show();
