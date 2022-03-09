@@ -4,19 +4,30 @@
  * and open the template in the editor.
  */
 package utilisateur;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import utilisateur.services.*;
 import utilisateur.entities.*;
 import database.db;
-import java.util.ArrayList;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject; 
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.application.Platform;
+
+
 
 /**
  *
  * @author malek
  */
+
 public class test{
+    
+    public static final String ACCOUNT_SID = "ACa1c3f6d59e0c9f3d76e39dfec69e7c91"; 
+    public static final String AUTH_TOKEN = "bd7a82b880d1e886d52059b1d5026ae4"; 
+        static int OTP;
     public static void main(String[] args) {
+  
         // test DB Connexion
 //        db cnx = db.getInstance();
 //        System.out.println(cnx.hashCode());
@@ -65,6 +76,33 @@ us.ajouter_interet(58, "Sport");
 //        
 
 System.out.println(us.getAllInterets(58));
-    }
+
+ 
+    // Find your Account Sid and Token at twilio.com/console 
+//        Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
+//        Message message = Message.creator( 
+//                new com.twilio.type.PhoneNumber("+21624664880"),  
+//                "MG9b59c60b5a9dd634c795ca5686f72d6b", 
+//                "trying this shit")      
+//            .create(); 
+ 
+//        System.out.println(message.getSid()); 
+
+            Timer timer = new Timer();
+            timer. schedule(new TimerTask() {
+                @Override
+            public void run() {
+              Platform.runLater(() -> {
+                  Random rand = new Random();
+                  OTP=rand.nextInt(99999);
+                  System.out.println(OTP);
+              });
+}
+}, 50, 2000);
+        
+    
+}
+
+    
     
 }
