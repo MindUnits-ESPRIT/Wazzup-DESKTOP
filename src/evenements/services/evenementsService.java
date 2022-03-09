@@ -15,6 +15,8 @@ import java.util.logging.Logger;
 import evenements.entities.evenements;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.json.JSONArray;
 import utilisateur.services.UtilisateurService;
 /**
@@ -32,8 +34,9 @@ private Connection conn;
     
 @Override
     public void ajouter(evenements e) {
-String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Date_P`,`Liste_Utilisateur`,`Nom_Event`,`Nbr_participants`,`Date_Event`,`Type_Event`,`Event_Visibilite`,`Description`) VALUES ('"+e.getID_Utilisateur()+"','"+e.getDate_P()+"','"+e.getListe_Utilisateur()+"','"+e.getNom_Event()+"','"+e.getNbr_participants()+"','"+e.getDate_Event()+"','"+e.getType_Event()+"','"+e.getEvent_Visibilite()+"','"+e.getDescription()+"')";
+String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Nom_Event`,`Nbr_participants`,`Date_Event`,`Type_Event`,`Event_Visibilite`,`Description`) VALUES ('"+e.getID_Utilisateur()+"','"+e.getNom_Event()+"','"+e.getNbr_participants()+"','"+e.getDate_Event()+"','"+e.getType_Event()+"','"+e.getEvent_Visibilite()+"','"+e.getDescription()+"')";
       try {
+          System.out.println("test"+e.toString());
           pste = conn.prepareStatement(req);
           pste.executeUpdate();
           System.out.println("Evenement creé");
@@ -74,10 +77,10 @@ String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Date_P`,`Liste_Utilisat
     }
 
     @Override
-    public List<evenements> afficher(int id) {
-        List<evenements> evenements = new ArrayList<>();
+    public ObservableList<evenements> afficher(int id) {
+        ObservableList<evenements> evenements =FXCollections.observableArrayList();
         String req = "SELECT * FROM `evenement` WHERE `ID_Utilisateur` ='"+id+"'";
-        String Array ; 
+  
         try{
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
@@ -92,10 +95,6 @@ String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Date_P`,`Liste_Utilisat
                 e.setDescription(rs.getString(7));
                 e.setID_Utilisateur(rs.getInt(8));
                 e.setDate_P(rs.getString(9));
-                Array=rs.getString(10);
-                Array = rs.getString("Liste_Utilisateur");
-                 JSONArray array = new JSONArray(Array);
-                 e.setListe_Utilisateur(array);
                 evenements.add(e);
                 System.out.println(e.toString());
             }

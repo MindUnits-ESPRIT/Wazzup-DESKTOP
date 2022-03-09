@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package SalleCinema.entities;
+import java.net.URL;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

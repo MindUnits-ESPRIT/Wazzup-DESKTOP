@@ -7,7 +7,7 @@ package SalleCinema.services;
 
 import SalleCinema.entities.SalleCinema;
 import database.db;
-import evenements.services.evenementsService;
+import evenements.entities.evenements;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -31,8 +33,9 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
     }
 
     
-    public void ajouter(SalleCinema s) {
-        String req = "INSERT INTO `salle_cinema` (`Nom_Salle`,`URL_Film`,`URL_Salle`,`Chat`) VALUES ('" + s.getNomSalle() + "','" + s.getURL_Film() + "','" + s.getURL_Salle()+ "','" + s.getChat() + "')";
+    @Override
+    public void ajouter(SalleCinema s, evenements e) {
+        String req = "INSERT INTO `salle_cinema` (`ID_Salle`,`Nom_Salle`,`URL_Film`,`URL_Salle`,`Chat`,`ID_Event`) VALUES ('"+s.getID_Salle()+"','" + s.getNomSalle() + "','" + s.getURL_Film() + "','" + s.getURL_Salle()+ "','" + s.getChat() + "','"+e.getID_Event()+"')";
       try {
           pste = conn.prepareStatement(req);
           pste.executeUpdate();
@@ -76,8 +79,8 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
     }
 
     @Override
-    public List<SalleCinema> afficher(int id) {
-        List<SalleCinema> SalleCinema = new ArrayList<>();
+    public ObservableList<SalleCinema> afficher(int id) {
+         ObservableList<SalleCinema> SalleCinema =FXCollections.observableArrayList();
          String req = "SELECT * FROM `salle_cinema` where `ID_Salle` = ? ";
           try {
           pste = conn.prepareStatement(req);

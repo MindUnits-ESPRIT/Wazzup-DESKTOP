@@ -5,6 +5,9 @@
  */
 package Rencontre.services;
 
+import Rencontre.entities.Rencontre;
+import evenements.URL.URL;
+import evenements.entities.evenements;
 import java.util.List;
 
 /**
@@ -12,8 +15,8 @@ import java.util.List;
  * @author SRN
  */
 public interface IRencontre <T>{
-     void ajouter(T entity);
-    void modifier (int id, String tr,String URLI);
+     void ajouter(Rencontre r,evenements e);
+    void modifier (int id, String tr);
     void supprimer (int id);
     List<T> afficher(int id);
 }

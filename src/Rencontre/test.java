@@ -8,6 +8,8 @@ package Rencontre;
 import Rencontre.entities.Rencontre;
 import Rencontre.services.RencontreService;
 import database.db;
+import evenements.URL.URL;
+import evenements.entities.evenements;
 import org.json.JSONObject;
 import org.json.simple.JSONArray;
 
@@ -23,10 +25,13 @@ public class test {
                 // Test du table utilisateur
                 JSONArray jsonarray = new JSONArray();
                 RencontreService rs = new RencontreService();
-                Rencontre r = new Rencontre(01,"Vie_Reel", "http://example.com/01");
-                rs.ajouter(r);
-                rs.modifier(01, "Virtuel","http://example.com/01");
-                rs.supprimer(01);
-                rs.afficher(02);
+                evenements e =new evenements(33);
+                URL u = new URL();
+                Rencontre r = new Rencontre("Vie_Reel", u.GetUrl_Rencontre(5));
+                rs.ajouter(r,e);
+                System.out.println(u.GetUrl_Rencontre(5));
+                rs.modifier(35, "Virtuel");
+                //rs.supprimer(01);
+               // rs.afficher(02);
     }
 }

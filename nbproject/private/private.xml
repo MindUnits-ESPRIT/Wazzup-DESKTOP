@@ -3,24 +3,45 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/test.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/services/CollabService.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/database/db.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-=======
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/CollabTest.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/entities/Salle_Collaboration.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/services/commentaireService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/services/CollabService.java</file>
-            <file>file:/C:/Users/malek/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/Iutilisateur.java</file>
->>>>>>> e7243a325581d3519561e2546a2bb1a9d4900cca
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/evenementFXML.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/affichersallecinema.css</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/EvenementFXMLController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/SupprimerSalle.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/AfficherEvenementController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/supprimersalle.css</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/URL/URL.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/AfficheRencontreController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/evenementMain.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/Salle_Cinema_FXML.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/entities/evenements.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/afficherencontre.css</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/ModifierRencontre.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/ModifierevenementController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/entities/Rencontre.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/services/ISalleCinema.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/Salle_Cinema_FXMain.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/APICinemaInfoController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/services/SalleCinemaService.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/services/RencontreService.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/test.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/SessionSalleCinemaController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/test.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/afficherEvenement.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/entities/SalleCinema.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/services/IRencontre.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/afficherSalleCinema.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/SupprimerSalleController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/AfficherSalleCinemaController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/RencontreFXMLController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/RencontreMain.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/SessionRencontreController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/Salle_Cinema_FXMLController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/AfficheRencontre.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/ModifierRencontreController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/services/Ievenement.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/test.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/SessionRencontre.fxml</file>
         </group>
     </open-files>
 </project-private>
