@@ -16,6 +16,7 @@ import evenements.entities.evenements;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import org.json.JSONArray;
+import paiement.GUI.FactureFXMLController;
 import utilisateur.services.UtilisateurService;
 /**
  *
@@ -104,5 +105,20 @@ String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Date_P`,`Liste_Utilisat
         }
         return evenements;
     }
+    public String countev(){
+        String req="SELECT COUNT(ID_Event) FROM evenement";
+        try {
+            
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FactureFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            //return "sqdqdsq";
+        }     
+        return "";
+} 
     
 }

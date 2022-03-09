@@ -42,7 +42,7 @@
                   </HBox>
                   <VBox fx:id="vboxtabv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="417.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="-300.0" translateY="20.0">
                      <children>
-                        <TableView fx:id="tabv" prefHeight="390.0" prefWidth="416.0">
+                        <TableView fx:id="tabv" prefHeight="390.0" prefWidth="416.0" styleClass="filler" stylesheets="@tbfxml.css">
                           <columns>
                             <TableColumn fx:id="colid" prefWidth="105.0" text="ID_Paiement" />
                             <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="115.0" text="Date_Paiement" />
