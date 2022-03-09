@@ -107,21 +107,6 @@ public class OffreService implements Ioffre<offre_publicitaire> {
              System.out.println("Utilisateur non supprimé "+ ex);
         }
     }
-        @FXML
-        public String countpay(){
-  
-        String req="SELECT COUNT(`ID_paiement`) FROM paiement";
-        try {
-            pste= conn.prepareStatement(req);
-            ResultSet rs = pste.executeQuery(req);
-            if(rs.next()){
-            return rs.getString(1));
-               // System.out.println("bbbbbb");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(FactureFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }     
-        return "";
-} 
+       
     
 }
