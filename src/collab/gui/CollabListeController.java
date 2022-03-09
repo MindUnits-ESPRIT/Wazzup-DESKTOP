@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,6 +40,8 @@ import utils.mail;
 import static utils.mail.prepareMessage;
 // @author mouhi
 public class CollabListeController implements Initializable {
+      double xOffset = 0; 
+          double yOffset = 0;
     int iduser =getUser().getID_Utilisateur();
  Parent collab_page_home;
      Parent collab_page_list;
@@ -111,7 +114,26 @@ public class CollabListeController implements Initializable {
             Stage CStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
             CStage.hide();
             CStage.setScene(scene);
-            CStage.show(); }
+            CStage.show();
+      
+               collab_page_home.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  collab_page_home.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+              CStage.setX(event.getScreenX() - xOffset);
+              CStage.setY(event.getScreenY() - yOffset);
+            }
+        });
+    
+    
+    
+    }
     @FXML
     // suppression d'un collab
     private void DeleteC(ActionEvent event) {  
@@ -216,7 +238,21 @@ public class CollabListeController implements Initializable {
              CStage.hide();
              CStage.setScene(scene);
              CStage.show();
-       
+    
+               P_collab.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                   P_collab.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               CStage.setX(event.getScreenX() - xOffset);
+               CStage.setY(event.getScreenY() - yOffset);
+            }
+        });
         }
     }
 
