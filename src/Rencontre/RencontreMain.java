@@ -28,6 +28,8 @@ public class RencontreMain extends Application {
     public void start(Stage primaryStage) {
       
         try {
+            primaryStage.setResizable(false);
+            primaryStage.setTitle("Wazzup");
              Parent root;
             root=FXMLLoader.load(getClass().getResource("AfficheRencontre.fxml"));
               Scene scene = new Scene(root);

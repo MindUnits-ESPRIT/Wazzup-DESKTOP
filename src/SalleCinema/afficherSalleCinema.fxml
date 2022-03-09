@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SalleCinema.AfficherSalleCinemaController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalleCinema.AfficherSalleCinemaController">
     <stylesheets>
         <URL value="@affichersallecinema.css" />
     </stylesheets>
@@ -43,21 +43,41 @@
             </ToolBar>
          </children>
       </HBox>
-      <TableView fx:id="TaleView" layoutX="114.0" layoutY="109.0" prefHeight="559.0" prefWidth="355.0">
+      <TableView fx:id="TaleView" layoutX="51.0" layoutY="129.0" prefHeight="559.0" prefWidth="516.0">
         <columns>
           <TableColumn fx:id="Nom_Salle" prefWidth="167.0" text="Nom_Salle" />
-            <TableColumn fx:id="Url_Salle" prefWidth="187.0" text="URL_Salle" />
+            <TableColumn fx:id="Url_Salle" prefWidth="348.0" text="URL_Salle" />
         </columns>
       </TableView>
-      <Button layoutX="693.0" layoutY="272.0" mnemonicParsing="false" onAction="#ModifierSalle" prefHeight="41.0" prefWidth="273.0" style="-fx-background-color: rgba(61, 166, 167, 0.8); -fx-background-radius: 10px;" text="Modifier SalleCinema" textFill="WHITE">
+      <Button layoutX="648.0" layoutY="272.0" mnemonicParsing="false" onAction="#ModifierSalle" prefHeight="44.0" prefWidth="318.0" style="-fx-background-color: rgba(61, 166, 167, 0.8); -fx-background-radius: 10px;" text="Modifier SalleCinema" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="21.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="693.0" layoutY="388.0" mnemonicParsing="false" onAction="#SupprimerSalle" prefHeight="41.0" prefWidth="273.0" style="-fx-background-color: red; -fx-background-radius: 10px;" text="Supprimer SalleCinema" textFill="WHITE">
+      <Button layoutX="648.0" layoutY="388.0" mnemonicParsing="false" onAction="#SupprimerSalle" prefHeight="44.0" prefWidth="318.0" style="-fx-background-color: red; -fx-background-radius: 10px;" text="Supprimer SalleCinema" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="21.0" />
+            <Font name="Consolas" size="24.0" />
          </font>
       </Button>
+      <Label layoutX="123.0" layoutY="82.0" text="Vos Salles Cinéma">
+         <font>
+            <Font name="Consolas" size="34.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="28.0" layoutX="456.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/documentary_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="979.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/edit_property_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="979.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Delete_64px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

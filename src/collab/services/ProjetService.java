@@ -82,8 +82,8 @@ private Connection conn;
     }
  // afficher les projet qui appartient au collab specific
     @Override
-    public List<Projet> afficher(int id) {
-        List<Projet> projets = new ArrayList<>();
+    public Projet afficher(int id) {
+       Projet p = new Projet();
         String req = "SELECT * FROM `projet` where `ID_Collab` = ? ";
         try {
           pste = conn.prepareStatement(req);
@@ -91,19 +91,19 @@ private Connection conn;
           ResultSet rs = pste.executeQuery();
           System.out.println("projet associes a cette salle de collaboration sont:");
           while(rs.next()){
-                Projet p = new Projet();
+                
                 p.setID(rs.getInt("ID_Projet"));
                 p.setID_Collab(rs.getInt("ID_Collab"));
                 p.setNom_Projet(rs.getString(3));
                 p.setDescription(rs.getString(4));
                 p.setURL_Trello(rs.getString(5));
-                projets.add(p);
+                
             }
       } catch(SQLException ex){
           Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
           System.out.println("Utilisateur non creé "+ ex);
       } 
-        return projets ;
+        return p ;
     }
     }
 

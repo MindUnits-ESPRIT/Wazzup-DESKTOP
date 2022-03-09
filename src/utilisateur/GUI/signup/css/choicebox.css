@@ -1,0 +1,12 @@
+/* Text in all labels */
+.choice-box .label {
+     -fx-text-fill: #008080;
+}
+.choice-box {
+   -fx-backgroundcolor: #008080;
+   -fx-focus-color: midnightblue;
+   -fx-faint-focus-color: #008080;
+   -fx-control-inner-background: #008080;
+   -fx-selection-bar: "midnightblue";
+-fx-selection-bar-text-fill: "white";
+}

@@ -25,12 +25,17 @@
                      </font>
                   </Button>
                   <Region prefHeight="56.0" prefWidth="302.0" />
+                  <ImageView fitHeight="33.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/zoom_50px.png" />
+                     </image>
+                  </ImageView>
                   <Label text="Session Rencontre" textFill="WHITE">
                      <font>
                         <Font name="Consolas" size="32.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="56.0" prefWidth="299.0" />
+                  <Region prefHeight="56.0" prefWidth="260.0" />
                   <ImageView fitHeight="57.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/wazzup.png" />

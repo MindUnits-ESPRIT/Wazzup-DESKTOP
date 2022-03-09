@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="tokenmain" fx:id="tokenmain" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="647.0" style="-fx-border-radius: 25px; -fx-background-color: rgba(0, 179, 134, 0.54);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.Vtoken.VtokenController">
+   <children>
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="647.0" spacing="45.0" style="-fx-background-color: #008080;" styleClass="-fx" titleText="" />
+      <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-5.0">
+         <image>
+            <Image url="@../resources/wazzup.png" />
+         </image>
+      </ImageView>
+      <BottomNavigation layoutX="315.0" layoutY="12.0" />
+      <Pane layoutX="-14.0" layoutY="-125.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fill="WHITE" layoutX="84.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAZZUP - Verification">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="336.0" layoutY="644.0">
+         <image>
+            <Image url="@../resources/mindunits.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="233.0" layoutY="656.0" opacity="0.54" style="-fx-font-size: 14px;" text="Developpé par " textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
+      <JFXProgressBar id="progressbar" fx:id="progressbar" layoutX="-6.0" layoutY="53.0" prefHeight="13.0" prefWidth="663.0" visible="false" />
+      <JFXTextField id="token" fx:id="token" alignment="CENTER" focusColor="#31ae1b" labelFloat="true" layoutX="191.0" layoutY="396.0" prefHeight="40.0" prefWidth="281.0" promptText="Votre Token" />
+      <Text fill="#0d9d0d" layoutX="65.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="un code de vérification vous a être envoyé">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fill="#0d9d0d" layoutX="150.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez consulter votre boite mail">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <JFXButton id="verifier" fx:id="verifier" layoutX="247.0" layoutY="532.0" onAction="#VerifyButton" prefHeight="65.0" prefWidth="163.0" style="-fx-background-color: #008080; -fx-background-radius: 35px;" text="Vérifier" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="111.0" fitWidth="129.0" layoutX="266.0" layoutY="121.0">
+         <image>
+            <Image url="@../resources/token.png" />
+         </image>
+      </ImageView>
+      <Label id="tokenreponse" fx:id="tokenreponse" alignment="CENTER" contentDisplay="CENTER" layoutX="233.0" layoutY="456.0" prefHeight="21.0" prefWidth="225.0" />
+      <Label id="validated" fx:id="validated" layoutX="230.0" layoutY="486.0" prefHeight="21.0" prefWidth="231.0" />
+      
+      
+   </children>
+</AnchorPane>

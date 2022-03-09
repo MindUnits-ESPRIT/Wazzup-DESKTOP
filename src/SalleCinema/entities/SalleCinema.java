@@ -30,6 +30,11 @@ public class SalleCinema {
         this.Chat = Chat;
     }
 
+    public SalleCinema(String NomSalle, String URL_Salle) {
+        this.NomSalle = NomSalle;
+        this.URL_Salle = URL_Salle;
+    }
+
     public SalleCinema(String NomSalle, String URL_Film, String URL_Salle, JSONArray Chat) {
         this.NomSalle = NomSalle;
         this.URL_Film = URL_Film;

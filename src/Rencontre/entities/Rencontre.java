@@ -17,6 +17,8 @@ public class Rencontre {
     public Rencontre() {
     }
 
+    
+
     public Rencontre(int ID_Ren, String Type_Rencontre, String URL_Invitation) {
         this.ID_Ren = ID_Ren;
         this.Type_Rencontre = Type_Rencontre;

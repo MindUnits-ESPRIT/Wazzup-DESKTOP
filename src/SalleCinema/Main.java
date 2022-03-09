@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,8 +40,11 @@ public class Main
 public JSONObject MovieSearch(String Keyword) {
      JSONObject myResponse2=null;
         try {
+         
+           Keyword=java.net.URLEncoder.encode(Keyword, "UTF-8");
+            System.out.println(Keyword);
             String url;
-            url="https://api.themoviedb.org/3/search/movie?api_key=6b80f937d5dda95453593fb81c36ca9e&query="+Keyword;
+            url="https://api.themoviedb.org/3/search/movie?api_key=6b80f937d5dda95453593fb81c36ca9e&query="+Keyword+"&page=1";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             // optional default is GET

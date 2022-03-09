@@ -24,12 +24,15 @@
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/services/SalleCinemaService.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/services/RencontreService.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/test.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/utilisateur/GUI/UIAdmin/UIAdminController.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/SessionSalleCinemaController.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/test.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/afficherEvenement.fxml</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/entities/SalleCinema.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/services/IRencontre.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/afficherSalleCinema.fxml</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/utilisateur/GUI/signup/SignupController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/Main.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/SupprimerSalleController.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/services/evenementsService.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/AfficherSalleCinemaController.java</file>
@@ -39,7 +42,9 @@
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/SalleCinema/Salle_Cinema_FXMLController.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/AfficheRencontre.fxml</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/ModifierRencontreController.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/collab/gui/CollabListeController.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/services/Ievenement.java</file>
+            <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/RencontreFXML.fxml</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/evenements/test.java</file>
             <file>file:/C:/Users/SRN/Desktop/Wazzup-DESKTOP/src/Rencontre/SessionRencontre.fxml</file>
         </group>

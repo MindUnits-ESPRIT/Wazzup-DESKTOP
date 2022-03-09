@@ -63,7 +63,7 @@
          </font>
       </Label>
       <JFXDatePicker fx:id="dateEvent" layoutX="278.0" layoutY="228.0" promptText="Date evenement" />
-      <Label layoutX="31.0" layoutY="307.0" text="Type événenement">
+      <Label layoutX="31.0" layoutY="308.0" text="Type événenement">
          <font>
             <Font name="Consolas" size="16.0" />
          </font>
@@ -100,7 +100,7 @@
             <Font name="Consolas" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="visibility" layoutX="36.0" layoutY="353.0" text="Visibilité">
+      <Label fx:id="visibility" layoutX="36.0" layoutY="354.0" text="Visibilité">
          <font>
             <Font name="Consolas" size="16.0" />
          </font>
@@ -111,5 +111,35 @@
             <Font name="Consolas" size="8.0" />
          </font>
       </Label>
+      <ImageView fitHeight="31.0" fitWidth="23.0" layoutX="431.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/people_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="23.0" layoutX="449.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/eye_32px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="33.0" layoutX="590.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/schedule_80px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="431.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/inscription_80px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="23.0" layoutX="449.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/choice_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="526.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/handle_with_care_50px.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

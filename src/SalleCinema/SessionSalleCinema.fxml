@@ -29,12 +29,17 @@
                      </font>
                   </Button>
                   <Region prefHeight="60.0" prefWidth="295.0" />
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/cinema_film_play_24px.png" />
+                     </image>
+                  </ImageView>
                   <Label text="Session Salle Cinéma" textFill="WHITE">
                      <font>
                         <Font name="Consolas" size="32.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="60.0" prefWidth="249.0" />
+                  <Region prefHeight="60.0" prefWidth="222.0" />
                   <ImageView fitHeight="54.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/wazzup.png" />
@@ -95,6 +100,18 @@
          <font>
             <Font name="Consolas" size="16.0" />
          </font>
+      </Button>
+      <Button layoutX="847.0" layoutY="127.0" mnemonicParsing="false" onAction="#InfoC" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Informations sur film" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/information_50px.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>

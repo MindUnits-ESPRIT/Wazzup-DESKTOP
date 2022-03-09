@@ -12,12 +12,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import utilisateur.entities.utilisateur;
 
 /**
  *
@@ -81,18 +80,17 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
     @Override
     public ObservableList<SalleCinema> afficher(int id) {
          ObservableList<SalleCinema> SalleCinema =FXCollections.observableArrayList();
-         String req = "SELECT * FROM `salle_cinema` where `ID_Salle` = ? ";
+         String req = "SELECT * FROM `salle_cinema` NATURAL JOIN `evenement` where `ID_Utilisateur`='"+id+"'";
           try {
           pste = conn.prepareStatement(req);
-          pste.setInt(1, id);
           ResultSet rs = pste.executeQuery();
-          System.out.println("SalleCinema creer par l'utilisateur du id "+id+" sont:");
           while(rs.next()){
                 SalleCinema s = new SalleCinema();
-                s.setID_Salle(rs.getInt("ID_Salle"));
-                s.setNomSalle(rs.getString(2));
-                s.setURL_Salle(rs.getString(3));
-                s.setURL_Film(rs.getString(4));
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+//                s.setID_Salle(rs.getInt("ID_Salle"));
+                s.setNomSalle(rs.getString("Nom_Salle"));
+                s.setURL_Salle(rs.getString("URL_Salle"));
                 SalleCinema.add(s);
                 System.out.println(s.toString());
             }

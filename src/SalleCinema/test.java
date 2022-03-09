@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import evenements.URL.URL;
 import java.sql.SQLException;
+import utilisateur.entities.utilisateur;
 
 /**
  *
@@ -32,11 +33,12 @@ public class test {
             jsonarray.add(jsonobject);
             SalleCinema s=new SalleCinema("Movie", "http://example.com/Venom", u.GetUrl_SalleCinema(5),jsonarray);
             evenements e =new evenements(33);
+            utilisateur ut = new utilisateur();
             System.out.println( u.GetUrl_SalleCinema(5));
-           ss.ajouter(s,e);
+           //ss.ajouter(s,e);
            // ss.modifier(02, "Cinema", "Kung Fu Panda");
             //ss.supprimer(02);
-           //ss.afficher(s.getID_Salle());
+           ss.afficher(5);
     }
     
 }

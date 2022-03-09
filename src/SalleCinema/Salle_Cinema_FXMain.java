@@ -27,8 +27,11 @@ public class Salle_Cinema_FXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
+            primaryStage.setResizable(false);
+            primaryStage.setTitle("Wazzup");
             Parent root ;
-            root=FXMLLoader.load(getClass().getResource("afficherSalleCinema.fxml"));
+           root=FXMLLoader.load(getClass().getResource("afficherSalleCinema.fxml")); 
+//           root=FXMLLoader.load(getClass().getResource("APICinemaInfo.fxml"));
                     Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();

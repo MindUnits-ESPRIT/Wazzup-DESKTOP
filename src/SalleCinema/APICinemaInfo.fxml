@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SalleCinema.APICinemaInfoController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalleCinema.APICinemaInfoController">
     <stylesheets>
         <URL value="@apicinemainfo.css" />
     </stylesheets>
@@ -21,7 +22,7 @@
          <children>
             <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="78.0" prefWidth="1157.0" style="-fx-background-color: teal;">
               <items>
-                <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Retour" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#RetourPage" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Retour" textFill="WHITE">
                      <font>
                         <Font name="Consolas" size="18.0" />
                      </font>
@@ -42,32 +43,77 @@
             </ToolBar>
          </children>
       </HBox>
-      <ImageView fitHeight="568.0" fitWidth="358.0" layoutX="37.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXTextField fx:id="SearchBar" focusColor="#38abb5" layoutX="540.0" layoutY="115.0" onKeyTyped="#SearchMovie" prefHeight="31.0" prefWidth="402.0" promptText="Le film à rechercher..." unFocusColor="TEAL" />
-      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="917.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="poster_img" fitHeight="568.0" fitWidth="358.0" layoutX="37.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="SearchBar" focusColor="#38abb5" layoutX="540.0" layoutY="115.0" prefHeight="31.0" prefWidth="402.0" promptText="Le film à rechercher..." unFocusColor="TEAL" />
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="917.0" layoutY="118.0" onMouseClicked="#SearchMovie" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/Search_icon.png" />
          </image>
       </ImageView>
-      <Label layoutX="416.0" layoutY="228.0" prefHeight="25.0" prefWidth="248.0" textFill="WHITE">
+      <Label fx:id="titletxt" layoutX="516.0" layoutY="228.0" prefHeight="53.0" prefWidth="516.0" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="52.0" />
+            <Font name="Consolas" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="416.0" layoutY="354.0" prefHeight="25.0" prefWidth="248.0" textFill="WHITE">
+      <Label fx:id="langtxt" layoutX="516.0" layoutY="451.0" prefHeight="36.0" prefWidth="332.0" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="52.0" />
+            <Font name="Consolas" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="416.0" layoutY="481.0" prefHeight="25.0" prefWidth="248.0" textFill="WHITE">
+      <Label fx:id="statustxt" layoutX="516.0" layoutY="381.0" prefHeight="36.0" prefWidth="358.0" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="52.0" />
+            <Font name="Consolas" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="416.0" layoutY="564.0" prefHeight="25.0" prefWidth="248.0" textFill="WHITE">
+      <Label fx:id="ratetxt" layoutX="516.0" layoutY="530.0" prefHeight="25.0" prefWidth="248.0" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="52.0" />
+            <Font name="Consolas" size="20.0" />
          </font>
+      </Label>
+      <Label fx:id="genretxt" layoutX="516.0" layoutY="303.0" prefHeight="45.0" prefWidth="562.0" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="titletxt1" layoutX="395.0" layoutY="232.0" prefHeight="45.0" prefWidth="121.0" text="Titre:" textFill="#1a1c2b">
+         <font>
+            <Font name="Consolas" size="36.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Label fx:id="titletxt11" layoutX="395.0" layoutY="303.0" prefHeight="45.0" prefWidth="121.0" text="Genre:" textFill="#1a1c2b">
+         <font>
+            <Font name="Consolas" size="27.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Label fx:id="statustxt1" layoutX="395.0" layoutY="386.0" prefHeight="25.0" prefWidth="87.0" text="Statut:" textFill="#1a1c2b">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Label fx:id="statustxt11" layoutX="395.0" layoutY="456.0" prefHeight="25.0" prefWidth="99.0" text="Language:" textFill="#1a1c2b">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Label fx:id="statustxt111" layoutX="395.0" layoutY="530.0" prefHeight="25.0" prefWidth="121.0" text="Évalutaion:" textFill="#1a1c2b">
+         <font>
+            <Font name="Consolas" size="20.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
       </Label>
    </children>
 </AnchorPane>

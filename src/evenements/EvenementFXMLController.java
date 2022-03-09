@@ -5,12 +5,14 @@
  */
 package evenements;
 
+import Rencontre.entities.Rencontre;
+import Rencontre.services.RencontreService;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import evenements.entities.evenements;
 import evenements.services.evenementsService;
 import java.io.IOException;
-import java.net.URL;
+import evenements.URL.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -34,15 +36,15 @@ import javafx.stage.Stage;
  * @author SRN
  */
 public class EvenementFXMLController implements Initializable {
-
-    /**
+ /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        ListType.getItems().addAll(types);
-        Visibilite.getItems().addAll(Vis);
-    }    
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb) {
+//        ListType.getItems().addAll(types);
+//        Visibilite.getItems().addAll(Vis);
+//    }  
+     
     @FXML 
     private Button b1;
     @FXML 
@@ -83,18 +85,24 @@ public class EvenementFXMLController implements Initializable {
          evenements e =new evenements(5,NmEvent.getText(),Integer.parseInt(NombreParticipant.getText()),(Date_Event.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ListType.getValue(),Visibilite.getValue(),Description.getText());    
         es.ajouter(e);
         if(ListType.getValue().matches("SalleCinema") ){
-        Parent root=FXMLLoader.load(getClass().getResource("../SalleCinema/SessionSalleCinema.fxml"));
+        Parent root=FXMLLoader.load(getClass().getResource("../SalleCinema/Salle_Cinema_FXML.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
              }
         else  if(ListType.getValue().matches("Rencontre") && Visibilite.getValue().matches("Salle_privee")){
- Parent root=FXMLLoader.load(getClass().getResource("../Rencontre/SessionRencontre.fxml"));
+ Parent root=FXMLLoader.load(getClass().getResource("../Rencontre/RencontreFXML.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
+RencontreService rs=new RencontreService();
+URL u = new URL();
+Rencontre r = new Rencontre("Virtuel",u.GetUrl_Rencontre(5));
+evenements ev = new evenements(33);
+
+rs.ajouter(r, ev);
         }
         else if(ListType.getValue().matches("Rencontre") && Visibilite.getValue().matches("Salle_publique")){
             Parent root=FXMLLoader.load(getClass().getResource("../evenements/afficherEvenement.fxml"));
@@ -175,5 +183,11 @@ stage.show();
 Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
+    }
+
+    @Override
+    public void initialize(java.net.URL location, ResourceBundle resources) {
+        ListType.getItems().addAll(types);
+         Visibilite.getItems().addAll(Vis);
     }
 }

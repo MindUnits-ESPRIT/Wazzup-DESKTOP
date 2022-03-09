@@ -13,7 +13,8 @@ import utilisateur.entities.*;
  */
 public interface Iutilisateur<T> {
     void ajouter(T entity);
-    void modifier (int i, T entity);
+    void ajouter_interet(int i,String payload);
+    void modifier (int i, T entity,int modif);
     void supprimer (int i);
     void Get_Collaborations_list(int i);
     List<T> afficher();

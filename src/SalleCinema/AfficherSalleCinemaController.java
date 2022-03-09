@@ -81,7 +81,7 @@ list = es.afficher(19);
      public ObservableList<SalleCinema> getSalleList(){
  
       SalleCinemaService es = new SalleCinemaService();
-    ObservableList<SalleCinema> obs =  es.afficher(19);
+    ObservableList<SalleCinema> obs =  es.afficher(5);
      return obs;
      }
     public void showSalle(){

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -46,15 +47,32 @@
             <Font name="Consolas" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="conf" layoutX="142.0" layoutY="346.0" mnemonicParsing="false" onAction="#Conferm" style="-fx-background-color: green;" text="Confirmer" textFill="WHITE">
+      <Button fx:id="conf" layoutX="127.0" layoutY="494.0" mnemonicParsing="false" onAction="#Conferm" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: green; -fx-background-radius: 10px;" text="Confirmer" textFill="WHITE">
          <font>
             <Font name="Consolas" size="21.0" />
          </font>
       </Button>
-      <Button fx:id="ann" layoutX="336.0" layoutY="346.0" mnemonicParsing="false" onAction="#Annuler" style="-fx-background-color: red;" text="Annuler" textFill="WHITE">
+      <Button fx:id="ann" layoutX="316.0" layoutY="494.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: red; -fx-background-radius: 10px;" text="Annuler" textFill="WHITE">
          <font>
             <Font name="Consolas" size="21.0" />
          </font>
       </Button>
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="274.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Check%20Circle_48px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="445.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/cancel_48px.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="338.0" prefHeight="31.0" prefWidth="163.0" text="Nom SalleCinema">
+         <font>
+            <Font name="Consolas" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="NomField" focusColor="#4082a8" layoutX="228.0" layoutY="341.0" prefHeight="31.0" prefWidth="191.0" promptText="Nom SalleCinema" unFocusColor="TEAL" />
+      <Label fx:id="wrongNom" layoutX="447.0" layoutY="343.0" prefHeight="25.0" prefWidth="135.0" textFill="RED" />
    </children>
 </AnchorPane>
