@@ -34,11 +34,12 @@ import javax.mail.MessagingException;
 import javax.mail.Transport;
 import utilisateur.entities.utilisateur;
 import utilisateur.services.UtilisateurService;
+import static utils.SessionUser.getUser;
 import utils.mail;
 import static utils.mail.prepareMessage;
 // @author mouhi
 public class CollabListeController implements Initializable {
-    int iduser =23;
+    int iduser =getUser().getID_Utilisateur();
  Parent collab_page_home;
      Parent collab_page_list;
      Parent P_collab;

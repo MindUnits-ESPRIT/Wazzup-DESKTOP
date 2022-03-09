@@ -47,7 +47,7 @@ and open the template in the editor.
 }
 .table-view .column-header {
 	-fx-background-color: -fx-light-grey-color;
-	-fx-border-color: -fx-grey-color;
+	-fx-border-color: greycolor;
 }
 .table-view .column-header .label{
 	-fx-font-weight: bold; 
@@ -63,10 +63,10 @@ and open the template in the editor.
 	-fx-background-color: transparent;
 }
 .table-row-cell:filled:hover {
-	-fx-background-color: -fx-light-grey-color;
+	-fx-background-color: lightgrey;
 }
 .table-row-cell:filled:selected:hover {
-	-fx-background-color: -fx-light-grey-color;
+	-fx-background-color: lightgrey;
 }
 .table-row-cell:filled:selected {
   	-fx-background-color: #eaeaea;
