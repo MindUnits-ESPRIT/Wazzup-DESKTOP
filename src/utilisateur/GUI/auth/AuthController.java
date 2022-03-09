@@ -90,6 +90,8 @@ Parent signup;
               auth_verif.setText("* Bienvenue");
               auth_verif.setTextFill(Color.GREEN);
               setUser(userv.UserByEmail(input_email));
+                System.out.println(getUser().getType_user().equals("User"));
+              if (getUser().getType_user().equals("User")){
             try {       
                signup = FXMLLoader.load(getClass().getResource("../UIuser/UIuser.fxml"));
             } catch (IOException ex) {
@@ -109,7 +111,28 @@ Parent signup;
             UI_stage.hide();
             UI_stage.setScene(scene);
             UI_stage.show();
+              } else {
+                try {       
+               signup = FXMLLoader.load(getClass().getResource("../UIAdmin/UIAdmin.fxml"));
+            } catch (IOException ex) {
+//                Logger.getLogger(AuthController.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex + "ERROR");
+            }
+             Scene scene = new Scene(signup);   
+            Stage UI_stage = (Stage) (((Node) e.getSource()) .getScene().getWindow());
             
+                   signup.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        signup .setOnMouseDragged(event -> {
+            UI_stage.setX(event.getScreenX() - xOffset);
+            UI_stage.setY(event.getScreenY() - yOffset);
+        });
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show(); 
+              }
               } else if (result==2){
               auth_verif.setText("* Votre compte n'est pas encore activé ! !"); 
               auth_verif.setTextFill(Color.RED);

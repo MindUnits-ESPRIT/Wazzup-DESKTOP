@@ -321,6 +321,34 @@ Cloudinary cloudinary = new Cloudinary(config);
           collab.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
           pub.getStyleClass().add("ui-menu");
            pub.setStyle("-fx-background-color: #008080");
+          // Ouvrir la fenetre du collab
+          
+          
+         try {       
+               UI_user = FXMLLoader.load(getClass().getResource("../../../collab/gui/Collabw.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(UIuserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             Scene scene = new Scene(UI_user);   
+            Stage UI_stage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+          
+              UI_user.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  UI_user.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               UI_stage.setX(event.getScreenX() - xOffset);
+             UI_stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show();
       }
       @FXML
        private void offresTAB(MouseEvent event){
@@ -341,7 +369,7 @@ Cloudinary cloudinary = new Cloudinary(config);
         pwd.setText("");
           }
 
-    @FXML
+@FXML
     private void UploadImage(ActionEvent event) throws IOException {
     FileChooser fc = new FileChooser();
     File selectedImage = fc.showOpenDialog(null);
