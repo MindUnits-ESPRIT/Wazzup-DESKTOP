@@ -10,7 +10,6 @@ import database.db;
 import evenements.entities.*;
 import evenements.services.*;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /**
  *
  * @author malek
@@ -22,17 +21,17 @@ public class test {
         db cnx = db.getInstance();
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
-                 JSONObject jsonobject = new JSONObject();
-            jsonobject.put("id","1"); 
-            jsonarray.put(jsonobject);
         evenementsService es= new evenementsService();
-        evenements e =new evenements(jsonarray,01,"01/02/2022",01,"Etude",11,"01/02/2022","Etude","Salle_publique","Math");
+        evenements e =new evenements(5,"Etude",11,"15/3/2022","Rencontre","Salle_publique","Math");
         SalleCinema s=new SalleCinema ();
         Rencontre r = new Rencontre ();
         
-        es.ajouter(e);
-        
-    
+     es.ajouter(e);
+       
+//es.modifier(01, "Revision", 20, "20/02/2022", "SalleCinema", "Salle_publique", "Science");
+//es.supprimer(13);
+es.afficher(5);
+
 es.modifier(02, "Revision", 20, "20/02/2022", "Etude", "Salle_publique", "Science");
 es.supprimer(02);
 es.afficher(1);

@@ -5,6 +5,7 @@
  */
 package evenements.services;
 
+import evenements.entities.evenements;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @author SRN
  */
 public interface Ievenement<T> {
-     void ajouter(T entity);
+     void ajouter(evenements e);
     void modifier (int id, String nom,int Nbr,String date,String type,String vis,String des);
     void supprimer (int id);
     List<T> afficher(int id);

@@ -7,15 +7,16 @@ package SalleCinema.services;
 
 import SalleCinema.entities.SalleCinema;
 import database.db;
-import evenements.services.evenementsService;
+import evenements.entities.evenements;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import utilisateur.entities.utilisateur;
 
 /**
  *
@@ -31,8 +32,9 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
     }
 
     
-    public void ajouter(SalleCinema s) {
-        String req = "INSERT INTO `salle_cinema` (`Nom_Salle`,`URL_Film`,`URL_Salle`,`Chat`) VALUES ('" + s.getNomSalle() + "','" + s.getURL_Film() + "','" + s.getURL_Salle()+ "','" + s.getChat() + "')";
+    @Override
+    public void ajouter(SalleCinema s, evenements e) {
+        String req = "INSERT INTO `salle_cinema` (`ID_Salle`,`Nom_Salle`,`URL_Film`,`URL_Salle`,`Chat`,`ID_Event`) VALUES ('"+s.getID_Salle()+"','" + s.getNomSalle() + "','" + s.getURL_Film() + "','" + s.getURL_Salle()+ "','" + s.getChat() + "','"+e.getID_Event()+"')";
       try {
           pste = conn.prepareStatement(req);
           pste.executeUpdate();
@@ -76,20 +78,19 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
     }
 
     @Override
-    public List<SalleCinema> afficher(int id) {
-        List<SalleCinema> SalleCinema = new ArrayList<>();
-         String req = "SELECT * FROM `salle_cinema` where `ID_Salle` = ? ";
+    public ObservableList<SalleCinema> afficher(int id) {
+         ObservableList<SalleCinema> SalleCinema =FXCollections.observableArrayList();
+         String req = "SELECT * FROM `salle_cinema` NATURAL JOIN `evenement` where `ID_Utilisateur`='"+id+"'";
           try {
           pste = conn.prepareStatement(req);
-          pste.setInt(1, id);
           ResultSet rs = pste.executeQuery();
-          System.out.println("SalleCinema creer par l'utilisateur du id "+id+" sont:");
           while(rs.next()){
                 SalleCinema s = new SalleCinema();
-                s.setID_Salle(rs.getInt("ID_Salle"));
-                s.setNomSalle(rs.getString(2));
-                s.setURL_Salle(rs.getString(3));
-                s.setURL_Film(rs.getString(4));
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+//                s.setID_Salle(rs.getInt("ID_Salle"));
+                s.setNomSalle(rs.getString("Nom_Salle"));
+                s.setURL_Salle(rs.getString("URL_Salle"));
                 SalleCinema.add(s);
                 System.out.println(s.toString());
             }

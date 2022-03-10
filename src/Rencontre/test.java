@@ -8,8 +8,9 @@ package Rencontre;
 import Rencontre.entities.Rencontre;
 import Rencontre.services.RencontreService;
 import database.db;
-import org.json.JSONObject;  
-import org.json.simple.JSONArray;
+import evenements.URL.URL;
+import evenements.entities.evenements;
+
 
 /**
  *
@@ -22,10 +23,20 @@ public class test {
         System.out.println(cnx.hashCode());
                 // Test du table utilisateur
                 RencontreService rs = new RencontreService();
-                Rencontre r = new Rencontre(01,"Vie_Reel", "http://example.com/01");
+
+                evenements e =new evenements(33);
+                URL u = new URL();
+                Rencontre r = new Rencontre("Virtuel", u.GetUrl_Rencontre(5));
+                rs.ajouter(r,e);
+               // System.out.println(u.GetUrl_Rencontre(5));
+//                rs.modifier(35, "Virtuel");
+                //rs.supprimer(01);
+               // rs.afficher(02);
+
+                //Rencontre r = new Rencontre(01,"Vie_Reel", "http://example.com/01");
                 //rs.ajouter(r);
                 //rs.modifier(20, "Virtuel","http://example.com/20");
                // rs.supprimer(01);
-                rs.afficher(20);
+                rs.afficher(33);
     }
 }

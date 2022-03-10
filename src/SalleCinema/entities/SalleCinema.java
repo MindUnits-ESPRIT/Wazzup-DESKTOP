@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package SalleCinema.entities;
+import java.net.URL;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -27,6 +28,11 @@ public class SalleCinema {
         this.URL_Film = URL_Film;
         this.URL_Salle = URL_Salle;
         this.Chat = Chat;
+    }
+
+    public SalleCinema(String NomSalle, String URL_Salle) {
+        this.NomSalle = NomSalle;
+        this.URL_Salle = URL_Salle;
     }
 
     public SalleCinema(String NomSalle, String URL_Film, String URL_Salle, JSONArray Chat) {

@@ -8,6 +8,9 @@ package Rencontre.services;
 
 import Rencontre.entities.Rencontre;
 import database.db;
+import evenements.URL.URL;
+import evenements.entities.evenements;
+import evenements.services.evenementsService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -31,24 +36,25 @@ private Connection conn;
     }
     
 @Override
-    public void ajouter(Rencontre r) {
-     String req = "INSERT INTO `rencontre` (`Type_Rencontre`,`URL_Invitation`) VALUES (?,?)";
+    public void ajouter(Rencontre r,evenements e) {
+     String req = "INSERT INTO `rencontre` (`Type_Rencontre`,`URL_Invitation`,`ID_Event`) VALUES ('"+r.getType_Rencontre()+"','"+r.getURL_Invitation()+"','"+e.getID_Event()+"')";
       try {
           pste = conn.prepareStatement(req);
-          pste.setString(1,r.getType_Rencontre());
-          pste.setString(2,r.getURL_Invitation());
+//          pste.setString(1,r.getType_Rencontre());
+//          pste.setString(2,r.getURL_Invitation());
           pste.executeUpdate();
-          System.out.println("Evenement creé");
+          System.out.println("Rencontre creé");
       } catch(SQLException ex){
           Logger.getLogger(RencontreService.class.getName()).log(Level.SEVERE,null,ex);
-          System.out.println("Evenement non creé "+ ex);
+          System.out.println("Rencontre non creé "+ ex);
       }
     }
     
 
     @Override
-    public void modifier(int id, String tr,String URLR) {
-String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"',`URL_Invitation`='"+URLR+"' WHERE `ID_Ren` = '"+id+"'";
+    public void modifier(int id, String tr) {
+String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"' WHERE `ID_Ren` = '"+id+"'";
+
         try {
         pste = conn.prepareStatement(req1);
               pste.executeUpdate();
@@ -74,17 +80,19 @@ String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"',`URL_Invitation`
     }
 
     @Override
-    public List afficher(int id) {
-        List<Rencontre> Rencontre = new ArrayList<>();
-        String req = "SELECT * FROM `rencontre` where `ID_Ren` = '"+id+"'"; 
+    public ObservableList<Rencontre> afficher(int id) {
+         ObservableList<Rencontre> Rencontre =FXCollections.observableArrayList();
+        String req = "SELECT * FROM `rencontre` NATURAL JOIN `evenement` where `ID_Event`='"+id+"'"; 
         try{
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
             while(rs.next()){
+                evenements e = new evenements();
                 Rencontre r = new Rencontre();
-                r.setID_Ren(rs.getInt("ID_Ren"));
-               r.setType_Rencontre(rs.getString(2));
-                r.setURL_Invitation(rs.getString(3));
+                e.setID_Event(rs.getInt("ID_Event"));
+//                r.setID_Ren(rs.getInt("ID_Ren"));
+                   r.setURL_Invitation(rs.getNString("URL_Invitation"));
+               r.setType_Rencontre(rs.getString("Type_Rencontre"));
                 Rencontre.add(r);
                 System.out.println(r.toString());
             }
