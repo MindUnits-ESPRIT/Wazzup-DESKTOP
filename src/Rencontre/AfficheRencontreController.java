@@ -82,7 +82,7 @@ int ID =  TableView.getSelectionModel().getSelectedItems().get(0).getID_Ren();
      public ObservableList<Rencontre> getRencontreList(){
  
       RencontreService es = new RencontreService();
-    ObservableList<Rencontre> obs =  es.afficher(33);
+    ObservableList<Rencontre> obs =  es.afficher(67);
      return obs;
      }
     public void showRencontre(){

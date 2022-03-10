@@ -1,0 +1,43 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+.scroll-pane scroll-bar:horizontal .decrement-button
+{
+-fx-background-color: transparent;
+-fx-background-radius: 0em;
+-fx-padding: 0 0 10 0;
+}
+scroll-pane scroll-bar:vertical .decrement-button
+{
+-fx-background-color: transparent;
+-fx-background-radius: 0em;
+-fx-padding: 0 0 10 0;
+}
+.scroll-pane .scroll-bar .increment-arrow,
+scroll-pane :scroll-bar .decrement-arrow
+{
+-fx-padding: -2;
+}
+.scroll-pane .scroll-bar:vertical thumb
+{
+-Ex-background-color: derive (black, 90%);
+-Ex-background-insets: 2, 0, 0;
+-fx-background-radius: 2em;
+}
+.custom-background {
+-fx-background-color: skyblue, derive(skyblue, 25%);
+-fx-background-image: url("C:/Users/Misow3002/Downloads/Assets/loop.png");
+-fx-background-repeat:repeat;
+-fx-background-size: cover, auto;
+}
+}
+.anchorpane{
+-fx-background-color: white;
+-fx-background-radius: 1Opx;
+}
+.btm-pane{
+-fx-background-color: #2E3335;
+-fx-background-radius: 0px 0px 10px 10px;
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchroPane" prefHeight="640.0" prefWidth="794.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paiement.GUI.TBFXMLController">
+    <stylesheets>
+        <URL value="@tbfxml.css" />
+    </stylesheets>
+   <children>
+      <BorderPane fx:id="BorderPane" prefHeight="640.0" prefWidth="794.0">
+         <center>
+            <HBox fx:id="HboxCenter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="764.0" style="-fx-background-color: #348781; -fx-background-radius: 20;" translateY="2.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="HboxCenterLeft" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="314.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="440.0" translateY="90.0">
+                     <children>
+                        <AreaChart fx:id="AreaChart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="219.0" prefWidth="321.0" stylesheets="@tbfxml.css" title="Historique de paiement">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                           <styleClass>
+                              <String fx:value="axis" />
+                              <String fx:value="tick-mark" />
+                           </styleClass>
+                        </AreaChart>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="vboxtabv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="417.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="-300.0" translateY="20.0">
+                     <children>
+                        <TableView fx:id="tabv" prefHeight="390.0" prefWidth="416.0" styleClass="filler" stylesheets="@tbfxml.css">
+                          <columns>
+                            <TableColumn fx:id="colid" prefWidth="105.0" text="ID_Paiement" />
+                            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="115.0" text="Date_Paiement" />
+                              <TableColumn fx:id="colmp" prefWidth="144.0" text="Methode_Paiement" />
+                              <TableColumn fx:id="colprix" prefWidth="36.0" text="Prix" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <HBox fx:id="HBoxBot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="760.0" style="-fx-background-color: #348781; -fx-background-radius: 20;" translateY="-5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="HboxBotLeft" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="195.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="20.0" translateY="15.0">
+                     <children>
+                        <Label fx:id="labelpay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="136.0" style="-fx-font-size: 50; -fx-font-family: Eras Bold ITC;" stylesheets="@paiementinterface.css" text="Label" textFill="WHITE" translateX="40.0" translateY="50.0" />
+                        <Text fx:id="nbrpay" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre des paiements" translateX="-125.0" translateY="15.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="15.0" />
+                           </font>
+                        </Text>
+                     </children></HBox>
+                  <HBox fx:id="HboxBotCenter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="195.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="80.0" translateY="15.0">
+                     <children>
+                        <Label fx:id="labelpub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="136.0" style="-fx-font-size: 50; -fx-font-family: Eras Bold ITC;" text="Label" textFill="WHITE" translateX="40.0" translateY="50.0" />
+                        <Text fx:id="nbrpu" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre des publications" translateX="-125.0" translateY="15.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="15.0" />
+                           </font>
+                        </Text>
+                     </children></HBox>
+                  <HBox fx:id="HboxBotRight" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="195.0" style="-fx-background-color: #5F9EA0; -fx-background-radius: 20;" translateX="150.0" translateY="15.0">
+                     <children>
+                        <Label fx:id="labelev" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="92.0" prefWidth="150.0" style="-fx-font-size: 50; -fx-font-family: Eras Bold ITC;" text="Label" textFill="WHITE" translateX="30.0" translateY="50.0" />
+                        <Text fx:id="nbre" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre des evenements" translateX="-140.0" translateY="15.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="15.0" />
+                           </font>
+                        </Text>
+                     </children></HBox>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

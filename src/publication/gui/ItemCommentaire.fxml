@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="408.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.ItemCommentaireController">
+    <stylesheets>
+        <URL value="@itemcommentaire.css" />
+    </stylesheets>
+   <children>
+      <HBox alignment="CENTER" layoutX="24.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="418.0">
+         <children>
+            <ImageView fx:id="user_image" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="-9.0" translateY="-45.0">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="@../Assets/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="username_pub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="71.0" text="Username" textFill="WHITE" translateX="5.0" translateY="-60.0" underline="true">
+               <font>
+                  <Font name="Consolas Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="description_pub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#CheckForm" prefHeight="61.0" prefWidth="334.0" promptText="Que voulez-vous dire ?" translateX="-70.0" translateY="-10.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btn_commenter" disable="true" layoutX="295.0" layoutY="118.0" mnemonicParsing="false" onAction="#Commenter" onInputMethodTextChanged="#CheckForm" onKeyTyped="#CheckForm" onMouseClicked="#CheckForm" prefHeight="31.0" prefWidth="108.0" style="-fx-background-radius: 10px; -fx-background-color: rgba(32, 175, 242, 0.96);" text="Commenter">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="counter" layoutX="364.0" layoutY="103.0" text="0/255" />
+   </children>
+</AnchorPane>

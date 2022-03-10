@@ -606,6 +606,62 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         
 
-  
+       @Override
+    public List<utilisateur> afficherParID(int id) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` Where ID_Utilisateur='"+id+"'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
+
+    @Override
+    public List<utilisateur> afficherParID(String Nom, String Prenom) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` WHERE `nom` LIKE '%"+Nom+"%' OR `prenom` LIKE '%"+Prenom+"%'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
     
 }

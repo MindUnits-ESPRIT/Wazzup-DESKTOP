@@ -237,6 +237,23 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </JFXButton>
+                     <AnchorPane fx:id="gesteven" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#EventTAB" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <children>
+                           <Label layoutX="63.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion événements" textFill="#f2f2f2d4">
+                              <font>
+                                 <Font name="Arial Bold" size="14.0" />
+                              </font>
+                           </Label>
+                           <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="18.0" layoutY="15.0">
+                              <image>
+                                 <Image url="@../resources/icons8_schedule_50px.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                     </AnchorPane>
                </children>
             </AnchorPane>
          </children>
@@ -253,12 +270,18 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView layoutX="203.0" layoutY="81.0">
+      <ImageView layoutX="203.0" layoutY="81.0" onMouseClicked="#Publication">
          <image>
             <Image url="@../resources/showprofile.png" />
          </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
       </ImageView>
-         <Label layoutX="107.0" layoutY="82.0" text="Voir profile" textFill="WHITE" />
+         <Label layoutX="107.0" layoutY="82.0" onMouseClicked="#Publication" text="Voir profile" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Label>
          <Line endX="217.0" layoutX="71.0" layoutY="151.0" startX="-71.0" stroke="#00000035" />
          <Rating id="user_rating" fx:id="user_rating" layoutX="83.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="176.0" rating="0.0" />
          <Rectangle id="defaultpic" fx:id="defaultpic" arcHeight="100.0" arcWidth="100.0" fill="#1f93ff5e" height="81.0" layoutX="9.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="81.0">

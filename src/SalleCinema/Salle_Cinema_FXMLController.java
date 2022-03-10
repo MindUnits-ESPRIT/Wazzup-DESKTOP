@@ -17,6 +17,7 @@ import evenements.URL.URL;
 import evenements.entities.evenements;
 import java.sql.SQLException;
 import javafx.scene.control.Label;
+import static utils.SessionUser.getUser;
 public class Salle_Cinema_FXMLController {
 
     @FXML
@@ -52,7 +53,7 @@ stage.setScene(scene);
 stage.show();
 URL u = new URL();
 SalleCinemaService cs = new SalleCinemaService();
-SalleCinema c = new SalleCinema(NomField.getText(),u.GetUrl_SalleCinema(5));
+SalleCinema c = new SalleCinema(NomField.getText(),u.GetUrl_SalleCinema(getUser().getID_Utilisateur()));
 evenements e = new evenements(33);
 cs.ajouter(c, e);
             System.out.println("Salle Cinema ajoute");

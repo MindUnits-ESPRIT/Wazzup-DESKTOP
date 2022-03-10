@@ -1,5 +1,6 @@
 package evenements;
 
+import collab.gui.CollabwController;
 import evenements.entities.evenements;
 import evenements.services.evenementsService;
 import java.io.IOException;
@@ -7,8 +8,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,8 +25,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 
 public class AfficherEvenementController implements Initializable{
+   double xOffset = 0; 
+          double yOffset = 0;
+            Parent home;
 @FXML
     private TableView<evenements> ListView;
 
@@ -97,7 +106,7 @@ stage.show();
 public ObservableList<evenements> getEvenementList(){
  
       evenementsService es = new evenementsService();
-    ObservableList<evenements> obs =  es.afficher(5);
+    ObservableList<evenements> obs =  es.afficher(getUser().getID_Utilisateur());
   
     return obs;
 }
@@ -117,10 +126,12 @@ ListView.setItems(list);                                                        
     
 @Override
 public void initialize(URL url, ResourceBundle rb) {
+              utilisateur user = new utilisateur();
+              user = getUser();
 List<evenements> list = new ArrayList();
      evenementsService es = new evenementsService();
 
-list = es.afficher(5);
+list = es.afficher(user.getID_Utilisateur());
    showEvents();
      //es.afficher(5);
     
@@ -151,6 +162,36 @@ stage.show();
 Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
+    }
+
+    @FXML
+    private void retturn(ActionEvent event) {
+          try {       
+              home = FXMLLoader.load(getClass().getResource("../utilisateur/GUI/UIuser/UIuser.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(CollabwController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             Scene scene = new Scene(home);      
+            Stage CStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+            CStage.hide();
+            CStage.setScene(scene);
+            CStage.show();
+           
+          
+              home.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  home.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               CStage.setX(event.getScreenX() - xOffset);
+             CStage.setY(event.getScreenY() - yOffset);
+            }
+        });
     }
 
 }
