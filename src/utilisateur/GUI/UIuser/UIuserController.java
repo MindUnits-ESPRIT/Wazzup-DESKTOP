@@ -159,7 +159,9 @@ Cloudinary cloudinary = new Cloudinary(config);
     private ImageView photoup;
     @FXML
     private JFXPasswordField password;
-  
+    @FXML
+    private JFXButton add_interet;
+    List<interets> interet;
     
     /**
      * Initializes the controller class.
@@ -174,10 +176,13 @@ Cloudinary cloudinary = new Cloudinary(config);
             Cloudinary cloudinary = new Cloudinary(config);
         user_rating.setRating(getUser().getEvaluation());
         List<interets> interet = getFs().getAllInterets(getUser().getID_Utilisateur());
+        System.out.println("THIS IS LIST"+interet);
         ObservableList<interets> My_interet = FXCollections.observableArrayList(interet);
+        System.out.println(My_interet);
+        for (interets mylist : My_interet) {
         interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
         user_interets.setItems(My_interet);
-
+        }
         interets.getItems().addAll(getFs().getAllInterets_Combobox());
         interets.getCheckModel().check(interets.getItems().get(0));
 //        Timer timer = new Timer();
@@ -431,6 +436,23 @@ Cloudinary cloudinary = new Cloudinary(config);
             UI_stage.setScene(scene);
             UI_stage.show();
         }
+
+    @FXML
+    private void Ajoutint_Supprint(ActionEvent event) {
+        UtilisateurService userv= new UtilisateurService();
+        System.out.println(interets.getCheckModel().getCheckedItems());
+        System.out.println("HELLO MDF");
+         ObservableList<String> interetChecked = interets.getCheckModel().getCheckedItems();
+         System.out.println(interetChecked);
+         for (String interet : interetChecked) {
+         userv.ajouter_interet(getUser().getID_Utilisateur(), interet);
+         System.out.println(interet);
+         List<interets> myinteretList = getFs().getAllInterets(getUser().getID_Utilisateur());
+        ObservableList<interets> My_interet = FXCollections.observableArrayList(myinteretList);
+        interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
+        user_interets.setItems(My_interet);
+}
+       }
 
 
     

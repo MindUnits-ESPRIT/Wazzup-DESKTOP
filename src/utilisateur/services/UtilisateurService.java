@@ -400,23 +400,22 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
              return interets;
     }
         public List<interets> getAllInterets(int id){
-         String req="SELECT nom_interet from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur="+id;
-         List<interets> all_interets = new ArrayList<>();     
+         String req="SELECT nom_interet from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur='"+id+"'";
+           List<interets> all_interets = new ArrayList<>();  
+
          try {
           pste = conn.prepareStatement(req);
          ResultSet resFetch = pste.executeQuery();
-                   if (resFetch.next())
+                   while (resFetch.next())
           {
-       
-//         interets.add(s.substring(1, s.length()-1));
-          interets listinteret = new interets(resFetch.getString(1));
+          interets listinteret=new interets();
+          listinteret.setNom_interet(resFetch.getString(1));
           all_interets.add(listinteret);
         
-          } else {
-              System.out.println("Aucun interets");
-            }
+          } 
                 } catch (Exception e) {
                 }
+//              System.out.println(all_interets);
              return all_interets;
     }
 

@@ -122,6 +122,8 @@
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
+                     <JFXButton fx:id="add_interet" layoutX="522.0" layoutY="570.0" onAction="#Ajoutint_Supprint" style="-fx-background-color: #0069ff;" text="Ajouter" textFill="WHITE" />
+                     <Label fx:id="label_interet" layoutX="200.0" layoutY="814.0" prefHeight="21.0" prefWidth="351.0" text="                      " />
                </children>
             </AnchorPane>
                <AnchorPane prefHeight="151.0" prefWidth="256.0">

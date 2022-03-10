@@ -91,8 +91,8 @@ System.out.println(us.getAllInterets(58));
 
 //        System.out.println(us.generatePassword(8));
 //        us.modifierPassword(58,"malekabbes665@gmail.com");
-             System.out.println(us.UserByEmail("malekabbes665@gmail.com"));
-    
+//             System.out.println(us.UserByEmail("malekabbes665@gmail.com"));
+          us.getAllInterets(58);
 }
 
     
