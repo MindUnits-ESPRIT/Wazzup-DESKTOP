@@ -455,7 +455,6 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
       }
         return interet_user; 
      }
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++// 
      
          // Method : Affichage
     @Override
@@ -483,6 +482,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         return utilisateurs;
     }
          // Method CRUD#2: Modification
+    @Override
     public void modifier(int i,utilisateur u, int modif) {
         if (modif == 1) {
         String req="UPDATE `utilisateurs` SET `nom`=? , `prenom`=? ,`datenaissance`=? ,`num_tel`=? ,`genre`=? , `email`=? , `type_user`=? , `evaluation`=? WHERE `ID_Utilisateur`='"+i+"'";
@@ -496,6 +496,23 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste.setString(6,u.getEmail());
             pste.setString(7,u.getType_user());
             pste.setInt(8,u.getEvaluation());
+            pste.executeUpdate();
+            System.out.println("Utilisateur bien modifié");
+            modified=true;
+        } catch (SQLException ex) {
+         System.out.println("Utilisateur n'a pas été modifié");
+         modified=false;
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else if (modif == 2){
+        String req="UPDATE `utilisateurs` SET `datenaissance`=? ,`num_tel`=? ,`genre`=? , `email`=? ,`mdp`=? WHERE `ID_Utilisateur`='"+i+"'";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.setString(1,u.getDatenaissance());
+            pste.setString(2,u.getNum_tel());
+            pste.setString(3,u.getGenre());
+            pste.setString(4,u.getEmail());
+            pste.setString(5,md5.getMd5(u.getMdp()));
             pste.executeUpdate();
             System.out.println("Utilisateur bien modifié");
             modified=true;
@@ -555,7 +572,6 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
       } 
             
         }
-
      @Override
     public List<utilisateur> afficherParID(int id) {
        List<utilisateur> utilisateurs = new ArrayList<>();
@@ -614,4 +630,5 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         return utilisateurs;
     }
         
+}
 }
