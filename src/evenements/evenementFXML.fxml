@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="622.0" styleClass="mainFxmlClass" stylesheets="@evenementfxml.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evenements.EvenementFXMLController">
+   <children>
+      <HBox prefHeight="73.0" prefWidth="625.0">
+         <children>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="73.0" prefWidth="645.0" style="-fx-background-color: teal;">
+               <items>
+                  <Button fx:id="b2" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#RetourPage" prefHeight="38.0" prefWidth="72.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Retour" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="14.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect></Button>
+                  <Region prefHeight="58.0" prefWidth="129.0" />
+                  <Label text="Création événement" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="23.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="58.0" prefWidth="65.0" />
+                  <ImageView fitHeight="66.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/wazzup.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </ToolBar>
+         </children>
+      </HBox>
+      <Label layoutX="34.0" layoutY="115.0" text="Nom de l'événement">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="167.0" text="Nombre de participants">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="219.0" text="Type événement">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="ListType" layoutX="260.0" layoutY="213.0" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" />
+      <Label layoutX="34.0" layoutY="272.0" text="Visibilité">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="435.0" text="Description">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="Description" layoutX="161.0" layoutY="394.0" prefHeight="99.0" prefWidth="351.0" promptText="Description..." wrapText="true" />
+      <Button fx:id="b1" layoutX="252.0" layoutY="527.0" mnemonicParsing="false" onAction="#CreateEvent" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Créer" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="19.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
+      <Label fx:id="NameEvent" layoutX="446.0" layoutY="111.0" prefHeight="21.0" prefWidth="172.0" textFill="RED">
+         <font>
+            <Font name="Consolas" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbr_p" layoutX="456.0" layoutY="155.0" prefHeight="18.0" prefWidth="152.0" textFill="RED">
+         <font>
+            <Font name="Consolas" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeEvent" layoutX="468.0" layoutY="218.0" prefHeight="21.0" prefWidth="152.0" textFill="RED">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="Visibility" layoutX="464.0" layoutY="266.0" prefHeight="21.0" prefWidth="159.0" textFill="RED">
+         <font>
+            <Font name="Consolas" size="10.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="Visibilite" layoutX="260.0" layoutY="261.0" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" />
+      <JFXTextField fx:id="NmEvent" focusColor="#4395ae" layoutX="265.0" layoutY="96.0" promptText="Nom événement" unFocusColor="TEAL" />
+      <JFXTextField fx:id="NombreParticipant" focusColor="#4395ae" layoutX="265.0" layoutY="148.0" promptText="Nombre participants" unFocusColor="TEAL" />
+      <JFXDatePicker fx:id="Date_Event" defaultColor="TEAL" layoutX="247.0" layoutY="334.0" promptText="Date événement" />
+      <Label layoutX="30.0" layoutY="341.0" text="Date de l'événement">
+         <font>
+            <Font name="Consolas Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="Date" layoutX="464.0" layoutY="336.0" prefHeight="27.0" prefWidth="152.0" textFill="RED">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="23.0" fitWidth="23.0" layoutX="411.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/inscription_80px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="23.0" layoutX="411.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/people_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="23.0" layoutX="441.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/choice_50px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="23.0" layoutX="441.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/eye_32px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="496.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/handle_with_care_50px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

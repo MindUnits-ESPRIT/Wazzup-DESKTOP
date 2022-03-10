@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evenements.AfficherEvenementController">
+    <stylesheets>
+        <URL value="@afficherevenement.css" />
+    </stylesheets>
+   <children>
+      <HBox prefHeight="78.0" prefWidth="1080.0">
+         <children>
+            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="80.0" prefWidth="1085.0" style="-fx-background-color: #008080;">
+              <items>
+                <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" style="-fx-background-color: rgba(61, 166, 167, 0.8);" text="Retour" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="19.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="64.0" prefWidth="309.0" />
+                  <Label text="Les événements" textFill="WHITE">
+                     <font>
+                        <Font name="Consolas" size="37.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="64.0" prefWidth="283.0" />
+                  <ImageView fitHeight="62.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/wazzup.png" />
+                     </image>
+                  </ImageView>
+              </items>
+            </ToolBar>
+         </children>
+      </HBox>
+      <Button fx:id="ModifEvent" layoutX="715.0" layoutY="279.0" mnemonicParsing="false" onAction="#ModifyEvent" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: teal; -fx-background-radius: 10px;" text="Modifier événement" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Edit%20Text%20File_50px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="AddEvent" layoutX="715.0" layoutY="202.0" mnemonicParsing="false" onAction="#AddEvnet" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: teal; -fx-background-radius: 10px;" text="Ajouter événement" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="21.0" />
+         </font>
+      </Button>
+      <TableView fx:id="ListView" layoutX="14.0" layoutY="142.0" prefHeight="539.0" prefWidth="655.0">
+        <columns>
+          <TableColumn fx:id="C1" prefWidth="35.0" text="ID" />
+          <TableColumn fx:id="C2" prefWidth="91.0" text="Nom Event" />
+            <TableColumn fx:id="C3" prefWidth="70.0" text="Nombre" />
+            <TableColumn fx:id="C4" prefWidth="87.0" text="DateEvent" />
+            <TableColumn fx:id="C5" prefWidth="86.0" text="Type Event" />
+            <TableColumn fx:id="C6" prefWidth="81.0" text="Visibility" />
+            <TableColumn fx:id="C7" prefWidth="97.0" text="Description" />
+            <TableColumn fx:id="C8" prefWidth="107.0" text="CreationDate" />
+        </columns>
+      </TableView>
+      <Button fx:id="supprimEvent" layoutX="715.0" layoutY="600.0" mnemonicParsing="false" onAction="#DeleteEvent" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: red; -fx-background-radius: 10px;" text="Supprimer événement" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Delete_64px_White.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="167.0" layoutY="88.0" text="Vos événements" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="35.0" />
+         </font>
+      </Label>
+      <Button fx:id="AffichSalleCinema" layoutX="715.0" layoutY="353.0" mnemonicParsing="false" onAction="#AffichSalle" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: rgba(32, 180, 142, 0.8); -fx-background-radius: 10px;" text="Voir Vos Salles Cinéma" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/detective_24px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Rencontre" layoutX="715.0" layoutY="430.0" mnemonicParsing="false" onAction="#AfficherRencontre" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: rgba(32, 180, 142, 0.8); -fx-background-radius: 10px;" text="Voir vos Rencontres" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/detective_24px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="41.0" fitWidth="37.0" layoutX="449.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/event_accepted_80px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="30.0" layoutX="729.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/add_50px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
