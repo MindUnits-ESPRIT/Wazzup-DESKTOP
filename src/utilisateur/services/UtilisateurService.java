@@ -557,6 +557,19 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
 
     }
+        public void ModificationPasswordProfile(int id,String pwd){
+   
+        String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
+        try{
+            pste= conn.prepareStatement(req);
+            pste.setString(1,md5.getMd5(pwd));
+            pste.executeUpdate();
+           } catch (SQLException ex) {
+         System.out.println("Mot de passe modifié");
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     
    
    

@@ -157,6 +157,8 @@ Cloudinary cloudinary = new Cloudinary(config);
     private JFXButton createevent;
     @FXML
     private ImageView photoup;
+    @FXML
+    private JFXPasswordField password;
   
     
     /**
@@ -239,14 +241,16 @@ Cloudinary cloudinary = new Cloudinary(config);
         String dateb = Update_dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String Update_genre=genre.getValue();
         String Update_pwd=pwd.getText();
-            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
-            System.out.println("DB PASSWORD"+getUser().getMdp());
-            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
-        if (Update_pwd.isEmpty()){
+        String Updated_pwd=password.getText();
+//            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
+//            System.out.println("DB PASSWORD"+getUser().getMdp());
+//            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
+ if (!Update_email.isEmpty() && !Update_phone.isEmpty() && !Update_genre.isEmpty() && !Updated_pwd.isEmpty()){
+             if (Update_pwd.isEmpty()){
             modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
         }else {
             if (md5.getMd5(Update_pwd).equals(getUser().getMdp())){
-            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Update_pwd,Update_genre);
+            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){
             Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
@@ -275,6 +279,10 @@ Cloudinary cloudinary = new Cloudinary(config);
 
             }
         }
+ }else {
+     modification.setText("* Veuillez vérifier les champs !");
+ }
+
 
      }
      public void CancelUpdate(ActionEvent e){
