@@ -36,6 +36,7 @@ import org.json.JSONObject;
 import publication.entities.publication;
 import utilisateur.entities.utilisateur;
 import publication.services.publicationService;
+import static utils.SessionUser.getUser;
 
 public  class Post_PublicationController implements Initializable{
     @FXML
@@ -163,7 +164,9 @@ public  class Post_PublicationController implements Initializable{
     String Cleaned=AN.TextAnalyzer(str);
     //   System.out.println("TXT : "+Cleaned);
     //USER SESSION
-     utilisateur USession = new utilisateur(2, "Malek", "Abbes");
+    utilisateur USession = new utilisateur();
+    USession = getUser();
+    //USS
      publication P=new publication(Cleaned,IMG_URL);
      publicationService PS=new publicationService();
      PS.Creer_P(P,USession);

@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import publication.entities.publication;
 import utilisateur.entities.utilisateur;
 import publication.services.publicationService;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
@@ -46,7 +47,8 @@ public class Pop_upSignalerController {
                 publicationService PS=new publicationService();
                 //MUST ADD TYPE
         //SESSION ID USER 
-        utilisateur U = new utilisateur(2,"malek","abbes");
+        utilisateur USession = new utilisateur();
+	USession = getUser();
         publication P=new publication(Integer.parseInt(ic.newWindow2.getUserData().toString()));
         commentaire C=new  commentaire();
         RadioButton Sel=(RadioButton)signaler.getSelectedToggle();
@@ -54,7 +56,7 @@ public class Pop_upSignalerController {
           System.out.println("TP : "+Sel.getId());   
            System.out.println("TP : "+Sel.getText());   
         //publication P=new publication(0);
-        PS.Signaler_P(P, U,Integer.valueOf(Sel.getId()));
+        PS.Signaler_P(P,USession,Integer.valueOf(Sel.getId()));
     }
     
 }

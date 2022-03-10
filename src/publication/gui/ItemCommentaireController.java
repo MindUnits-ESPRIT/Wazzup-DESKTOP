@@ -19,6 +19,7 @@ import publication.services.publicationService;
 import utilisateur.entities.utilisateur;
 import commentaire.services.commentaireService;
 import commentaire.entities.commentaire;
+import static utils.SessionUser.getUser;
 /**
  * FXML Controller class
  *
@@ -66,7 +67,8 @@ public class ItemCommentaireController {
     Cleaned=AN.TextAnalyzer(str);
     //   System.out.println("TXT : "+Cleaned);
     //USER SESSION
-            utilisateur USession = new utilisateur(2, "Malek", "Abbes");
+    utilisateur USession = new utilisateur();
+	USession = getUser();
             publication P=new publication();
             commentaire C=new commentaire();
             int id_Pub=Integer.parseInt(description_pub.getId().substring(15));

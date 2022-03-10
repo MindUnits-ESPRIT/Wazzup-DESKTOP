@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.AppBar?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="576.0" style="-fx-background-radius: 35px 35px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utilisateur.GUI.auth.AuthController">
+   <children>
+      <AppBar minHeight="-Infinity" prefHeight="55.0" prefWidth="576.0" spacing="45.0" style="-fx-background-color: #008080; -fx-background-radius: 0px 35px;" styleClass="-fx" titleText="" />
+      <Button id="login" fx:id="auth_login" layoutX="270.0" layoutY="296.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="33.0" prefWidth="140.0" style="-fx-background-color: #008080; -fx-background-radius: 35px;" text="S'authentifier   " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button id="auth_cancel" fx:id="auth_cancel" layoutX="422.0" layoutY="296.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="33.0" prefWidth="102.0" style="-fx-background-color: #008080; -fx-background-radius: 25px;" text="Annuler    " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ImageView fitHeight="65.0" fitWidth="74.0" layoutY="-5.0">
+         <image>
+            <Image url="@..\resources\wazzup.png" />
+         </image>
+      </ImageView>
+      <BottomNavigation layoutX="315.0" layoutY="12.0" />
+        <BottomNavigationButton layoutX="433.0" layoutY="5.0" mouseTransparent="true" prefHeight="42.0" prefWidth="119.0" selected="true" style="-fx-background-color: #008080;" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></BottomNavigationButton>
+      <Hyperlink layoutX="279.0" layoutY="339.0" prefHeight="29.0" prefWidth="171.0" text="Mot de passe oublié?" />
+      <Pane layoutX="-14.0" layoutY="-125.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fill="WHITE" layoutX="84.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAZZUP - Authentification">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="18.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <ToggleButtonGroup layoutX="449.0" layoutY="248.0" selectionType="SINGLE" />
+      <Button id="signup" fx:id="signup" layoutX="436.0" layoutY="12.0" mnemonicParsing="false" onAction="#Signup" style="-fx-background-color: #0ED5A9; -fx-background-radius: 30px 30px 30px 30px;" styleClass="text-field" stylesheets="@css/textfield.css" text="      S'inscrire" textFill="WHITE">
+         <font>
+            <Font name="Microsoft New Tai Lue" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="448.0" layoutY="20.0">
+         <image>
+            <Image url="@..\resources\signup.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="490.0" fitWidth="440.0" layoutX="-90.0" layoutY="-18.0">
+         <image>
+            <Image url="@..\resources\wazzup.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="104.0" layoutY="395.0">
+         <image>
+            <Image url="@..\resources\mindunits.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="422.0" opacity="0.8" prefHeight="4.0" prefWidth="119.0" style="-fx-font-size: 12px;" text="Developpé par " />
+      <Label id="auth_verif" fx:id="auth_verif" layoutX="234.0" layoutY="112.0" prefHeight="21.0" prefWidth="297.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <JFXTextField id="auth_email" fx:id="auth_email" labelFloat="true" layoutX="295.0" layoutY="158.0" prefHeight="25.0" prefWidth="185.0" promptText="Email" />
+      <JFXPasswordField id="auth_password" fx:id="auth_password" layoutX="297.0" layoutY="214.0" prefHeight="25.0" prefWidth="185.0" promptText="Mot de passe" />
+      <Text layoutX="271.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter a votre espace" wrappingWidth="232.90136866271496">
+         <font>
+            <Font name="Consolas" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="468.0" layoutY="216.0">
+         <image>
+            <Image url="@../resources/icons8_lock_24px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="19.0" layoutX="467.0" layoutY="162.0">
+         <image>
+            <Image url="@../resources/icons8_secured_letter_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="382.0" layoutY="302.0">
+         <image>
+            <Image url="@../resources/icons8_login_24px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="21.0" fitWidth="19.0" layoutX="494.0" layoutY="302.0">
+         <image>
+            <Image url="@../resources/icons8_unavailable_24px.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="otp" layoutX="323.0" layoutY="377.0" prefHeight="31.0" prefWidth="119.0" />
+      <ImageView fx:id="smsicon1" layoutX="423.0" layoutY="380.0">
+         <image>
+            <Image url="@../resources/sms.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="checkotp" layoutX="460.0" layoutY="377.0" onAction="#CheckOTP" prefHeight="31.0" prefWidth="53.0" style="-fx-background-color: #008080; -fx-background-radius: 30 30 30 30;" text=" " textFill="WHITE" />
+      <ImageView fx:id="smsicon2" fitHeight="21.0" fitWidth="26.0" layoutX="473.0" layoutY="382.0">
+         <image>
+            <Image url="@../resources/otpv.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="otplabel" layoutX="270.0" layoutY="419.0" prefHeight="21.0" prefWidth="254.0" textFill="#07ab0d" visible="false" />
+      <ImageView fx:id="otptimer" disable="true" fitHeight="55.0" fitWidth="111.0" layoutX="329.0" layoutY="95.0" visible="false">
+         <effect>
+            <ColorAdjust brightness="-0.04" />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

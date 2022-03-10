@@ -43,13 +43,14 @@ import javafx.stage.StageStyle;
 import static javax.swing.Spring.width;
 import publication.entities.publication;
 import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
  *
  * @author Misow3002
  */
-public class ItemController {
+public class ItemController{
     private Pattern pattern = Pattern.compile("(?<=watch\\?v=|/videos/|embed\\/|youtu.be\\/|\\/v\\/|\\/e\\/|watch\\?v%3D|watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed%\u200C\u200B2F|youtu.be%2F|%2Fv%2F)[^#\\&\\?\\n]*");
     private String url;
 
@@ -83,7 +84,7 @@ public class ItemController {
     private VBox VboxPub;
     static public Stage newWindow2=new Stage();
     int i;
-    utilisateur USession = new utilisateur("spx","tn",23,24664800,"malek.abbes@esprit.tn","hellotest","User",4,"Male");
+  
         public void setData(publication P,utilisateur U,String str)
         {
             user_action.getItems().get(0).setText(valueOf(P.getID_publication()));
@@ -159,6 +160,8 @@ public class ItemController {
                 AnchorPane anchorPane2 = fxmlLoaderCommentItem.load();
                 ItemCommentaireController CC=fxmlLoaderCommentItem.getController();
                 //USER SESSION CHANGE ME !
+                       utilisateur USession = new utilisateur();
+                    USession = getUser();
                CC.SetData(USession,P);
             grid_c.add(anchorPane2,1,i+1);
         } catch (IOException ex) {

@@ -1,0 +1,8 @@
+.ui-menu:hover {
+    -fx-background-color: rgba(31, 217, 184, 1);
+    -fx-scale-y: 1.1;
+}
+.ui-menu {
+   -fx-background-color: #008080;
+    -fx-scale-y: 1.1;
+}

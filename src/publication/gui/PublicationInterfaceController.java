@@ -44,6 +44,7 @@ import publication.entities.publication;
 import publication.services.publicationService;
 import utilisateur.entities.utilisateur;
 import utilisateur.services.UtilisateurService;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
@@ -144,7 +145,8 @@ Load_Weather();
 //OPEN  
        // grid_profile.getChildren().clear();
         
-         utilisateur USession = new utilisateur("spx","tn",23,24664800,"malek.abbes@esprit.tn","hellotest","User",4,"Male");
+                utilisateur USession = new utilisateur();
+                USession = getUser();
                  try {
          System.out.println("Visited FROM : "+ str);
             FXMLLoader fxmlLoaderPostPub=new FXMLLoader();
@@ -178,8 +180,9 @@ Load_Weather();
         if (str=="ME")
         { //SESSION ID KEY HERE >>
             System.out.println("hello profile");
-         utilisateur u = new utilisateur(9,"malek","abbes");
-         list_pub=new ArrayList<publication>(PS.Afficher_P(u));
+    utilisateur USession = new utilisateur();
+	USession = getUser();
+         list_pub=new ArrayList<publication>(PS.Afficher_P(USession));
         }
         else
         {System.out.println("hello everyone");

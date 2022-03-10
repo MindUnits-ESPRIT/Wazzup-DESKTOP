@@ -3,24 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Post_PublicationController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/auth/AuthController.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/services/Ipublication.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Pop_upSignaler.fxml</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/GiphyController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Post_PublicationController.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/services/commentaireService.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/Iutilisateur.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/PublicationInterfaceController.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/entities/utilisateur.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Post_Publication.fxml</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/signup/SignupController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/test.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/services/publicationService.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/PublicationInterface.fxml</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/entities/commentaire.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/EmojiController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/gui/CollabListe.fxml</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/gui/CollabListeController.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/ItemController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIAdmin/UIAdmin.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/test.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/PublicationFX.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/commentaire/services/Icommentaire.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Pop_upSignalerController.java</file>
-            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/gui/Giphy.fxml</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/services/CollabService.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/GUI/UIAdmin/UIAdminController.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utilisateur/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/utils/SessionUser.java</file>
+            <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/collab/gui/PCollabController.java</file>
             <file>file:/C:/Users/Misow3002/Documents/NetBeansProjects/Wazzup-DESKTOP/src/publication/entities/publication.java</file>
         </group>
     </open-files>
