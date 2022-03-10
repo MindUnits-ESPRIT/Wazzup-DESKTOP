@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -53,9 +54,11 @@ public  class Post_PublicationController implements Initializable{
     private Button btn_img1;
     @FXML
     public MenuButton gif_menubtn;
-
+    String IMG_URL;
     @FXML
     public MenuItem menu_gifitem;
+        @FXML
+    private AnchorPane Post_anchor;
 
     @FXML
     private MenuButton img_btn;
@@ -77,7 +80,19 @@ public  class Post_PublicationController implements Initializable{
         File f=fc.showOpenDialog(null);
         if (f!=null)
         {
-            System.out.println("File Path : "+f.getAbsolutePath());
+            System.out.println("File Path : "+f.getAbsolutePath().toString());
+            //IMG_URL="file:"+f.getAbsolutePath().toString();
+            Image imageee = new Image("file:"+f.getAbsolutePath());
+            ImageView myimg=new ImageView();
+             myimg.setImage(imageee);
+           myimg.setFitHeight(450);
+           myimg.setFitWidth(350);
+           myimg.setPreserveRatio(true);
+           myimg.setSmooth(true);
+           myimg.setCache(true);
+           myimg.setLayoutX(50);
+           myimg.setLayoutY(207);
+           Post_anchor.getChildren().add(myimg);
         }
     }
     
@@ -149,7 +164,7 @@ public  class Post_PublicationController implements Initializable{
     //   System.out.println("TXT : "+Cleaned);
     //USER SESSION
      utilisateur USession = new utilisateur(2, "Malek", "Abbes");
-     publication P=new publication(Cleaned,"");
+     publication P=new publication(Cleaned,IMG_URL);
      publicationService PS=new publicationService();
      PS.Creer_P(P,USession);
    }

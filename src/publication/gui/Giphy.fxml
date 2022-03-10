@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="gif_anchor" prefHeight="440.0" prefWidth="427.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.GiphyController">
    <children>
-      <ScrollPane layoutY="30.0" prefHeight="423.0" prefWidth="427.0">
+      <ScrollPane hbarPolicy="NEVER" layoutY="30.0" prefHeight="423.0" prefWidth="427.0" vbarPolicy="NEVER">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>

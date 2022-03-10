@@ -6,13 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.Pop_upSignalerController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.Pop_upSignalerController">
     <stylesheets>
         <URL value="@pop_upsignaler.css" />
     </stylesheets>
@@ -24,7 +25,7 @@
                   <Font name="Arial Bold" size="31.0" />
                </font>
             </Label>
-            <Label layoutX="573.0" layoutY="33.0" prefHeight="48.0" prefWidth="137.0" text="Signaler" textAlignment="CENTER" textFill="#f8f8f8">
+            <Label layoutX="470.0" layoutY="33.0" prefHeight="48.0" prefWidth="137.0" text="Signaler" textAlignment="CENTER" textFill="#f8f8f8">
                <font>
                   <Font name="Arial Bold" size="31.0" />
                </font>
@@ -32,26 +33,29 @@
             <Separator layoutX="-2.0" layoutY="111.0" prefHeight="0.0" prefWidth="1286.0" />
          </children>
       </Pane>
-      <Pane prefHeight="248.0" prefWidth="295.0" style="-fx-background-color: rgba(122, 117, 120, 0.8); -fx-border-color: black; -fx-border-radius: 10px;" translateX="500.0" translateY="300.0">
+      <Pane layoutX="-109.0" prefHeight="248.0" prefWidth="295.0" style="-fx-background-color: rgba(122, 117, 120, 0.8); -fx-border-color: black; -fx-border-radius: 10px;" translateX="500.0" translateY="300.0">
          <children>
-            <VBox alignment="CENTER" layoutX="1.0" layoutY="1.0" prefHeight="205.0" prefWidth="292.0">
+            <VBox alignment="CENTER" layoutY="1.0" prefHeight="205.0" prefWidth="292.0">
                <children>
-                  <RadioButton fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Contenu non pertinent" textFill="WHITE" wrapText="true">
+                  <RadioButton id="1" fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Contenu non pertinent" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Consolas" size="15.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="signaler" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton id="2" fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Nudité ou actes sexuels" textFill="WHITE" toggleGroup="$signaler" wrapText="true">
                      <font>
                         <Font name="Consolas" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Nudité ou actes sexuels" textFill="WHITE" wrapText="true">
+                  <RadioButton id="3" fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Violence" textFill="WHITE" toggleGroup="$signaler" wrapText="true">
                      <font>
                         <Font name="Consolas" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Violence" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font name="Consolas" size="15.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Contenu indésirable" textFill="WHITE" wrapText="true">
+                  <RadioButton id="4" fx:id="type_signaler" mnemonicParsing="false" prefHeight="48.0" prefWidth="286.0" text="Contenu indésirable" textFill="WHITE" toggleGroup="$signaler" wrapText="true">
                      <font>
                         <Font name="Consolas" size="15.0" />
                      </font>

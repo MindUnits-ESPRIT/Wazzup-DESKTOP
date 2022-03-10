@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wazzup">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/wazzup.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

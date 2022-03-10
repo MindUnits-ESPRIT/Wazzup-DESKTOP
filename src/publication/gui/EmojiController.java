@@ -5,7 +5,6 @@
  */
 package publication.gui;
 
-import com.pavlobu.emojitextflow.EmojiTextFlow;
 import com.vdurmont.emoji.EmojiParser;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -44,6 +43,7 @@ public class EmojiController implements Initializable{
          @FXML
     private TextField TypedEmoji;
 public String[] call_me_emoji(String Keyword) throws Exception {
+    Keyword=java.net.URLEncoder.encode(Keyword,"UTF-8");
     String url;
     emoji_grid.getChildren().clear();
         if (Keyword.length()!=0)
