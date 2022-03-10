@@ -622,7 +622,7 @@ Parent collab_page_home;
 	.header("content-type", "application/x-www-form-urlencoded")
 	.header("accept-encoding", "application/gzip")
 	.header("x-rapidapi-host", "google-translate1.p.rapidapi.com")
-	.header("x-rapidapi-key", "b606ee6facmshba1c53fecd47f54p13a5cajsnd88a528c7a3d")
+	.header("x-rapidapi-key", "5220b89461msh77e120852a978d6p1540bdjsn73fa90c52972")
 	.body("q='"+msgV+"'&target=fr&source=en")
 	.asString();
      String str =  response.getBody();

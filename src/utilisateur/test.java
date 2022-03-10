@@ -13,6 +13,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
+import javax.mail.MessagingException;
 
 
 
@@ -26,7 +27,7 @@ public class test{
     public static final String ACCOUNT_SID = "ACa1c3f6d59e0c9f3d76e39dfec69e7c91"; 
     public static final String AUTH_TOKEN = "bd7a82b880d1e886d52059b1d5026ae4"; 
         static int OTP;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MessagingException {
   
         // test DB Connexion
 //        db cnx = db.getInstance();
@@ -88,18 +89,9 @@ System.out.println(us.getAllInterets(58));
  
 //        System.out.println(message.getSid()); 
 
-            Timer timer = new Timer();
-            timer. schedule(new TimerTask() {
-                @Override
-            public void run() {
-              Platform.runLater(() -> {
-                  Random rand = new Random();
-                  OTP=rand.nextInt(99999);
-                  System.out.println(OTP);
-              });
-}
-}, 50, 2000);
-        
+//        System.out.println(us.generatePassword(8));
+//        us.modifierPassword(58,"malekabbes665@gmail.com");
+             System.out.println(us.UserByEmail("malekabbes665@gmail.com"));
     
 }
 

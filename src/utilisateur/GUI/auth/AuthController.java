@@ -28,12 +28,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
 import org.controlsfx.control.MaskerPane;
 import static utils.SessionUser.*;
 import static utils.md5.getMd5;
@@ -76,6 +79,10 @@ Parent signup;
     private ImageView smsicon1;
     @FXML
     private ImageView smsicon2;
+    @FXML
+    private Hyperlink forgot;
+    @FXML
+    private Label forgotpwd;
 
     /**
      * Initializes the controller class.
@@ -221,7 +228,20 @@ Parent signup;
               auth_verif.setTextFill(Color.RED);
             }
             }
+
+    @FXML
+    private void GeneratePassword(MouseEvent event) throws MessagingException {
+      UtilisateurService userv= new UtilisateurService();
+        String email=auth_email.getText();
+        if (userv.isEmailExist(email)){
+            int id=userv.UserByEmail(email).getID_Utilisateur();
+            userv.modifierPassword(id,email);
+           forgotpwd.setText("Un mot de passe généré a été bien envoyé a votre email ! ");
+           forgotpwd.setTextFill(Color.GREEN);
+       } else{
+           forgotpwd.setText("Veuillez verifier votre email !");
+           forgotpwd.setTextFill(Color.RED);
+       }
+        }
         
-    
-    
 }

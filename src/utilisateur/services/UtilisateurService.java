@@ -15,6 +15,7 @@ import utils.md5;
 
 import utilisateur.entities.utilisateur;
 import database.db;
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -35,6 +36,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     public boolean added;
     public boolean modified;
     public boolean imageuploaded;
+    boolean pwdmodified=false;
     
     //private Statement ste;
     private PreparedStatement pste;
@@ -456,7 +458,23 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         return interet_user; 
      }
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++// 
-     
+     ////////// GENERATION D'UN MOT DE PASSE POUR MOT DE PASSE OUBLIE
+          public static String generatePassword(int len)
+         {
+        // ASCII range – alphanumeric (0-9, a-z, A-Z)
+        final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < len; i++)
+        {
+            int randomIndex = random.nextInt(chars.length());
+            sb.append(chars.charAt(randomIndex));
+        }
+ 
+        return sb.toString();
+    } 
+          
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//       
          // Method : Affichage
     @Override
     public List<utilisateur> afficher() {
@@ -524,7 +542,25 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         }
     }
-         // Method CRUD#3: Suppression
+    //// UPDATE PASSWORD ///
+    public void modifierPassword(int id,String email) throws MessagingException{
+        String generatedpassword=generatePassword(8);
+        String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
+        try{
+            pste= conn.prepareStatement(req);
+            pste.setString(1,md5.getMd5(generatedpassword));
+            pste.executeUpdate();
+             mailvalidation.sendVerification(email,"Votre nouveau mot de passe","Votre nouveau mot de passe = "+generatedpassword);
+           } catch (SQLException ex) {
+         System.out.println("Mot de passe modifié");
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+   
+   
+  // Method CRUD#3: Suppression
     @Override
 
         public void supprimer(int i) {

@@ -124,24 +124,23 @@ public class UIAdminController implements Initializable {
 
         //Initialisation de la session UTILISATEUR
        utilisateur user = new utilisateur();
-//       user = getUser();
+       user = getUser();
      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
         
-//         UtilisateurService us = getFs();
-//        System.out.println(getUser());
-//        System.out.println(getFs());
+        System.out.println(getUser());
+        System.out.println(getFs());
      }));
     timeline.play();
 // Les champs de modifications
-//    prenom.setText(user.getPrenom());
-//    prenom.setTextFill(Color.WHITE);
-//    nom.setText(user.getNom());
-//    nom.setTextFill(Color.WHITE);
-//    email.setText(user.getEmail());
-//    phone.setText(user.getNum_tel());
-//    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//    LocalDate localDate = LocalDate.parse(user.getDatenaissance(),formatter);
-//    dob.setValue(localDate);
+    prenom.setText(user.getPrenom());
+    prenom.setTextFill(Color.WHITE);
+    nom.setText(user.getNom());
+    nom.setTextFill(Color.WHITE);
+    email.setText(user.getEmail());
+    phone.setText(user.getNum_tel());
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    LocalDate localDate = LocalDate.parse(user.getDatenaissance(),formatter);
+    dob.setValue(localDate);
     }    
 
     @FXML

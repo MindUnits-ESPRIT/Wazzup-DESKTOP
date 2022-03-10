@@ -40,7 +40,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></BottomNavigationButton>
-      <Hyperlink layoutX="279.0" layoutY="339.0" prefHeight="29.0" prefWidth="171.0" text="Mot de passe oublié?" />
+      <Hyperlink fx:id="forgot" layoutX="279.0" layoutY="339.0" onMouseClicked="#GeneratePassword" prefHeight="29.0" prefWidth="171.0" text="Mot de passe oublié?" />
       <Pane layoutX="-14.0" layoutY="-125.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <Text fill="WHITE" layoutX="84.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAZZUP - Authentification">
@@ -105,14 +105,14 @@
             <Image url="@../resources/icons8_unavailable_24px.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="otp" layoutX="323.0" layoutY="377.0" prefHeight="31.0" prefWidth="119.0" />
-      <ImageView fx:id="smsicon1" layoutX="423.0" layoutY="380.0">
+      <JFXTextField fx:id="otp" layoutX="323.0" layoutY="377.0" prefHeight="31.0" prefWidth="119.0" visible="false" />
+      <ImageView fx:id="smsicon1" layoutX="423.0" layoutY="380.0" visible="false">
          <image>
             <Image url="@../resources/sms.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="checkotp" layoutX="460.0" layoutY="377.0" onAction="#CheckOTP" prefHeight="31.0" prefWidth="53.0" style="-fx-background-color: #008080; -fx-background-radius: 30 30 30 30;" text=" " textFill="WHITE" />
-      <ImageView fx:id="smsicon2" fitHeight="21.0" fitWidth="26.0" layoutX="473.0" layoutY="382.0">
+      <JFXButton fx:id="checkotp" layoutX="460.0" layoutY="377.0" onAction="#CheckOTP" prefHeight="31.0" prefWidth="53.0" style="-fx-background-color: #008080; -fx-background-radius: 30 30 30 30;" text=" " textFill="WHITE" visible="false" />
+      <ImageView fx:id="smsicon2" fitHeight="21.0" fitWidth="26.0" layoutX="473.0" layoutY="382.0" visible="false">
          <image>
             <Image url="@../resources/otpv.png" />
          </image>
@@ -123,5 +123,6 @@
             <ColorAdjust brightness="-0.04" />
          </effect>
       </ImageView>
+      <Label id="forgotpwd" fx:id="forgotpwd" layoutX="223.0" layoutY="369.0" prefHeight="17.0" prefWidth="332.0" />
    </children>
 </AnchorPane>
