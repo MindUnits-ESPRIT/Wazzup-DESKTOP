@@ -7,6 +7,7 @@ package offre_publicitaire;
 import offre_publicitaire.entities.*;
 import offre_publicitaire.service.*;
 import database.db ;
+import utilisateur.entities.utilisateur;
 /**
  *
  * @author ahmed
@@ -22,8 +23,9 @@ public class test {
         System.out.println(cnx.hashCode());
         OffreService os = new OffreService();
         offre_publicitaire o = new offre_publicitaire("java","test",4);
-        offre_publicitaire o2 = new offre_publicitaire("wiki","pc",4);
-        os.ajouter(o);
+        utilisateur u1 = new utilisateur(58,"malek","abbes");
+       // offre_publicitaire o2 = new offre_publicitaire("wiki","pc",4);
+        os.ajouter(o,u1);
         //os.supprimer(2);
         //os.modifier(1,o2);
       System.out.println(os.afficher());

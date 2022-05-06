@@ -22,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.MessagingException;
+import org.mindrot.jbcrypt.BCrypt;
 import utilisateur.entities.interets;
 import utils.SessionUser;
 import utils.mailvalidation;
@@ -146,17 +147,16 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     }
     // La fonction responsable a l'authentification
     public int auth(utilisateur u){
-        String authreq="SELECT * FROM `utilisateurs` WHERE `email`=? AND `mdp`=?";
- 
-        try {
-            pste=conn.prepareStatement(authreq);
-            pste.setString(1,u.getEmail());
-            pste.setString(2,u.getMdp());
-            ResultSet resauth= pste.executeQuery();
-
-            if (resauth.next() == true) {
-                if (ActivatedCheck(u.getEmail())==true){
-            u = this.UserById(resauth.getInt("ID_Utilisateur"));
+      
+            UtilisateurService userv= new UtilisateurService();
+            String userpwd=userv.UserByEmail(u.getEmail()).getMdp().replace("2y", "2a");
+              System.out.println(userpwd);  
+              System.out.println("my pw"+u.getMdp());
+            System.out.println(BCrypt.checkpw(u.getMdp(),userpwd));
+            
+           if(BCrypt.checkpw(u.getMdp(),userpwd)){
+             if (ActivatedCheck(u.getEmail())==true){
+            u = userv.UserByEmail(u.getEmail());
             SessionUser.setUser(u);
             System.out.println("Vous etes connecté ! ");
             System.out.println("L'ID de l'utilisateur connecté est : "+u.getID_Utilisateur());
@@ -165,11 +165,10 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                    System.out.println("Votre compte n'est pas encore activé ! ");
                    return (2);
                 }
-            }
-        } catch (Exception e) {
-            System.out.println(e+"ERREUR DE REQUETE");
-        }
-        return (0);
+            
+           } else{
+               return(0);
+           }
     }
      /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Verification du mot de passe
@@ -530,7 +529,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste.setString(2,u.getNum_tel());
             pste.setString(3,u.getGenre());
             pste.setString(4,u.getEmail());
-            pste.setString(5,md5.getMd5(u.getMdp()));
+            pste.setString(5,BCrypt.hashpw(u.getMdp(), BCrypt.gensalt(13)));
             pste.executeUpdate();
             System.out.println("Utilisateur bien modifié");
             modified=true;
@@ -547,7 +546,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
         try{
             pste= conn.prepareStatement(req);
-            pste.setString(1,md5.getMd5(generatedpassword));
+            pste.setString(1,BCrypt.hashpw(generatedpassword, BCrypt.gensalt(13)));
             pste.executeUpdate();
              mailvalidation.sendVerification(email,"Votre nouveau mot de passe","Votre nouveau mot de passe = "+generatedpassword);
            } catch (SQLException ex) {
@@ -561,7 +560,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
         try{
             pste= conn.prepareStatement(req);
-            pste.setString(1,md5.getMd5(pwd));
+            pste.setString(1,BCrypt.hashpw(pwd, BCrypt.gensalt(13)));
             pste.executeUpdate();
            } catch (SQLException ex) {
          System.out.println("Mot de passe modifié");
@@ -606,6 +605,62 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         
 
-  
+       @Override
+    public List<utilisateur> afficherParID(int id) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` Where ID_Utilisateur='"+id+"'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
+
+    @Override
+    public List<utilisateur> afficherParID(String Nom, String Prenom) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` WHERE `nom` LIKE '%"+Nom+"%' OR `prenom` LIKE '%"+Prenom+"%'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
     
 }

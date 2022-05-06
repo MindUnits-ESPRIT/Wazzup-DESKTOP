@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paiement.GUI.PaiementinterfaceController">
+   <top>
+      <VBox fx:id="VBoxTop" prefHeight="81.0" prefWidth="1080.0" style="-fx-background-color: #008080;" BorderPane.alignment="CENTER">
+         <children>
+            <ButtonBar fx:id="ButtonBar" prefHeight="86.0" prefWidth="1080.0" stylesheets="@paiementinterface.css">
+              <buttons>
+                <Button fx:id="ButtonRetour" mnemonicParsing="false" onAction="#Exit" prefHeight="55.0" prefWidth="131.0" style="-fx-background-color: #008080;" styleClass="exitline" stylesheets="@paiementinterface.css" text="Retour" textFill="#f5f5f5" />
+              </buttons>
+            </ButtonBar>
+         </children></VBox>
+   </top>
+   <left>
+      <VBox fx:id="VBoxLeft" prefHeight="639.0" prefWidth="288.0" styleClass="leftvbox" stylesheets="@paiementinterface.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="LabelWAZZUP" alignment="BASELINE_CENTER" prefHeight="162.0" prefWidth="301.0" styleClass="demoFont" stylesheets="@paiementinterface.css" text="WAZZUP" textAlignment="RIGHT">
+               <graphic>
+                  <ImageView fx:id="LogoWAZZUP" fitHeight="77.0" fitWidth="76.0" translateZ="100.0">
+                     <image>
+                        <Image url="@../img/Mou7awla3%20(1).png" />
+                     </image>
+                     <rotationAxis>
+                        <Point3D x="1.0" y="1.0" z="1.0" />
+                     </rotationAxis>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Button fx:id="ButtonPaiement" mnemonicParsing="false" onAction="#MPFXML" prefHeight="76.0" prefWidth="287.0" styleClass="redline" text="Paiement">
+               <graphic>
+                  <ImageView fx:id="LogoPaiement" fitHeight="29.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../img/cheap_2_30px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="ButtonFactures" mnemonicParsing="false" onAction="#factureFXML" prefHeight="80.0" prefWidth="290.0" styleClass="redline" text="Factures">
+               <graphic>
+                  <ImageView fx:id="LogoFactures" fitHeight="30.0" fitWidth="32.0">
+                     <image>
+                        <Image url="@../img/bill_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="ButtonTableauBoard" mnemonicParsing="false" onAction="#TBFXML" prefHeight="83.0" prefWidth="290.0" styleClass="redline" text="Tableau bord">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="32.0">
+                     <image>
+                        <Image url="@../img/content_24px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="LabelCopyright" alignment="BOTTOM_CENTER" prefHeight="161.0" prefWidth="288.0" styleClass="textcopyrigh" stylesheets="@paiementinterface.css" text="Developeé par" />
+            <ImageView fx:id="LogoMindunits" fitHeight="76.0" fitWidth="91.0" nodeOrientation="INHERIT" smooth="false" translateX="100.0">
+               <image>
+                  <Image url="@../img/wazzup_6.jpg" />
+               </image>
+            </ImageView>
+         </children></VBox>
+   </left>
+   <right>
+      <VBox fx:id="VBoxCenter" prefHeight="639.0" prefWidth="949.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="AnchorPane" prefHeight="650.0" prefWidth="792.0">
+               <children>
+                  <StackPane fx:id="contentArea" prefHeight="640.0" prefWidth="794.0" />
+               </children>
+            </AnchorPane>
+         </children></VBox>
+   </right>
+</BorderPane>

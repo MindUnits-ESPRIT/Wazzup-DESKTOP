@@ -1,0 +1,648 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 371 ciObject found
+ciMethod java/lang/Object <init> ()V 4097 1 1230637 0 0
+ciMethod java/lang/Object hashCode ()I 2049 1 256 0 -1
+ciMethod java/lang/Object equals (Ljava/lang/Object;)Z 2289 1 17065 0 -1
+ciMethod java/lang/System arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V 12289 1 1536 0 -1
+ciMethod java/lang/ref/Reference get ()Ljava/lang/Object; 1089 1 136 0 -1
+ciMethod java/lang/ref/WeakReference <init> (Ljava/lang/Object;)V 2097 1 23618 0 -1
+ciMethod java/lang/ref/WeakReference <init> (Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V 3073 1 9960 0 -1
+ciMethod java/util/Map get (Ljava/lang/Object;)Ljava/lang/Object; 0 0 1 0 -1
+ciMethod java/util/Map put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 0 0 1 0 -1
+ciMethod java/util/Hashtable put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 2185 961 3915 0 -1
+ciMethod java/lang/StringBuilder <init> ()V 1641 1 55977 0 -1
+ciMethod java/lang/StringBuilder append (Ljava/lang/String;)Ljava/lang/StringBuilder; 3017 1 129234 0 -1
+ciMethod java/lang/StringBuilder toString ()Ljava/lang/String; 1641 1 60568 0 -1
+ciMethod sun/misc/Unsafe getObjectVolatile (Ljava/lang/Object;J)Ljava/lang/Object; 2049 1 256 0 -1
+ciMethod java/lang/Float floatToIntBits (F)I 1 1 38698 0 -1
+ciMethod java/util/ArrayList get (I)Ljava/lang/Object; 2057 1 23001 0 -1
+ciMethod java/lang/Math round (F)I 3105 1 5545 0 -1
+ciMethod java/lang/Math abs (D)D 0 0 1 0 -1
+ciMethodData java/lang/Object <init> ()V 2 1230639 orig 264 72 34 111 116 0 0 0 0 128 4 76 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 121 41 150 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethod java/util/concurrent/ConcurrentHashMap spread (I)I 3169 1 14655 0 0
+ciMethod java/util/concurrent/ConcurrentHashMap tabAt ([Ljava/util/concurrent/ConcurrentHashMap$Node;I)Ljava/util/concurrent/ConcurrentHashMap$Node; 2057 1 24606 0 64
+ciMethod java/util/concurrent/ConcurrentHashMap get (Ljava/lang/Object;)Ljava/lang/Object; 2073 97 5404 0 1536
+ciMethod java/util/concurrent/ConcurrentHashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 1369 1 219 0 0
+ciMethod java/util/concurrent/ConcurrentHashMap putVal (Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; 2377 601 8976 0 -1
+ciMethod java/util/concurrent/ConcurrentHashMap$Node find (ILjava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$Node; 0 0 1 0 -1
+ciMethodData java/util/concurrent/ConcurrentHashMap tabAt ([Ljava/util/concurrent/ConcurrentHashMap$Node;I)Ljava/util/concurrent/ConcurrentHashMap$Node; 2 24606 orig 264 72 34 111 116 0 0 0 0 248 156 101 25 0 0 0 0 176 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 233 248 2 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 96 0 0 0 255 255 255 255 5 0 14 0 0 0 0 0 data 12 0xe0005 0x0 0x0 0x0 0x0 0x0 0x110104 0x0 0x2c6c71c0 0x4984 0x2c9b4c00 0x5f0 oops 2 8 java/util/concurrent/ConcurrentHashMap$Node 10 java/util/concurrent/ConcurrentHashMap$ForwardingNode
+ciMethodData java/util/concurrent/ConcurrentHashMap spread (I)I 2 14655 orig 264 72 34 111 116 0 0 0 0 200 153 101 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 140 1 0 0 153 189 1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData java/util/concurrent/ConcurrentHashMap get (Ljava/lang/Object;)Ljava/lang/Object; 2 5404 orig 264 72 34 111 116 0 0 0 0 80 164 101 25 0 0 0 0 8 4 0 0 208 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 0 0 201 160 0 0 241 46 0 0 0 0 0 0 0 0 0 0 2 0 0 0 1 0 36 0 2 0 0 0 184 2 0 0 255 255 255 255 5 0 1 0 0 0 0 0 data 87 0x10005 0x757 0x2c9adc60 0xae7 0x1bdc2470 0x1db 0x40002 0x1419 0xf0007 0x1f 0x278 0x13fa 0x170007 0x0 0x258 0x13fa 0x220002 0x13fa 0x270007 0x311 0x228 0x10e9 0x330007 0x2f8 0xb0 0xdf1 0x3e0007 0x234 0x90 0xbbd 0x430007 0x0 0xf8 0xbbd 0x490005 0x475 0x2c9adc60 0x6c7 0x1bdc2470 0x81 0x4c0007 0x1 0xa8 0xbbc 0x560007 0x2f8 0x88 0x0 0x5d0005 0x0 0x0 0x0 0x0 0x0 0x630007 0x0 0x38 0x0 0x6b0003 0x0 0x18 0x760007 0x134 0xd0 0x262 0x7f0007 0x9d 0xffffffffffffffe0 0x1c5 0x8a0007 0x4 0x90 0x1c1 0x8f0007 0x0 0xffffffffffffffa0 0x1c1 0x950005 0x1f 0x2c9adc60 0x1a1 0x2c9add10 0x1 0x980007 0x0 0xffffffffffffff50 0x1c1 oops 6 2 java/lang/invoke/MethodType$ConcurrentWeakInternSet$WeakEntry 4 java/lang/invoke/MemberName 36 java/lang/invoke/MethodType$ConcurrentWeakInternSet$WeakEntry 38 java/lang/invoke/MemberName 79 java/lang/invoke/MethodType$ConcurrentWeakInternSet$WeakEntry 81 java/util/Locale$LocaleKey
+ciMethod com/sun/prism/Graphics getTransformNoClone ()Lcom/sun/javafx/geom/transform/BaseTransform; 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics setPaint (Lcom/sun/prism/paint/Paint;)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics setStroke (Lcom/sun/prism/BasicStroke;)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics fill (Lcom/sun/javafx/geom/Shape;)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics fillRect (FFFF)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics draw (Lcom/sun/javafx/geom/Shape;)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics drawRect (FFFF)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics setNodeBounds (Lcom/sun/javafx/geom/RectBounds;)V 0 0 1 0 -1
+ciMethod com/sun/prism/Graphics drawString (Lcom/sun/javafx/scene/text/GlyphList;Lcom/sun/javafx/font/FontStrike;FFLcom/sun/prism/paint/Color;II)V 0 0 1 0 -1
+ciMethod com/sun/prism/impl/BaseGraphics getTransformNoClone ()Lcom/sun/javafx/geom/transform/BaseTransform; 1073 1 134 0 0
+ciMethod com/sun/prism/impl/BaseGraphics validateTransformAndPaint ()V 2049 1 5531 0 1536
+ciMethod com/sun/prism/impl/BaseGraphics setPaint (Lcom/sun/prism/paint/Paint;)V 3073 1 5580 0 0
+ciMethod com/sun/prism/impl/ps/BaseShaderGraphics setPaint (Lcom/sun/prism/paint/Paint;)V 3073 1 5580 0 1696
+ciMethod com/sun/prism/impl/ps/BaseShaderGraphics setNodeBounds (Lcom/sun/javafx/geom/RectBounds;)V 2065 1 5406 0 96
+ciMethod com/sun/javafx/geom/transform/BaseTransform getTranslateInstance (DD)Lcom/sun/javafx/geom/transform/BaseTransform; 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform isIdentity ()Z 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform isTranslateOrIdentity ()Z 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMxx ()D 1041 1 130 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMxy ()D 1025 1 128 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMxt ()D 1041 1 130 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMyx ()D 1041 1 130 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMyy ()D 1025 1 128 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMyt ()D 1065 1 133 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform getMzt ()D 1065 1 133 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform copy ()Lcom/sun/javafx/geom/transform/BaseTransform; 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/transform/BaseTransform almostZero (D)Z 2081 1 28022 0 0
+ciMethod com/sun/javafx/geom/transform/Affine3D <init> (Lcom/sun/javafx/geom/transform/Affine3D;)V 97 1 211 0 -1
+ciMethod com/sun/javafx/geom/transform/Affine3D copy ()Lcom/sun/javafx/geom/transform/BaseTransform; 97 1 211 0 0
+ciMethod com/sun/javafx/geom/transform/Affine3D updateState ()V 3217 1 5604 0 1216
+ciMethod com/sun/javafx/geom/transform/Affine3D almostOne (D)Z 3217 1 5604 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase stateError ()V 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/transform/AffineBase updateState ()V 2153 1 5795 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase updateState2D ()V 2209 1 5468 0 384
+ciMethod com/sun/javafx/geom/transform/AffineBase getType ()I 1921 1 5451 0 1824
+ciMethod com/sun/javafx/geom/transform/AffineBase calculateType ()I 289 1 1306 0 -1
+ciMethod com/sun/javafx/geom/transform/AffineBase getMxx ()D 3265 1 8179 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase getMyy ()D 2081 1 8659 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase getMxy ()D 2065 1 8067 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase getMyx ()D 3177 1 8164 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase getMxt ()D 3265 1 12506 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase getMyt ()D 3281 1 12505 0 0
+ciMethod com/sun/javafx/geom/transform/AffineBase isIdentity ()Z 3105 1 5557 0 1920
+ciMethod com/sun/javafx/geom/transform/AffineBase isTranslateOrIdentity ()Z 2689 1 9606 0 0
+ciMethod com/sun/javafx/geom/transform/Identity isIdentity ()Z 2377 1 297 0 0
+ciMethod com/sun/javafx/geom/transform/Identity isTranslateOrIdentity ()Z 1025 1 128 0 0
+ciMethod com/sun/javafx/geom/BaseBounds <init> ()V 3073 1 81088 0 32
+ciMethod com/sun/javafx/geom/BaseBounds getBoundsType ()Lcom/sun/javafx/geom/BaseBounds$BoundsType; 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMinX ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMinY ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMinZ ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMaxX ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMaxY ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds getMaxZ ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds deriveWithNewBounds (Lcom/sun/javafx/geom/BaseBounds;)Lcom/sun/javafx/geom/BaseBounds; 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds deriveWithNewBounds (FFFFFF)Lcom/sun/javafx/geom/BaseBounds; 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/BaseBounds isEmpty ()Z 0 0 1 0 -1
+ciMethod com/sun/javafx/geom/RectBounds <init> ()V 2065 1 52280 0 64
+ciMethod com/sun/javafx/geom/RectBounds getBoundsType ()Lcom/sun/javafx/geom/BaseBounds$BoundsType; 4097 1 1539 0 0
+ciMethod com/sun/javafx/geom/RectBounds getHeight ()F 3089 1 9131 0 -1
+ciMethod com/sun/javafx/geom/RectBounds getMinX ()F 3409 1 33628 0 0
+ciMethod com/sun/javafx/geom/RectBounds getMinY ()F 2329 1 42733 0 0
+ciMethod com/sun/javafx/geom/RectBounds getMaxX ()F 3449 1 26288 0 0
+ciMethod com/sun/javafx/geom/RectBounds getMaxY ()F 3433 1 26601 0 0
+ciMethod com/sun/javafx/geom/RectBounds deriveWithNewBounds (Lcom/sun/javafx/geom/BaseBounds;)Lcom/sun/javafx/geom/BaseBounds; 4097 1 5639 0 224
+ciMethod com/sun/javafx/geom/RectBounds isEmpty ()Z 3497 1 52475 0 64
+ciMethod com/sun/javafx/geom/RectBounds makeEmpty ()Lcom/sun/javafx/geom/RectBounds; 2049 1 5985 0 0
+ciMethod com/sun/javafx/sg/prism/NGNode getClipNode ()Lcom/sun/javafx/sg/prism/NGNode; 1033 1 129 0 0
+ciMethod com/sun/javafx/sg/prism/NGNode getContentBounds (Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/geom/BaseBounds; 2721 1 6492 0 768
+ciMethod com/sun/javafx/sg/prism/NGNode computeBounds (Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/geom/BaseBounds; 0 0 1 0 -1
+ciMethod com/sun/javafx/sg/prism/NGNode getClippedBounds (Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/geom/BaseBounds; 2089 1 1338 0 -1
+ciMethod com/sun/javafx/sg/prism/NGText getStrike (Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/font/FontStrike; 2073 1 5383 0 0
+ciMethod com/sun/javafx/sg/prism/NGText renderContent2D (Lcom/sun/prism/Graphics;Z)V 2065 1 5379 0 -1
+ciMethod com/sun/javafx/sg/prism/NGText renderText (Lcom/sun/prism/Graphics;Lcom/sun/javafx/font/FontStrike;Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/prism/paint/Color;I)V 2089 2089 6184 0 -1
+ciMethod com/sun/javafx/sg/prism/NGShape getMode ()Lcom/sun/javafx/sg/prism/NGShape$Mode; 1025 1 128 0 0
+ciMethod com/sun/javafx/font/PrismFontFactory getNativeFactoryName ()Ljava/lang/String; 9 1 1 0 -1
+ciMethod com/sun/javafx/font/PrismFontFactory getFontFactory ()Lcom/sun/javafx/font/PrismFontFactory; 177 1 5222 0 576
+ciMethod com/sun/javafx/font/PrismFontFactory getFontFactory (Ljava/lang/String;)Lcom/sun/javafx/font/PrismFontFactory; 9 1 1 0 -1
+ciMethod com/sun/javafx/font/PrismFontFactory getFontResource (Ljava/lang/String;Ljava/lang/String;Z)Lcom/sun/javafx/font/FontResource; 129 1 291 0 -1
+ciMethod com/sun/javafx/font/PrismFontFactory isLCDTextSupported ()Z 497 1 7458 0 0
+ciMethod com/sun/javafx/font/PGFont getSize ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/PGFont getStrike (Lcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/FontResource getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/PrismFontFile createStrike (FLcom/sun/javafx/geom/transform/BaseTransform;ILcom/sun/javafx/font/FontStrikeDesc;)Lcom/sun/javafx/font/PrismFontStrike; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/PrismFontFile getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 289 1 36 0 0
+ciMethod com/sun/javafx/font/CompositeFontResource getSlotResource (I)Lcom/sun/javafx/font/FontResource; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/CompositeFontResource getNumSlots ()I 0 0 1 0 -1
+ciMethod com/sun/javafx/font/LogicalFont getSlot0Resource ()Lcom/sun/javafx/font/FontResource; 2113 1 5390 0 -1
+ciMethod com/sun/javafx/font/LogicalFont getLinkedFonts ()V 241 1 32 0 -1
+ciMethod com/sun/javafx/font/LogicalFont getSlotResource (I)Lcom/sun/javafx/font/FontResource; 2097 1 3492 0 0
+ciMethod com/sun/javafx/font/LogicalFont getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 4097 1 4891 0 0
+ciMethod com/sun/javafx/font/FontStrike getSize ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/FontStrike drawAsShapes ()Z 0 0 1 0 -1
+ciMethod com/sun/javafx/font/FontStrike getMetrics ()Lcom/sun/javafx/font/Metrics; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/FontStrike getAAMode ()I 0 0 1 0 -1
+ciMethod com/sun/javafx/font/FontStrike getOutline (Lcom/sun/javafx/scene/text/GlyphList;Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/geom/Shape; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/PrismFontStrike getDisposer ()Lcom/sun/javafx/font/DisposerRecord; 281 1 35 0 -1
+ciMethod com/sun/javafx/font/PrismFontStrike drawAsShapes ()Z 1025 1 128 0 0
+ciMethod com/sun/javafx/font/PrismCompositeFontResource getSlotResource (I)Lcom/sun/javafx/font/FontResource; 4097 1 3717 0 0
+ciMethod com/sun/javafx/font/PrismCompositeFontResource getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 3097 1 2720 0 0
+ciMethod com/sun/javafx/font/FallbackResource getSlotResource (I)Lcom/sun/javafx/font/FontResource; 0 0 1 0 -1
+ciMethod com/sun/javafx/font/PrismFont getSize ()F 2057 1 4662 0 0
+ciMethod com/sun/javafx/font/PrismFont getStrike (Lcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 1025 1 1177 0 0
+ciMethod com/sun/javafx/font/FontStrikeDesc <init> (FLcom/sun/javafx/geom/transform/BaseTransform;I)V 3137 1 5601 0 480
+ciMethod com/sun/javafx/font/FontStrikeDesc hashCode ()I 3073 1 5509 0 256
+ciMethod com/sun/javafx/font/FontStrikeDesc equals (Ljava/lang/Object;)Z 3097 1 5566 0 640
+ciMethod com/sun/javafx/font/CompositeStrike <init> (Lcom/sun/javafx/font/CompositeFontResource;FLcom/sun/javafx/geom/transform/BaseTransform;ILcom/sun/javafx/font/FontStrikeDesc;)V 289 1 42 0 0
+ciMethod com/sun/javafx/font/CompositeStrike getAAMode ()I 441 1 7423 0 640
+ciMethod com/sun/javafx/font/CompositeStrike getStrikeSlot (I)Lcom/sun/javafx/font/FontStrike; 2081 1 6659 0 992
+ciMethod com/sun/javafx/font/CompositeStrike getSize ()F 2049 1 1281 0 0
+ciMethod com/sun/javafx/font/CompositeStrike drawAsShapes ()Z 2049 1 5550 0 384
+ciMethod com/sun/javafx/font/Metrics getStrikethroughOffset ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/Metrics getStrikethroughThickness ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/Metrics getUnderLineOffset ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/Metrics getUnderLineThickness ()F 0 0 1 0 -1
+ciMethod com/sun/javafx/font/CompositeStrikeDisposer <init> (Lcom/sun/javafx/font/FontResource;Lcom/sun/javafx/font/FontStrikeDesc;)V 337 1 42 0 0
+ciMethod com/sun/javafx/font/Disposer addRecord (Ljava/lang/Object;Lcom/sun/javafx/font/DisposerRecord;)Ljava/lang/ref/WeakReference; 289 1 42 0 0
+ciMethod com/sun/prism/paint/Paint getType ()Lcom/sun/prism/paint/Paint$Type; 1025 1 128 0 0
+ciMethod com/sun/prism/paint/Paint isProportional ()Z 1033 1 129 0 0
+ciMethod com/sun/prism/paint/Paint$Type isGradient ()Z 1041 1 130 0 0
+ciMethod com/sun/javafx/text/TextRun getStart ()I 1065 1 133 0 -1
+ciMethod com/sun/javafx/text/TextRun getLineBounds ()Lcom/sun/javafx/geom/RectBounds; 3073 1 7088 0 -1
+ciMethod com/sun/javafx/text/TextRun getWidth ()F 1305 1 5405 0 -1
+ciMethod com/sun/javafx/text/TextRun getLocation ()Lcom/sun/javafx/geom/Point2D; 1025 1 128 0 -1
+ciMethod com/sun/javafx/text/TextRun getGlyphCount ()I 1049 1 131 0 -1
+ciMethodData com/sun/javafx/geom/BaseBounds <init> ()V 2 81088 orig 264 72 34 111 116 0 0 0 0 96 152 160 25 0 0 0 0 48 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 1 0 0 1 218 9 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 16 0 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 2 0x10002 0x13b40 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds <init> ()V 2 52404 orig 264 72 34 111 116 0 0 0 0 128 187 160 25 0 0 0 0 48 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 145 93 6 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 16 0 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 2 0x10002 0xcbb2 oops 0
+ciMethodData com/sun/javafx/font/PrismFontFactory getFontFactory ()Lcom/sun/javafx/font/PrismFontFactory; 2 5222 orig 264 72 34 111 116 0 0 0 0 0 234 88 37 0 0 0 0 104 6 0 0 200 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22 0 0 0 129 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 21 0 2 0 0 0 40 5 0 0 255 255 255 255 7 0 3 0 0 0 0 0 data 165 0x30007 0x0 0x20 0x1450 0xf0007 0x0 0x30 0x0 0x120002 0x0 0x170007 0x0 0x20 0x0 0x240007 0x0 0x2c0 0x0 0x2e0002 0x0 0x330005 0x0 0x0 0x0 0x0 0x0 0x370005 0x0 0x0 0x0 0x0 0x0 0x3a0005 0x0 0x0 0x0 0x0 0x0 0x3d0005 0x0 0x0 0x0 0x0 0x0 0x430007 0x0 0x1d0 0x0 0x4e0007 0x0 0xc0 0x0 0x550002 0x0 0x590005 0x0 0x0 0x0 0x0 0x0 0x5e0005 0x0 0x0 0x0 0x0 0x0 0x610005 0x0 0x0 0x0 0x0 0x0 0x6a0007 0x0 0xc0 0x0 0x710002 0x0 0x750005 0x0 0x0 0x0 0x0 0x0 0x7a0005 0x0 0x0 0x0 0x0 0x0 0x7d0005 0x0 0x0 0x0 0x0 0x0 0x850005 0x0 0x0 0x0 0x0 0x0 0x890002 0x0 0x920007 0x0 0x1e8 0x0 0x980007 0x0 0x38 0x0 0xa20003 0x0 0x28 0xa90002 0x0 0xae0007 0x0 0x30 0x0 0xb20002 0x0 0xbb0007 0x0 0x150 0x0 0xc30005 0x0 0x0 0x0 0x0 0x0 0xcd0002 0x0 0xd20005 0x0 0x0 0x0 0x0 0x0 0xd60005 0x0 0x0 0x0 0x0 0x0 0xdb0005 0x0 0x0 0x0 0x0 0x0 0xde0005 0x0 0x0 0x0 0x0 0x0 0xe10005 0x0 0x0 0x0 0x0 0x0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds makeEmpty ()Lcom/sun/javafx/geom/RectBounds; 2 5985 orig 264 72 34 111 116 0 0 0 0 176 229 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 9 179 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds getMinY ()F 2 42735 orig 264 72 34 111 116 0 0 0 0 192 194 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 35 1 0 0 97 46 5 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds getMinX ()F 2 33629 orig 264 72 34 111 116 0 0 0 0 144 193 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 170 1 0 0 153 13 4 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds getMaxX ()F 2 26289 orig 264 72 34 111 116 0 0 0 0 128 196 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 175 1 0 0 17 40 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds isEmpty ()Z 2 52475 orig 264 72 34 111 116 0 0 0 0 136 226 160 25 0 0 0 0 120 1 0 0 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 180 1 0 0 49 90 6 0 1 0 0 0 33 46 0 0 0 0 0 0 2 0 0 0 0 0 9 0 2 0 0 0 88 0 0 0 255 255 255 255 7 0 9 0 0 0 0 0 data 11 0x90007 0x10b7 0x40 0xba8f 0x15e007 0xb9f8 0x38 0x98 0x190003 0x114f 0x18 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds getMaxY ()F 2 26602 orig 264 72 34 111 116 0 0 0 0 176 197 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 173 1 0 0 233 49 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds getBoundsType ()Lcom/sun/javafx/geom/BaseBounds$BoundsType; 2 1539 orig 264 72 34 111 116 0 0 0 0 168 190 160 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 25 32 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/RectBounds deriveWithNewBounds (Lcom/sun/javafx/geom/BaseBounds;)Lcom/sun/javafx/geom/BaseBounds; 2 5639 orig 264 72 34 111 116 0 0 0 0 208 204 160 25 0 0 0 0 200 3 0 0 88 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 57 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 10 0 2 0 0 0 120 2 0 0 255 255 255 255 5 0 1 0 0 0 0 0 data 79 0x10005 0x0 0x26db6760 0x1406 0x0 0x0 0x40007 0x1324 0x50 0xe2 0x80005 0x6c 0x26db6760 0x76 0x0 0x0 0xd0005 0x0 0x26db6760 0x1324 0x0 0x0 0x130007 0x0 0x128 0x1324 0x170004 0x0 0x26db6760 0x1324 0x0 0x0 0x1d0005 0xd0 0x26db6760 0x1253 0x0 0x0 0x250005 0xd0 0x26db6760 0x1252 0x0 0x0 0x2d0005 0xd0 0x26db6760 0x1252 0x0 0x0 0x350005 0xd0 0x26db6760 0x1252 0x0 0x0 0x3b0003 0x1322 0xb8 0x3f0005 0x0 0x0 0x0 0x0 0x0 0x450007 0x0 0x60 0x0 0x4d0004 0x0 0x0 0x0 0x0 0x0 0x500002 0x0 0x5a0002 0x0 oops 8 2 com/sun/javafx/geom/RectBounds 12 com/sun/javafx/geom/RectBounds 18 com/sun/javafx/geom/RectBounds 28 com/sun/javafx/geom/RectBounds 34 com/sun/javafx/geom/RectBounds 40 com/sun/javafx/geom/RectBounds 46 com/sun/javafx/geom/RectBounds 52 com/sun/javafx/geom/RectBounds
+ciMethodData com/sun/javafx/geom/transform/BaseTransform almostZero (D)Z 2 28022 orig 264 72 34 111 116 0 0 0 0 128 169 158 25 0 0 0 0 128 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 1 0 0 145 99 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 9 0 2 0 0 0 88 0 0 0 255 255 255 255 7 0 5 0 0 0 0 0 data 11 0x50007 0x0 0x58 0x6c72 0xd0007 0x0 0x38 0x6c72 0x110003 0x6c72 0x18 oops 0
+ciMethodData com/sun/javafx/font/CompositeStrike getStrikeSlot (I)Lcom/sun/javafx/font/FontStrike; 2 6659 orig 264 72 34 111 116 0 0 0 0 160 177 92 37 0 0 0 0 176 3 0 0 112 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 1 0 0 249 199 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 23 0 2 0 0 0 96 2 0 0 255 255 255 255 7 0 1 0 0 0 0 0 data 76 0x10007 0x0 0xd0 0x18ff 0x80007 0x18e8 0xb0 0x17 0x100005 0x0 0x26ce96b0 0xa 0x26ce9760 0xd 0x210005 0x0 0x26db6600 0x17 0x0 0x0 0x240005 0x0 0x32bdc290 0x17 0x0 0x0 0x350007 0x0 0x50 0x0 0x3d0005 0x0 0x0 0x0 0x0 0x0 0x4e0007 0x0 0x60 0x0 0x550005 0x0 0x0 0x0 0x0 0x0 0x6a0002 0x0 0x780007 0x0 0xe0 0x0 0x800005 0x0 0x0 0x0 0x0 0x0 0x950005 0x0 0x0 0x0 0x0 0x0 0x980005 0x0 0x0 0x0 0x0 0x0 0x9d0004 0x0 0x0 0x0 0x0 0x0 oops 4 10 com/sun/javafx/font/LogicalFont 12 com/sun/javafx/font/PrismCompositeFontResource 16 com/sun/javafx/font/CompositeStrike 22 com/sun/javafx/font/directwrite/DWFontFile
+ciMethodData com/sun/javafx/font/CompositeStrike getAAMode ()I 2 7423 orig 264 72 34 111 116 0 0 0 0 168 175 92 37 0 0 0 0 168 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 55 0 0 0 65 230 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 5 0 2 0 0 0 96 0 0 0 255 255 255 255 2 0 0 0 0 0 0 0 data 12 0x2 0x1cc8 0x50005 0x0 0x2cc9ba80 0x1cc8 0x0 0x0 0x80007 0x0 0x20 0x1cc8 oops 1 4 com/sun/javafx/font/directwrite/DWFactory
+ciMethodData com/sun/javafx/font/PrismFontFactory isLCDTextSupported ()Z 2 7458 orig 264 72 34 111 116 0 0 0 0 8 25 89 37 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 62 0 0 0 33 231 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMxt ()D 2 12508 orig 264 72 34 111 116 0 0 0 0 80 28 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 152 1 0 0 33 122 1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMyt ()D 2 12507 orig 264 72 34 111 116 0 0 0 0 232 28 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 154 1 0 0 9 122 1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase updateState ()V 2 5795 orig 264 72 34 111 116 0 0 0 0 128 19 159 25 0 0 0 0 120 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 1 0 0 177 172 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 48 0 0 0 255 255 255 255 5 0 1 0 0 0 0 0 data 6 0x10005 0x0 0x1c17ef50 0x14e5 0x2d2e6ae0 0xb1 oops 2 2 com/sun/javafx/geom/transform/Affine3D 4 com/sun/javafx/geom/transform/Affine2D
+ciMethodData com/sun/javafx/geom/transform/AffineBase updateState2D ()V 2 5468 orig 264 72 34 111 116 0 0 0 0 248 20 159 25 0 0 0 0 152 3 0 0 224 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 20 1 0 0 65 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 41 0 2 0 0 0 104 2 0 0 255 255 255 255 7 0 6 0 0 0 0 0 data 77 0x60007 0x1a 0x160 0x142e 0xf0007 0x0 0x140 0x142e 0x180007 0xd9 0xb0 0x1355 0x210007 0x59 0x90 0x12fc 0x2a0007 0x90c 0x58 0x9f0 0x330007 0x58 0x38 0x998 0x400003 0x998 0x1a8 0x4d0003 0x964 0x190 0x560007 0xe1 0x58 0x51 0x5f0007 0xf 0x38 0x42 0x670003 0x42 0x18 0x740003 0x132 0x120 0x7d0007 0x1a 0xb0 0x0 0x860007 0x0 0x90 0x0 0x8f0007 0x0 0x58 0x0 0x980007 0x0 0x38 0x0 0xa00003 0x0 0x88 0xa80003 0x0 0x70 0xb10007 0x1a 0x58 0x0 0xba0007 0x0 0x38 0x0 0xc30003 0x0 0x18 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMxy ()D 2 8067 orig 264 72 34 111 116 0 0 0 0 32 27 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 9 244 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMyy ()D 2 8659 orig 264 72 34 111 116 0 0 0 0 136 26 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 1 0 0 121 6 1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/prism/impl/BaseGraphics validateTransformAndPaint ()V 2 5531 orig 264 72 34 111 116 0 0 0 0 136 167 157 25 0 0 0 0 96 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 217 164 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 16 0 2 0 0 0 24 1 0 0 255 255 255 255 5 0 4 0 0 0 0 0 data 35 0x40005 0x0 0x1c17ef50 0x149b 0x0 0x0 0x70007 0x95 0xe8 0x1406 0xe0005 0x12 0x26db66b0 0x13e5 0x26e81b90 0xf 0x140007 0x21 0x98 0x13e5 0x210005 0x0 0x1c17ef50 0x13e5 0x0 0x0 0x2d0005 0x0 0x1c17ef50 0x13e5 0x0 0x0 0x340003 0x13e5 0x18 oops 5 2 com/sun/javafx/geom/transform/Affine3D 12 com/sun/prism/paint/Color 14 com/sun/prism/paint/LinearGradient 22 com/sun/javafx/geom/transform/Affine3D 28 com/sun/javafx/geom/transform/Affine3D
+ciMethodData com/sun/javafx/geom/transform/AffineBase isTranslateOrIdentity ()Z 2 9606 orig 264 72 34 111 116 0 0 0 0 80 30 159 25 0 0 0 0 208 1 0 0 80 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 80 1 0 0 177 33 1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 15 0 2 0 0 0 136 0 0 0 255 255 255 255 7 0 5 0 0 0 0 0 data 17 0x50007 0x22fb 0x70 0x13b 0x90005 0x0 0x2d2e6ae0 0x94 0x1c17ef50 0xa7 0xd0007 0x13b 0x38 0x0 0x110003 0x22fb 0x18 oops 2 6 com/sun/javafx/geom/transform/Affine2D 8 com/sun/javafx/geom/transform/Affine3D
+ciMethodData com/sun/javafx/geom/transform/AffineBase getType ()I 2 5451 orig 264 72 34 111 116 0 0 0 0 200 21 159 25 0 0 0 0 232 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 240 0 0 0 217 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 8 0 2 0 0 0 160 0 0 0 255 255 255 255 7 0 5 0 0 0 0 0 data 20 0x50007 0x1337 0xa0 0x124 0x90005 0x0 0x2d2e6ae0 0xb1 0x1c17ef50 0x73 0x110007 0x0 0x50 0x124 0x160005 0x0 0x2d2e6ae0 0xb1 0x1c17ef50 0x73 oops 4 6 com/sun/javafx/geom/transform/Affine2D 8 com/sun/javafx/geom/transform/Affine3D 16 com/sun/javafx/geom/transform/Affine2D 18 com/sun/javafx/geom/transform/Affine3D
+ciMethodData com/sun/javafx/geom/transform/AffineBase isIdentity ()Z 2 5557 orig 264 72 34 111 116 0 0 0 0 144 29 159 25 0 0 0 0 208 1 0 0 80 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 132 1 0 0 137 161 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 15 0 2 0 0 0 136 0 0 0 255 255 255 255 7 0 4 0 0 0 0 0 data 17 0x40007 0x83a 0x70 0xbf7 0x80005 0x0 0x1c17ef50 0xa8f 0x2d2e6ae0 0x168 0xb0007 0xbf7 0x38 0x0 0xf0003 0x83a 0x18 oops 2 6 com/sun/javafx/geom/transform/Affine3D 8 com/sun/javafx/geom/transform/Affine2D
+ciMethodData com/sun/javafx/geom/transform/AffineBase calculateType ()I 2 1330 orig 264 72 34 111 116 0 0 0 0 0 25 159 25 0 0 0 0 32 8 0 0 112 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 113 40 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 83 0 2 0 0 0 208 6 0 0 255 255 255 255 7 0 7 0 0 0 0 0 data 218 0x70007 0x0 0x38 0x50e 0xb0003 0x50e 0x18 0x190008 0x12 0x0 0xa0 0x0 0x698 0x0 0x680 0x3b 0x450 0xbb 0x450 0x0 0x2c8 0x0 0x2c8 0x0 0xb0 0xd 0xb0 0x480002 0x0 0x640007 0xd 0x38 0x0 0x6c0003 0x0 0x5c8 0x750007 0x0 0x38 0xd 0x790003 0xd 0x18 0x840007 0x0 0x38 0xd 0x880003 0xd 0x18 0x8f0007 0x0 0xc8 0xd 0x9b0007 0x0 0x40 0xd 0xa80007 0xd 0x38 0x0 0xb00003 0x0 0x4e0 0xc80007 0xd 0x38 0x0 0xd00003 0x0 0x4a8 0xd80003 0xd 0x490 0xe50007 0x0 0x40 0x0 0xf10007 0x0 0x38 0x0 0xf90003 0x0 0x438 0x1110007 0x0 0x38 0x0 0x1190003 0x0 0x400 0x1210003 0x0 0x3e8 0x12e0007 0x0 0x38 0x0 0x1320003 0x0 0x18 0x13d0007 0x0 0x38 0x0 0x1410003 0x0 0x18 0x1480007 0x0 0xc8 0x0 0x1550007 0x0 0x38 0x0 0x15d0003 0x0 0x320 0x1660007 0x0 0x58 0x0 0x1710007 0x0 0x38 0x0 0x1790003 0x0 0x2c8 0x1810003 0x0 0x2b0 0x18d0007 0x0 0x38 0x0 0x1950003 0x0 0x278 0x19d0003 0x0 0x260 0x1aa0007 0x0 0x38 0x501 0x1ae0003 0x501 0x18 0x1b90007 0x0 0x38 0x501 0x1bd0003 0x501 0x18 0x1c40007 0x0 0x118 0x501 0x1c80007 0x0 0x70 0x501 0x1d40007 0x465 0x38 0x9c 0x1db0003 0x9c 0x178 0x1e20003 0x465 0x160 0x1ee0007 0x0 0x38 0x0 0x1f60003 0x0 0x128 0x2010007 0x0 0x38 0x0 0x2090003 0x0 0xf0 0x2110003 0x0 0xd8 0x21e0007 0x0 0x90 0x0 0x2270007 0x0 0x40 0x0 0x2320007 0x0 0x38 0x0 0x23a0003 0x0 0x60 0x2420003 0x0 0x48 0x24a0003 0x0 0x30 0x2510003 0x0 0x18 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMyx ()D 2 8164 orig 264 72 34 111 116 0 0 0 0 184 27 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 141 1 0 0 185 242 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/AffineBase getMxx ()D 2 8179 orig 264 72 34 111 116 0 0 0 0 240 25 159 25 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 152 1 0 0 217 242 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/geom/transform/Affine3D updateState ()V 2 5604 orig 264 72 34 111 116 0 0 0 0 40 194 158 25 0 0 0 0 152 2 0 0 16 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146 1 0 0 145 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 61 0 2 0 0 0 80 1 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 42 0x10002 0x1452 0x80002 0x1452 0xb0007 0x0 0x110 0x1452 0x120002 0x1452 0x150007 0x0 0xe0 0x1452 0x1c0002 0x1452 0x1f0007 0x0 0xb0 0x1452 0x260002 0x1452 0x290007 0x0 0x80 0x1452 0x300002 0x1452 0x330007 0x0 0x50 0x1452 0x3a0002 0x1452 0x3d0007 0x1452 0x40 0x0 0x500007 0x0 0x20 0x0 oops 0
+ciMethodData com/sun/javafx/geom/transform/Affine3D almostOne (D)Z 2 5604 orig 264 72 34 111 116 0 0 0 0 168 251 158 25 0 0 0 0 128 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 146 1 0 0 145 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 88 0 0 0 255 255 255 255 7 0 5 0 0 0 0 0 data 11 0x50007 0x0 0x58 0x1452 0xd0007 0x0 0x38 0x1452 0x110003 0x1452 0x18 oops 0
+ciMethodData com/sun/javafx/font/LogicalFont getSlotResource (I)Lcom/sun/javafx/font/FontResource; 2 3492 orig 264 72 34 111 116 0 0 0 0 16 177 90 37 0 0 0 0 160 3 0 0 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 1 0 0 241 100 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 25 0 2 0 0 0 80 2 0 0 255 255 255 255 7 0 1 0 0 0 0 0 data 74 0x10007 0x0 0x30 0xc9e 0x50002 0xc9e 0xa0002 0x0 0x170007 0x0 0x60 0x0 0x260007 0x0 0x40 0x0 0x2f0007 0x0 0x20 0x0 0x410007 0x0 0x1b0 0x0 0x490005 0x0 0x0 0x0 0x0 0x0 0x4c0004 0x0 0x0 0x0 0x0 0x0 0x550005 0x0 0x0 0x0 0x0 0x0 0x580004 0x0 0x0 0x0 0x0 0x0 0x610002 0x0 0x670005 0x0 0x0 0x0 0x0 0x0 0x6a0004 0x0 0x0 0x0 0x0 0x0 0x710007 0x0 0x60 0x0 0x7a0002 0x0 0x7d0004 0x0 0x0 0x0 0x0 0x0 oops 0
+ciMethodData com/sun/javafx/geom/transform/Affine3D copy ()Lcom/sun/javafx/geom/transform/BaseTransform; 1 215 orig 264 72 34 111 116 0 0 0 0 224 191 158 25 0 0 0 0 48 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 0 0 0 89 6 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 16 0 0 0 255 255 255 255 2 0 5 0 0 0 0 0 data 2 0x50002 0xcb oops 0
+ciMethodData com/sun/javafx/sg/prism/NGNode getContentBounds (Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/geom/BaseBounds; 2 6492 orig 264 72 34 111 116 0 0 0 0 32 12 192 25 0 0 0 0 24 4 0 0 128 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 84 1 0 0 65 192 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 8 0 2 0 0 0 192 2 0 0 255 255 255 255 5 0 1 0 0 0 0 0 data 88 0x10005 0x14d 0x26dba990 0x131f 0x1c17ef50 0x39c 0x40007 0x0 0x280 0x1808 0xc0005 0x0 0x26db6760 0x1808 0x0 0x0 0x110005 0x14d 0x26dba990 0x131f 0x1c17ef50 0x39c 0x140007 0x14ec 0x200 0x31c 0x180005 0x9 0x1c17ef50 0x2b6 0x2d2e6ae0 0x5d 0x1e0005 0x9 0x1c17ef50 0x2b6 0x2d2e6ae0 0x5d 0x250005 0x9 0x1c17ef50 0x2b6 0x2d2e6ae0 0x5d 0x2d0005 0x0 0x26db6760 0x31c 0x0 0x0 0x330005 0x0 0x26db6760 0x31c 0x0 0x0 0x3a0005 0x0 0x26db6760 0x31c 0x0 0x0 0x410005 0x0 0x26db6760 0x31c 0x0 0x0 0x470005 0x0 0x26db6760 0x31c 0x0 0x0 0x4e0005 0x0 0x26db6760 0x31c 0x0 0x0 0x540005 0x0 0x26db6760 0x31c 0x0 0x0 0x5d0002 0x0 oops 18 2 com/sun/javafx/geom/transform/Identity 4 com/sun/javafx/geom/transform/Affine3D 12 com/sun/javafx/geom/RectBounds 18 com/sun/javafx/geom/transform/Identity 20 com/sun/javafx/geom/transform/Affine3D 28 com/sun/javafx/geom/transform/Affine3D 30 com/sun/javafx/geom/transform/Affine2D 34 com/sun/javafx/geom/transform/Affine3D 36 com/sun/javafx/geom/transform/Affine2D 40 com/sun/javafx/geom/transform/Affine3D 42 com/sun/javafx/geom/transform/Affine2D 46 com/sun/javafx/geom/RectBounds 52 com/sun/javafx/geom/RectBounds 58 com/sun/javafx/geom/RectBounds 64 com/sun/javafx/geom/RectBounds 70 com/sun/javafx/geom/RectBounds 76 com/sun/javafx/geom/RectBounds 82 com/sun/javafx/geom/RectBounds
+ciMethodData com/sun/javafx/sg/prism/NGText renderText (Lcom/sun/prism/Graphics;Lcom/sun/javafx/font/FontStrike;Lcom/sun/javafx/geom/BaseBounds;Lcom/sun/prism/paint/Color;I)V 2 7118 orig 264 72 34 111 116 0 0 0 0 64 70 87 37 0 0 0 0 248 11 0 0 64 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 1 0 0 217 190 0 0 73 214 0 0 0 0 0 0 0 0 0 0 2 0 0 0 1 0 89 0 2 0 0 0 136 10 0 0 255 255 255 255 7 0 10 0 0 0 0 0 data 337 0xa0007 0x17db 0xa88 0x1ac9 0x140004 0x0 0x33af3870 0x1ac9 0x0 0x0 0x1b0005 0x0 0x33af3870 0x1ac9 0x0 0x0 0x220005 0x0 0x33af3870 0x1ac9 0x0 0x0 0x400007 0x1ac9 0x220 0x0 0x460005 0x0 0x0 0x0 0x0 0x0 0x4a0007 0x0 0x38 0x0 0x4d0003 0x0 0x968 0x540005 0x0 0x0 0x0 0x0 0x0 0x590005 0x0 0x0 0x0 0x0 0x0 0x5d0007 0x0 0x38 0x0 0x600003 0x0 0x8b8 0x660005 0x0 0x0 0x0 0x0 0x0 0x6a0007 0x0 0x38 0x0 0x6d0003 0x0 0x850 0x740005 0x0 0x0 0x0 0x0 0x0 0x790005 0x0 0x0 0x0 0x0 0x0 0x7d0007 0x0 0x38 0x0 0x800003 0x0 0x7b8 0x870005 0x8b 0x26db6760 0x1a3e 0x0 0x0 0x930007 0x336 0x210 0x1793 0x980005 0x0 0x33af3870 0x1793 0x0 0x0 0x9b0007 0x71 0x1c0 0x1722 0xa40007 0x0 0x98 0x1722 0xa90005 0x0 0x33af3870 0x1722 0x0 0x0 0xc60005 0x0 0x26db6550 0x1722 0x0 0x0 0xcb0003 0x1722 0x120 0xd40002 0x0 0xdf0007 0x0 0x98 0x0 0xe80005 0x0 0x0 0x0 0x0 0x0 0xed0005 0x0 0x0 0x0 0x0 0x0 0xf20003 0x0 0x78 0xfb0005 0x0 0x0 0x0 0x0 0x0 0x1000005 0x0 0x0 0x0 0x0 0x0 0x10b0007 0x1793 0x560 0x336 0x10f0005 0x0 0x26db6600 0x336 0x0 0x0 0x11a0007 0x0 0x288 0x336 0x1210005 0x0 0x33acee60 0x336 0x0 0x0 0x12b0005 0x0 0x33acee60 0x336 0x0 0x0 0x1380007 0x0 0x1a8 0x336 0x13f0007 0x336 0x110 0x0 0x1430005 0x0 0x0 0x0 0x0 0x0 0x1480005 0x0 0x0 0x0 0x0 0x0 0x14b0007 0x0 0x90 0x0 0x14f0005 0x0 0x0 0x0 0x0 0x0 0x1540005 0x0 0x0 0x0 0x0 0x0 0x15f0002 0x0 0x16f0005 0x0 0x33af3870 0x336 0x0 0x0 0x1740005 0x0 0x26db6550 0x336 0x0 0x0 0x1790003 0x336 0x78 0x1830005 0x0 0x0 0x0 0x0 0x0 0x1880005 0x0 0x0 0x0 0x0 0x0 0x1910007 0x336 0x288 0x0 0x1980005 0x0 0x0 0x0 0x0 0x0 0x1a20005 0x0 0x0 0x0 0x0 0x0 0x1af0007 0x0 0x1a8 0x0 0x1b60007 0x0 0x110 0x0 0x1ba0005 0x0 0x0 0x0 0x0 0x0 0x1bf0005 0x0 0x0 0x0 0x0 0x0 0x1c20007 0x0 0x90 0x0 0x1c60005 0x0 0x0 0x0 0x0 0x0 0x1cb0005 0x0 0x0 0x0 0x0 0x0 0x1d60002 0x0 0x1e60005 0x0 0x0 0x0 0x0 0x0 0x1eb0005 0x0 0x0 0x0 0x0 0x0 0x1f00003 0x0 0x78 0x1fa0005 0x0 0x0 0x0 0x0 0x0 0x1ff0005 0x0 0x0 0x0 0x0 0x0 0x2070003 0x1ac9 0xfffffffffffff590 oops 12 6 com/sun/javafx/text/TextRun 12 com/sun/javafx/text/TextRun 18 com/sun/javafx/text/TextRun 92 com/sun/javafx/geom/RectBounds 102 com/sun/javafx/text/TextRun 116 com/sun/javafx/text/TextRun 122 com/sun/prism/d3d/D3DGraphics 168 com/sun/javafx/font/CompositeStrike 178 com/sun/javafx/font/PrismMetrics 184 com/sun/javafx/font/PrismMetrics 228 com/sun/javafx/text/TextRun 234 com/sun/prism/d3d/D3DGraphics
+ciMethodData java/util/concurrent/ConcurrentHashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 1 219 orig 264 72 34 111 116 0 0 0 0 112 166 101 25 0 0 0 0 136 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 171 0 0 0 129 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 48 0 0 0 255 255 255 255 5 0 4 0 0 0 0 0 data 6 0x40005 0x30 0x0 0x0 0x0 0x0 oops 0
+ciMethodData com/sun/javafx/font/CompositeStrike getSize ()F 2 1281 orig 264 72 34 111 116 0 0 0 0 128 179 92 37 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 9 32 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/font/FontStrikeDesc hashCode ()I 2 5509 orig 264 72 34 111 116 0 0 0 0 64 160 92 37 0 0 0 0 184 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 1 0 0 41 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 36 0 2 0 0 0 112 0 0 0 255 255 255 255 7 0 4 0 0 0 0 0 data 14 0x40007 0x24 0x70 0x13e1 0x100002 0x13e1 0x1a0002 0x13e1 0x240002 0x13e1 0x2e0002 0x13e1 0x380002 0x13e1 oops 0
+ciMethodData com/sun/javafx/font/FontStrikeDesc <init> (FLcom/sun/javafx/geom/transform/BaseTransform;I)V 2 5601 orig 264 72 34 111 116 0 0 0 0 104 159 92 37 0 0 0 0 48 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 25 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 136 1 0 0 201 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 208 0 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 26 0x10002 0x1459 0x1f0005 0x0 0x26dba990 0x126f 0x1c17ef50 0x1ea 0x2b0005 0x0 0x26dba990 0x126f 0x1c17ef50 0x1ea 0x370005 0x0 0x26dba990 0x126f 0x1c17ef50 0x1ea 0x430005 0x0 0x26dba990 0x126f 0x1c17ef50 0x1ea oops 8 4 com/sun/javafx/geom/transform/Identity 6 com/sun/javafx/geom/transform/Affine3D 10 com/sun/javafx/geom/transform/Identity 12 com/sun/javafx/geom/transform/Affine3D 16 com/sun/javafx/geom/transform/Identity 18 com/sun/javafx/geom/transform/Affine3D 22 com/sun/javafx/geom/transform/Identity 24 com/sun/javafx/geom/transform/Affine3D
+ciMethodData com/sun/javafx/font/FontStrikeDesc equals (Ljava/lang/Object;)Z 2 5566 orig 264 72 34 111 116 0 0 0 0 72 161 92 37 0 0 0 0 88 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 131 1 0 0 217 161 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 17 0 2 0 0 0 8 1 0 0 255 255 255 255 4 0 1 0 0 0 0 0 data 33 0x10004 0x0 0x26cea9e0 0x143b 0x0 0x0 0xd0007 0x0 0xd8 0x143b 0x1d0007 0x0 0xb8 0x143b 0x2d0007 0x0 0x98 0x143b 0x3d0007 0x0 0x78 0x143b 0x4d0007 0x0 0x58 0x143b 0x590007 0x0 0x38 0x143b 0x5d0003 0x143b 0x18 oops 1 2 com/sun/javafx/font/FontStrikeDesc
+ciMethod com/sun/prism/paint/Gradient getNumStops ()I 1025 1 128 0 0
+ciMethodData com/sun/prism/impl/ps/BaseShaderGraphics setPaint (Lcom/sun/prism/paint/Paint;)V 2 5580 orig 264 72 34 111 116 0 0 0 0 120 10 158 25 0 0 0 0 144 2 0 0 24 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 1 0 0 97 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 9 0 2 0 0 0 64 1 0 0 255 255 255 255 5 0 1 0 0 0 0 0 data 40 0x10005 0x77 0x26db66b0 0x13be 0x26e81ae0 0x17 0x40005 0x0 0x26e806c0 0x144c 0x0 0x0 0x70007 0x13d5 0xd0 0x77 0xb0004 0x0 0x26e81b90 0x77 0x0 0x0 0x110005 0x0 0x26e81b90 0x77 0x0 0x0 0x160007 0x77 0x38 0x0 0x1a0003 0x0 0x18 0x210003 0x77 0x18 0x2b0002 0x144c oops 5 2 com/sun/prism/paint/Color 4 com/sun/prism/paint/ImagePattern 8 com/sun/prism/paint/Paint$Type 18 com/sun/prism/paint/LinearGradient 24 com/sun/prism/paint/LinearGradient
+ciMethodData com/sun/prism/impl/BaseGraphics setPaint (Lcom/sun/prism/paint/Paint;)V 2 5580 orig 264 72 34 111 116 0 0 0 0 176 180 157 25 0 0 0 0 56 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 1 0 0 97 162 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 16 0 0 0 255 255 255 255 2 0 6 0 0 0 0 0 data 2 0x60002 0x144c oops 0
+ciMethodData com/sun/prism/impl/ps/BaseShaderGraphics setNodeBounds (Lcom/sun/javafx/geom/RectBounds;)V 2 5406 orig 264 72 34 111 116 0 0 0 0 24 87 158 25 0 0 0 0 96 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 225 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 6 0 2 0 0 0 56 0 0 0 255 255 255 255 7 0 7 0 0 0 0 0 data 7 0x70007 0xa43 0x38 0x9d9 0xb0003 0x9d9 0x18 oops 0
+ciMethodData com/sun/javafx/font/CompositeStrike drawAsShapes ()Z 2 5550 orig 264 72 34 111 116 0 0 0 0 24 180 92 37 0 0 0 0 168 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 113 165 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 96 0 0 0 255 255 255 255 5 0 2 0 0 0 0 0 data 12 0x20005 0x0 0x26db6600 0x14ae 0x0 0x0 0x50005 0x0 0x2765c8a0 0x14ae 0x0 0x0 oops 2 2 com/sun/javafx/font/CompositeStrike 8 com/sun/javafx/font/directwrite/DWFontStrike
+ciMethodData com/sun/javafx/sg/prism/NGText renderContent2D (Lcom/sun/prism/Graphics;Z)V 2 5380 orig 264 72 34 111 116 0 0 0 0 8 67 87 37 0 0 0 0 48 7 0 0 120 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 17 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 54 0 2 0 0 0 216 5 0 0 255 255 255 255 7 0 7 0 0 0 0 0 data 187 0x70007 0x1402 0x20 0x0 0xf0007 0x0 0x40 0x1402 0x170007 0x1402 0x20 0x0 0x1c0005 0x0 0x26db6550 0x1402 0x0 0x0 0x240002 0x1402 0x2b0005 0x0 0x26db6600 0x1402 0x0 0x0 0x310007 0x1363 0x100 0x9f 0x380007 0x0 0x70 0x9f 0x3f0005 0x0 0x26db66b0 0x9f 0x0 0x0 0x420007 0x0 0x90 0x9f 0x490007 0x9f 0x110 0x0 0x500005 0x0 0x0 0x0 0x0 0x0 0x530007 0x0 0xc0 0x0 0x5b0002 0x1363 0x610005 0x0 0x26db5ad0 0x1363 0x0 0x0 0x690004 0x0 0x26db6760 0x1363 0x0 0x0 0x6c0005 0x0 0x26db6550 0x1363 0x0 0x0 0x7c0007 0x13fb 0xa0 0x7 0x830004 0x0 0x26db66b0 0x7 0x0 0x0 0x860007 0x0 0x50 0x7 0x8d0004 0x0 0x26db66b0 0x7 0x0 0x0 0x960005 0x5 0x26db5ad0 0x13fd 0x0 0x0 0x990007 0x1402 0x60 0x0 0xa10002 0x0 0xa70005 0x0 0x0 0x0 0x0 0x0 0xb30007 0x0 0x138 0x1402 0xbb0005 0x0 0x26db6550 0x1402 0x0 0x0 0xc90005 0x0 0x26db6600 0x1402 0x0 0x0 0xce0007 0x0 0x40 0x1402 0xd50007 0x1402 0x38 0x0 0xdb0003 0x0 0x18 0xee0002 0x1402 0xf50007 0x31d 0x40 0x10e4 0xfc0007 0x10e4 0x30 0x0 0x1120002 0x31d 0x11c0007 0x1401 0xd0 0x0 0x1240005 0x0 0x0 0x0 0x0 0x0 0x12e0005 0x0 0x0 0x0 0x0 0x0 0x13c0007 0x0 0x40 0x0 0x1430007 0x0 0x20 0x0 0x1580002 0x0 0x15d0005 0x0 0x26db6550 0x1401 0x0 0x0 oops 12 14 com/sun/prism/d3d/D3DGraphics 22 com/sun/javafx/font/CompositeStrike 36 com/sun/prism/paint/Color 62 com/sun/javafx/sg/prism/NGText 68 com/sun/javafx/geom/RectBounds 74 com/sun/prism/d3d/D3DGraphics 84 com/sun/prism/paint/Color 94 com/sun/prism/paint/Color 100 com/sun/javafx/sg/prism/NGText 122 com/sun/prism/d3d/D3DGraphics 128 com/sun/javafx/font/CompositeStrike 183 com/sun/prism/d3d/D3DGraphics
+ciMethodData com/sun/javafx/sg/prism/NGText getStrike (Lcom/sun/javafx/geom/transform/BaseTransform;)Lcom/sun/javafx/font/FontStrike; 2 5408 orig 264 72 34 111 116 0 0 0 0 232 61 87 37 0 0 0 0 208 6 0 0 112 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 0 0 233 160 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 40 0 2 0 0 0 128 5 0 0 255 255 255 255 5 0 6 0 0 0 0 0 data 176 0x60005 0x0 0x26db5ad0 0x141d 0x0 0x0 0xc0007 0x141d 0x20 0x0 0x120005 0x0 0x1c17ef50 0x141d 0x0 0x0 0x150007 0x141d 0xc0 0x0 0x1c0007 0x0 0x70 0x0 0x240005 0x0 0x0 0x0 0x0 0x0 0x290007 0x0 0x50 0x0 0x350005 0x0 0x0 0x0 0x0 0x0 0x460007 0x2e8 0x350 0x1135 0x4d0005 0x0 0x26db6600 0x1135 0x0 0x0 0x560005 0x0 0x269fe770 0x1135 0x0 0x0 0x5c0007 0x0 0x2d0 0x1135 0x600005 0x0 0x1c17ef50 0x1135 0x0 0x0 0x650007 0x0 0x40 0x1135 0x700007 0x0 0x260 0x1135 0x740005 0x0 0x1c17ef50 0x1135 0x0 0x0 0x790007 0x0 0x40 0x1135 0x840007 0x0 0x1f0 0x1135 0x8e0005 0x0 0x1c17ef50 0x1135 0x0 0x0 0x920002 0x1135 0x990007 0x0 0x190 0x1135 0xa30005 0x0 0x1c17ef50 0x1135 0x0 0x0 0xa70002 0x1135 0xae0007 0x0 0x130 0x1135 0xb80005 0x0 0x1c17ef50 0x1135 0x0 0x0 0xbc0002 0x1135 0xc30007 0x0 0xd0 0x1135 0xcd0005 0x0 0x1c17ef50 0x1135 0x0 0x0 0xd10002 0x1135 0xd80007 0x0 0x70 0x1135 0xe00005 0x0 0x26db6600 0x1135 0x0 0x0 0xe50007 0x1135 0x110 0x0 0xef0005 0x0 0x269fe770 0x2e8 0x0 0x0 0xfd0005 0x0 0x1c17ef50 0x2e8 0x0 0x0 0x1070005 0x0 0x1c17ef50 0x2e8 0x0 0x0 0x1110005 0x0 0x1c17ef50 0x2e8 0x0 0x0 0x11b0005 0x0 0x1c17ef50 0x2e8 0x0 0x0 oops 16 2 com/sun/javafx/sg/prism/NGText 12 com/sun/javafx/geom/transform/Affine3D 46 com/sun/javafx/font/CompositeStrike 52 com/sun/javafx/font/PrismFont 62 com/sun/javafx/geom/transform/Affine3D 76 com/sun/javafx/geom/transform/Affine3D 90 com/sun/javafx/geom/transform/Affine3D 102 com/sun/javafx/geom/transform/Affine3D 114 com/sun/javafx/geom/transform/Affine3D 126 com/sun/javafx/geom/transform/Affine3D 138 com/sun/javafx/font/CompositeStrike 148 com/sun/javafx/font/PrismFont 154 com/sun/javafx/geom/transform/Affine3D 160 com/sun/javafx/geom/transform/Affine3D 166 com/sun/javafx/geom/transform/Affine3D 172 com/sun/javafx/geom/transform/Affine3D
+ciMethodData com/sun/javafx/font/PrismFont getSize ()F 2 4662 orig 264 72 34 111 116 0 0 0 0 0 251 91 37 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 169 137 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethodData com/sun/javafx/font/PrismCompositeFontResource getSlotResource (I)Lcom/sun/javafx/font/FontResource; 2 3717 orig 264 72 34 111 116 0 0 0 0 248 166 91 37 0 0 0 0 192 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 41 100 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 7 0 2 0 0 0 112 0 0 0 255 255 255 255 7 0 1 0 0 0 0 0 data 14 0x10007 0x0 0x20 0xc85 0x100005 0x0 0x0 0x0 0x0 0x0 0x150007 0x0 0x20 0x0 oops 0
+ciMethodData com/sun/javafx/font/LogicalFont getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 2 4894 orig 264 72 34 111 116 0 0 0 0 104 190 90 37 0 0 0 0 8 3 0 0 104 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 241 136 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 22 0 2 0 0 0 168 1 0 0 255 255 255 255 2 0 7 0 0 0 0 0 data 53 0x70002 0x111e 0x120005 0x0 0x26ceec30 0x111e 0x0 0x0 0x170104 0x0 0x28ed350 0x111d 0x0 0x0 0x210007 0x1 0x80 0x111d 0x260005 0x0 0x28ed350 0x111d 0x0 0x0 0x290004 0x0 0x26db6600 0x111d 0x0 0x0 0x300007 0x111d 0xb8 0x1 0x3d0002 0x1 0x470007 0x0 0x48 0x1 0x510002 0x1 0x560003 0x1 0x28 0x5f0002 0x0 0x6c0005 0x0 0x26ceec30 0x1 0x0 0x0 oops 5 4 java/util/concurrent/ConcurrentHashMap 10 java/lang/ref/WeakReference 20 java/lang/ref/WeakReference 26 com/sun/javafx/font/CompositeStrike 49 java/util/concurrent/ConcurrentHashMap
+ciMethodData com/sun/javafx/font/CompositeStrike <init> (Lcom/sun/javafx/font/CompositeFontResource;FLcom/sun/javafx/geom/transform/BaseTransform;ILcom/sun/javafx/font/FontStrikeDesc;)V 1 42 orig 264 72 34 111 116 0 0 0 0 224 174 92 37 0 0 0 0 40 2 0 0 120 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 25 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 49 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 184 0 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 23 0x10002 0x6 0xf0005 0x0 0x1c17ef50 0x4 0x26dba990 0x2 0x120007 0x0 0x38 0x6 0x1c0003 0x6 0x48 0x210005 0x0 0x0 0x0 0x0 0x0 0x3b0002 0x6 oops 2 4 com/sun/javafx/geom/transform/Affine3D 6 com/sun/javafx/geom/transform/Identity
+ciMethodData com/sun/javafx/font/Disposer addRecord (Ljava/lang/Object;Lcom/sun/javafx/font/DisposerRecord;)Ljava/lang/ref/WeakReference; 1 42 orig 264 72 34 111 116 0 0 0 0 240 211 92 37 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 29 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 49 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 64 0 0 0 255 255 255 255 2 0 8 0 0 0 0 0 data 8 0x80002 0x6 0x150005 0x0 0x28ed7d0 0x6 0x0 0x0 oops 1 4 java/util/Hashtable
+ciMethodData com/sun/javafx/font/PrismFont getStrike (Lcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 2 1177 orig 264 72 34 111 116 0 0 0 0 64 252 91 37 0 0 0 0 136 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 128 0 0 0 201 32 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 48 0 0 0 255 255 255 255 5 0 10 0 0 0 0 0 data 6 0xa0005 0x0 0x26ce96b0 0x281 0x26ce9760 0x198 oops 2 2 com/sun/javafx/font/LogicalFont 4 com/sun/javafx/font/PrismCompositeFontResource
+ciMethodData com/sun/javafx/font/PrismCompositeFontResource getStrike (FLcom/sun/javafx/geom/transform/BaseTransform;I)Lcom/sun/javafx/font/FontStrike; 2 2720 orig 264 72 34 111 116 0 0 0 0 88 180 91 37 0 0 0 0 8 3 0 0 104 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 25 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 131 1 0 0 233 72 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 22 0 2 0 0 0 168 1 0 0 255 255 255 255 2 0 7 0 0 0 0 0 data 53 0x70002 0x91d 0x120005 0x0 0x26ceec30 0x91d 0x0 0x0 0x170004 0x0 0x28ed350 0x91d 0x0 0x0 0x210007 0x0 0x80 0x91d 0x260005 0x0 0x28ed350 0x91d 0x0 0x0 0x290004 0x0 0x26db6600 0x91d 0x0 0x0 0x300007 0x91d 0xb8 0x0 0x3d0002 0x0 0x470007 0x0 0x48 0x0 0x510002 0x0 0x560003 0x0 0x28 0x5f0002 0x0 0x6c0005 0x0 0x0 0x0 0x0 0x0 oops 4 4 java/util/concurrent/ConcurrentHashMap 10 java/lang/ref/WeakReference 20 java/lang/ref/WeakReference 26 com/sun/javafx/font/CompositeStrike
+instanceKlass javafx/beans/property/ReadOnlyObjectWrapper$1
+instanceKlass com/sun/javafx/event/CompositeEventHandler$1
+instanceKlass java/util/AbstractList$1
+instanceKlass com/sun/javafx/collections/ListListenerHelper$1
+instanceKlass com/sun/prism/impl/BaseResourcePool$$Lambda$465
+instanceKlass sun/security/ssl/SecureKey
+instanceKlass com/sun/javafx/binding/ExpressionHelper$1
+instanceKlass java/util/ArrayList$1
+instanceKlass java/lang/ref/ReferenceQueue$1
+instanceKlass java/util/WeakHashMap$1
+instanceKlass paiement/GUI/WhiteFXMLController
+instanceKlass javafx/scene/layout/BorderPane$BorderPositionProperty$1
+instanceKlass paiement/GUI/PaiementinterfaceController
+instanceKlass javafx/stage/PopupWindow$$Lambda$464
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$MenuItemContainer$$Lambda$463
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$MenuItemContainer$$Lambda$462
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$MenuItemContainer$$Lambda$461
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$MenuItemContainer$$Lambda$460
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$459
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$1
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$458
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$457
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$ArrowMenuItem$$Lambda$456
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$ArrowMenuItem$$Lambda$455
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$454
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$453
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$452
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuContent$$Lambda$451
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuSkin$4
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuSkin$3
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuSkin$2
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuSkin$1
+instanceKlass com/sun/javafx/scene/control/skin/ContextMenuSkin
+instanceKlass publication/gui/ItemCommentaireController
+instanceKlass commentaire/services/commentaireService
+instanceKlass commentaire/services/Icommentaire
+instanceKlass publication/gui/ItemController
+instanceKlass com/mysql/jdbc/TimeUtil
+instanceKlass publication/entities/publication
+instanceKlass publication/services/publicationService
+instanceKlass publication/services/Ipublication
+instanceKlass org/json/JSONArray
+instanceKlass org/json/JSONString
+instanceKlass org/json/JSONTokener
+instanceKlass org/json/JSONObject$Null
+instanceKlass org/json/JSONObject
+instanceKlass com/sun/prism/shader/FillRoundRect_LinearGradient_PAD_Loader
+instanceKlass java/lang/invoke/LambdaForm$MH
+instanceKlass java/lang/invoke/LambdaForm$DMH
+instanceKlass java/lang/invoke/LambdaForm$DMH
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$ContentView$$Lambda$450
+instanceKlass java/lang/invoke/LambdaForm$DMH
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkin$$Lambda$449
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkin$$Lambda$448
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkin$1
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkinBase$$Lambda$447
+instanceKlass com/sun/javafx/scene/control/ControlAcceleratorSupport$$Lambda$446
+instanceKlass com/sun/javafx/scene/control/ControlAcceleratorSupport$$Lambda$445
+instanceKlass com/sun/javafx/scene/control/ControlAcceleratorSupport
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkinBase$$Lambda$444
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkinBase$MenuLabeledImpl$$Lambda$443
+instanceKlass com/sun/javafx/scene/control/skin/LabeledImpl$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/LabeledImpl$Shuttler
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkinBase$$Lambda$442
+instanceKlass com/sun/javafx/scene/control/skin/MenuButtonSkinBase$$Lambda$441
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$440
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$439
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$438
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$437
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$436
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$435
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$434
+instanceKlass com/sun/javafx/tk/FontMetrics
+instanceKlass com/sun/javafx/font/PrismFontUtils
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$433
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$432
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$431
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$430
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$429
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$428
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$427
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$426
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$425
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$424
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$$Lambda$423
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$ContentView$$Lambda$422
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$ContentView$$Lambda$421
+instanceKlass com/sun/javafx/scene/control/skin/TextAreaSkin$ContentView$$Lambda$420
+instanceKlass com/sun/javafx/scene/control/behavior/TextAreaBehavior$1
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$419
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$418
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$417
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$416
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$415
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$414
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$413
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$412
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$411
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$410
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$409
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$408
+instanceKlass javafx/scene/control/TextArea$StyleableProperties
+instanceKlass javafx/scene/layout/GridPane$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$$Lambda$407
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$2
+instanceKlass com/sun/javafx/scene/control/skin/ScrollPaneSkin$1
+instanceKlass com/sun/javafx/scene/traversal/TraverseListener
+instanceKlass publication/gui/PublicationInterfaceController$2$2
+instanceKlass utilisateur/GUI/UIuser/UIuserController$7
+instanceKlass utilisateur/GUI/UIuser/UIuserController$6
+instanceKlass javafx/scene/control/ScrollPane$StyleableProperties
+instanceKlass java/text/FieldPosition$Delegate
+instanceKlass java/text/Format$FieldDelegate
+instanceKlass java/text/DigitList
+instanceKlass publication/gui/PublicationInterfaceController$1$1
+instanceKlass javafx/scene/control/TextArea$TextAreaContent
+instanceKlass publication/gui/Post_PublicationController
+instanceKlass java/util/Timer$1
+instanceKlass java/util/TaskQueue
+instanceKlass java/util/Timer
+instanceKlass com/sun/javafx/fxml/builder/ProxyBuilder$AnnotationValue
+instanceKlass com/sun/javafx/fxml/builder/ProxyBuilder$$Lambda$406
+instanceKlass javafx/beans/NamedArg
+instanceKlass javafx/scene/image/Image$Animation
+instanceKlass com/sun/javafx/iio/gif/GIFImageLoader2$LZWDecoder
+instanceKlass javafx/scene/layout/GridPane$CompositeSize
+instanceKlass javafx/scene/layout/GridPane$$Lambda$405
+instanceKlass javafx/scene/layout/GridPane$$Lambda$404
+instanceKlass publication/gui/PublicationInterfaceController
+instanceKlass javafx/scene/layout/ConstraintsBase
+instanceKlass com/sun/openpisces/TransformingPathConsumer2D$FilterSet
+instanceKlass com/sun/openpisces/Dasher
+instanceKlass com/sun/openpisces/Renderer
+instanceKlass com/sun/prism/impl/shape/OpenPiscesPrismUtils
+instanceKlass com/sun/javafx/geom/LineIterator
+instanceKlass com/sun/openpisces/Stroker$PolyStack
+instanceKlass com/sun/openpisces/Curve
+instanceKlass com/sun/openpisces/Stroker
+instanceKlass com/sun/prism/shader/DrawRoundRect_Color_Loader
+instanceKlass com/sun/prism/shader/FillRoundRect_ImagePattern_Loader
+instanceKlass com/sun/prism/shader/FillPgram_ImagePattern_Loader
+instanceKlass com/sun/scenario/effect/impl/BufferUtil$$Lambda$403
+instanceKlass com/sun/scenario/effect/impl/BufferUtil
+instanceKlass com/sun/scenario/effect/impl/state/BoxRenderState$1
+instanceKlass com/sun/prism/impl/shape/BasicShapeRep
+instanceKlass com/sun/prism/shader/FillPgram_LinearGradient_PAD_Loader
+instanceKlass com/sun/prism/shader/Texture_LinearGradient_PAD_Loader
+instanceKlass com/sun/prism/impl/ps/PaintHelper
+instanceKlass com/sun/prism/paint/Stop
+instanceKlass com/sun/prism/shader/DrawPgram_Color_Loader
+instanceKlass com/sun/javafx/sg/prism/NodeEffectInput$1
+instanceKlass com/sun/scenario/effect/impl/state/LinearConvolveRenderState$$Lambda$402
+instanceKlass java/lang/invoke/LambdaForm$DMH
+instanceKlass com/sun/scenario/effect/impl/prism/PrRenderInfo
+instanceKlass com/sun/scenario/effect/ImageDataRenderer
+instanceKlass com/sun/prism/shader/Solid_Color_Loader
+instanceKlass com/sun/scenario/effect/GaussianShadow$1
+instanceKlass com/sun/javafx/tk/Toolkit$1
+instanceKlass com/sun/scenario/effect/impl/state/LinearConvolveRenderState
+instanceKlass com/sun/scenario/effect/Color4f
+instanceKlass com/sun/scenario/effect/impl/state/LinearConvolveKernel
+instanceKlass com/sun/scenario/effect/impl/state/RenderState
+instanceKlass javafx/scene/effect/Effect$1
+instanceKlass com/sun/javafx/scene/control/skin/TableCellSkinBase$$Lambda$401
+instanceKlass com/sun/javafx/scene/control/skin/TableRowSkinBase$$Lambda$400
+instanceKlass com/sun/javafx/property/PropertyReference
+instanceKlass javafx/scene/control/TableColumn$CellDataFeatures
+instanceKlass javafx/scene/control/TableCell$$Lambda$399
+instanceKlass javafx/scene/control/TableCell$$Lambda$398
+instanceKlass javafx/scene/control/TableCell$$Lambda$397
+instanceKlass javafx/scene/control/TableCell$$Lambda$396
+instanceKlass javafx/scene/control/TableCell$$Lambda$395
+instanceKlass javafx/scene/control/TableCell$$Lambda$394
+instanceKlass javafx/scene/control/TableCell$$Lambda$393
+instanceKlass javafx/scene/control/TableCell$$Lambda$392
+instanceKlass com/sun/javafx/scene/control/skin/TableRowSkinBase$$Lambda$391
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$390
+instanceKlass javafx/scene/control/TableRow$$Lambda$389
+instanceKlass javafx/scene/control/TableRow$$Lambda$388
+instanceKlass javafx/scene/control/TableRow$$Lambda$387
+instanceKlass java/time/format/DateTimeFormatterBuilder$3
+instanceKlass java/time/LocalDate$1
+instanceKlass java/time/format/DateTimePrintContext
+instanceKlass sun/util/resources/LocaleData$2
+instanceKlass java/time/format/DateTimeFormatterBuilder$LocalizedPrinterParser
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$386
+instanceKlass javafx/scene/layout/BackgroundImage
+instanceKlass org/controlsfx/tools/Utils
+instanceKlass impl/org/controlsfx/skin/RatingSkin$2
+instanceKlass impl/org/controlsfx/skin/RatingSkin$1
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$385
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$384
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$383
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$382
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$381
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$380
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$379
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$378
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$377
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$376
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkin$$Lambda$375
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$374
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$373
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$1
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$372
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$371
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$370
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$369
+instanceKlass com/sun/javafx/scene/control/skin/NestedTableColumnHeader$$Lambda$368
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$367
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$366
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$365
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$364
+instanceKlass com/sun/javafx/scene/control/skin/NestedTableColumnHeader$4
+instanceKlass com/sun/javafx/scene/control/skin/NestedTableColumnHeader$3
+instanceKlass com/sun/javafx/scene/control/skin/NestedTableColumnHeader$2
+instanceKlass com/sun/javafx/scene/control/skin/NestedTableColumnHeader$1
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$363
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$362
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$361
+instanceKlass com/sun/javafx/scene/control/skin/TableColumnHeader$$Lambda$360
+instanceKlass javafx/beans/value/WritableLongValue
+instanceKlass javafx/beans/value/WritableFloatValue
+instanceKlass com/sun/javafx/binding/BidirectionalBinding
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$359
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$358
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$3
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$357
+instanceKlass com/sun/javafx/scene/control/skin/TableHeaderRow$$Lambda$356
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$355
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$354
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$353
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$352
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$351
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$350
+instanceKlass com/sun/javafx/scene/control/behavior/TableViewBehavior$$Lambda$349
+instanceKlass com/sun/javafx/scene/control/behavior/TableViewBehaviorBase$$Lambda$348
+instanceKlass com/sun/javafx/scene/control/SizeLimitedList
+instanceKlass com/sun/javafx/scene/control/skin/TableViewSkinBase$$Lambda$347
+instanceKlass com/sun/javafx/scene/control/skin/CellSkinBase$StyleableProperties
+instanceKlass impl/org/controlsfx/skin/CheckComboBoxSkin$$Lambda$346
+instanceKlass impl/org/controlsfx/skin/CheckComboBoxSkin$2
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$345
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$344
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$343
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$342
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$341
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$340
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$339
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$338
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$337
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$336
+instanceKlass com/sun/javafx/scene/control/skin/ScrollBarSkin$$Lambda$335
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$334
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$333
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$332
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$331
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$330
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$329
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$328
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$327
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$326
+instanceKlass javafx/scene/control/ScrollBar$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$325
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$1
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$324
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$323
+instanceKlass com/sun/javafx/scene/control/skin/VirtualContainerBase$$Lambda$322
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$4
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$321
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$320
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$319
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$318
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$317
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$316
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$315
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$314
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$313
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$3
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$2
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$312
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$311
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$$Lambda$310
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$ClippedContainer$$Lambda$309
+instanceKlass com/sun/javafx/scene/control/skin/VirtualFlow$ClippedContainer$$Lambda$308
+instanceKlass com/sun/javafx/scene/control/skin/VirtualScrollBar$$Lambda$307
+instanceKlass com/sun/javafx/scene/control/behavior/ListViewBehavior$2
+instanceKlass com/sun/javafx/scene/control/behavior/ListViewBehavior$1
+instanceKlass com/sun/javafx/scene/control/behavior/ListViewBehavior$$Lambda$306
+instanceKlass com/sun/javafx/scene/control/behavior/ListViewBehavior$$Lambda$305
+instanceKlass com/sun/javafx/scene/control/behavior/KeyBinding$1
+instanceKlass com/sun/javafx/scene/control/skin/ListViewSkin$$Lambda$304
+instanceKlass javafx/scene/control/ListCell$3
+instanceKlass javafx/scene/control/ListCell$$Lambda$303
+instanceKlass javafx/scene/control/ListCell$2
+instanceKlass javafx/scene/control/ListCell$$Lambda$302
+instanceKlass javafx/scene/control/ListCell$1
+instanceKlass javafx/scene/control/ListCell$$Lambda$301
+instanceKlass javafx/scene/control/ListCell$$Lambda$300
+instanceKlass javafx/scene/control/Cell$1
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$2
+instanceKlass javafx/scene/control/ListView$StyleableProperties
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$$Lambda$299
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$$Lambda$298
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$$Lambda$297
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$$Lambda$296
+instanceKlass javafx/scene/control/ListView$$Lambda$295
+instanceKlass javafx/scene/control/ListView$ListViewFocusModel$1
+instanceKlass javafx/scene/control/ListView$ListViewFocusModel$$Lambda$294
+instanceKlass javafx/scene/control/ListView$ListViewBitSetSelectionModel$1
+instanceKlass javafx/scene/control/ListView$ListViewBitSetSelectionModel$2
+instanceKlass javafx/scene/control/ListView$$Lambda$293
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$$Lambda$292
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxListViewSkin$1
+instanceKlass com/sun/javafx/geom/Path2D$SVGParser
+instanceKlass com/jfoenix/svg/SVGGlyph$$Lambda$2
+instanceKlass com/jfoenix/svg/SVGGlyph$$Lambda$1
+instanceKlass com/jfoenix/svg/SVGGlyph$StyleableProperties
+instanceKlass com/jfoenix/skins/JFXDatePickerSkin$$Lambda$1
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$3
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$1
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$$Lambda$291
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$$Lambda$290
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$$Lambda$289
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$$Lambda$288
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxPopupControl$$Lambda$287
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxBaseSkin$$Lambda$286
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxBaseSkin$$Lambda$285
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxBaseSkin$$Lambda$284
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxBaseSkin$$Lambda$283
+instanceKlass com/sun/javafx/scene/control/skin/ComboBoxBaseSkin$$Lambda$282
+instanceKlass javafx/collections/FXCollections$UnmodifiableObservableSet$1
+instanceKlass com/sun/scenario/animation/shared/InterpolationInterval$1
+instanceKlass com/sun/javafx/scene/control/skin/ProgressIndicatorSkin$IndeterminateSpinner$$Lambda$281
+instanceKlass com/sun/javafx/tk/quantum/WindowStage$$Lambda$280
+instanceKlass com/sun/javafx/tk/quantum/ViewScene$$Lambda$279
+instanceKlass com/sun/javafx/tk/quantum/WindowStage$$Lambda$278
+instanceKlass com/sun/javafx/application/PlatformImpl$$Lambda$277
+instanceKlass utilisateur/GUI/auth/AuthController$$Lambda$276
+instanceKlass utilisateur/GUI/auth/AuthController$$Lambda$275
+instanceKlass javafx/scene/control/TableView$StyleableProperties
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$274
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$273
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$272
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$271
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$270
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$269
+instanceKlass java/time/temporal/TemporalQueries$$Lambda$268
+instanceKlass java/time/temporal/TemporalQueries
+instanceKlass java/time/format/Parsed
+instanceKlass java/time/format/DateTimeParseContext
+instanceKlass java/text/ParsePosition
+instanceKlass java/time/LocalDate$$Lambda$267
+instanceKlass java/time/format/DateTimeFormatter$$Lambda$266
+instanceKlass java/time/format/DateTimeFormatter$$Lambda$265
+instanceKlass java/time/Period
+instanceKlass java/time/chrono/ChronoPeriod
+instanceKlass java/time/format/DateTimeFormatterBuilder$TextPrinterParser
+instanceKlass java/time/format/DateTimeTextProvider$1
+instanceKlass java/time/format/DateTimeTextProvider
+instanceKlass java/util/AbstractMap$SimpleImmutableEntry
+instanceKlass java/time/format/DateTimeTextProvider$LocaleStore
+instanceKlass java/time/format/DateTimeFormatterBuilder$InstantPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$StringLiteralPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$ZoneIdPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$FractionPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$OffsetIdPrinterParser
+instanceKlass java/time/format/DecimalStyle
+instanceKlass java/time/format/DateTimeFormatterBuilder$CompositePrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$CharLiteralPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$NumberPrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser
+instanceKlass java/time/format/DateTimeFormatterBuilder$2
+instanceKlass java/time/temporal/IsoFields
+instanceKlass java/time/temporal/ValueRange
+instanceKlass java/time/Duration
+instanceKlass java/time/temporal/TemporalAmount
+instanceKlass java/time/temporal/TemporalUnit
+instanceKlass java/time/temporal/TemporalField
+instanceKlass java/time/format/DateTimeFormatterBuilder$$Lambda$264
+instanceKlass java/time/temporal/TemporalQuery
+instanceKlass java/time/ZoneId
+instanceKlass java/time/format/DateTimeFormatterBuilder
+instanceKlass java/time/format/DateTimeFormatter
+instanceKlass utilisateur/GUI/UIuser/UIuserController$$Lambda$263
+instanceKlass sun/net/www/http/KeepAliveEntry
+instanceKlass sun/net/www/http/KeepAliveCache$1
+instanceKlass com/sun/javafx/iio/jpeg/JPEGImageLoader$Lock
+instanceKlass com/sun/javafx/iio/jpeg/JPEGImageLoader$$Lambda$262
+instanceKlass sun/net/www/http/KeepAliveStreamCleaner$2
+instanceKlass sun/net/www/http/KeepAliveStreamCleaner$1
+instanceKlass sun/net/www/http/Hurryable
+instanceKlass sun/net/www/HeaderParser
+instanceKlass sun/net/www/protocol/http/AuthCacheImpl
+instanceKlass sun/net/www/protocol/http/AuthCache
+instanceKlass sun/net/www/protocol/http/AuthCacheValue
+instanceKlass sun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1
+instanceKlass sun/security/ssl/CipherBox$1
+instanceKlass sun/security/internal/spec/TlsPrfParameterSpec
+instanceKlass sun/security/internal/spec/TlsKeyMaterialSpec
+instanceKlass sun/security/internal/spec/TlsKeyMaterialParameterSpec
+instanceKlass com/sun/crypto/provider/TlsMasterSecretGenerator$TlsMasterSecretKey
+instanceKlass sun/security/internal/interfaces/TlsMasterSecret
+instanceKlass javax/crypto/KeyGeneratorSpi
+instanceKlass javax/crypto/KeyGenerator
+instanceKlass sun/security/internal/spec/TlsMasterSecretParameterSpec
+instanceKlass javax/crypto/KeyAgreementSpi
+instanceKlass java/security/KeyPair
+instanceKlass java/security/interfaces/ECPrivateKey
+instanceKlass sun/security/ssl/ECDHCrypt
+instanceKlass java/security/spec/ECPublicKeySpec
+instanceKlass sun/security/ssl/ClientHandshaker$2
+instanceKlass java/util/Vector$Itr
+instanceKlass java/security/cert/PKIXCertPathValidatorResult
+instanceKlass java/security/cert/CertPathValidatorResult
+instanceKlass sun/security/provider/certpath/PKIXMasterCertPathValidator
+instanceKlass sun/security/provider/certpath/PolicyNodeImpl
+instanceKlass java/security/cert/PolicyNode
+instanceKlass sun/security/provider/certpath/CertPathHelper
+instanceKlass java/security/cert/X509CertSelector
+instanceKlass java/security/cert/CertSelector
+instanceKlass sun/security/provider/certpath/PKIX$ValidatorParams
+instanceKlass sun/security/provider/certpath/PKIX
+instanceKlass java/security/cert/CertPathValidatorSpi
+instanceKlass java/security/cert/CertPathValidator
+instanceKlass sun/security/ssl/SSLAlgorithmConstraints$SupportedSignatureAlgorithmConstraints
+instanceKlass sun/security/util/HostnameChecker
+instanceKlass java/security/cert/PKIXParameters
+instanceKlass java/security/cert/CertPathParameters
+instanceKlass sun/security/ssl/RandomCookie
+instanceKlass sun/security/ssl/ExtensionType
+instanceKlass sun/security/ssl/HelloExtension
+instanceKlass sun/security/ssl/CipherSuiteList$1
+instanceKlass sun/security/ssl/HelloExtensions
+instanceKlass sun/security/ssl/HandshakeMessage
+instanceKlass sun/security/ssl/HandshakeHash
+instanceKlass sun/text/normalizer/UnicodeSet

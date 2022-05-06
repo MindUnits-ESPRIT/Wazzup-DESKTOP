@@ -38,8 +38,8 @@ import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import javax.mail.MessagingException;
 import org.controlsfx.control.MaskerPane;
+import org.mindrot.jbcrypt.BCrypt;
 import static utils.SessionUser.*;
-import static utils.md5.getMd5;
 import utils.otpsend;
 import static utils.otpsend.sendSms;
 
@@ -173,8 +173,10 @@ Parent signup;
              String input_email=auth_email.getText();
             String input_password=auth_password.getText();
             if (input_email.isEmpty()==false && input_password.isEmpty()==false){
-
-            System.out.println("input_password= "+input_password);
+              String userpwd=userv.UserByEmail(input_email).getMdp().replace("2y", "2a");
+               System.out.println(userpwd);
+            System.out.println("input_password= "+ BCrypt.checkpw(input_password,userpwd));
+            
             utilisateur auth = new utilisateur(input_email,input_password);
             int result= userv.auth(auth);
                System.out.println(result);

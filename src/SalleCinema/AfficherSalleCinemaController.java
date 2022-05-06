@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
@@ -74,14 +75,14 @@ int ID =  TaleView.getSelectionModel().getSelectedItems().get(0).getID_Salle();
       List<SalleCinema> list = new ArrayList();
      SalleCinemaService es = new SalleCinemaService();
 
-list = es.afficher(19);
+list = es.afficher(getUser().getID_Utilisateur());
 //es.afficher(19);
    showSalle();
     }    
      public ObservableList<SalleCinema> getSalleList(){
  
       SalleCinemaService es = new SalleCinemaService();
-    ObservableList<SalleCinema> obs =  es.afficher(5);
+    ObservableList<SalleCinema> obs =  es.afficher(getUser().getID_Utilisateur());
      return obs;
      }
     public void showSalle(){

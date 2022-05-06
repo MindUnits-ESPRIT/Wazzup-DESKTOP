@@ -35,7 +35,7 @@ public class test {
             evenements e =new evenements(33);
             utilisateur ut = new utilisateur();
             System.out.println( u.GetUrl_SalleCinema(5));
-           //ss.ajouter(s,e);
+           ss.ajouter(s,e);
            // ss.modifier(02, "Cinema", "Kung Fu Panda");
             //ss.supprimer(02);
            ss.afficher(5);

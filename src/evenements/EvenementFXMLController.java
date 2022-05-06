@@ -29,6 +29,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
@@ -82,7 +83,7 @@ public class EvenementFXMLController implements Initializable {
         if (CheckFields()==true){
          System.out.println("CLICKED11");
            evenementsService es = new evenementsService();
-         evenements e =new evenements(5,NmEvent.getText(),Integer.parseInt(NombreParticipant.getText()),(Date_Event.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ListType.getValue(),Visibilite.getValue(),Description.getText());    
+         evenements e =new evenements(getUser().getID_Utilisateur(),NmEvent.getText(),Integer.parseInt(NombreParticipant.getText()),(Date_Event.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ListType.getValue(),Visibilite.getValue(),Description.getText());    
         es.ajouter(e);
         if(ListType.getValue().matches("SalleCinema") ){
         Parent root=FXMLLoader.load(getClass().getResource("../SalleCinema/Salle_Cinema_FXML.fxml"));
@@ -99,8 +100,8 @@ stage.setScene(scene);
 stage.show();
 RencontreService rs=new RencontreService();
 URL u = new URL();
-Rencontre r = new Rencontre("Virtuel",u.GetUrl_Rencontre(5));
-evenements ev = new evenements(33);
+Rencontre r = new Rencontre("Virtuel",u.GetUrl_Rencontre(getUser().getID_Utilisateur()));
+evenements ev = new evenements(67);
 
 rs.ajouter(r, ev);
         }

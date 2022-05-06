@@ -21,8 +21,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import utilisateur.entities.utilisateur;
+import static utils.SessionUser.getUser;
 
 public class AfficherEvenementController implements Initializable{
+ 
 @FXML
     private TableView<evenements> ListView;
 
@@ -97,7 +100,7 @@ stage.show();
 public ObservableList<evenements> getEvenementList(){
  
       evenementsService es = new evenementsService();
-    ObservableList<evenements> obs =  es.afficher(5);
+    ObservableList<evenements> obs =  es.afficher(getUser().getID_Utilisateur());
   
     return obs;
 }
@@ -117,10 +120,12 @@ ListView.setItems(list);                                                        
     
 @Override
 public void initialize(URL url, ResourceBundle rb) {
+              utilisateur user = new utilisateur();
+              user = getUser();
 List<evenements> list = new ArrayList();
      evenementsService es = new evenementsService();
 
-list = es.afficher(5);
+list = es.afficher(user.getID_Utilisateur());
    showEvents();
      //es.afficher(5);
     

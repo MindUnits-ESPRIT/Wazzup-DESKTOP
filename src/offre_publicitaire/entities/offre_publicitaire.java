@@ -32,6 +32,10 @@ public class offre_publicitaire {
     public offre_publicitaire() {
     }
 
+    public offre_publicitaire(int id_offre) {
+        this.id_offre = id_offre;
+    }
+
     public int getId_offre() {
         return id_offre;
     }

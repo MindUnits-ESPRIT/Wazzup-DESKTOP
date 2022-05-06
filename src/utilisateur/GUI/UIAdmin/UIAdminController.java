@@ -23,17 +23,21 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -41,12 +45,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
+import org.mindrot.jbcrypt.BCrypt;
 import utilisateur.entities.interets;
 import utilisateur.entities.utilisateur;
 import utilisateur.services.UtilisateurService;
 import static utils.SessionUser.getFs;
 import static utils.SessionUser.getUser;
 import static utils.SessionUser.setUser;
+import utils.md5;
 
 /**
  * FXML Controller class
@@ -75,9 +82,7 @@ public class UIAdminController implements Initializable {
     private Label modification;
     @FXML
     private AnchorPane profile;
-    @FXML
     private AnchorPane collab;
-    @FXML
     private AnchorPane pub;
     @FXML
     private Button quitbutton;
@@ -105,6 +110,14 @@ public class UIAdminController implements Initializable {
     private JFXButton delete_u;
     @FXML
     private Label errarea;
+    @FXML
+    private AnchorPane modif_compte;
+    @FXML
+    private AnchorPane gestuser;
+    @FXML
+    private JFXPasswordField password;
+    @FXML
+    private ComboBox<String> genre;
 
     /**
      * Initializes the controller class.
@@ -138,6 +151,7 @@ public class UIAdminController implements Initializable {
     nom.setTextFill(Color.WHITE);
     email.setText(user.getEmail());
     phone.setText(user.getNum_tel());
+    genre.setValue(getUser().getGenre());
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     LocalDate localDate = LocalDate.parse(user.getDatenaissance(),formatter);
     dob.setValue(localDate);
@@ -149,6 +163,55 @@ public class UIAdminController implements Initializable {
 
     @FXML
     private void Update(ActionEvent event) {
+               UtilisateurService userv= new UtilisateurService();
+        String Update_email=email.getText();
+        String Update_phone=phone.getText();
+        LocalDate Update_dob=dob.getValue();
+        String dateb = Update_dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String Update_genre=genre.getValue();
+        String Update_pwd=pwd.getText();
+        String Updated_pwd=password.getText();
+//            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
+//            System.out.println("DB PASSWORD"+getUser().getMdp());
+//            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
+ if (!Update_email.isEmpty() && !Update_phone.isEmpty() && !Update_genre.isEmpty() && !Updated_pwd.isEmpty()){
+             if (Update_pwd.isEmpty()){
+            modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
+        }else {
+            if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
+            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
+        userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
+        if (userv.modified){
+            Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
+            Notifications notificationBuilder=Notifications.create()
+                    .title("Succés")
+                    .text("Votre compte a été bien modifié")
+                    .graphic(new ImageView(img))
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_LEFT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event){
+                            System.out.println("Clicked on notifications");
+                        }
+                    });
+            notificationBuilder.darkStyle();
+            notificationBuilder.show();
+            modification.setText("* Modification effectué !");
+            modification.setTextFill(Color.GREEN);
+
+        } else {
+            modification.setText("* Verifiez vos informations !");
+        }
+            } else {
+            modification.setText("* Verifier votre mot de passe !");
+
+            }
+        }
+ }else {
+     modification.setText("* Veuillez vérifier les champs !");
+ }
+
     }
 
     @FXML
@@ -175,7 +238,23 @@ public class UIAdminController implements Initializable {
             UI_stage.setScene(scene);
             UI_stage.show();
         }
+        @FXML
+    private void USERTAB(MouseEvent event){
+         // Styling du menu
+          gestuser.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
+          profile.setStyle("-fx-background-color: #008080");
+          tab_user.setVisible(true);
+          modif_compte.setVisible(false);
 
+    }
+    @FXML
+        private void PROFILETAB(MouseEvent event){
+         // Styling du menu
+          gestuser.setStyle("-fx-background-color: #008080");
+          profile.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
+          modif_compte.setVisible(true);
+          tab_user.setVisible(false);
+    }
     @FXML
     private void supprimer(ActionEvent event) {
         UtilisateurService us = new UtilisateurService();

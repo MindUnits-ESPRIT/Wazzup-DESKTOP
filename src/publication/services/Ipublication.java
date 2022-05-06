@@ -17,6 +17,8 @@ public interface Ipublication<publication> {
     void Creer_P(publication P,utilisateur U);
     void Modifier_P (publication P,utilisateur U);
     void Supprimer_P (publication P,utilisateur U);
-    void Signaler_P (publication P,utilisateur U);
+    void Signaler_P (publication P,utilisateur U,int Type);
     List<publication> Afficher_P();
+    List<publication> Afficher_P(utilisateur U);
+    
 }

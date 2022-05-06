@@ -14,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
 import javax.mail.MessagingException;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 
@@ -93,7 +94,10 @@ System.out.println(us.getAllInterets(58));
 //        us.modifierPassword(58,"malekabbes665@gmail.com");
 //             System.out.println(us.UserByEmail("malekabbes665@gmail.com"));
           us.getAllInterets(58);
+                      System.out.println(BCrypt.checkpw("AAZZaazz1122","$2a$13$3J3CMj7C/dUCLVAUZza7reyaeD2m2X3khe2STd.UXnQYi/XN.dcx."));
+
 }
+
 
     
     
