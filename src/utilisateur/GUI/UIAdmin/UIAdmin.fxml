@@ -25,6 +25,7 @@
    <children>
       <AnchorPane layoutX="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="600.0" style="-fx-background-color: #008080;">
          <children>
+<<<<<<< HEAD
             <AnchorPane fx:id="modif_compte" layoutX="57.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="709.0" styleClass="profile">
                <children>
                      <ImageView id="closewindow" fx:id="closewindow" fitHeight="31.0" fitWidth="39.0" layoutX="656.0" layoutY="7.0" onMouseClicked="#closeWindow">
@@ -35,6 +36,10 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </ImageView>
+=======
+            <AnchorPane fx:id="modif_compte" layoutX="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="691.0" styleClass="profile">
+               <children>
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
                      <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="275.0" layoutY="172.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
                      <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="275.0" layoutY="315.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
                      <JFXButton id="btn_modifier" fx:id="btn_modifier" layoutX="240.0" layoutY="521.0" onAction="#Update" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Modifier" textFill="WHITE">
@@ -99,7 +104,11 @@
       </AnchorPane>
       <VBox layoutX="-1.0" layoutY="151.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="289.0" style="-fx-background-radius: 30px;">
          <children>
+<<<<<<< HEAD
             <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="284.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+=======
+            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="290.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
                <children>
                   <Label layoutX="58.0" layoutY="18.0" prefHeight="21.0" prefWidth="159.0" text="Gestion du compte" textFill="#f0f0f0">
                      <font>
@@ -119,12 +128,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
+<<<<<<< HEAD
             <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+=======
+            <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="289.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                   <children>
-                  <Label layoutX="54.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion des Utilisateurs" textFill="#f2f2f2d4">
+                  <Label layoutX="54.0" layoutY="17.0" prefHeight="21.0" prefWidth="197.0" text="Gestion des Utilisateurs" textFill="#f2f2f2d4">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -167,7 +180,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-         <Line endX="217.0" layoutX="73.0" layoutY="124.0" startX="-71.0" stroke="#00000035" />
+         <Line endX="233.0" layoutX="73.0" layoutY="124.0" startX="-71.0" stroke="#00000035" />
          <Label layoutX="113.0" layoutY="10.0" style="-fx-font-weight: 900;" text="Administrateur" textFill="#ff4d4d" />
          <ImageView fitHeight="73.0" fitWidth="90.0" layoutX="14.0" layoutY="12.0">
             <image>

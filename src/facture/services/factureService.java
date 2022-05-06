@@ -44,7 +44,11 @@ public class factureService implements Ifacture<facture> {
           pste.setInt(2,U.getID_Utilisateur());
           pste.setInt(3,p.getID_Paiement());
           pste.setInt(4, o.getId_offre());
+<<<<<<< HEAD
           
+=======
+          System.out.println("FACTURE : "+ f.getFile() +" / "+U.getID_Utilisateur()+" / "+p.getID_Paiement()+" / "+o.getId_offre()+" / ");
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
           pste.executeUpdate();
           System.out.println("Facture creé");
       } catch(SQLException ex){

@@ -131,7 +131,11 @@ public class publicationService implements Ipublication<publication> {
 @Override
     public List Afficher_P() {
         List<publication> publications = new ArrayList<>();
+<<<<<<< HEAD
         String req = "SELECT * FROM `publication`  WHERE `Visibilite`=1 ORDER BY Priority DESC,Date_Publication DESC";
+=======
+        String req = "SELECT * FROM `publication`  WHERE `Visibilite`=1  ORDER BY Priority DESC,Date_Publication DESC";
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
         
         try {
 //            pste = conn.prepareStatement(req);
@@ -160,7 +164,11 @@ public class publicationService implements Ipublication<publication> {
     @Override
     public List<publication> Afficher_P(utilisateur U) {
            List<publication> publications = new ArrayList<>();
+<<<<<<< HEAD
         String req = "SELECT P.* FROM `publication` P,`utilisateurs` U Where P.ID_Utilisateur='"+U.getID_Utilisateur()+"' and U.ID_Utilisateur=P.ID_Utilisateur and `Visibilite`=1 ORDER BY Priority DESC,Date_Publication DESC";
+=======
+        String req = "SELECT P.* FROM `publication` P,`utilisateurs` U Where P.ID_Utilisateur='"+U.getID_Utilisateur()+"' and U.ID_Utilisateur=P.ID_Utilisateur and `Visibilite`=1  ORDER BY Priority DESC,Date_Publication DESC";
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
         
         try {
 //            pste = conn.prepareStatement(req);

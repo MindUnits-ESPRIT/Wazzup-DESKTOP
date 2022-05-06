@@ -1,5 +1,6 @@
 package evenements;
 
+import collab.gui.CollabwController;
 import evenements.entities.evenements;
 import evenements.services.evenementsService;
 import java.io.IOException;
@@ -7,8 +8,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +29,13 @@ import utilisateur.entities.utilisateur;
 import static utils.SessionUser.getUser;
 
 public class AfficherEvenementController implements Initializable{
+<<<<<<< HEAD
  
+=======
+   double xOffset = 0; 
+          double yOffset = 0;
+            Parent home;
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
 @FXML
     private TableView<evenements> ListView;
 
@@ -156,6 +166,36 @@ stage.show();
 Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
+    }
+
+    @FXML
+    private void retturn(ActionEvent event) {
+          try {       
+              home = FXMLLoader.load(getClass().getResource("../utilisateur/GUI/UIuser/UIuser.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(CollabwController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             Scene scene = new Scene(home);      
+            Stage CStage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+            CStage.hide();
+            CStage.setScene(scene);
+            CStage.show();
+           
+          
+              home.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  home.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               CStage.setX(event.getScreenX() - xOffset);
+             CStage.setY(event.getScreenY() - yOffset);
+            }
+        });
     }
 
 }
