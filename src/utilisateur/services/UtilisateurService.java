@@ -149,9 +149,9 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     public int auth(utilisateur u){
       
             UtilisateurService userv= new UtilisateurService();
-            String userpwd=userv.UserByEmail(u.getEmail()).getMdp().replace("2y", "2a");
+            String userpwd=userv.UserByEmail(u.getEmail()).getMdp().replace("$2y", "$2a");
               System.out.println(userpwd);  
-              System.out.println("my pw"+u.getMdp());
+              System.out.println("my pw "+u.getMdp());
             System.out.println(BCrypt.checkpw(u.getMdp(),userpwd));
             
            if(BCrypt.checkpw(u.getMdp(),userpwd)){

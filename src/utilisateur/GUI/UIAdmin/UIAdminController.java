@@ -46,10 +46,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-<<<<<<< HEAD
 import org.mindrot.jbcrypt.BCrypt;
-=======
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+
 import utilisateur.entities.interets;
 import utilisateur.entities.utilisateur;
 import utilisateur.services.UtilisateurService;
@@ -181,11 +179,9 @@ public class UIAdminController implements Initializable {
              if (Update_pwd.isEmpty()){
             modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
         }else {
-<<<<<<< HEAD
+
             if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
-=======
-            if (md5.getMd5(Update_pwd).equals(getUser().getMdp())){
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+
             utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){

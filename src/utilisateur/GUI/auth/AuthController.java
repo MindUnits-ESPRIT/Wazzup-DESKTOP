@@ -173,7 +173,7 @@ Parent signup;
              String input_email=auth_email.getText();
             String input_password=auth_password.getText();
             if (input_email.isEmpty()==false && input_password.isEmpty()==false){
-              String userpwd=userv.UserByEmail(input_email).getMdp().replace("2y", "2a");
+              String userpwd=userv.UserByEmail(input_email).getMdp().replace("$2y", "$2a");
                System.out.println(userpwd);
             System.out.println("input_password= "+ BCrypt.checkpw(input_password,userpwd));
             

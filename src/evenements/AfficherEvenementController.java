@@ -29,13 +29,11 @@ import utilisateur.entities.utilisateur;
 import static utils.SessionUser.getUser;
 
 public class AfficherEvenementController implements Initializable{
-<<<<<<< HEAD
- 
-=======
+
    double xOffset = 0; 
           double yOffset = 0;
             Parent home;
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+
 @FXML
     private TableView<evenements> ListView;
 
