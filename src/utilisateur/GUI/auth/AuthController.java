@@ -28,15 +28,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
 import org.controlsfx.control.MaskerPane;
+import org.mindrot.jbcrypt.BCrypt;
 import static utils.SessionUser.*;
-import static utils.md5.getMd5;
 import utils.otpsend;
 import static utils.otpsend.sendSms;
 
@@ -76,6 +79,10 @@ Parent signup;
     private ImageView smsicon1;
     @FXML
     private ImageView smsicon2;
+    @FXML
+    private Hyperlink forgot;
+    @FXML
+    private Label forgotpwd;
 
     /**
      * Initializes the controller class.
@@ -166,8 +173,10 @@ Parent signup;
              String input_email=auth_email.getText();
             String input_password=auth_password.getText();
             if (input_email.isEmpty()==false && input_password.isEmpty()==false){
-
-            System.out.println("input_password= "+input_password);
+              String userpwd=userv.UserByEmail(input_email).getMdp().replace("$2y", "$2a");
+               System.out.println(userpwd);
+            System.out.println("input_password= "+ BCrypt.checkpw(input_password,userpwd));
+            
             utilisateur auth = new utilisateur(input_email,input_password);
             int result= userv.auth(auth);
                System.out.println(result);
@@ -209,7 +218,7 @@ Parent signup;
                   smsicon1.setVisible(true);
                   smsicon2.setVisible(true);
                   checkotp.setVisible(true);
-//                  sendSms("Votre Code OTP est : "+OTP);
+                  sendSms("Votre Code OTP est : "+OTP);
                   otplabel.setText("Votre code sms a été bien envoyé");
               }
               } else if (result==2){
@@ -221,7 +230,20 @@ Parent signup;
               auth_verif.setTextFill(Color.RED);
             }
             }
+
+    @FXML
+    private void GeneratePassword(MouseEvent event) throws MessagingException {
+      UtilisateurService userv= new UtilisateurService();
+        String email=auth_email.getText();
+        if (userv.isEmailExist(email)){
+            int id=userv.UserByEmail(email).getID_Utilisateur();
+            userv.modifierPassword(id,email);
+           forgotpwd.setText("Un mot de passe généré a été bien envoyé a votre email ! ");
+           forgotpwd.setTextFill(Color.GREEN);
+       } else{
+           forgotpwd.setText("Veuillez verifier votre email !");
+           forgotpwd.setTextFill(Color.RED);
+       }
+        }
         
-    
-    
 }

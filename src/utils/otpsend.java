@@ -17,7 +17,7 @@ import static utilisateur.test.AUTH_TOKEN;
 public class otpsend {
 
 public static final String ACCOUNT_SID = "ACa1c3f6d59e0c9f3d76e39dfec69e7c91"; 
-    public static final String AUTH_TOKEN = "bd7a82b880d1e886d52059b1d5026ae4"; 
+    public static final String AUTH_TOKEN = "5507d1f2963c865769e5181c60d81781"; 
 
     public static void sendSms(String msg) {
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);

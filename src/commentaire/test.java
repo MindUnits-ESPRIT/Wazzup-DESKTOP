@@ -27,13 +27,14 @@ public static void main(String[] args) {
 
 //---------- BEGIN SUPPRIMER COMMENTAIRE -------
 //    publication P = new publication(1);
-//    commentaire C = new commentaire(4,1,2);
+//    commentaire C = new commentaire(9,1,2);
 //    CS.Supprimer_C(P,C);
 //---------- END SUPPRIMER COMMENTAIRE -------
+
 //---------- BEGIN MODIFIER COMMENTAIRE -------
-    publication P = new publication(1);
-    commentaire C = new commentaire(5,1,2);
-    CS.Modifier_C(P,C);
+//    publication P = new publication(1);
+//    commentaire C = new commentaire(5,1,2);
+//    CS.Modifier_C(P,C);
 //---------- END MODIFIER COMMENTAIRE -------
 //AFFICHAGE SELECT
     System.out.println(CS.Afficher_C());

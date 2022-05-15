@@ -18,4 +18,6 @@ public interface Iutilisateur<T> {
     void supprimer (int i);
     void Get_Collaborations_list(int i);
     List<T> afficher();
+    List<T> afficherParID(int id);
+    List<T> afficherParID(String Nom , String Prenom);
 }

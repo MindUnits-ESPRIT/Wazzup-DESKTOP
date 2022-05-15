@@ -32,7 +32,7 @@
          <children>
             <AnchorPane layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="856.0" prefWidth="709.0">
                <children>
-                     <Line endX="608.0" layoutX="101.0" layoutY="483.0" startX="-101.0" stroke="#fff4f4" />
+                     <Line endX="607.9999389648438" endY="28.0" layoutX="101.0" layoutY="483.0" startX="-101.0" startY="28.0" stroke="#fff4f4" />
                      <MaskerPane layoutX="-1.0" prefHeight="686.0" prefWidth="607.0" visible="false" />
                </children>
             </AnchorPane>
@@ -47,46 +47,46 @@
                         </cursor>
                      </ImageView>
                      <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="262.0" layoutY="104.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
-                     <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="262.0" layoutY="224.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
-                     <JFXButton id="btn_modifier" fx:id="btn_modifier" layoutX="265.0" layoutY="411.0" onAction="#Update" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Modifier" textFill="WHITE">
+                     <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="262.0" layoutY="215.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
+                     <JFXButton id="btn_modifier" fx:id="btn_modifier" layoutX="250.0" layoutY="448.0" onAction="#Update" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Modifier" textFill="WHITE">
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </JFXButton>
-                     <JFXButton id="cancel_update" fx:id="cancel_update" layoutX="400.0" layoutY="411.0" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Annuler" textFill="WHITE">
+                     <JFXButton id="cancel_update" fx:id="cancel_update" layoutX="385.0" layoutY="448.0" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Annuler" textFill="WHITE">
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </JFXButton>
-                     <Label layoutX="115.0" layoutY="170.0" text="Date de naissance" textFill="WHITE">
+                     <Label layoutX="115.0" layoutY="162.0" text="Date de naissance" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <JFXDatePicker id="dob" fx:id="dob" defaultColor="#ffffffa6" layoutX="262.0" layoutY="166.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
+                     <JFXDatePicker id="dob" fx:id="dob" defaultColor="#ffffffa6" layoutX="262.0" layoutY="158.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
                      <Label layoutX="115.0" layoutY="106.0" text="Email" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <Label layoutX="117.0" layoutY="227.0" prefHeight="17.0" prefWidth="126.0" text="num_telephone" textFill="WHITE">
+                     <Label layoutX="117.0" layoutY="218.0" prefHeight="17.0" prefWidth="126.0" text="num_telephone" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <Label layoutX="118.0" layoutY="291.0" text="Genre" textFill="WHITE">
+                     <Label layoutX="117.0" layoutY="278.0" text="Genre" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <ComboBox id="genre" fx:id="genre" editable="true" layoutX="262.0" layoutY="287.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" />
+                     <ComboBox id="genre" fx:id="genre" editable="true" layoutX="262.0" layoutY="274.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" />
                      <ImageView fitHeight="44.0" fitWidth="52.0" layoutX="265.0" layoutY="15.0">
                         <image>
                            <Image url="@../resources/accountinfo.png" />
                         </image>
                      </ImageView>
-                     <CheckComboBox id="interets" fx:id="interets" layoutX="262.0" layoutY="533.0" prefHeight="31.0" prefWidth="221.0" />
-                     <Pane layoutX="30.0" layoutY="485.0" prefHeight="44.0" prefWidth="232.0" style="-fx-background-color: rgba(8, 224, 141, 0.61); -fx-background-radius: 35px;">
+                     <CheckComboBox id="interets" fx:id="interets" layoutX="272.0" layoutY="570.0" prefHeight="31.0" prefWidth="221.0" />
+                     <Pane layoutX="40.0" layoutY="522.0" prefHeight="44.0" prefWidth="232.0" style="-fx-background-color: rgba(8, 224, 141, 0.61); -fx-background-radius: 35px;">
                         <children>
                            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="10.0" prefHeight="25.0" prefWidth="167.0" text="Gestion des interets" textFill="WHITE">
                               <font>
@@ -95,10 +95,14 @@
                            </Label>
                         </children>
                      </Pane>
-                     <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="262.0" layoutY="352.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
-                     <Label layoutX="119.0" layoutY="355.0" text="Mot de passe" textFill="WHITE" />
+                     <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="263.0" layoutY="397.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
+                     <Label layoutX="119.0" layoutY="399.0" text="Confirmation" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="14.0" />
+                        </font>
+                     </Label>
                      <Label id="modification" fx:id="modification" alignment="CENTER" layoutX="69.0" layoutY="68.0" prefHeight="25.0" prefWidth="569.0" textFill="#fc5757" />
-                     <TableView id="user_interets" fx:id="user_interets" layoutX="262.0" layoutY="585.0" prefHeight="180.0" prefWidth="221.0">
+                     <TableView id="user_interets" fx:id="user_interets" layoutX="272.0" layoutY="622.0" prefHeight="180.0" prefWidth="221.0">
                        <columns>
                          <TableColumn id="interet_cell" fx:id="interet_cell" prefWidth="220.0" text="Mes interets" />
                        </columns>
@@ -112,6 +116,14 @@
                            </Label>
                         </children>
                      </Pane>
+                     <JFXPasswordField fx:id="password" layoutX="262.0" layoutY="331.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
+                     <Label layoutX="115.0" layoutY="335.0" text="Mot de passe" textFill="WHITE">
+                        <font>
+                           <Font name="Arial Rounded MT Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <JFXButton fx:id="add_interet" layoutX="522.0" layoutY="570.0" onAction="#Ajoutint_Supprint" style="-fx-background-color: #0069ff;" text="Ajouter" textFill="WHITE" />
+                     <Label fx:id="label_interet" layoutX="200.0" layoutY="814.0" prefHeight="21.0" prefWidth="351.0" text="                      " />
                </children>
             </AnchorPane>
                <AnchorPane prefHeight="151.0" prefWidth="256.0">
@@ -225,6 +237,23 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </JFXButton>
+                     <AnchorPane fx:id="gesteven" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#EventTAB" prefHeight="54.0" prefWidth="288.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <children>
+                           <Label layoutX="63.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion événements" textFill="#f2f2f2d4">
+                              <font>
+                                 <Font name="Arial Bold" size="14.0" />
+                              </font>
+                           </Label>
+                           <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="18.0" layoutY="15.0">
+                              <image>
+                                 <Image url="@../resources/icons8_schedule_50px.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                     </AnchorPane>
                </children>
             </AnchorPane>
          </children>
@@ -241,12 +270,18 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView layoutX="203.0" layoutY="81.0">
+      <ImageView layoutX="203.0" layoutY="81.0" onMouseClicked="#Publication">
          <image>
             <Image url="@../resources/showprofile.png" />
          </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
       </ImageView>
-         <Label layoutX="107.0" layoutY="82.0" text="Voir profile" textFill="WHITE" />
+         <Label layoutX="107.0" layoutY="82.0" onMouseClicked="#Publication" text="Voir profile" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Label>
          <Line endX="217.0" layoutX="71.0" layoutY="151.0" startX="-71.0" stroke="#00000035" />
          <Rating id="user_rating" fx:id="user_rating" layoutX="83.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" prefWidth="176.0" rating="0.0" />
          <Rectangle id="defaultpic" fx:id="defaultpic" arcHeight="100.0" arcWidth="100.0" fill="#1f93ff5e" height="81.0" layoutX="9.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="81.0">

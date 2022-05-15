@@ -33,6 +33,10 @@ public class paiement {
     public paiement() {
     }
 
+    public paiement(int ID_Paiement) {
+        this.ID_Paiement = ID_Paiement;
+    }
+
     public int getID_Paiement() {
         return ID_Paiement;
     }

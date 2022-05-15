@@ -70,6 +70,7 @@ import org.apache.http.client.*;
 import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.Rating;
+import org.mindrot.jbcrypt.BCrypt;
 import utilisateur.entities.interets;
 import utilisateur.services.UtilisateurService;
 import utilisateur.entities.utilisateur;
@@ -157,7 +158,15 @@ Cloudinary cloudinary = new Cloudinary(config);
     private JFXButton createevent;
     @FXML
     private ImageView photoup;
-  
+    @FXML
+    private JFXPasswordField password;
+    @FXML
+    private JFXButton add_interet;
+    List<interets> interet;
+    @FXML
+    private Label label_interet;
+    @FXML
+    private AnchorPane gesteven;
     
     /**
      * Initializes the controller class.
@@ -172,10 +181,13 @@ Cloudinary cloudinary = new Cloudinary(config);
             Cloudinary cloudinary = new Cloudinary(config);
         user_rating.setRating(getUser().getEvaluation());
         List<interets> interet = getFs().getAllInterets(getUser().getID_Utilisateur());
+        System.out.println("THIS IS LIST"+interet);
         ObservableList<interets> My_interet = FXCollections.observableArrayList(interet);
+        System.out.println(My_interet);
+        for (interets mylist : My_interet) {
         interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
         user_interets.setItems(My_interet);
-
+        }
         interets.getItems().addAll(getFs().getAllInterets_Combobox());
         interets.getCheckModel().check(interets.getItems().get(0));
 //        Timer timer = new Timer();
@@ -239,14 +251,16 @@ Cloudinary cloudinary = new Cloudinary(config);
         String dateb = Update_dob.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String Update_genre=genre.getValue();
         String Update_pwd=pwd.getText();
-            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
-            System.out.println("DB PASSWORD"+getUser().getMdp());
-            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
-        if (Update_pwd.isEmpty()){
+        String Updated_pwd=password.getText();
+//            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
+//            System.out.println("DB PASSWORD"+getUser().getMdp());
+//            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
+ if (!Update_email.isEmpty() && !Update_phone.isEmpty() && !Update_genre.isEmpty() && !Updated_pwd.isEmpty()){
+             if (Update_pwd.isEmpty()){
             modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
         }else {
-            if (md5.getMd5(Update_pwd).equals(getUser().getMdp())){
-            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Update_pwd,Update_genre);
+            if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
+            utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){
             Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
@@ -275,6 +289,10 @@ Cloudinary cloudinary = new Cloudinary(config);
 
             }
         }
+ }else {
+     modification.setText("* Veuillez vérifier les champs !");
+ }
+
 
      }
      public void CancelUpdate(ActionEvent e){
@@ -309,18 +327,23 @@ Cloudinary cloudinary = new Cloudinary(config);
          // Styling du menu
           profile.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
           collab.setStyle("-fx-background-color: #008080");
+          gesteven.setStyle("-fx-background-color: #008080");
           pub.setStyle("-fx-background-color: #008080");
           collab.getStyleClass().add("ui-menu");
           pub.getStyleClass().add("ui-menu");
+          gesteven.getStyleClass().add("ui-menu");
+
      }
      @FXML
       private void CollabTAB(MouseEvent event){
            // Styling du menu
           profile.getStyleClass().add("ui-menu");
+          gesteven.getStyleClass().add("ui-menu");
            profile.setStyle("-fx-background-color: #008080");
           collab.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
           pub.getStyleClass().add("ui-menu");
            pub.setStyle("-fx-background-color: #008080");
+           gesteven.setStyle("-fx-background-color: #008080");
           // Ouvrir la fenetre du collab
           
           
@@ -355,10 +378,49 @@ Cloudinary cloudinary = new Cloudinary(config);
             // Styling du menu
           profile.getStyleClass().add("ui-menu");
           collab.getStyleClass().add("ui-menu");
+          gesteven.getStyleClass().add("ui-menu");
           profile.setStyle("-fx-background-color: #008080");
           collab.setStyle("-fx-background-color: #008080");
+         gesteven.setStyle("-fx-background-color: #008080");
           pub.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
        }
+       @FXML
+     private void EventTAB(MouseEvent event){
+         // Styling du menu
+          profile.setStyle("-fx-background-color: #008080");
+          collab.setStyle("-fx-background-color: #008080");
+          pub.setStyle("-fx-background-color: #008080");
+          gesteven.setStyle("-fx-background-color: rgba(31, 217, 184, 1)");
+                  
+          profile.getStyleClass().add("ui-menu");
+          collab.getStyleClass().add("ui-menu");
+          pub.getStyleClass().add("ui-menu");
+            try {       
+               UI_user = FXMLLoader.load(getClass().getResource("../../../evenements/afficherEvenement.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(UIuserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             Scene scene = new Scene(UI_user);   
+            Stage UI_stage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+          
+              UI_user.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  UI_user.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               UI_stage.setX(event.getScreenX() - xOffset);
+             UI_stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show();
+     }
          public void AnnulerUpdate(ActionEvent e){
         email.setText(getUser().getEmail());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -423,6 +485,52 @@ Cloudinary cloudinary = new Cloudinary(config);
             UI_stage.setScene(scene);
             UI_stage.show();
         }
+
+    @FXML
+    private void Ajoutint_Supprint(ActionEvent event) {
+        UtilisateurService userv= new UtilisateurService();
+        System.out.println(interets.getCheckModel().getCheckedItems());
+        System.out.println("HELLO MDF");
+         ObservableList<String> interetChecked = interets.getCheckModel().getCheckedItems();
+         System.out.println(interetChecked);
+         for (String interet : interetChecked) {
+         userv.ajouter_interet(getUser().getID_Utilisateur(), interet);
+         System.out.println(interet);
+         List<interets> myinteretList = getFs().getAllInterets(getUser().getID_Utilisateur());
+        ObservableList<interets> My_interet = FXCollections.observableArrayList(myinteretList);
+        interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
+        user_interets.setItems(My_interet);
+}
+       }
+
+    @FXML
+    private void Publication(MouseEvent event) {
+         try {       
+               UI_user = FXMLLoader.load(getClass().getResource("../../../publication/gui/PublicationInterface.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(UIuserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             Scene scene = new Scene(UI_user,1080,720);   
+            Stage UI_stage = (Stage) (((Node) event.getSource()) .getScene().getWindow());
+          
+              UI_user.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+                  UI_user.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               UI_stage.setX(event.getScreenX() - xOffset);
+             UI_stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+            UI_stage.hide();
+            UI_stage.setScene(scene);
+            UI_stage.show();
+    }
 
 
     

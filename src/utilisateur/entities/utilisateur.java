@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.Period;
 import org.json.simple.JSONArray;
-import static utils.md5.getMd5;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -100,7 +100,7 @@ public class utilisateur {
         this.datenaissance = datenaissance;
         this.num_tel = num_tel;
         this.email = email;
-        this.mdp = getMd5(mdp);
+        this.mdp = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
         this.type_user = type_user;
         this.evaluation = evaluation;
         this.genre = genre;
@@ -140,7 +140,7 @@ public class utilisateur {
 
     public utilisateur(String email, String mdp) {
         this.email = email;
-        this.mdp = getMd5(mdp); 
+        this.mdp = mdp;
     }
     
     
@@ -154,7 +154,7 @@ public class utilisateur {
         this.datenaissance = datenaissance;
         this.num_tel = num_tel;
         this.email = email;
-        this.mdp = getMd5(mdp);
+        this.mdp = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
         this.genre = genre;
         this.type_user = type_user;
     }
@@ -176,7 +176,7 @@ public class utilisateur {
         this.datenaissance = datenaissance;
         this.num_tel = num_tel;
         this.email = email;
-        this.mdp = getMd5(mdp);
+        this.mdp = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
         this.type_user = type_user;
         this.evaluation = evaluation;
         this.genre=genre;

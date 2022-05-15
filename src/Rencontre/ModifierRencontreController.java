@@ -5,6 +5,7 @@
  */
 package Rencontre;
 
+import Rencontre.entities.Rencontre;
 import Rencontre.services.RencontreService;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -26,19 +27,29 @@ import javafx.stage.Stage;
  * @author SRN
  */
 public class ModifierRencontreController implements Initializable {
-
+Rencontre r=new Rencontre();
+RencontreService rs=new RencontreService();
     
     @FXML
     private JFXTextField TypeFiled;
 
     @FXML
     private Label WrongType;
-
+ private static int id_modif;
+     int initData (int id){
+       return  this.id_modif=id;      
+     }
     @FXML
-    void Modify(ActionEvent event) {
+    void Modify(ActionEvent event) throws IOException {
         if (checkFields()){
+         System.out.println("DO IT "+ this.id_modif );
         RencontreService rs = new RencontreService();
-        rs.modifier(34, TypeFiled.getText());
+        rs.modifier(id_modif, TypeFiled.getText());
+        Parent root=FXMLLoader.load(getClass().getResource("AfficheRencontre.fxml"));
+ Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+Scene scene = new Scene(root);
+stage.setScene(scene);
+stage.show();
         }
         
     }
@@ -62,7 +73,9 @@ stage.show();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+     r=rs.getData(id_modif);
+        System.out.println("HETHI EL ID inter2"+id_modif);
+         TypeFiled.setText(r.getType_Rencontre());
+      }    
     
 }

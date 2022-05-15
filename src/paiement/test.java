@@ -22,12 +22,12 @@ public class test {
         System.out.println(cnx.hashCode());
         PaiementService ps = new PaiementService();
         paiement p = new paiement("Stripe",10);
-        paiement p3 = new paiement("Credit_card", 100);
-        ps.ajouter(p3);
-        ps.ajouter(p3);
+        paiement p3 = new paiement("Credit_Card",11);
+       // ps.ajouter(p);
         //ps.supprimer(2);
         //ps.modifier(3, p2);
-      System.out.println(ps.afficher());
+      //System.out.println(ps.afficher());
+     System.out.println(ps.remplirArea());
     }
     
 }

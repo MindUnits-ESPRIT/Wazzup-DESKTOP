@@ -15,12 +15,14 @@ import utils.md5;
 
 import utilisateur.entities.utilisateur;
 import database.db;
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.MessagingException;
+import org.mindrot.jbcrypt.BCrypt;
 import utilisateur.entities.interets;
 import utils.SessionUser;
 import utils.mailvalidation;
@@ -35,6 +37,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     public boolean added;
     public boolean modified;
     public boolean imageuploaded;
+    boolean pwdmodified=false;
     
     //private Statement ste;
     private PreparedStatement pste;
@@ -144,17 +147,16 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
     }
     // La fonction responsable a l'authentification
     public int auth(utilisateur u){
-        String authreq="SELECT * FROM `utilisateurs` WHERE `email`=? AND `mdp`=?";
- 
-        try {
-            pste=conn.prepareStatement(authreq);
-            pste.setString(1,u.getEmail());
-            pste.setString(2,u.getMdp());
-            ResultSet resauth= pste.executeQuery();
-
-            if (resauth.next() == true) {
-                if (ActivatedCheck(u.getEmail())==true){
-            u = this.UserById(resauth.getInt("ID_Utilisateur"));
+      
+            UtilisateurService userv= new UtilisateurService();
+            String userpwd=userv.UserByEmail(u.getEmail()).getMdp().replace("$2y", "$2a");
+              System.out.println(userpwd);  
+              System.out.println("my pw "+u.getMdp());
+            System.out.println(BCrypt.checkpw(u.getMdp(),userpwd));
+            
+           if(BCrypt.checkpw(u.getMdp(),userpwd)){
+             if (ActivatedCheck(u.getEmail())==true){
+            u = userv.UserByEmail(u.getEmail());
             SessionUser.setUser(u);
             System.out.println("Vous etes connecté ! ");
             System.out.println("L'ID de l'utilisateur connecté est : "+u.getID_Utilisateur());
@@ -163,11 +165,10 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
                    System.out.println("Votre compte n'est pas encore activé ! ");
                    return (2);
                 }
-            }
-        } catch (Exception e) {
-            System.out.println(e+"ERREUR DE REQUETE");
-        }
-        return (0);
+            
+           } else{
+               return(0);
+           }
     }
      /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Verification du mot de passe
@@ -398,23 +399,22 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
              return interets;
     }
         public List<interets> getAllInterets(int id){
-         String req="SELECT nom_interet from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur="+id;
-         List<interets> all_interets = new ArrayList<>();     
+         String req="SELECT nom_interet from interets inner join utilisateurs on interets.ID_Utilisateur=utilisateurs.ID_Utilisateur WHERE interets.ID_Utilisateur='"+id+"'";
+           List<interets> all_interets = new ArrayList<>();  
+
          try {
           pste = conn.prepareStatement(req);
          ResultSet resFetch = pste.executeQuery();
-                   if (resFetch.next())
+                   while (resFetch.next())
           {
-       
-//         interets.add(s.substring(1, s.length()-1));
-          interets listinteret = new interets(resFetch.getString(1));
+          interets listinteret=new interets();
+          listinteret.setNom_interet(resFetch.getString(1));
           all_interets.add(listinteret);
         
-          } else {
-              System.out.println("Aucun interets");
-            }
+          } 
                 } catch (Exception e) {
                 }
+//              System.out.println(all_interets);
              return all_interets;
     }
 
@@ -456,7 +456,23 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         return interet_user; 
      }
   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++// 
-     
+     ////////// GENERATION D'UN MOT DE PASSE POUR MOT DE PASSE OUBLIE
+          public static String generatePassword(int len)
+         {
+        // ASCII range – alphanumeric (0-9, a-z, A-Z)
+        final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < len; i++)
+        {
+            int randomIndex = random.nextInt(chars.length());
+            sb.append(chars.charAt(randomIndex));
+        }
+ 
+        return sb.toString();
+    } 
+          
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//       
          // Method : Affichage
     @Override
     public List<utilisateur> afficher() {
@@ -513,7 +529,7 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
             pste.setString(2,u.getNum_tel());
             pste.setString(3,u.getGenre());
             pste.setString(4,u.getEmail());
-            pste.setString(5,md5.getMd5(u.getMdp()));
+            pste.setString(5,BCrypt.hashpw(u.getMdp(), BCrypt.gensalt(13)));
             pste.executeUpdate();
             System.out.println("Utilisateur bien modifié");
             modified=true;
@@ -524,7 +540,38 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         }
     }
-         // Method CRUD#3: Suppression
+    //// UPDATE PASSWORD ///
+    public void modifierPassword(int id,String email) throws MessagingException{
+        String generatedpassword=generatePassword(8);
+        String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
+        try{
+            pste= conn.prepareStatement(req);
+            pste.setString(1,BCrypt.hashpw(generatedpassword, BCrypt.gensalt(13)));
+            pste.executeUpdate();
+             mailvalidation.sendVerification(email,"Votre nouveau mot de passe","Votre nouveau mot de passe = "+generatedpassword);
+           } catch (SQLException ex) {
+         System.out.println("Mot de passe modifié");
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+        public void ModificationPasswordProfile(int id,String pwd){
+   
+        String req="UPDATE `utilisateurs` SET `mdp`=? WHERE `ID_Utilisateur`="+id;
+        try{
+            pste= conn.prepareStatement(req);
+            pste.setString(1,BCrypt.hashpw(pwd, BCrypt.gensalt(13)));
+            pste.executeUpdate();
+           } catch (SQLException ex) {
+         System.out.println("Mot de passe modifié");
+         Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+   
+   
+  // Method CRUD#3: Suppression
     @Override
 
         public void supprimer(int i) {
@@ -558,6 +605,62 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
         }
         
 
-  
+       @Override
+    public List<utilisateur> afficherParID(int id) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` Where ID_Utilisateur='"+id+"'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
+
+    @Override
+    public List<utilisateur> afficherParID(String Nom, String Prenom) {
+       List<utilisateur> utilisateurs = new ArrayList<>();
+        String req = "SELECT * FROM `utilisateurs` WHERE `nom` LIKE '%"+Nom+"%' OR `prenom` LIKE '%"+Prenom+"%'";
+        System.out.println("El Requete : "+req);
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            
+            while(rs.next()){
+                 System.out.println("PASS ! ");
+                utilisateur u = new utilisateur();
+                u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setGenre(rs.getString(5));
+                u.setEmail(rs.getString(7));
+                u.setMdp(rs.getString(8));
+                u.setListe_Collaborations(rs.getString(9));
+                u.setType_user(rs.getString(10));
+                u.setEvaluation(rs.getInt(11));
+                utilisateurs.add(u);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return utilisateurs;
+    }
     
 }

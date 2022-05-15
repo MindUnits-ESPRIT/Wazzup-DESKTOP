@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="640.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paiement.GUI.FactureFXMLController">
+    <stylesheets>
+        <URL value="@facturefxml.css" />
+    </stylesheets>
+   <children>
+      <VBox fx:id="BVoxleftside" prefHeight="640.0" prefWidth="433.0" styleClass="vbox">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <children>
+            <TextField fx:id="txtnumfac" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="218.0" stylesheets="@facturefxml.css" translateX="20.0" translateY="230.0" />
+         </children>
+      </VBox>
+      <ComboBox fx:id="ComboBoxFacture" layoutX="27.0" layoutY="126.0" onMouseClicked="#remplirdate" prefHeight="39.0" prefWidth="169.0" promptText="Date facture" />
+      <Button fx:id="Buttonimprimer" layoutX="528.0" layoutY="470.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="70.0" prefWidth="181.0" styleClass="sale" text="Imprimer">
+         <font>
+            <Font name="Eras Demi ITC" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="logoimprim" fitHeight="25.0" fitWidth="29.0">
+               <image>
+                  <Image url="@../img/print_30px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="buttonrechercher" contentDisplay="CENTER" layoutX="259.0" layoutY="125.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" onMouseClicked="#search" prefHeight="43.0" prefWidth="131.0" styleClass="sale" text="Rechercher" textAlignment="RIGHT" />
+      <Text fx:id="numfac" fill="#fffafa" fontSmoothingType="LCD" layoutX="19.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="Numero facture" wrappingWidth="155.9830722808838" />
+      <Text fx:id="nomoffre" fill="#fffafa" fontSmoothingType="LCD" layoutX="13.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="Nom du l'offre" wrappingWidth="155.9830722808838" />
+      <TextField fx:id="txtnomoffre" editable="false" layoutX="20.0" layoutY="304.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="218.0" promptText="Nom_offre" />
+      <Text fx:id="nomutilisateur" fill="#fffafa" fontSmoothingType="LCD" layoutX="18.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="Nom Utilisateur" wrappingWidth="155.9830722808838" />
+      <TextField fx:id="txtnomutilisateur" editable="false" layoutX="19.0" layoutY="379.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="218.0" promptText="Nom Utilisateur" />
+      <Text fx:id="email" fill="#fffafa" fontSmoothingType="LCD" layoutX="-30.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="Email" wrappingWidth="155.9830722808838" />
+      <TextField fx:id="txtemail" editable="false" layoutX="18.0" layoutY="451.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="218.0" promptText="Email" />
+      <Text fx:id="prix" fill="#fffafa" fontSmoothingType="LCD" layoutX="-37.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fancytext" text="Prix" wrappingWidth="155.9830722808838" />
+      <TextField fx:id="txtprix" editable="false" layoutX="18.0" layoutY="534.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="218.0" promptText="Prix" />
+      <ImageView fx:id="img" fitHeight="274.0" fitWidth="205.0" layoutX="513.0" layoutY="105.0" visible="false">
+         <image>
+            <Image url="@../img/image.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

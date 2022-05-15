@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import static utils.SessionUser.getUser;
 
 /**
  * FXML Controller class
@@ -34,7 +35,8 @@ public class AfficheRencontreController implements Initializable {
 
       @FXML
     private TableView<Rencontre> TableView;
-
+ @FXML
+    private TableColumn<Rencontre, Integer> ID_Ren;
     @FXML
     private TableColumn<Rencontre, String> Type;
 
@@ -43,9 +45,16 @@ public class AfficheRencontreController implements Initializable {
 
     @FXML
     void Modify(ActionEvent event) throws IOException {
-Parent root=FXMLLoader.load(getClass().getResource("ModifierRencontre.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierRencontre.fxml"));
+    Parent p = (Parent)loader.load();
+    ModifierRencontreController mec = loader.getController();
+         int SelecteedID = TableView.getSelectionModel().getSelectedIndex();   
+int ID =  TableView.getSelectionModel().getSelectedItems().get(0).getID_Ren();
+        System.out.println("hetha el id  "+ID);
+ModifierRencontreController me = new ModifierRencontreController();
+me.initData(ID);
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-Scene scene = new Scene(root);
+Scene scene = new Scene(p);
 stage.setScene(scene);
 stage.show();
     }
@@ -82,11 +91,12 @@ int ID =  TableView.getSelectionModel().getSelectedItems().get(0).getID_Ren();
      public ObservableList<Rencontre> getRencontreList(){
  
       RencontreService es = new RencontreService();
-    ObservableList<Rencontre> obs =  es.afficher(33);
+    ObservableList<Rencontre> obs =  es.afficher(getUser().getID_Utilisateur());
      return obs;
      }
     public void showRencontre(){
          ObservableList<Rencontre> list = getRencontreList();
+         ID_Ren.setCellValueFactory(new PropertyValueFactory<>("ID_Ren"));
    Type.setCellValueFactory(new PropertyValueFactory<>("Type_Rencontre"));
    url_invi.setCellValueFactory(new PropertyValueFactory<>("URL_Invitation"));
   TableView.setItems(list); 

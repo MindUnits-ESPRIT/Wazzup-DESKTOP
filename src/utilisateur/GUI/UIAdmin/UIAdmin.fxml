@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -24,7 +25,8 @@
    <children>
       <AnchorPane layoutX="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="600.0" style="-fx-background-color: #008080;">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="709.0" styleClass="profile" visible="false">
+<<<<<<< HEAD
+            <AnchorPane fx:id="modif_compte" layoutX="57.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="709.0" styleClass="profile">
                <children>
                      <ImageView id="closewindow" fx:id="closewindow" fitHeight="31.0" fitWidth="39.0" layoutX="656.0" layoutY="7.0" onMouseClicked="#closeWindow">
                         <image>
@@ -34,8 +36,12 @@
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </ImageView>
-                     <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="275.0" layoutY="238.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
-                     <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="275.0" layoutY="358.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
+=======
+            <AnchorPane fx:id="modif_compte" layoutX="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="691.0" styleClass="profile">
+               <children>
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+                     <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="275.0" layoutY="172.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
+                     <JFXTextField id="phone" fx:id="phone" focusColor="#429bce" layoutX="275.0" layoutY="315.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8d" />
                      <JFXButton id="btn_modifier" fx:id="btn_modifier" layoutX="240.0" layoutY="521.0" onAction="#Update" prefHeight="44.0" prefWidth="104.0" style="-fx-background-color: rgba(247, 240, 244, 0.73);" text="Modifier" textFill="WHITE">
                         <cursor>
                            <Cursor fx:constant="HAND" />
@@ -44,18 +50,18 @@
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor></JFXButton>
-                     <Label layoutX="128.0" layoutY="304.0" text="Date de naissance" textFill="WHITE">
+                     <Label layoutX="127.0" layoutY="241.0" text="Date de naissance" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <JFXDatePicker id="dob" fx:id="dob" defaultColor="#ffffffa6" layoutX="275.0" layoutY="300.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
-                     <Label layoutX="128.0" layoutY="240.0" text="Email" textFill="WHITE">
+                     <JFXDatePicker id="dob" fx:id="dob" defaultColor="#ffffffa6" layoutX="274.0" layoutY="240.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: transparent; -fx-border-color: white;" />
+                     <Label layoutX="128.0" layoutY="174.0" text="Email" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
                      </Label>
-                     <Label layoutX="130.0" layoutY="361.0" prefHeight="17.0" prefWidth="126.0" text="num_telephone" textFill="WHITE">
+                     <Label layoutX="130.0" layoutY="318.0" prefHeight="17.0" prefWidth="126.0" text="num_telephone" textFill="WHITE">
                         <font>
                            <Font name="Arial Rounded MT Bold" size="14.0" />
                         </font>
@@ -65,8 +71,8 @@
                            <Image url="@../resources/accountinfo.png" />
                         </image>
                      </ImageView>
-                     <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="275.0" layoutY="423.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
-                     <Label layoutX="132.0" layoutY="431.0" text="Mot de passe" textFill="WHITE" />
+                     <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="275.0" layoutY="443.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
+                     <Label layoutX="132.0" layoutY="451.0" text="Confirmation" textFill="WHITE" />
                      <Label id="modification" fx:id="modification" alignment="CENTER" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="354.0" textFill="#ee1d1d" />
                      <Pane layoutX="24.0" layoutY="17.0" prefHeight="44.0" prefWidth="232.0" style="-fx-background-color: rgba(8, 224, 141, 0.61); -fx-background-radius: 35px;">
                         <children>
@@ -77,9 +83,12 @@
                            </Label>
                         </children>
                      </Pane>
+                     <JFXPasswordField id="pwd" fx:id="password" focusColor="#429bce" layoutX="278.0" layoutY="381.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
+                     <Label layoutX="135.0" layoutY="389.0" text="Mot de passe" textFill="WHITE" />
+                     <ComboBox id="genre" fx:id="genre" editable="true" layoutX="274.0" layoutY="93.0" prefHeight="25.0" prefWidth="221.0" promptText="Male" style="-fx-background-color: rgba(252, 245, 248, 0.85);" visible="false" />
                </children>
             </AnchorPane>
-               <TableView fx:id="tab_user" editable="true" layoutX="57.0" layoutY="-1.0" prefHeight="849.0" prefWidth="709.0" style="-fx-background-color: rgba(245, 235, 240, 0.9); -fx-background-radius: 0 0 0 50;">
+               <TableView fx:id="tab_user" editable="true" layoutX="57.0" layoutY="-1.0" prefHeight="849.0" prefWidth="709.0" style="-fx-background-color: rgba(245, 235, 240, 0.9); -fx-background-radius: 0 0 0 50;" visible="false">
                  <columns>
                    <TableColumn fx:id="mail" prefWidth="173.0" styleClass="tableview" text="        Email" />
                    <TableColumn fx:id="act" prefWidth="158.0" text="    Activation" />
@@ -95,7 +104,11 @@
       </AnchorPane>
       <VBox layoutX="-1.0" layoutY="151.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="289.0" style="-fx-background-radius: 30px;">
          <children>
-            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="284.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+<<<<<<< HEAD
+            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="284.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+=======
+            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="290.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
                <children>
                   <Label layoutX="58.0" layoutY="18.0" prefHeight="21.0" prefWidth="159.0" text="Gestion du compte" textFill="#f0f0f0">
                      <font>
@@ -115,12 +128,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane id="collab" fx:id="collab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+<<<<<<< HEAD
+            <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+=======
+            <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="289.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+>>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                   <children>
-                  <Label layoutX="54.0" layoutY="17.0" prefHeight="21.0" prefWidth="212.0" text="Gestion des Utilisateurs" textFill="#f2f2f2d4">
+                  <Label layoutX="54.0" layoutY="17.0" prefHeight="21.0" prefWidth="197.0" text="Gestion des Utilisateurs" textFill="#f2f2f2d4">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -163,7 +180,7 @@
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
-         <Line endX="217.0" layoutX="73.0" layoutY="124.0" startX="-71.0" stroke="#00000035" />
+         <Line endX="233.0" layoutX="73.0" layoutY="124.0" startX="-71.0" stroke="#00000035" />
          <Label layoutX="113.0" layoutY="10.0" style="-fx-font-weight: 900;" text="Administrateur" textFill="#ff4d4d" />
          <ImageView fitHeight="73.0" fitWidth="90.0" layoutX="14.0" layoutY="12.0">
             <image>

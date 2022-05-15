@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import paiement.entities.paiement;
 import database.db;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import paiement.GUI.FactureFXMLController;
 import paiement.entities.paiement;
-import paiement.service.PaiementService;
 
 public class PaiementService implements Ipaiement<paiement> {
     private Connection conn;
-    
     //private Statement ste;
     private PreparedStatement pste;
     
@@ -61,6 +61,7 @@ public class PaiementService implements Ipaiement<paiement> {
         return paiements;
     }
 
+
         @Override
     public void modifier(int i,paiement u) {
         System.out.println(u.getID_Paiement());
@@ -91,7 +92,39 @@ public class PaiementService implements Ipaiement<paiement> {
         }
     }
 
-
-
-    
+    @Override
+    public List<paiement> remplirArea() {
+      List<paiement> paiements = new ArrayList<>();
+        String req = "SELECT prix,Date_paiement FROM paiement";
+        
+        try{
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            while(rs.next()){
+                paiement p = new paiement();
+                p.setDate_paiement(rs.getString(2));
+                p.setPrix(rs.getFloat(1));
+                paiements.add(p);
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(PaiementService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return paiements;
+    }
+         
+        public String countpay(){
+        String req="SELECT COUNT(`ID_paiement`) FROM paiement";
+        try {
+            
+            pste= conn.prepareStatement(req);
+            ResultSet rs = pste.executeQuery(req);
+            if(rs.next()){
+                return rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FactureFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            //return "sqdqdsq";
+        }     
+        return "";
+} 
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPanePub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="437.0" style="-fx-background-color: rgba(78, 78, 78, 0.8);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="publication.gui.ItemController">
+   <children>
+      <HBox fx:id="HBox_Pub" layoutX="1.0" layoutY="367.0" prefHeight="149.0" prefWidth="475.0" style="-fx-background-color: rgba(150, 149, 149, 0.8);" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
+         <children>
+            <ScrollPane fx:id="scroll_c" hbarPolicy="NEVER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="149.0" prefWidth="434.0" style="-fx-background-color: rgba(150, 149, 149, 0.8);" vbarPolicy="NEVER">
+               <content>
+                  <GridPane fx:id="grid_c" prefHeight="146.0" prefWidth="434.0" style="-fx-background-color: rgba(150, 149, 149, 0.8);">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <VBox layoutX="21.0" layoutY="31.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="169.0" prefWidth="437.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Hyperlink fx:id="user_name" text="Your Name" textFill="#00a3f5" translateX="45.0" translateY="30.0" underline="true" VBox.vgrow="SOMETIMES">
+               <font>
+                  <Font name="Consolas Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="pub_date" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="94.0" text="Publié 2022-02-14 19:49" textFill="WHITE" translateX="340.0" translateY="-30.0" wrapText="true" />
+            <ImageView fx:id="user_image" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-50.0">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="@../Assets/user.png" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="user_description" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="345.0" text="Post Description" translateX="45.0" translateY="-75.0" wrapText="true">
+               <font>
+                  <Font name="Consolas" size="15.0" />
+               </font>
+            </TextArea>
+            <MenuButton fx:id="user_action" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" text="..." textAlignment="CENTER" textFill="RED" textOverrun="CLIP" translateX="390.0" translateY="-155.0">
+              <items>
+                <MenuItem mnemonicParsing="false" text="TBF" visible="false" />
+                <MenuItem mnemonicParsing="false" onAction="#HandleMousePub" text="Signaler cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Masquer cette publication" />
+                  <MenuItem mnemonicParsing="false" text="Modifier cette publication" />
+                  <MenuItem fx:id="spon_btn" mnemonicParsing="false" onAction="#openPayment" text="Sponsoriser cette publication" />
+              </items>
+               <font>
+                  <Font name="Consolas Bold" size="10.0" />
+               </font>
+            </MenuButton>
+            <ImageView fx:id="image_pub" fitHeight="194.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10px;" translateX="45.0" translateY="-95.0" VBox.vgrow="SOMETIMES">
+               <image>
+                  <Image url="@../Assets/no_logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Button fx:id="jaime_btn" layoutX="10.0" layoutY="339.0" mnemonicParsing="false" onAction="#UP" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="J'aime" textAlignment="CENTER" textFill="#0080ff">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/facebook_like_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="commenter_btn" layoutX="158.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="Commenter" textAlignment="CENTER" textFill="#41ca93">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/chat_bubble_30px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="partager_btn" layoutX="336.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-radius: 20px; -fx-background-color: white;" text="Partager" textFill="#1a8362">
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/share_24px.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>
