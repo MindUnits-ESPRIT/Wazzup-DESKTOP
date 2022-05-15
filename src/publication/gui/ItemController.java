@@ -84,6 +84,7 @@ public class ItemController {
     @FXML
     private Button partager_btn;
     static public Stage newWindow2=new Stage();
+    Image image_p;
     int i;
     @FXML
     private MenuItem spon_btn;
@@ -111,9 +112,17 @@ public class ItemController {
             else
             {
                 image_pub.setVisible(true);
+                System.out.println("IMAGE UIRL"+P.getFichier().toString());
+                if (P.getFichier().toString().contains("www."))
+                    System.out.println("LINK : "+P.getFichier().toString());
+              //  image_p=new Image(P.getFichier());
+                else
+                {System.out.println("127.0.0.1:8000/media/cache/ImgPublicLoad/images/posts/"+P.getFichier().toString());
+                image_p=new Image("https://cdn.discordapp.com/attachments/623259868731670571/975382316945920020/unknown.png");    
+//                "127.0.0.1:8000/media/cache/ImgPublicLoad/images/posts/"+P.getFichier()
+                }
                 System.out.println("Image URL :"+P.getFichier().toString());
                 Image image_p=new Image(P.getFichier());
-
                 image_pub.setImage(image_p);
                 image_pub.getFitHeight();
                 image_pub.getFitWidth();

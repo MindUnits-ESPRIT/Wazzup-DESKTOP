@@ -88,7 +88,7 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
                 SalleCinema s = new SalleCinema();
                 utilisateur u = new utilisateur();
                 u.setID_Utilisateur(rs.getInt("ID_Utilisateur"));
-//                s.setID_Salle(rs.getInt("ID_Salle"));
+               s.setID_Salle(rs.getInt("ID_Salle"));
                 s.setNomSalle(rs.getString("Nom_Salle"));
                 s.setURL_Salle(rs.getString("URL_Salle"));
                 SalleCinema.add(s);
@@ -99,5 +99,25 @@ public class SalleCinemaService implements ISalleCinema<SalleCinema>{
       }
           return (SalleCinema);
     }
-    
+     public SalleCinema getData(int id) {
+        String req3 = "SELECT * FROM `salle_cinema` WHERE `ID_Salle` = '"+id+"'";
+                        SalleCinema s = new SalleCinema();
+    try {
+        pste = conn.prepareStatement(req3);
+      ResultSet rs = pste.executeQuery(req3);
+            while(rs.next()){
+                s.setID_Salle(rs.getInt("ID_Salle"));
+                s.setNomSalle(rs.getString(2));
+                
+            }
+        System.out.println("Salle Cinema affichee");
+                        System.out.println("DATA"+s.toString());
+    } catch (SQLException ex) {
+        Logger.getLogger(SalleCinemaService.class.getName()).log(Level.SEVERE, null, ex);
+    System.out.println("Salle Cinema non affichee");
+    System.out.println("DATA"+s.toString());
+    }
+    return s ;
+
+    }
 }

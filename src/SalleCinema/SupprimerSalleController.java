@@ -5,6 +5,7 @@
  */
 package SalleCinema;
 
+import SalleCinema.entities.SalleCinema;
 import SalleCinema.services.SalleCinemaService;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -26,17 +27,27 @@ import javafx.stage.Stage;
  * @author SRN
  */
 public class SupprimerSalleController implements Initializable {
-
-    
+SalleCinemaService ss= new SalleCinemaService();
+    SalleCinema s = new SalleCinema();
     @FXML
     private Label NomVide;
  @FXML
     private JFXTextField Salle;
+  private static int id_modif;
+     int initData (int id){
+       return  this.id_modif=id;      
+     }
     @FXML
-    void Modify(ActionEvent event) {
+    void Modify(ActionEvent event) throws IOException {
 if (checkFields()){
     SalleCinemaService ss = new SalleCinemaService();
-    ss.modifier(19, Salle.getText(), "Venom");
+    System.out.println("heeello2  "+id_modif);
+    ss.modifier(s.getID_Salle(), Salle.getText(), NomVide.getText());
+    Parent root=FXMLLoader.load(getClass().getResource("afficherSalleCinema.fxml"));
+ Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+Scene scene = new Scene(root);
+stage.setScene(scene);
+stage.show();
 }
 
     }
@@ -62,7 +73,9 @@ stage.show();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+s=ss.getData(id_modif);
+Salle.setText(s.getNomSalle());
+        System.out.println("baaa3"+s.getNomSalle());
+        }    
     
 }

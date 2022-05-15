@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import evenements.entities.evenements;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,8 +39,16 @@ private Connection conn;
 String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Nom_Event`,`Nbr_participants`,`Date_Event`,`Type_Event`,`Event_Visibilite`,`Description`) VALUES ('"+e.getID_Utilisateur()+"','"+e.getNom_Event()+"','"+e.getNbr_participants()+"','"+e.getDate_Event()+"','"+e.getType_Event()+"','"+e.getEvent_Visibilite()+"','"+e.getDescription()+"')";
       try {
           System.out.println("test"+e.toString());
-          pste = conn.prepareStatement(req);
+          pste = conn.prepareStatement(req,Statement.RETURN_GENERATED_KEYS);
           pste.executeUpdate();
+          ResultSet rs = pste.getGeneratedKeys();  
+            int generatedKey = 0;
+             if (rs.next()) {
+              generatedKey = rs.getInt(1);
+                            }
+          e.setID_Event(generatedKey);
+          System.out.println("Inserted record's ID: " + generatedKey);
+
           System.out.println("Evenement creé");
       } catch(SQLException ex){
           Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE,null,ex);
@@ -119,4 +128,30 @@ String req = "INSERT INTO `evenement` (`ID_Utilisateur`,`Nom_Event`,`Nbr_partici
         }     
         return "";
 } 
+        public evenements getData(int id) {
+        String req3 = "SELECT * FROM `evenement` WHERE `ID_Event` = '"+id+"'";
+                        evenements e = new evenements();
+    try {
+        pste = conn.prepareStatement(req3);
+      ResultSet rs = pste.executeQuery(req3);
+            while(rs.next()){
+                e.setID_Event(rs.getInt("ID_Event"));
+                e.setNom_Event(rs.getString(2));
+                e.setNbr_participants(rs.getInt(3));
+                e.setDate_Event(rs.getString(4));
+                e.setType_Event(rs.getString(5));
+                e.setEvent_Visibilite(rs.getString(6));
+                e.setDescription(rs.getString(7));
+                e.setID_Utilisateur(rs.getInt(8));
+                e.setDate_P(rs.getString(9));
+            }
+        System.out.println("Evenement affichee");
+                      //  System.out.println("DATA"+e.toString());
+    } catch (SQLException ex) {
+        Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
+    System.out.println("Evenement non affichee");
+    }
+    return e ;
+
+    }
 }

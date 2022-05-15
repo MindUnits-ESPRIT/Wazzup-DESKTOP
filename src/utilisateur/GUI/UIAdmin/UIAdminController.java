@@ -170,6 +170,15 @@ public class UIAdminController implements Initializable {
         String Update_genre=genre.getValue();
         String Update_pwd=pwd.getText();
         String Updated_pwd=password.getText();
+//            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
+//            System.out.println("DB PASSWORD"+getUser().getMdp());
+//            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
+ if (!Update_email.isEmpty() && !Update_phone.isEmpty() && !Update_genre.isEmpty() && !Updated_pwd.isEmpty()){
+             if (Update_pwd.isEmpty()){
+            modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
+        }else {
+
+            if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
 
 //            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
 //            System.out.println("DB PASSWORD"+getUser().getMdp());
@@ -204,6 +213,10 @@ public class UIAdminController implements Initializable {
 
         } else {
             modification.setText("* Verifiez vos informations !");
+        }
+            } else {
+            modification.setText("* Verifier votre mot de passe !");
+
             modification.setTextFill(Color.RED);
         }
             } else {

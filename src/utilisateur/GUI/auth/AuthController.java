@@ -218,6 +218,7 @@ Parent signup;
                   smsicon1.setVisible(true);
                   smsicon2.setVisible(true);
                   checkotp.setVisible(true);
+                  sendSms("Votre Code OTP est : "+OTP);
                   sendSms("Votre Code OTP est : "+OTP,userv.UserByEmail(input_email).getNum_tel());
                   otplabel.setText("Votre code sms a été bien envoyé");
               }
