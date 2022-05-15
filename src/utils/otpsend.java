@@ -18,15 +18,23 @@ public class otpsend {
 
 public static final String ACCOUNT_SID = "ACa1c3f6d59e0c9f3d76e39dfec69e7c91"; 
     public static final String AUTH_TOKEN = "5507d1f2963c865769e5181c60d81781"; 
+public static final String ACCOUNT_SID = "AC5e973cfeb8e1a9c3bdea6396f3bbfae5"; 
+    public static final String AUTH_TOKEN = "fd26bae679d3799eb208b1779a1e36e1"; 
 
-    public static void sendSms(String msg) {
+    public static void sendSms(String msg,String num) {
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = null;
 
-                 Message message = Message.creator( 
-                new com.twilio.type.PhoneNumber("+21624664880"),  
-                "MG9b59c60b5a9dd634c795ca5686f72d6b", 
-                msg)      
-            .create(); 
+              message = Message.creator(
+                    new com.twilio.type.PhoneNumber(num),//To
+                    new com.twilio.type.PhoneNumber("+19704786402"), //From
+                    msg)
+                    .create();   
+                 
+                 
+                 
+                 
+                 
     }
 }
 

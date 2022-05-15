@@ -114,7 +114,8 @@ public class ModifierevenementController implements Initializable {
        if (CheckFields()==true){
          System.out.println("CLICKED11");
        evenements ev =new evenements(getUser().getID_Utilisateur(),eventName.getText(),Integer.parseInt(nbrP.getText()),(dateEvent.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),TypeEvent.getValue(),Visi.getValue(),Description.getText());
-         
+          evenementsService es = new evenementsService();
+         evenements e =new evenements(getUser().getID_Utilisateur(),eventName.getText(),Integer.parseInt(nbrP.getText()),(dateEvent.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),TypeEvent.getValue(),Visi.getValue(),Description.getText());
       es.modifier(e.getID_Event(), eventName.getText(), Integer.parseInt(nbrP.getText()), (dateEvent.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), TypeEvent.getValue(), Visi.getValue(), Description.getText());
        Parent root=FXMLLoader.load(getClass().getResource("afficherEvenement.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

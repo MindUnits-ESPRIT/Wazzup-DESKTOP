@@ -586,6 +586,24 @@ public class UtilisateurService implements Iutilisateur<utilisateur> {
              System.out.println("Utilisateur non supprimé "+ ex);
         }
     }
+        
+          // Method activation compte || Admin 
+        public void activer(int i) {
+               String req = "UPDATE `utilisateurs` SET `activated`=1 WHERE `ID_Utilisateur` = '"+i+"' ";
+        try {
+            pste = conn.prepareStatement(req);
+            pste.executeUpdate();
+            System.out.println("Utilisateur activé avec success");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurService.class.getName()).log(Level.SEVERE,null,ex);
+             System.out.println("Utilisateur non activé "+ ex);
+        }
+    }
+        
+        
+        
+        
         // Collaboration must be pushed from collaborationService to users table !!!!!!!!!
         @Override
         public void Get_Collaborations_list(int id){

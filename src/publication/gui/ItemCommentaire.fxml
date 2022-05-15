@@ -23,9 +23,9 @@
                   <Rectangle2D />
                </viewport>
                <image>
-
                   <Image url="@../Assets/user.png" />
-
+                  <Image url="file:/C:/Users/Misow3002/Downloads/Assets/user.png" />
+                  <Image url="@../Assets/user.png" />
                </image>
             </ImageView>
             <Label fx:id="username_pub" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="71.0" text="Username" textFill="WHITE" translateX="5.0" translateY="-60.0" underline="true">

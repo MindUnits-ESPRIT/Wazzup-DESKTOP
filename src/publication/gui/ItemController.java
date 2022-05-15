@@ -121,6 +121,8 @@ public class ItemController {
                 image_p=new Image("https://cdn.discordapp.com/attachments/623259868731670571/975382316945920020/unknown.png");    
 //                "127.0.0.1:8000/media/cache/ImgPublicLoad/images/posts/"+P.getFichier()
                 }
+                System.out.println("Image URL :"+P.getFichier().toString());
+                Image image_p=new Image(P.getFichier());
                 image_pub.setImage(image_p);
                 image_pub.getFitHeight();
                 image_pub.getFitWidth();

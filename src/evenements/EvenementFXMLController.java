@@ -110,6 +110,7 @@ RencontreService rs=new RencontreService();
 URL u = new URL();
 Rencontre r = new Rencontre("Virtuel",u.GetUrl_Rencontre(getUser().getID_Utilisateur()));
 evenements ev = new evenements(e.getID_Event());
+evenements ev = new evenements(67);
 rs.ajouter(r, ev);
         }
         else if(ListType.getValue().matches("Rencontre") && Visibilite.getValue().matches("Salle_publique")){

@@ -74,6 +74,7 @@ URL u = new URL();
 SalleCinemaService cs = new SalleCinemaService();
 SalleCinema c = new SalleCinema(NomField.getText(),u.GetUrl_SalleCinema(getUser().getID_Utilisateur()));
 evenements e = new evenements(Integer.parseInt(ID_Event.getText()));
+evenements e = new evenements(33);
 cs.ajouter(c, e);
             System.out.println("Salle Cinema ajoute");
     }}

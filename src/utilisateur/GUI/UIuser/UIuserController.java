@@ -252,6 +252,7 @@ Cloudinary cloudinary = new Cloudinary(config);
         String Update_genre=genre.getValue();
         String Update_pwd=pwd.getText();
         String Updated_pwd=password.getText();
+         System.out.println("TEESTTT"+BCrypt.checkpw(Update_pwd,getUser().getMdp().replace("$2y", "$2a")));   
 //            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
 //            System.out.println("DB PASSWORD"+getUser().getMdp());
 //            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
@@ -260,6 +261,10 @@ Cloudinary cloudinary = new Cloudinary(config);
             modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
         }else {
             if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
+                      
+            modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
+        }else {
+            if (BCrypt.checkpw(Update_pwd,getUser().getMdp().replace("$2y", "$2a"))){
             utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){
@@ -498,10 +503,52 @@ Cloudinary cloudinary = new Cloudinary(config);
          System.out.println(interet);
          List<interets> myinteretList = getFs().getAllInterets(getUser().getID_Utilisateur());
         ObservableList<interets> My_interet = FXCollections.observableArrayList(myinteretList);
+        
+        int f=0;
+        UtilisateurService userv= new UtilisateurService();
+        System.out.println(interets.getCheckModel().getCheckedItems());
+         ObservableList<String> interetChecked = interets.getCheckModel().getCheckedItems();
+         System.out.println(interetChecked);
+         for (String interet : interetChecked) {
+         List<interets> myinteretList = getFs().getAllInterets(getUser().getID_Utilisateur());
+        ObservableList<interets> My_interet = FXCollections.observableArrayList(myinteretList);
+        for (interets inter : My_interet) {
+              if(inter.getNom_interet().equals(interet)){
+                 f=1;
+              }
+         
         interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
         user_interets.setItems(My_interet);
 }
        }
+         if (f==0){
+             for (String interet : interetChecked) {
+          userv.ajouter_interet(getUser().getID_Utilisateur(), interet);
+         
+             }
+              List<interets> interet = getFs().getAllInterets(getUser().getID_Utilisateur());
+        ObservableList<interets> My_interet = FXCollections.observableArrayList(interet);
+              interet_cell.setCellValueFactory(new PropertyValueFactory<interets,String>("nom_interet")); 
+        user_interets.setItems(My_interet);
+         } else{
+                   Image img=new Image("file:./src/utilisateur/GUI/resources/icons8_unavailable_24px.png");
+       Notifications notificationBuilder=Notifications.create()
+                    .title("Succés")
+                    .text("Cet interet existe déja")
+                    .graphic(new ImageView(img))
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_LEFT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event){
+                            System.out.println("Clicked on notifications");
+                        }
+                    });
+                   notificationBuilder.darkStyle();
+            notificationBuilder.show();
+         }
+       
+    }
 
     @FXML
     private void Publication(MouseEvent event) {

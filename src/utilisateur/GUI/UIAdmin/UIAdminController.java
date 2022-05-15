@@ -66,8 +66,6 @@ public class UIAdminController implements Initializable {
     @FXML
     private VBox root;
     @FXML
-    private ImageView closewindow;
-    @FXML
     private JFXTextField email;
     @FXML
     private JFXTextField phone;
@@ -119,6 +117,8 @@ public class UIAdminController implements Initializable {
     private JFXPasswordField password;
     @FXML
     private ComboBox<String> genre;
+    @FXML
+    private JFXButton activeru;
 
     /**
      * Initializes the controller class.
@@ -158,12 +158,10 @@ public class UIAdminController implements Initializable {
     dob.setValue(localDate);
     }    
 
-    @FXML
-    private void closeWindow(MouseEvent event) {
-    }
 
     @FXML
     private void Update(ActionEvent event) {
+        System.out.println("WORKING TRAH");
                UtilisateurService userv= new UtilisateurService();
         String Update_email=email.getText();
         String Update_phone=phone.getText();
@@ -182,6 +180,16 @@ public class UIAdminController implements Initializable {
 
             if (BCrypt.hashpw(getUser().getMdp(), BCrypt.gensalt(13)).equals(getUser().getMdp())){
 
+//            System.out.println("MOT DE PASSE SAISIE"+md5.getMd5(Update_pwd));
+//            System.out.println("DB PASSWORD"+getUser().getMdp());
+//            System.out.println(md5.getMd5(Update_pwd).equals(getUser().getMdp()));
+
+ if (!Update_email.isEmpty() && !Update_phone.isEmpty() && !Update_genre.isEmpty() && !Updated_pwd.isEmpty()){
+
+             if (Update_pwd.isEmpty()){
+            modification.setText("Veuillez Confirmer la modification par le saisie de votre mot de passe");
+        }else {
+            if (BCrypt.checkpw(Update_pwd,getUser().getMdp().replace("$2y", "$2a"))){
             utilisateur updateduser= new utilisateur(dateb,Update_phone,Update_email,Updated_pwd,Update_genre);
         userv.modifier(getUser().getID_Utilisateur(),updateduser, 2);
         if (userv.modified){
@@ -209,10 +217,16 @@ public class UIAdminController implements Initializable {
             } else {
             modification.setText("* Verifier votre mot de passe !");
 
+            modification.setTextFill(Color.RED);
+        }
+            } else {
+            modification.setText("* Verifier votre mot de passe !");
+            modification.setTextFill(Color.RED);
             }
         }
  }else {
      modification.setText("* Veuillez vérifier les champs !");
+     modification.setTextFill(Color.RED);
  }
 
     }
@@ -267,7 +281,68 @@ public class UIAdminController implements Initializable {
            int u = tab_user.getSelectionModel().getSelectedItems().get(0).getID_Utilisateur();
             System.out.println(u);
             us.supprimer(u);
+      Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
+       Notifications notificationBuilder=Notifications.create()
+                    .title("Erreur")
+                    .text("L'utilisateur a été bien supprimé")
+                    .graphic(new ImageView(img))
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_LEFT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event){
+                            System.out.println("Clicked on notifications");
+                        }
+                    });
+                   notificationBuilder.darkStyle();
+            notificationBuilder.show();
+        List<utilisateur> users = us.afficher();
+        ObservableList<utilisateur> all_users = FXCollections.observableArrayList(users);
+        id.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("ID_Utilisateur")); 
+        mail.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("email")); 
+        act.setCellValueFactory(new PropertyValueFactory<utilisateur,Boolean>("activated")); 
+        eval.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("evaluation")); 
+        sponsor.setCellValueFactory(new PropertyValueFactory<utilisateur,Boolean>("sponsor")); 
+        
+        tab_user.setItems(all_users);
          }
     }
+    
+    
+       @FXML
+    private void activer(ActionEvent event) {
+        UtilisateurService us = new UtilisateurService();
+        if (tab_user.getSelectionModel().getSelectedItems().isEmpty()){
+            errarea.setText("il faut choisir un utilisateur a activer"); }
+        else {
+           int u = tab_user.getSelectionModel().getSelectedItems().get(0).getID_Utilisateur();
+            us.activer(u);
+      Image img=new Image("file:./src/utilisateur/GUI/resources/checked_24px.png");
+      Notifications notificationBuilder=Notifications.create()
+                    .title("Succés")
+                    .text("L'utilisateur a été bien activé")
+                    .graphic(new ImageView(img))
+                    .hideAfter(Duration.seconds(5))
+                    .position(Pos.TOP_LEFT)
+                    .onAction(new EventHandler<ActionEvent>(){
+                        @Override
+                        public void handle(ActionEvent event){
+                            System.out.println("Clicked on notifications");
+                        }
+                    });
+         notificationBuilder.darkStyle();
+         notificationBuilder.show();
+        List<utilisateur> users = us.afficher();
+        ObservableList<utilisateur> all_users = FXCollections.observableArrayList(users);
+        id.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("ID_Utilisateur")); 
+        mail.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("email")); 
+        act.setCellValueFactory(new PropertyValueFactory<utilisateur,Boolean>("activated")); 
+        eval.setCellValueFactory(new PropertyValueFactory<utilisateur,String>("evaluation")); 
+        sponsor.setCellValueFactory(new PropertyValueFactory<utilisateur,Boolean>("sponsor")); 
+        
+        tab_user.setItems(all_users);
+         }
+    }
+    
     
 }
