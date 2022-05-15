@@ -82,15 +82,15 @@ String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"' WHERE `ID_Ren` =
     @Override
     public ObservableList<Rencontre> afficher(int id) {
          ObservableList<Rencontre> Rencontre =FXCollections.observableArrayList();
-        String req = "SELECT * FROM `rencontre` NATURAL JOIN `evenement` where `ID_Utilisateur`='"+id+"'"; 
+        String req = "SELECT * FROM `rencontre` NATURAL JOIN `evenement` where `ID_Event`='"+id+"'"; 
         try{
             pste= conn.prepareStatement(req);
             ResultSet rs = pste.executeQuery(req);
             while(rs.next()){
                 evenements e = new evenements();
                 Rencontre r = new Rencontre();
-    //           e.setID_Event(rs.getInt("ID_Event"));
-               r.setID_Ren(rs.getInt("ID_Ren"));
+                e.setID_Event(rs.getInt("ID_Event"));
+//                r.setID_Ren(rs.getInt("ID_Ren"));
                    r.setURL_Invitation(rs.getNString("URL_Invitation"));
                r.setType_Rencontre(rs.getString("Type_Rencontre"));
                 Rencontre.add(r);
@@ -100,30 +100,6 @@ String req1 = "UPDATE `rencontre` SET `Type_Rencontre`='"+tr+"' WHERE `ID_Ren` =
             Logger.getLogger(RencontreService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return Rencontre;
-    }
-    public Rencontre getData(int id) {
-        String req3 = "SELECT * FROM `Rencontre` WHERE `ID_Ren` = '"+id+"'";
-                Rencontre r = new Rencontre();
-                                evenements e = new evenements();
-
-    try {
-        pste = conn.prepareStatement(req3);
-      ResultSet rs = pste.executeQuery(req3);
-            while(rs.next()){
-               r.setID_Ren(rs.getInt("ID_Ren"));
-                   r.setURL_Invitation(rs.getNString(3));
-               r.setType_Rencontre(rs.getString(2));
-            }
-        System.out.println("Rencontre affichee");
-                        System.out.println("DATA"+r.toString());
-    } catch (SQLException ex) {
-        Logger.getLogger(evenementsService.class.getName()).log(Level.SEVERE, null, ex);
-    System.out.println("Renonctre non affichee");
-                            System.out.println("DATA2 "+r.toString());
-
-    }
-    return r;
-
     }
     
 }

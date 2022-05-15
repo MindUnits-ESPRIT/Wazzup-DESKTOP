@@ -74,11 +74,19 @@ public class AfficherEvenementController implements Initializable{
 
     @FXML
     private Button Rencontre;
-
   public AfficherEvenementController(){
       
       
     }
+   
+//    @FXML
+//    void DeleteEvent(ActionEvent event) {
+//        int SelecteedID = ListView.getSelectionModel().getSelectedIndex();
+//                  ListView.getItems().remove(SelecteedID);
+//              int ID =  ListView.getItems().remove(SelecteedID).getID_Event();
+//                evenementsService es = new evenementsService();
+//                    es.supprimer(ID);
+//    }
       @FXML
     void AddEvnet(ActionEvent event) throws IOException {
         evenementsService e = new evenementsService();
@@ -91,15 +99,9 @@ stage.show();
 
     @FXML
     void ModifyEvent(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Modifierevenement.fxml"));
-    Parent p = (Parent)loader.load();
-    ModifierevenementController mec = loader.getController();
-         int SelecteedID = ListView.getSelectionModel().getSelectedIndex();   
-int ID =  ListView.getSelectionModel().getSelectedItems().get(0).getID_Event();
-ModifierevenementController me = new ModifierevenementController();
-me.initData(ID);
+Parent root=FXMLLoader.load(getClass().getResource("Modifierevenement.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-Scene scene = new Scene(p);
+Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
     }

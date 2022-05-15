@@ -37,7 +37,7 @@ public class URL {
            while(rs.next()){
                int ID_E=rs.getInt("ID_Event");
                String Nom_S = rs.getString("Nom_Salle");
-                      url= "https://w2g.tv/rooms/"+ID_U+"/"+ID_E+"/"+Nom_S;
+                      url= "http://Wazzup.com/SalleCinema/"+ID_U+"/"+ID_E+"/"+Nom_S;
               System.out.println("Url_S cree");
                System.out.println(ID_U);
                System.out.println(ID_E);

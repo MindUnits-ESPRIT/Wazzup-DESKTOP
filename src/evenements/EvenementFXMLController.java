@@ -30,7 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import static utils.SessionUser.getUser;
-import SalleCinema.Salle_Cinema_FXMLController;
+
 /**
  * FXML Controller class
  *
@@ -85,20 +85,12 @@ public class EvenementFXMLController implements Initializable {
            evenementsService es = new evenementsService();
          evenements e =new evenements(getUser().getID_Utilisateur(),NmEvent.getText(),Integer.parseInt(NombreParticipant.getText()),(Date_Event.getValue()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ListType.getValue(),Visibilite.getValue(),Description.getText());    
         es.ajouter(e);
-            System.out.println("3amek el evnt"+e.getID_Event());
-    
         if(ListType.getValue().matches("SalleCinema") ){
-            FXMLLoader loader=new FXMLLoader();
-            loader.setLocation( getClass().getResource("../SalleCinema/Salle_Cinema_FXML.fxml"));
-                Parent p = (Parent)loader.load();
-                Salle_Cinema_FXMLController sc = loader.getController();   
-                sc.initData(e.getID_Event());
-                System.out.println("traaa nchouf"+e.getID_Event());
+        Parent root=FXMLLoader.load(getClass().getResource("../SalleCinema/Salle_Cinema_FXML.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-Scene scene = new Scene(p);
+Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
-
              }
         else  if(ListType.getValue().matches("Rencontre") && Visibilite.getValue().matches("Salle_privee")){
  Parent root=FXMLLoader.load(getClass().getResource("../Rencontre/RencontreFXML.fxml"));
@@ -109,8 +101,8 @@ stage.show();
 RencontreService rs=new RencontreService();
 URL u = new URL();
 Rencontre r = new Rencontre("Virtuel",u.GetUrl_Rencontre(getUser().getID_Utilisateur()));
-evenements ev = new evenements(e.getID_Event());
 evenements ev = new evenements(67);
+
 rs.ajouter(r, ev);
         }
         else if(ListType.getValue().matches("Rencontre") && Visibilite.getValue().matches("Salle_publique")){
@@ -120,7 +112,6 @@ Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
         }
-
         }
              
 //             if(ListType.getValue().equals("Rencontre") ){
@@ -143,7 +134,7 @@ stage.show();
        Date dt=new Date();
         int year=dt.getYear()+1900;
         
-        if (NmEvent.getText().isEmpty() ){
+        if (NameEvent.getText().isEmpty() ){
         NameEvent.setText("Veuillez Ajouter le nom ");
         validNom = false;
         }

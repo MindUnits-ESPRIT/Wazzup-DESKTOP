@@ -25,18 +25,7 @@
    <children>
       <AnchorPane layoutX="231.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="600.0" style="-fx-background-color: #008080;">
          <children>
-            <AnchorPane fx:id="modif_compte" layoutX="57.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="709.0" styleClass="profile">
-               <children>
-                     <ImageView id="closewindow" fx:id="closewindow" fitHeight="31.0" fitWidth="39.0" layoutX="656.0" layoutY="7.0" onMouseClicked="#closeWindow">
-                        <image>
-                           <Image url="@../resources/closewindow.png" />
-                        </image>
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor>
-                     </ImageView>
-            <AnchorPane fx:id="modif_compte" layoutX="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="691.0" styleClass="profile">
-               <children>
+
             <AnchorPane fx:id="modif_compte" layoutX="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="849.0" prefWidth="691.0" styleClass="profile">
                <children>
                      <JFXTextField id="email" fx:id="email" focusColor="#429bce" layoutX="275.0" layoutY="172.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="#ffffff8c" />
@@ -72,7 +61,6 @@
                      </ImageView>
                      <JFXPasswordField id="pwd" fx:id="pwd" focusColor="#429bce" layoutX="275.0" layoutY="443.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: rgba(252, 245, 248, 0.85);" unFocusColor="WHITE" />
                      <Label layoutX="132.0" layoutY="451.0" text="Confirmation" textFill="WHITE" />
-                     <Label id="modification" fx:id="modification" alignment="CENTER" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="354.0" textFill="#ee1d1d" />
                      <Label id="modification" fx:id="modification" alignment="CENTER" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="489.0" textFill="#ee1d1d" />
                      <Pane layoutX="24.0" layoutY="17.0" prefHeight="44.0" prefWidth="232.0" style="-fx-background-color: rgba(8, 224, 141, 0.61); -fx-background-radius: 35px;">
                         <children>
@@ -104,8 +92,7 @@
       </AnchorPane>
       <VBox layoutX="-1.0" layoutY="151.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="289.0" style="-fx-background-radius: 30px;">
          <children>
-            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="284.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
-            <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="290.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
+
             <AnchorPane id="profile" fx:id="profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#PROFILETAB" prefHeight="57.0" prefWidth="290.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
                <children>
                   <Label layoutX="58.0" layoutY="18.0" prefHeight="21.0" prefWidth="159.0" text="Gestion du compte" textFill="#f0f0f0">
@@ -126,8 +113,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
-            <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="289.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
             <AnchorPane fx:id="gestuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#USERTAB" prefHeight="54.0" prefWidth="280.0" style="-fx-border-color: transparent;" styleClass="ui-menu" stylesheets="@menuUI.css">
                <cursor>
                   <Cursor fx:constant="HAND" />

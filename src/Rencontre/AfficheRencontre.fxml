@@ -43,11 +43,10 @@
             </ToolBar>
          </children>
       </HBox>
-      <TableView fx:id="TableView" layoutX="42.0" layoutY="133.0" prefHeight="540.0" prefWidth="593.0">
+      <TableView fx:id="TableView" layoutX="42.0" layoutY="133.0" prefHeight="540.0" prefWidth="492.0">
         <columns>
-            <TableColumn fx:id="ID_Ren" prefWidth="38.000030517578125" text="ID" />
-          <TableColumn fx:id="Type" prefWidth="156.0" text="Type Rencontre" />
-          <TableColumn fx:id="url_invi" prefWidth="400.0" text="Url d'invitation" />
+          <TableColumn fx:id="Type" prefWidth="146.00003051757812" text="Type Rencontre" />
+          <TableColumn fx:id="url_invi" prefWidth="346.0" text="Url d'invitation" />
         </columns>
       </TableView>
       <Button layoutX="679.0" layoutY="301.0" mnemonicParsing="false" onAction="#Modify" prefHeight="40.0" prefWidth="312.0" style="-fx-background-color: rgba(61, 166, 167, 0.8); -fx-background-radius: 10px;" text="Modifier Rencontre" textFill="WHITE">
