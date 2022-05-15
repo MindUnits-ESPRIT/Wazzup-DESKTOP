@@ -35,8 +35,7 @@ public class AfficherSalleCinemaController implements Initializable {
 
      @FXML
     private TableView<SalleCinema> TaleView;
- @FXML
-    private TableColumn<SalleCinema, Integer> ID_Salle;
+
     @FXML
     private TableColumn<SalleCinema, String> Nom_Salle;
 
@@ -46,16 +45,9 @@ public class AfficherSalleCinemaController implements Initializable {
 
     @FXML
     void ModifierSalle(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../SalleCinema/SupprimerSalle.fxml"));
-    Parent p = (Parent)loader.load();
-    SupprimerSalleController mec = loader.getController();
-         int SelecteedID = TaleView.getSelectionModel().getSelectedIndex();   
-int ID =  TaleView.getSelectionModel().getSelectedItems().get(0).getID_Salle();
-SupprimerSalleController me = new SupprimerSalleController();
-me.initData(ID);
-   System.out.println("heeello1"+ID);
+Parent root=FXMLLoader.load(getClass().getResource("../SalleCinema/SupprimerSalle.fxml"));
  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-Scene scene = new Scene(p);
+Scene scene = new Scene(root);
 stage.setScene(scene);
 stage.show();
     }
@@ -95,7 +87,6 @@ list = es.afficher(getUser().getID_Utilisateur());
      }
     public void showSalle(){
          ObservableList<SalleCinema> list = getSalleList();
-     ID_Salle.setCellValueFactory(new PropertyValueFactory<>("ID_Salle"));    
    Nom_Salle.setCellValueFactory(new PropertyValueFactory<>("NomSalle"));
    Url_Salle.setCellValueFactory(new PropertyValueFactory<>("URL_Salle"));
   TaleView.setItems(list); 

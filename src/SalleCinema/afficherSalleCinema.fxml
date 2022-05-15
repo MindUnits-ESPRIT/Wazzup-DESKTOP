@@ -45,9 +45,8 @@
       </HBox>
       <TableView fx:id="TaleView" layoutX="51.0" layoutY="129.0" prefHeight="559.0" prefWidth="516.0">
         <columns>
-            <TableColumn fx:id="ID_Salle" prefWidth="56.0" text="ID" />
-          <TableColumn fx:id="Nom_Salle" prefWidth="119.0" text="Nom_Salle" />
-            <TableColumn fx:id="Url_Salle" prefWidth="340.0" text="URL_Salle" />
+          <TableColumn fx:id="Nom_Salle" prefWidth="167.0" text="Nom_Salle" />
+            <TableColumn fx:id="Url_Salle" prefWidth="348.0" text="URL_Salle" />
         </columns>
       </TableView>
       <Button layoutX="648.0" layoutY="272.0" mnemonicParsing="false" onAction="#ModifierSalle" prefHeight="44.0" prefWidth="318.0" style="-fx-background-color: rgba(61, 166, 167, 0.8); -fx-background-radius: 10px;" text="Modifier SalleCinema" textFill="WHITE">
