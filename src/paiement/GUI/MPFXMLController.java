@@ -95,7 +95,7 @@ void payer(ActionEvent event) throws IOException{
     
 
     PaiementService ps=new PaiementService();
-<<<<<<< HEAD
+
 UtilisateurService us=new UtilisateurService();
 OffreService os=new OffreService();
 factureService fs=new factureService();
@@ -112,36 +112,16 @@ facture f1=new facture(".PDF");
 offre_publicitaire o = new offre_publicitaire(10);
       
       fs.ajouter(f1, user, o, p1);
-=======
-    UtilisateurService us=new UtilisateurService();
-    OffreService os=new OffreService();
-    factureService fs=new factureService();
-    String s = combobox.getSelectionModel().getSelectedItem();
-    float p=Float.parseFloat(Prix);  
-    String output = (String) combobox.getValue();
 
-paiement p1=new paiement( s,p);
-       
-                    
-
-facture f1=new facture(".PDF");
-utilisateur user = new utilisateur();
- user = getUser();
-offre_publicitaire o = new offre_publicitaire(10);
-      
-      
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
      
        
        if ("Stripe".equals(output)){ 
 //-----------------------------------Stripe---------------------------------------------------
-<<<<<<< HEAD
- ps.ajouter(p1);
-=======
+
         p1.setID_Paiement(36);
         fs.ajouter(f1, user, o, p1);
 ps.ajouter(p1);
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+
        System.out.println("add Done");
        Stage primaryStage= new Stage();
        Parent root = FXMLLoader.load(getClass().getResource("StripeFXML.fxml"));
@@ -150,13 +130,11 @@ ps.ajouter(p1);
        primaryStage.show();
        }else if("Credit_card".equals(output)){
  //-----------------------------------Paypal---------------------------------------------------
-<<<<<<< HEAD
-  ps.ajouter(p1);
-=======
+
   p1.setID_Paiement(40); 
   fs.ajouter(f1, user, o, p1);
  ps.ajouter(p1);
->>>>>>> 5eb45895ada8a787103e684f6c40c6fbc98833f1
+
        System.out.println("add Done");
       Stage primaryStage= new Stage();
        Parent root = FXMLLoader.load(getClass().getResource("paypalFXML.fxml"));

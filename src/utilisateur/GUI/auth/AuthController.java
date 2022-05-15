@@ -173,7 +173,7 @@ Parent signup;
              String input_email=auth_email.getText();
             String input_password=auth_password.getText();
             if (input_email.isEmpty()==false && input_password.isEmpty()==false){
-              String userpwd=userv.UserByEmail(input_email).getMdp().replace("2y", "2a");
+              String userpwd=userv.UserByEmail(input_email).getMdp().replace("$2y", "$2a");
                System.out.println(userpwd);
             System.out.println("input_password= "+ BCrypt.checkpw(input_password,userpwd));
             
@@ -218,7 +218,7 @@ Parent signup;
                   smsicon1.setVisible(true);
                   smsicon2.setVisible(true);
                   checkotp.setVisible(true);
-                  sendSms("Votre Code OTP est : "+OTP);
+                  sendSms("Votre Code OTP est : "+OTP,userv.UserByEmail(input_email).getNum_tel());
                   otplabel.setText("Votre code sms a été bien envoyé");
               }
               } else if (result==2){

@@ -84,7 +84,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="prtLabel" layoutX="301.0" layoutY="13.0" opacity="0.76" prefHeight="38.0" prefWidth="184.0" textAlignment="CENTER">
+                        <Label fx:id="prtLabel" layoutX="301.0" layoutY="13.0" opacity="0.76" prefHeight="38.0" prefWidth="184.0" text="ProjectName" textAlignment="CENTER">
                            <font>
                               <Font name="Gadugi Bold" size="21.0" />
                            </font>
